@@ -1,0 +1,83 @@
+package org.academiadecodigo.bootcamp.gameapp.client;
+
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
+/**
+ * Created by codecadet Helder Matos on 26/06/17.
+ */
+public final class Navigation {
+
+    private  static Navigation instance;
+
+    private LinkedList<Scene> scenes = new LinkedList<>();
+    private Map<String, Initializable> controllers = new HashMap<>();
+
+    private Stage stage;
+    private Scene scene;
+
+    private Navigation(){
+
+    }
+
+    public void loadScreen(String view){
+        try{
+            String path = "view/" + view + ".fxml";
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+            Parent root = fxmlLoader.load();
+
+            controllers.put(view, fxmlLoader.<Initializable>getController());
+
+            scene = new Scene(root);
+            scenes.push(scene);
+            setScene(scene);
+
+        } catch (IOException e) {
+            System.err.println("Failure to load view " + view + " : " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void back(){
+
+        if(scenes.size()<2){
+            return;
+        }
+        scenes.pop();
+        setScene(scenes.peek());
+    }
+
+    public static Navigation getInstance(){
+
+        if(instance == null){
+            synchronized (Navigation.class){
+                if(instance == null){
+                    instance = new Navigation();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public Initializable getController(String view){
+        return controllers.get(view);
+    }
+
+
+    public void setScene(Scene scene) {
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+}

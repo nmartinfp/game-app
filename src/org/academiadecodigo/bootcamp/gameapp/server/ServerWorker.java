@@ -4,18 +4,22 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
-import java.util.concurrent.Callable;
 
 /**
- * Created by codecadet Helder Matos on 26/06/17.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
-public class ServerConnection implements Runnable {
+
+public class ServerWorker implements Runnable {
 
     private Socket clientSocket;
     private BufferedReader input;
+    private Server server;
 
-    public ServerConnection(Socket clientSocket) {
+    public ServerWorker(Socket clientSocket, Server server) {
         this.clientSocket = clientSocket;
+        this.server = server;
     }
 
     @Override
@@ -29,11 +33,11 @@ public class ServerConnection implements Runnable {
                 String line = input.readLine();
 
                 if (line.equals("null")) {
+
                     input.close();
                 }
 
-                    System.out.println(line);
-
+                server.out(line);
             }
         } catch (IOException e) {
             e.printStackTrace();

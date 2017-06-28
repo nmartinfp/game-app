@@ -12,11 +12,17 @@ import java.util.LinkedList;
 import java.util.Map;
 
 /**
- * Created by codecadet Helder Matos on 26/06/17.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
 public final class Navigation {
 
-    private  static Navigation instance;
+    private final String PREFIX = "view/";
+    private final String SUFFIX = ".fxml";
+
+    private static Navigation instance;
 
     private LinkedList<Scene> scenes = new LinkedList<>();
     private Map<String, Initializable> controllers = new HashMap<>();
@@ -24,13 +30,14 @@ public final class Navigation {
     private Stage stage;
     private Scene scene;
 
-    private Navigation(){
+    private Navigation() {
 
     }
 
-    public void loadScreen(String view){
-        try{
-            String path = "view/" + view + ".fxml";
+    public void loadScreen(String view) {
+        try {
+
+            String path = PREFIX + view + SUFFIX;
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
             Parent root = fxmlLoader.load();
 
@@ -38,6 +45,7 @@ public final class Navigation {
 
             scene = new Scene(root);
             scenes.push(scene);
+
             setScene(scene);
 
         } catch (IOException e) {
@@ -46,38 +54,46 @@ public final class Navigation {
         }
     }
 
-    public void back(){
+    public void back() {
 
-        if(scenes.size()<2){
+        if (scenes.size() < 2) {
             return;
         }
+
         scenes.pop();
         setScene(scenes.peek());
     }
 
-    public static Navigation getInstance(){
+    public static Navigation getInstance() {
 
-        if(instance == null){
-            synchronized (Navigation.class){
-                if(instance == null){
+        if (instance == null) {
+
+            synchronized (Navigation.class) {
+
+                if (instance == null) {
+
                     instance = new Navigation();
                 }
             }
         }
+
         return instance;
     }
 
-    public Initializable getController(String view){
+    public Initializable getController(String view) {
+
         return controllers.get(view);
     }
 
 
     public void setScene(Scene scene) {
+
         stage.setScene(scene);
         stage.show();
     }
 
     public void setStage(Stage stage) {
+
         this.stage = stage;
     }
 }

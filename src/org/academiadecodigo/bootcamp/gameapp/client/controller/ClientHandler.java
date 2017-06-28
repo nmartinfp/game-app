@@ -1,5 +1,8 @@
 package org.academiadecodigo.bootcamp.gameapp.client.controller;
 
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.scene.control.Label;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
 
 /**
@@ -27,12 +30,9 @@ public class ClientHandler implements Runnable {
             recieveMessage = client.receive();
 
             System.out.println("Messagem recebida: " + recieveMessage);
-            loginController.onText(recieveMessage);
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            MyEvent event66 = new MyEvent(this, loginController.getInputLabel());
+            Label input = loginController.getInputLabel();
+            input.fireEvent(event66);
 
         }
     }

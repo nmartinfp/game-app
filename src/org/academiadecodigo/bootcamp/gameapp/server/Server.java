@@ -86,7 +86,6 @@ public class Server {
 
     public void out(String line) {
 
-        line = line + "\n";
         try {
 
             for (Socket socket: clientList) {

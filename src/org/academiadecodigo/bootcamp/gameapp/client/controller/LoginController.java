@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp.gameapp.client.controller;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -25,6 +26,11 @@ public class LoginController implements Initializable {
 
     @FXML
     private Button btnLogin;
+
+    public Label getInputLabel() {
+        return inputLabel;
+    }
+
     @FXML
     private Label inputLabel;
 
@@ -36,9 +42,12 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    public void onText(String receivedMessage) {
-        System.out.println("Messagem recebida : " + receivedMessage);
-        inputLabel.setText(receivedMessage);
+    public void onText(Event event) {
+
+
+            System.out.println("Messagem recebida : ");
+            inputLabel.setText("ueueueueeueu");
+
     }
 
 
@@ -50,6 +59,6 @@ public class LoginController implements Initializable {
     public void setClient(Client client) {
         this.client = client;
         Executors.newSingleThreadExecutor().submit(new ClientHandler(client, this));
-     
+
     }
 }

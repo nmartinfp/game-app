@@ -1,5 +1,7 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
+import org.academiadecodigo.bootcamp.gameapp.client.utilities.CommunicationProtocol;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -35,6 +37,18 @@ public class ServerWorker implements Runnable {
                 if (line.equals("null")) {
 
                     input.close();
+                    return;
+                }
+
+                if (line.equals(CommunicationProtocol.SERVER.getCommunicationProtocol())) {
+
+                    server.CreateRoom(clientSocket);
+                    return;
+                }
+
+                if (line.contains(CommunicationProtocol.CLIENT.getCommunicationProtocol())) {
+                    server.chatbetween2(clientSocket, line);
+                    return;
                 }
 
                 server.out(line);

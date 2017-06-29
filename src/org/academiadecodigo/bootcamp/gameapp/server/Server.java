@@ -22,13 +22,15 @@ public class Server {
     private Socket clientSocket;
 
     private LinkedList<Socket> clientList;
+    private LinkedList<Socket[]> lobbyList;
 
     public Server() {
         clientList = new LinkedList<>();
+        lobbyList = new LinkedList<>();
     }
 
     //Preparar o server
-    public void Init(){
+    public void Init() {
         try {
 
             serverSocket = new ServerSocket(PORT_NUMBER);
@@ -63,7 +65,6 @@ public class Server {
                 clientSocket = serverSocket.accept();
 
 
-
                 System.out.println("Server connected.");
 
                 clientList.add(clientSocket);
@@ -88,14 +89,70 @@ public class Server {
 
         try {
 
-            for (Socket socket: clientList) {
+            for (Socket socket : clientList) {
                 PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
                 output.println(line);
                 output.flush();
             }
 
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void CreateRoom(Socket clientSocket) {
+        if (lobbyList.isEmpty() || lobbyList.peekLast()[1] != null) {
+            lobbyList.add(new Socket[2]);
+        }
+        for (Socket[] socket : lobbyList) {
+
+            for (int i = 0; i < socket.length; i++) {
+                if (socket[i] == null) {
+                    socket[i] = clientSocket;
+                    System.out.println("entrei no room position number: " + i);
+                    System.out.println("sockets[] existentes: " + lobbyList.size());
+                    break;
+                }
+            }
+
+
+            for (Socket socket1 : clientList) {
+                clientList.remove(socket1);
+            }
+        }
+    }
+
+    public void chatbetween2(Socket clientSocket, String line) {
+        Socket[] socket = RoomDesired(clientSocket);
+
+        try {
+            for (int i = 0; i < socket.length; i++) {
+
+                PrintWriter output = new PrintWriter(socket[i].getOutputStream(), true);
+                output.println(line);
+                output.flush();
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Socket[] RoomDesired(Socket clientSocket) {
+
+        Socket[] sockets = null;
+
+        for (Socket[] socket : lobbyList) {
+
+            for (int i = 0; i < socket.length; i++) {
+                if (socket[i] == clientSocket) {
+                    sockets = socket;
+                    return sockets;
+                }
+            }
+
+        }
+
+        return null;
     }
 }

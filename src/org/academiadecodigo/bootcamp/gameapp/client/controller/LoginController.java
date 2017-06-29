@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
+import org.academiadecodigo.bootcamp.gameapp.client.utilities.CommunicationProtocol;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,11 +30,20 @@ public class LoginController implements Initializable {
     private Button btnLogin;
 
     @FXML
+    private Button btnSendText;
+
+    @FXML
     private Label inputLabel;
 
     @FXML
     public void onLogin(ActionEvent event) {
-        String sendMessage = "Login Controller estou aqui.\n";
+        String sendMessage = CommunicationProtocol.SERVER.getCommunicationProtocol() + "\n";
+        client.send(sendMessage);
+    }
+
+    @FXML
+    public void sendText(ActionEvent event){
+        String sendMessage = CommunicationProtocol.CLIENT.getCommunicationProtocol() + " : Hello\n";
         client.send(sendMessage);
     }
 

@@ -44,8 +44,6 @@ public class Client {
         }
     }
 
-    // TODO: 28/06/17 create a method to send something
-    // TODO: 28/06/17 create a method to receive something
     //Recieving message from server
     public String receive() {
         System.out.println("Pronto para receber");
@@ -53,6 +51,10 @@ public class Client {
 
         try {
             receivedMessage = input.readLine();
+
+            if (receivedMessage.equals("null")){
+                return null;
+            }
 
         } catch (IOException e) {
             e.printStackTrace();

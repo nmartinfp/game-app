@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.gameapp.client.controller.LoginController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.bootcamp.gameapp.client.controller.LoginController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -18,5 +18,6 @@
    <children>
       <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#onLogin" text="Button" GridPane.rowIndex="1" />
       <Label fx:id="inputLabel" prefHeight="17.0" prefWidth="437.0" />
+      <Button fx:id="btnSendText" mnemonicParsing="false" onAction="#sendText" text="Button" GridPane.rowIndex="2" />
    </children>
 </GridPane>

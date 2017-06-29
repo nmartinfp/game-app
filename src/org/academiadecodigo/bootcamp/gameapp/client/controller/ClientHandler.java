@@ -1,14 +1,13 @@
 package org.academiadecodigo.bootcamp.gameapp.client.controller;
 
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.scene.control.Label;
+import com.sun.jmx.snmp.tasks.Task;
+import javafx.application.Platform;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
 
 /**
  * Created by Cyrille on 27/06/17.
  */
-public class ClientHandler implements Runnable {
+public class ClientHandler implements Task {
 
     private LoginController loginController;
     private Client client;
@@ -22,19 +21,21 @@ public class ClientHandler implements Runnable {
     public void run() {
 
         while (true) {
+            MessageEvent messageEvent = new MessageEvent(client.receive());
 
-            System.out.println("Estou no clientHandler antes do call ontext");
-
-            // TODO: 27/06/17 Thread blocking here, why is it not reading? nc works fine
-            String recieveMessage;
-            recieveMessage = client.receive();
-
-            System.out.println("Messagem recebida: " + recieveMessage);
-            MyEvent event66 = new MyEvent(this, loginController.getInputLabel());
-            Label input = loginController.getInputLabel();
-            input.fireEvent(event66);
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    loginController.getInputLabel().fireEvent(messageEvent);
+                }
+            });
 
         }
+    }
+
+    @Override
+    public void cancel() {
+
     }
 }
 

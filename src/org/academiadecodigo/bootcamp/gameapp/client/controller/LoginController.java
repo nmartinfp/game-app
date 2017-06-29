@@ -1,17 +1,16 @@
 package org.academiadecodigo.bootcamp.gameapp.client.controller;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
 
-import java.io.BufferedReader;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
@@ -23,13 +22,11 @@ import java.util.concurrent.Executors;
 public class LoginController implements Initializable {
 
     private Client client;
+    private EventHandler<MessageEvent> messageHandler;
+    private ClientHandler clientHandler;
 
     @FXML
     private Button btnLogin;
-
-    public Label getInputLabel() {
-        return inputLabel;
-    }
 
     @FXML
     private Label inputLabel;
@@ -38,27 +35,33 @@ public class LoginController implements Initializable {
     public void onLogin(ActionEvent event) {
         String sendMessage = "Login Controller estou aqui.\n";
         client.send(sendMessage);
-        System.out.println("Messagem enviada.");
     }
 
     @FXML
-    public void onText(Event event) {
-
-
-            System.out.println("Messagem recebida : ");
-            inputLabel.setText("ueueueueeueu");
-
+    public void onText(String message) {
+        inputLabel.setText(message);
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        inputLabel.addEventHandler(MessageEvent.type, new EventHandler<MessageEvent>() {
+            @Override
+            public void handle(MessageEvent event) {
 
+                onText(event.getMessage());
+            }
+        });
     }
 
     public void setClient(Client client) {
         this.client = client;
-        Executors.newSingleThreadExecutor().submit(new ClientHandler(client, this));
+        clientHandler = new ClientHandler(client, this);
 
+        ExecutorService newThread = Executors.newSingleThreadExecutor();
+        newThread.submit(clientHandler);
+    }
+
+    public Label getInputLabel() {
+        return inputLabel;
     }
 }

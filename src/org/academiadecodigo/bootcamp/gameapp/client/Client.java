@@ -46,7 +46,6 @@ public class Client {
 
     //Recieving message from server
     public String receive() {
-        System.out.println("Pronto para receber");
         String receivedMessage = null;
 
         try {
@@ -59,7 +58,6 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("recebi mensagem");
         return receivedMessage;
     }
 

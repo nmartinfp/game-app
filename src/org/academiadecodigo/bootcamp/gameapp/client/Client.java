@@ -63,7 +63,10 @@ public class Client {
 
     //Sending Message from client to server
     public void send(String sendMessage){
-        output.write(sendMessage);
-        output.flush();
+
+        if (sendMessage != null) {
+            output.write(sendMessage);
+            output.flush();
+        }
     }
 }

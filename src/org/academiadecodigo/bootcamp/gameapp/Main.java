@@ -5,6 +5,7 @@ import javafx.stage.Stage;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
 import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.LoginController;
+import org.academiadecodigo.bootcamp.gameapp.client.controller.RegisterController;
 import org.academiadecodigo.bootcamp.gameapp.server.Server;
 
 /**
@@ -26,6 +27,7 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
 
+        // TODO: 01/07/17 create service resgistry for server
         if (args[0].equals("server")) {
             Server server = new Server();
             server.Init();
@@ -52,10 +54,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Navigation.getInstance().setStage(primaryStage);
-        Navigation.getInstance().loadScreen("login");
+        Navigation.getInstance().loadScreen("register");
 
+        // TODO: 01/07/17 create client Resgistry
         //Wire Dependencies
-        LoginController loginController = (LoginController) Navigation.getInstance().getController("login");
+        RegisterController loginController = (RegisterController) Navigation.getInstance().getController("register");
         loginController.setClient(client);
     }
 }

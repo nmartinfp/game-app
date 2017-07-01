@@ -4,10 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
-import org.academiadecodigo.bootcamp.gameapp.client.utilities.CommunicationProtocol;
+import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,37 +27,26 @@ public class LoginController implements Initializable {
 
     @FXML
     private Button btnLogin;
-
     @FXML
-    private Button btnSendText;
-
+    private Hyperlink btnRegistry;
     @FXML
-    private Label inputLabel;
+    private TextField username;
+    @FXML
+    private PasswordField password;
+    @FXML
+    private Label information;
 
     @FXML
     public void onLogin(ActionEvent event) {
-        String sendMessage = CommunicationProtocol.SERVER.getCommunicationProtocol() + "\n";
+        String sendMessage = CommProtocol.SERVER.getProtocol() + "\n";
         client.send(sendMessage);
-    }
-
-    @FXML
-    public void sendText(ActionEvent event){
-        String sendMessage = CommunicationProtocol.CLIENT.getCommunicationProtocol() + " : Hello\n";
-        client.send(sendMessage);
-    }
-
-    @FXML
-    public void onText(String message) {
-        inputLabel.setText(message);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        inputLabel.addEventHandler(MessageEvent.type, new EventHandler<MessageEvent>() {
+        information.addEventHandler(MessageEvent.type, new EventHandler<MessageEvent>() {
             @Override
             public void handle(MessageEvent event) {
-
-                onText(event.getMessage());
             }
         });
     }
@@ -71,7 +59,7 @@ public class LoginController implements Initializable {
         newThread.submit(clientHandler);
     }
 
-    public Label getInputLabel() {
-        return inputLabel;
+    public Label getInformation() {
+        return information;
     }
 }

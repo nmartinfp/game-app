@@ -7,7 +7,7 @@ import org.academiadecodigo.bootcamp.gameapp.client.Client;
 /**
  * Created by Cyrille on 27/06/17.
  */
-public class ClientHandler implements Task {
+public class ClientHandler implements Runnable {
 
     private LoginController loginController;
     private Client client;
@@ -26,16 +26,11 @@ public class ClientHandler implements Task {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    loginController.getInputLabel().fireEvent(messageEvent);
+                    loginController.getInformation().fireEvent(messageEvent);
                 }
             });
 
         }
-    }
-
-    @Override
-    public void cancel() {
-
     }
 }
 

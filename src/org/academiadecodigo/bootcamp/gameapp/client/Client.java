@@ -68,6 +68,8 @@ public class Client {
             output.write(sendMessage);
             output.flush();
         }
+
+        System.out.println("Message sent: " + sendMessage);
     }
 
     public void closeClient(){

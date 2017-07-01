@@ -1,7 +1,8 @@
-package org.academiadecodigo.bootcamp.gameapp.client.controller;
+package org.academiadecodigo.bootcamp.gameapp.client;
 
 import javafx.application.Platform;
-import org.academiadecodigo.bootcamp.gameapp.client.Client;
+import org.academiadecodigo.bootcamp.gameapp.client.controller.LoginController;
+import org.academiadecodigo.bootcamp.gameapp.client.controller.RegisterController;
 
 /**
  * Created by Cyrille on 27/06/17.
@@ -12,9 +13,9 @@ public class ClientHandler implements Runnable {
     private LoginController loginController;
     private Client client;
 
-    public ClientHandler(Client client, LoginController loginController) {
-        this.client = client;
+    public ClientHandler(LoginController loginController) {
         this.loginController = loginController;
+        client = ClientRegistry.getInstance().getClient();
     }
 
     @Override
@@ -27,7 +28,7 @@ public class ClientHandler implements Runnable {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    loginController.getInformation().fireEvent(messageEvent);
+                    loginController.onLogin();
                 }
             });
 

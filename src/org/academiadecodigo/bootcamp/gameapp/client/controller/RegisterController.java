@@ -9,6 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
+import org.academiadecodigo.bootcamp.gameapp.client.ClientHandler;
+import org.academiadecodigo.bootcamp.gameapp.client.ClientRegistry;
+import org.academiadecodigo.bootcamp.gameapp.client.MessageEvent;
 import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
 import org.academiadecodigo.bootcamp.gameapp.utilities.Verification;
 
@@ -98,13 +101,8 @@ public class RegisterController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        lblUsernameErrorReg.setVisible(false);
-        lblPasswordErrorReg.setVisible(false);
-        lblMailErrorReg.setVisible(false);
-    }
 
-    public void setClient(Client client) {
-        this.client = client;
+        client = ClientRegistry.getInstance().getClient();
     }
 
 }

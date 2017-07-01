@@ -1,5 +1,8 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
+import org.academiadecodigo.bootcamp.gameapp.server.persistence.ConnectionManager;
+import org.academiadecodigo.bootcamp.gameapp.server.service.user.JdbcUserService;
+import org.academiadecodigo.bootcamp.gameapp.server.srvController.srvLoginController;
 import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
 
 import java.io.BufferedReader;
@@ -40,7 +43,9 @@ public class ServerWorker implements Runnable {
                     return;
                 }
 
+                System.out.println("Message received: " + message);
                 forwardComm(message);
+
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -56,11 +61,12 @@ public class ServerWorker implements Runnable {
     // TODO: 01/07/17 create method @server to forward communications
     public void forwardComm(String message){
 
-        String protocol = message.split(" ")[0];
+        String[] protocol = message.split(" ");
 
-        switch (protocol){
+        switch (protocol[0]){
             case "@Server":
-                server.createRoom(clientSocket);
+                System.out.println("Message forwarded");
+                (new srvLoginController(server, new JdbcUserService(new ConnectionManager().getConnection()))).authenticate(protocol[1], protocol[2]);
                 break;
             case "@Client":
                 server.out(message);

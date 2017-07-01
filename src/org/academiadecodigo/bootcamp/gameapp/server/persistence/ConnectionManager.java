@@ -16,7 +16,7 @@ public class ConnectionManager {
         if (connection == null) {
 
             try {
-                connection = DriverManager.getConnection("jdbc:mysql://192.168.1.18:3306/users", "root", "");
+                connection = DriverManager.getConnection("jdbc:mysql://192.168.1.18:3306/gameApp", "gameapp", "gamepwd");
             } catch (SQLException e) {
                 e.printStackTrace();
                 System.out.println("Failure to connect to database : " + e.getMessage());

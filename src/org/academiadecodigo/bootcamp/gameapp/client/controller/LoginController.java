@@ -5,8 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import org.academiadecodigo.bootcamp.gameapp.client.Client;
-import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
+import org.academiadecodigo.bootcamp.gameapp.client.*;
 import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
 import org.academiadecodigo.bootcamp.gameapp.utilities.Verification;
 
@@ -52,10 +51,11 @@ public class LoginController implements Initializable {
     @FXML
     public void onLogin(ActionEvent event) {
         Verification.cleanErrorMsg(lblUsernameError, lblPasswordError, lblPasswordError);
-        fieldEmpty = emptyField();
 
-        if (!fieldEmpty) {
-            String sendMessage = CommProtocol.SERVER.getProtocol() + username.getText() + " | " + password.getText() + "\n";
+        System.out.println("Button clicked!");
+
+        if (!emptyField()) {
+            String sendMessage = CommProtocol.SERVER.getProtocol() + username.getText() + " " + password.getText() + "\n";
             client.send(sendMessage);
         }
     }
@@ -70,34 +70,32 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        client = ClientRegistry.getInstance().getClient();
+        clientHandler = new ClientHandler(client, this);
+
         information.addEventHandler(MessageEvent.type, new EventHandler<MessageEvent>() {
             @Override
             public void handle(MessageEvent event) {
             }
         });
+
+        ExecutorService newThread = Executors.newSingleThreadExecutor();
+        newThread.submit(clientHandler);
     }
 
     private boolean emptyField() {
-        fieldEmpty = true;
+        fieldEmpty = false;
         if (username.getText().length() == 0) {
             lblUsernameError.setText("(* Required Field)");
             lblUsernameError.setVisible(true);
-            fieldEmpty = false;
+            fieldEmpty = true;
         }
         if (password.getText().length() == 0) {
             lblPasswordError.setText("(* Required Field)");
             lblPasswordError.setVisible(true);
-            fieldEmpty = false;
+            fieldEmpty = true;
         }
         return fieldEmpty;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-        clientHandler = new ClientHandler(client, this);
-
-        ExecutorService newThread = Executors.newSingleThreadExecutor();
-        newThread.submit(clientHandler);
     }
 
     public Label getInformation() {

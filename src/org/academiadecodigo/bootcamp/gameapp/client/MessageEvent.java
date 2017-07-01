@@ -1,4 +1,4 @@
-package org.academiadecodigo.bootcamp.gameapp.client.controller;
+package org.academiadecodigo.bootcamp.gameapp.client;
 
 import javafx.event.Event;
 import javafx.event.EventType;

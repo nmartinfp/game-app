@@ -52,11 +52,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Navigation.getInstance().setStage(primaryStage);
-        Navigation.getInstance().loadScreen("login");
+        Navigation.getInstance().loadScreen("lobby");
 
         //Wire Dependencies
-        LoginController loginController = (LoginController)Navigation.getInstance().getController("login");
-        loginController.setClient(client);
+        //LoginController loginController = (LoginController)Navigation.getInstance().getController("login");
+        //loginController.setClient(client);
 
 
     }

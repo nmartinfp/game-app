@@ -29,7 +29,7 @@ public class Server {
         lobbyList = new LinkedList<>();
     }
 
-    //Preparar o server
+    //Preparer server
     public void Init() {
         try {
 
@@ -61,9 +61,7 @@ public class Server {
             while (true) {
                 System.out.println("Waiting for connection...");
 
-                // TODO: 26/06/17 to be updated to support multiple clients with a list
                 clientSocket = serverSocket.accept();
-
 
                 System.out.println("Server connected.");
 
@@ -85,8 +83,8 @@ public class Server {
         }
     }
 
+    // TODO: 01/07/17 this method go to @server controllers 'LOGIN,RESGISTER,LOBBY,ROOM'
     public void out(String line) {
-
         try {
 
             for (Socket socket : clientList) {
@@ -100,26 +98,29 @@ public class Server {
         }
     }
 
-    public void CreateRoom(Socket clientSocket) {
+    // TODO: 01/07/17 this method go to @server controller LOBBY
+    public void createRoom(Socket clientSocket) {
+
         if (lobbyList.isEmpty() || lobbyList.peekLast()[1] != null) {
             lobbyList.add(new Socket[2]);
         }
+
         for (Socket[] socket : lobbyList) {
 
             for (int i = 0; i < socket.length; i++) {
                 if (socket[i] == null) {
                     socket[i] = clientSocket;
-                    System.out.println("entrei no room position number: " + i);
-                    System.out.println("sockets[] existentes: " + lobbyList.size());
+                    System.out.println("entrei no room position number: " + i);                 //For testing
+                    System.out.println("sockets[] existentes: " + lobbyList.size());            //For Testing
                     break;
                 }
             }
-
-
-            for (Socket socket1 : clientList) {
-                clientList.remove(socket1);
-            }
+            removeClientList(clientSocket);
         }
+    }
+
+    private void removeClientList(Socket clientSocket){
+            clientList.remove(clientSocket);
     }
 
     public void chatbetween2(Socket clientSocket, String line) {
@@ -139,7 +140,6 @@ public class Server {
     }
 
     private Socket[] RoomDesired(Socket clientSocket) {
-
         Socket[] sockets = null;
 
         for (Socket[] socket : lobbyList) {
@@ -152,7 +152,17 @@ public class Server {
             }
 
         }
-
         return null;
+    }
+
+    public void closeSocket(Socket clientSocket){
+
+        try {
+            removeClientList(clientSocket);
+            clientSocket.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

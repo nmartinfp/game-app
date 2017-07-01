@@ -6,6 +6,7 @@ import org.academiadecodigo.bootcamp.gameapp.client.Client;
 /**
  * Created by Cyrille on 27/06/17.
  */
+// TODO: 01/07/17 this class isn't a controller.
 public class ClientHandler implements Runnable {
 
     private LoginController loginController;

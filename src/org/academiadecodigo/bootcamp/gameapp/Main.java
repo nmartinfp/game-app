@@ -61,4 +61,9 @@ public class Main extends Application {
         RegisterController loginController = (RegisterController) Navigation.getInstance().getController("register");
         loginController.setClient(client);
     }
+
+    @Override
+    public void stop (){
+        client.closeClient();
+    }
 }

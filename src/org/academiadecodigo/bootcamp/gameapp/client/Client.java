@@ -44,7 +44,7 @@ public class Client {
         }
     }
 
-    //Recieving message from server
+    //Receiving message from server
     public String receive() {
         String receivedMessage = null;
 
@@ -67,6 +67,15 @@ public class Client {
         if (sendMessage != null) {
             output.write(sendMessage);
             output.flush();
+        }
+    }
+
+    public void closeClient(){
+        try {
+            clientSocket.close();
+
+        }catch (IOException e){
+            e.printStackTrace();
         }
     }
 }

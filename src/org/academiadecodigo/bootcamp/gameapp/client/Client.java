@@ -52,7 +52,7 @@ public class Client {
             receivedMessage = input.readLine();
 
             if (receivedMessage.equals("null")){
-                return null;
+                input.close();
             }
 
         } catch (IOException e) {
@@ -69,10 +69,16 @@ public class Client {
 
     public void closeClient(){
         try {
+            input.close();
+            output.close();
             clientSocket.close();
 
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    public Socket getClientSocket(){
+        return clientSocket;
     }
 }

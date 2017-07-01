@@ -20,7 +20,8 @@ public class ClientHandler implements Runnable {
     @Override
     public void run() {
 
-        while (true) {
+        while (!client.getClientSocket().isClosed()) {
+            System.out.println(!client.getClientSocket().isClosed());
             MessageEvent messageEvent = new MessageEvent(client.receive());
 
             Platform.runLater(new Runnable() {

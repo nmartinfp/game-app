@@ -26,7 +26,7 @@ public class ClientHandler implements Task {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    loginController.getInputLabel().fireEvent(messageEvent);
+                    loginController.getInformation().fireEvent(messageEvent);
                 }
             });
 

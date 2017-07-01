@@ -35,14 +35,38 @@
          </font>
       </Label>
       <TextField fx:id="username" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="username" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-      <Label fx:id="infoUser" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Label fx:id="lblUsernameErrorReg" text="lbluserreg" textFill="RED" visible="false" GridPane.rowIndex="2">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </GridPane.margin>
+      </Label>
       <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="password" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-      <Label fx:id="infoPass" layoutX="20.0" layoutY="152.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+      <Label fx:id="lblPasswordErrorReg" text="lblpasswordreg" textFill="RED" visible="false" GridPane.rowIndex="4">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
       <TextField fx:id="firstName" layoutX="20.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="first name" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
       <TextField fx:id="lastName" layoutX="20.0" layoutY="195.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="last name" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
       <TextField fx:id="email" layoutX="20.0" layoutY="235.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="email" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
-      <Label fx:id="infoEmail" layoutX="20.0" layoutY="212.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
-      <Button fx:id="btnRegister" mnemonicParsing="false" text="Register" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+      <Label fx:id="lblMailErrorReg" text="lblmailreg" textFill="RED" visible="false" GridPane.rowIndex="10">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#onRegister" text="Register" GridPane.halignment="CENTER" GridPane.rowIndex="11">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>

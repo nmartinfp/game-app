@@ -28,15 +28,25 @@ public class RegisterController implements Initializable {
     private ClientHandler clientHandler;
     private boolean fieldEmpty;
     boolean goodPass;
+    boolean checkEmail;
 
     @FXML
     private TextField username;
 
     @FXML
+    private Label lblUsernameErrorReg;
+
+    @FXML
     private PasswordField password;
 
     @FXML
+    private Label lblPasswordErrorReg;
+
+    @FXML
     private TextField firstName;
+
+    @FXML
+    private Label lblFirstNameErrorReg;
 
     @FXML
     private TextField lastName;
@@ -45,56 +55,74 @@ public class RegisterController implements Initializable {
     private TextField email;
 
     @FXML
-    private Button btnRegister;
-
-    @FXML
-    private Label lblUsernameErrorReg;
-
-    @FXML
-    private Label lblPasswordErrorReg;
-
-    @FXML
     private Label lblMailErrorReg;
+
+    @FXML
+    private Button btnRegister;
 
     @FXML
     public void onRegister(ActionEvent event) {
 
-        Verification.cleanErrorMsg(lblUsernameErrorReg, lblPasswordErrorReg, lblMailErrorReg);
+        Verification.cleanErrorMsg(lblUsernameErrorReg, lblPasswordErrorReg, lblFirstNameErrorReg, lblMailErrorReg);
         fieldEmpty = emptyField();
 
         if (!fieldEmpty) {
             goodPass = validPassword();
-            String sendMessage = CommProtocol.SERVER.getProtocol() + username.getText() + " | " + password.getText() +
-                    firstName.getText() + " | " + lastName.getText() + email.getText() + "\n";
+            checkEmail = Verification.checkEmail(email);
 
-            client.send(sendMessage);
+            if(!checkEmail){
+                lblMailErrorReg.setText("(* Invalid email)");
+                lblMailErrorReg.setVisible(true);
+            }
+
+
+            if(goodPass && checkEmail){
+                String sendMessage = CommProtocol.SERVER.getProtocol() + username.getText() + " " + password.getText() +
+                        " " + firstName.getText() + " " + lastName.getText() + " " + email.getText() + "\n";
+
+                System.out.println("send message" + sendMessage);
+                //client.send(sendMessage);
+            }
         }
     }
 
     private boolean validPassword() {
+        boolean validPass;
+        validPass = Verification.checkPassword(password);
+
+
+        if (!validPass) {
+            lblPasswordErrorReg.setText("(* Minimum of 8 characters containing at least\n 1 number, 1 lower case and 1 upper case letter)");
+            lblPasswordErrorReg.setVisible(true);
+            return false;
+        }
         return true;
     }
 
     private boolean emptyField() {
-        fieldEmpty = true;
+        fieldEmpty = false;
         if (username.getText().length() == 0) {
             lblUsernameErrorReg.setText("(* Required Field)");
             lblUsernameErrorReg.setVisible(true);
-            fieldEmpty = false;
+            fieldEmpty = true;
         }
         if (password.getText().length() == 0) {
             lblPasswordErrorReg.setText("(* Required Field)");
             lblPasswordErrorReg.setVisible(true);
-            fieldEmpty = false;
+            fieldEmpty = true;
+        }
+        if (firstName.getText().length() == 0) {
+            lblFirstNameErrorReg.setText("(* Required Field)");
+            lblFirstNameErrorReg.setVisible(true);
+            fieldEmpty = true;
         }
         if (email.getText().length() == 0) {
             lblMailErrorReg.setText("(* Required Field)");
             lblMailErrorReg.setVisible(true);
-            fieldEmpty = false;
+            fieldEmpty = true;
         }
         return fieldEmpty;
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

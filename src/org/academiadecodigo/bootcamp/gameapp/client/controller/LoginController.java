@@ -51,12 +51,12 @@ public class LoginController implements Initializable {
 
     @FXML
     public void onLogin(ActionEvent event) {
-        Verification.cleanErrorMsg(lblUsernameError, lblPasswordError, lblPasswordError);
+        Verification.cleanErrorMsg(lblUsernameError, lblPasswordError, lblPasswordError, lblPasswordError);
         fieldEmpty = emptyField();
 
         if (!fieldEmpty) {
-            String sendMessage = CommProtocol.SERVER.getProtocol() + username.getText() + " | " + password.getText() + "\n";
-            client.send(sendMessage);
+            String sendMessage = CommProtocol.SERVER.getProtocol() + username.getText() + " " + password.getText() + "\n";
+            //client.send(sendMessage);
         }
     }
 
@@ -64,8 +64,6 @@ public class LoginController implements Initializable {
     void onRegister(ActionEvent event) {
         Navigation.getInstance().loadScreen("register");        //Testing
     }
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -78,16 +76,16 @@ public class LoginController implements Initializable {
     }
 
     private boolean emptyField() {
-        fieldEmpty = true;
+        fieldEmpty = false;
         if (username.getText().length() == 0) {
             lblUsernameError.setText("(* Required Field)");
             lblUsernameError.setVisible(true);
-            fieldEmpty = false;
+            fieldEmpty = true;
         }
         if (password.getText().length() == 0) {
             lblPasswordError.setText("(* Required Field)");
             lblPasswordError.setVisible(true);
-            fieldEmpty = false;
+            fieldEmpty = true;
         }
         return fieldEmpty;
     }

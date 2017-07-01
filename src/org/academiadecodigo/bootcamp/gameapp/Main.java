@@ -54,11 +54,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Navigation.getInstance().setStage(primaryStage);
-        Navigation.getInstance().loadScreen("register");
+        //Navigation.getInstance().loadScreen("register");
+        Navigation.getInstance().loadScreen("login");
 
         // TODO: 01/07/17 create client Resgistry
         //Wire Dependencies
-        RegisterController loginController = (RegisterController) Navigation.getInstance().getController("register");
+        //RegisterController loginController = (RegisterController) Navigation.getInstance().getController("register");
+        LoginController loginController = (LoginController) Navigation.getInstance().getController("login");
         loginController.setClient(client);
     }
 

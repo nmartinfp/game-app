@@ -39,7 +39,7 @@
          </GridPane.margin>
       </Hyperlink>
       <Label fx:id="information" prefHeight="30.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-      <Label fx:id="lblUsernameError" text="lbluser" textFill="RED" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Label fx:id="lblUsernameError" text="lbluser" textFill="RED" visible="false" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
          </GridPane.margin>
@@ -50,7 +50,7 @@
             <Insets left="10.0" />
          </padding>
       </Label>
-      <Label fx:id="lblPasswordError" onDragDetected="#onLogin" text="lblpass" textFill="RED" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+      <Label fx:id="lblPasswordError" onDragDetected="#onLogin" text="lblpass" textFill="RED" visible="false" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="10.0" />
          </font>

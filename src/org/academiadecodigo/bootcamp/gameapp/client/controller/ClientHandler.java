@@ -1,6 +1,5 @@
 package org.academiadecodigo.bootcamp.gameapp.client.controller;
 
-import com.sun.jmx.snmp.tasks.Task;
 import javafx.application.Platform;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
 

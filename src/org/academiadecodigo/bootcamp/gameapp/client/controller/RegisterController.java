@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
-import org.academiadecodigo.bootcamp.gameapp.client.utilities.CommunicationProtocol;
+import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -55,7 +55,7 @@ public class RegisterController implements Initializable {
 
     @FXML
     public void onRegister(ActionEvent event) {
-        String sendMessage = CommunicationProtocol.SERVER.getCommunicationProtocol() + "\n";
+        String sendMessage = CommProtocol.SERVER.getProtocol() + "\n";
         client.send(sendMessage);
     }
 

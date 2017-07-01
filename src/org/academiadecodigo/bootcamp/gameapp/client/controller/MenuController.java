@@ -31,10 +31,5 @@ public class MenuController {
 
     @FXML
     void SendMsg(ActionEvent event) {
-
-
     }
-
-
-
 }

@@ -32,26 +32,15 @@ public class ServerWorker implements Runnable {
 
             while (true) {
 
-                String line = input.readLine();
+                String message = input.readLine();
 
-                if (line.equals("null")) {
+                if (message.equals("null")) {
 
-                    input.close();
+                    server.closeSocket(clientSocket);
                     return;
                 }
 
-                if (line.equals(CommProtocol.SERVER.getProtocol())) {
-
-                    server.CreateRoom(clientSocket);
-                    return;
-                }
-
-                if (line.contains(CommProtocol.CLIENT.getProtocol())) {
-                    server.chatbetween2(clientSocket, line);
-                    return;
-                }
-
-                server.out(line);
+                forwardComm(message);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,6 +50,22 @@ public class ServerWorker implements Runnable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    // TODO: 01/07/17 create method @server to forward communications
+    public void forwardComm(String message){
+
+        String protocol = message.split(" ")[0];
+
+        switch (protocol){
+            case "@Server":
+                server.createRoom(clientSocket);
+                break;
+            case "@Client":
+                server.out(message);
+                break;
+
         }
     }
 }

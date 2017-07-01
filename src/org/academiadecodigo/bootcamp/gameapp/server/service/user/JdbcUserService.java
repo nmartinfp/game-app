@@ -24,12 +24,9 @@ public class JdbcUserService implements UserService {
 
         User user = findByName(username);
 
-        if (user != null) {
+        if (user != null && user.getPassword().equals(password)) {
 
-            if (user.getPassword().equals(password)) {
-
-                return true;
-            }
+            return true;
         }
         return false;
     }

@@ -30,9 +30,7 @@ public final class Navigation {
     private Stage stage;
     private Scene scene;
 
-    private Navigation() {
-
-    }
+    private Navigation() {}
 
     public void loadScreen(String view) {
         try {
@@ -50,7 +48,6 @@ public final class Navigation {
 
         } catch (IOException e) {
             System.err.println("Failure to load view " + view + " : " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
@@ -69,19 +66,15 @@ public final class Navigation {
         if (instance == null) {
 
             synchronized (Navigation.class) {
-
                 if (instance == null) {
-
                     instance = new Navigation();
                 }
             }
         }
-
         return instance;
     }
 
     public Initializable getController(String view) {
-
         return controllers.get(view);
     }
 
@@ -94,7 +87,6 @@ public final class Navigation {
     }
 
     public void setStage(Stage stage) {
-
         this.stage = stage;
     }
 }

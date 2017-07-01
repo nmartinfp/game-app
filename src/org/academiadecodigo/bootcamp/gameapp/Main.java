@@ -55,9 +55,7 @@ public class Main extends Application {
         Navigation.getInstance().loadScreen("login");
 
         //Wire Dependencies
-        LoginController loginController = (LoginController)Navigation.getInstance().getController("login");
+        LoginController loginController = (LoginController) Navigation.getInstance().getController("login");
         loginController.setClient(client);
-
-
     }
 }

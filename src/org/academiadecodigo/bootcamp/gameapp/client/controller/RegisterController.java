@@ -2,16 +2,17 @@ package org.academiadecodigo.bootcamp.gameapp.client.controller;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
 import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * A/C: Bootcamp8
@@ -19,47 +20,63 @@ import java.util.concurrent.Executors;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-public class LoginController implements Initializable {
+public class RegisterController implements Initializable {
 
     private Client client;
     private EventHandler<MessageEvent> messageHandler;
     private ClientHandler clientHandler;
 
     @FXML
-    private Button btnLogin;
-    @FXML
-    private Hyperlink btnRegistry;
-    @FXML
     private TextField username;
-    @FXML
-    private PasswordField password;
-    @FXML
-    private Label information;
 
     @FXML
-    public void onLogin(ActionEvent event) {
+    private Label infoUser;
+
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    private Label infoPass;
+
+    @FXML
+    private TextField firstName;
+
+    @FXML
+    private TextField lastName;
+
+    @FXML
+    private TextField email;
+
+    @FXML
+    private Label infoEmail;
+
+    @FXML
+    private Button btnRegister;
+
+    @FXML
+    public void onRegister(ActionEvent event) {
         String sendMessage = CommProtocol.SERVER.getProtocol() + "\n";
         client.send(sendMessage);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        information.addEventHandler(MessageEvent.type, new EventHandler<MessageEvent>() {
-            @Override
-            public void handle(MessageEvent event) {
-            }
-        });
+
     }
 
     public void setClient(Client client) {
-        this.client = client;
-        clientHandler = new ClientHandler(client, this);
 
-        ExecutorService newThread = Executors.newSingleThreadExecutor();
-        newThread.submit(clientHandler);
     }
 
-    public Label getInformation() {
-        return information;
+    public Label getInfoUser() {
+        return infoUser;
+    }
+
+    public Label getInfoPass() {
+        return infoPass;
+    }
+
+    public Label getInfoEmail() {
+        return infoEmail;
     }
 }

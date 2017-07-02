@@ -1,5 +1,7 @@
 package org.academiadecodigo.bootcamp.gameapp.client;
 
+import org.academiadecodigo.bootcamp.gameapp.utilities.ServerConfig;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,8 +17,6 @@ import java.net.Socket;
 
 public class Client {
 
-    private final int PORT_NUMBER = 1234;
-    private final InetAddress ip = InetAddress.getLoopbackAddress();
     private Socket clientSocket;
     private PrintWriter output;
     private BufferedReader input;
@@ -24,7 +24,7 @@ public class Client {
     public Client() {
 
         try {
-            clientSocket = new Socket(ip, PORT_NUMBER);
+            clientSocket = new Socket(InetAddress.getLoopbackAddress(), 1234);
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -48,11 +48,15 @@ public class Client {
     public String receive() {
         String receivedMessage = null;
 
+        System.out.println("I'm in client / receive method");
+
         try {
             receivedMessage = input.readLine();
 
+            System.out.println("recebi esta mensagem: " + receivedMessage);
+
             if (receivedMessage.equals("null")){
-                return null;
+                input.close();
             }
 
         } catch (IOException e) {
@@ -68,14 +72,22 @@ public class Client {
             output.write(sendMessage);
             output.flush();
         }
+
+        System.out.println("Message sent: " + sendMessage);
     }
 
     public void closeClient(){
         try {
+            input.close();
+            output.close();
             clientSocket.close();
 
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    public Socket getClientSocket(){
+        return clientSocket;
     }
 }

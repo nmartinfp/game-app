@@ -19,7 +19,8 @@ public class Verification {
 
     public static boolean checkPassword(PasswordField password) {
         boolean check = false;
-        if(password.getText().matches("(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$")){
+
+        if (password.getText().matches("(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$")) {
             check = true;
         }
         return check;
@@ -27,11 +28,13 @@ public class Verification {
 
     public static boolean checkEmail(TextField email) {
         boolean checkMail;
-        if(email.getText().matches("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")){
+
+        if (email.getText().matches("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")) {
             checkMail = true;
-        }else{
+        } else {
             checkMail = false;
         }
+
         return checkMail;
     }
 }

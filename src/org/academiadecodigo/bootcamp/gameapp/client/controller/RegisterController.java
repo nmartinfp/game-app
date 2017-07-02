@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.academiadecodigo.bootcamp.gameapp.client.Client;
+import org.academiadecodigo.bootcamp.gameapp.client.*;
 import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
 import org.academiadecodigo.bootcamp.gameapp.utilities.Verification;
 
@@ -77,13 +77,17 @@ public class RegisterController implements Initializable {
 
 
             if(goodPass && checkEmail){
-                String sendMessage = CommProtocol.SERVER.getProtocol() + username.getText() + " " + password.getText() +
-                        " " + firstName.getText() + " " + lastName.getText() + " " + email.getText() + "\n";
+                String sendMessage = CommProtocol.SERVER.getProtocol() + firstName.getText() + " " + username.getText() +
+                        " " + password.getText() + "\n";
 
                 System.out.println("send message" + sendMessage);
-                //client.send(sendMessage);
+                client.send(sendMessage);
             }
         }
+    }
+
+    public void backScreen(){
+        Navigation.getInstance().back();
     }
 
     private boolean validPassword() {
@@ -92,7 +96,9 @@ public class RegisterController implements Initializable {
 
 
         if (!validPass) {
-            lblPasswordErrorReg.setText("(* Minimum of 8 characters containing at least\n 1 number, 1 lower case and 1 upper case letter)");
+
+            lblPasswordErrorReg.setText("(* Minimum of 8 characters containing at least\n 1 number, 1 lower case and " +
+                    "1 upper case letter)");
             lblPasswordErrorReg.setVisible(true);
             return false;
         }
@@ -102,21 +108,25 @@ public class RegisterController implements Initializable {
     private boolean emptyField() {
         fieldEmpty = false;
         if (username.getText().length() == 0) {
+
             lblUsernameErrorReg.setText("(* Required Field)");
             lblUsernameErrorReg.setVisible(true);
             fieldEmpty = true;
         }
         if (password.getText().length() == 0) {
+
             lblPasswordErrorReg.setText("(* Required Field)");
             lblPasswordErrorReg.setVisible(true);
             fieldEmpty = true;
         }
         if (firstName.getText().length() == 0) {
+
             lblFirstNameErrorReg.setText("(* Required Field)");
             lblFirstNameErrorReg.setVisible(true);
             fieldEmpty = true;
         }
         if (email.getText().length() == 0) {
+
             lblMailErrorReg.setText("(* Required Field)");
             lblMailErrorReg.setVisible(true);
             fieldEmpty = true;
@@ -126,13 +136,10 @@ public class RegisterController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        lblUsernameErrorReg.setVisible(false);
-        lblPasswordErrorReg.setVisible(false);
-        lblMailErrorReg.setVisible(false);
-    }
 
-    public void setClient(Client client) {
-        this.client = client;
+        client = ClientRegistry.getInstance().getClient();
+        ClientHandler clientHandler = ClientRegistry.getInstance().getHandler();
+        clientHandler.setInitializable(this);
     }
 
 }

@@ -19,6 +19,13 @@ public class User {
         this.password = password;
     }
 
+    public User(String firstName, String username, String password) {
+        this.firstName = firstName;
+        this.username = username;
+        this.password = password;
+    }
+
+    // TODO: 01/07/2017 - Fix this shit please!!!!
     public User(String firstName, String lastName, String username, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;

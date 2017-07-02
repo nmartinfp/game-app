@@ -10,7 +10,7 @@ import javafx.scene.control.TextArea;
 /**
  * Created by codecadet Helder Matos on 01/07/17.
  */
-public class MenuController {
+public class LobbyController {
 
     @FXML
     private Button btnGameRPS;

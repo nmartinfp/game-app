@@ -1,6 +1,10 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
-import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
+import org.academiadecodigo.bootcamp.gameapp.server.persistence.ConnectionManager;
+import org.academiadecodigo.bootcamp.gameapp.server.service.user.JdbcUserService;
+import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
+import org.academiadecodigo.bootcamp.gameapp.server.srvController.SrvLoginController;
+import org.academiadecodigo.bootcamp.gameapp.server.srvController.SrvRegisterController;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,7 +44,9 @@ public class ServerWorker implements Runnable {
                     return;
                 }
 
+                System.out.println("Message received: " + message);
                 forwardComm(message);
+
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -54,18 +60,43 @@ public class ServerWorker implements Runnable {
     }
 
     // TODO: 01/07/17 create method @server to forward communications
-    public void forwardComm(String message){
+    private void forwardComm(String message) {
 
-        String protocol = message.split(" ")[0];
+        String[] protocol = message.split(" ");
 
-        switch (protocol){
+        // TODO: 02/07/2017 - Do you want this shit? !! Are you shure?!!
+        String procotolMessage = null;
+
+        for (int i = 1; i < protocol.length; i++) {
+
+            procotolMessage += protocol[i];
+        }
+
+        switch (protocol[0]) {
             case "@Server":
-                server.createRoom(clientSocket);
+                serverComm(protocol);
                 break;
             case "@Client":
-                server.out(message);
+                clientComm(message);
                 break;
 
         }
+    }
+
+    private void serverComm(String[] protocol) {
+
+        UserService userService;
+
+        userService = new JdbcUserService(new ConnectionManager().getConnection());
+
+        System.out.println("Message forwarded");
+        SrvRegisterController srvRegisterController = (new SrvRegisterController(server, userService));
+        srvRegisterController.createUser(protocol[1], protocol[2], protocol[3]);
+        System.out.println("fui autenticado");
+
+    }
+
+    private void clientComm(String message) {
+        server.out(message);
     }
 }

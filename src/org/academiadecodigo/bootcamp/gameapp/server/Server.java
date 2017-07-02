@@ -17,7 +17,6 @@ import java.util.concurrent.Executors;
 
 public class Server {
 
-    private final int PORT_NUMBER = 1234;
     private ServerSocket serverSocket;
     private Socket clientSocket;
 
@@ -30,12 +29,13 @@ public class Server {
     }
 
     //Preparer server
-    public void Init() {
+    public void init() {
         try {
 
-            serverSocket = new ServerSocket(PORT_NUMBER);
+            serverSocket = new ServerSocket(1234);
             System.out.println("Server up.");
-            Start();
+
+            start();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -54,7 +54,7 @@ public class Server {
     }
 
     //Run server
-    public void Start() {
+    public void start() {
         try {
             ExecutorService cachedPool = Executors.newCachedThreadPool();
 
@@ -83,14 +83,16 @@ public class Server {
         }
     }
 
-    // TODO: 01/07/17 this method go to @server controllers 'LOGIN,RESGISTER,LOBBY,ROOM'
+    // TODO: 01/07/17 this method go to @server controllers 'LOGIN,REGISTER,LOBBY,ROOM'
     public void out(String line) {
         try {
 
             for (Socket socket : clientList) {
+                System.out.println("vou enviar a mensagem");
                 PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
                 output.println(line);
                 output.flush();
+                System.out.println("enviei esta mensagem + " + line);
             }
 
         } catch (IOException e) {
@@ -119,12 +121,12 @@ public class Server {
         }
     }
 
-    private void removeClientList(Socket clientSocket){
-            clientList.remove(clientSocket);
+    private void removeClientList(Socket clientSocket) {
+        clientList.remove(clientSocket);
     }
 
     public void chatbetween2(Socket clientSocket, String line) {
-        Socket[] socket = RoomDesired(clientSocket);
+        Socket[] socket = roomDesired(clientSocket);
 
         try {
             for (int i = 0; i < socket.length; i++) {
@@ -139,7 +141,7 @@ public class Server {
         }
     }
 
-    private Socket[] RoomDesired(Socket clientSocket) {
+    private Socket[] roomDesired(Socket clientSocket) {
         Socket[] sockets = null;
 
         for (Socket[] socket : lobbyList) {
@@ -155,7 +157,7 @@ public class Server {
         return null;
     }
 
-    public void closeSocket(Socket clientSocket){
+    public void closeSocket(Socket clientSocket) {
 
         try {
             removeClientList(clientSocket);

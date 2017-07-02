@@ -1,4 +1,4 @@
-package org.academiadecodigo.bootcamp.gameapp.server.service;
+package org.academiadecodigo.bootcamp.gameapp.server.srvController;
 
 /**
  * A/C: Bootcamp8
@@ -6,7 +6,6 @@ package org.academiadecodigo.bootcamp.gameapp.server.service;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-public interface Service {
+public class SrvLobbyController {
 
-    String getName();
 }

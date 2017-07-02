@@ -5,8 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import org.academiadecodigo.bootcamp.gameapp.client.Client;
-import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
+import org.academiadecodigo.bootcamp.gameapp.client.*;
 import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
 import org.academiadecodigo.bootcamp.gameapp.utilities.Verification;
 
@@ -24,9 +23,7 @@ import java.util.concurrent.Executors;
 public class LoginController implements Initializable {
 
     private Client client;
-    private EventHandler<MessageEvent> messageHandler;
     private ClientHandler clientHandler;
-    private boolean fieldEmpty;
 
     @FXML
     private TextField username;
@@ -41,64 +38,56 @@ public class LoginController implements Initializable {
     private Hyperlink linkRegister;
 
     @FXML
-    private Label information;
-
-    @FXML
     private Label lblUsernameError;
 
     @FXML
     private Label lblPasswordError;
 
+    // TODO: 01/07/2017 use isEmpty() to btnLogin.setDisable()
     @FXML
     public void onLogin(ActionEvent event) {
         Verification.cleanErrorMsg(lblUsernameError, lblPasswordError, lblPasswordError, lblPasswordError);
-        fieldEmpty = emptyField();
 
-        if (!fieldEmpty) {
+        if (!emptyField()) {
             String sendMessage = CommProtocol.SERVER.getProtocol() + username.getText() + " " + password.getText() + "\n";
-            //client.send(sendMessage);
+            client.send(sendMessage);
         }
     }
 
     @FXML
     void onRegister(ActionEvent event) {
-        Navigation.getInstance().loadScreen("register");        //Testing
+        Navigation.getInstance().loadScreen("register");        //TODO: Testing
+    }
+
+    public void onText(String message){
+        String[] protocol = message.split(" ");
+        Navigation.getInstance().loadScreen(protocol[1]);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        information.addEventHandler(MessageEvent.type, new EventHandler<MessageEvent>() {
-            @Override
-            public void handle(MessageEvent event) {
-            }
-        });
+        client = ClientRegistry.getInstance().getClient();
+        clientHandler = ClientRegistry.getInstance().getHandler();
+        clientHandler.setInitializable(this);
+
     }
 
     private boolean emptyField() {
-        fieldEmpty = false;
+        boolean fieldEmpty = false;
+
         if (username.getText().length() == 0) {
+
             lblUsernameError.setText("(* Required Field)");
             lblUsernameError.setVisible(true);
             fieldEmpty = true;
         }
         if (password.getText().length() == 0) {
+
             lblPasswordError.setText("(* Required Field)");
             lblPasswordError.setVisible(true);
             fieldEmpty = true;
         }
         return fieldEmpty;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-        clientHandler = new ClientHandler(client, this);
-
-        ExecutorService newThread = Executors.newSingleThreadExecutor();
-        newThread.submit(clientHandler);
-    }
-
-    public Label getInformation() {
-        return information;
     }
 }

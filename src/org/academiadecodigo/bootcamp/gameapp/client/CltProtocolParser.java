@@ -4,7 +4,10 @@ import javafx.application.Platform;
 import javafx.fxml.Initializable;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLoginController;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltRegisterController;
+import org.academiadecodigo.bootcamp.gameapp.client.controller.Controller;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
+
+import java.util.HashMap;
 
 /**
  * Created by Cyrille on 27/06/17.
@@ -13,11 +16,12 @@ import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 // TODO: 02/07/2017 try safe downcast
 public class CltProtocolParser implements Runnable {
 
-    private Initializable initializable;
+    private HashMap<String, Controller> controllerMap;
     private Client client;
 
     public CltProtocolParser() {
         client = ClientRegistry.getInstance().getClient();
+        controllerMap = new HashMap<>();
     }
 
     @Override
@@ -65,7 +69,7 @@ public class CltProtocolParser implements Runnable {
                 System.out.println("entrei no metodo para mudar para lobby");
                 if (message.equals(ProtocolConfig.LOBBY_VIEW)) {
                     System.out.println("vou mudar para lobby");
-                    ((CltLoginController) initializable).successfullyAuth(message);
+                    ((CltLoginController)controllerMap.get("Login")).successfullyAuth(message);
                 }
             }
         });
@@ -76,14 +80,14 @@ public class CltProtocolParser implements Runnable {
             @Override
             public void run() {
                 if (message.equals(ProtocolConfig.LOGIN_VIEW)) {
-                    ((CltRegisterController) initializable).backScreen();
+                    ((CltRegisterController)controllerMap.get("Register")).backScreen();
                 }
             }
         });
     }
 
-    public void setInitializable(Initializable initializable) {
-        this.initializable = initializable;
+    public void setInitializable(Controller controller) {
+        controllerMap.put(controller.getName(), controller);
     }
 }
 

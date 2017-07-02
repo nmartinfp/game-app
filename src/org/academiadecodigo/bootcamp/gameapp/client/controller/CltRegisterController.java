@@ -21,10 +21,11 @@ import java.util.ResourceBundle;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-public class CltRegisterController implements Initializable {
+public class CltRegisterController implements Initializable, Controller{
+
+    private final String NAME = "Register";
 
     private Client client;
-    private EventHandler<MessageEvent> messageHandler;
     private CltProtocolParser cltProtocolParser;
     private boolean fieldEmpty;
     private boolean checkEmail;
@@ -136,4 +137,7 @@ public class CltRegisterController implements Initializable {
         cltProtocolParser.setInitializable(this);
     }
 
+    public String getName(){
+        return NAME;
+    }
 }

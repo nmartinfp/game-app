@@ -20,7 +20,9 @@ import java.util.concurrent.Executors;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-public class CltLoginController implements Initializable {
+public class CltLoginController implements Initializable, Controller {
+
+    private final String NAME = "Login";
 
     private Client client;
     private CltProtocolParser cltProtocolParser;
@@ -93,5 +95,9 @@ public class CltLoginController implements Initializable {
             fieldEmpty = true;
         }
         return fieldEmpty;
+    }
+
+    public String getName(){
+        return NAME;
     }
 }

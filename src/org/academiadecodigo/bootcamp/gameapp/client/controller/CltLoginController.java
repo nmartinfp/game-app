@@ -49,7 +49,7 @@ public class CltLoginController implements Initializable {
         Verification.cleanErrorMsg(lblUsernameError, lblPasswordError, lblPasswordError, lblPasswordError);
 
         if (!emptyField()) {
-            String sendMessage = ProtocolConfig.SERVER_LOGIN + username.getText() +
+            String sendMessage = ProtocolConfig.SERVER_LOGIN + " " +  username.getText() +
                     " " + password.getText() + "\n";
             client.send(sendMessage);
         }

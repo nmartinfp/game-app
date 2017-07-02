@@ -30,7 +30,7 @@ public class SrvRegisterController {
 
         userService.addUser(user);
 
-        server.sendingProtoMsg(ProtocolConfig.SERVER_REGISTER + ProtocolConfig.LOGIN_VIEW,
+        server.sendingProtoMsg(ProtocolConfig.SERVER_REGISTER + " " + ProtocolConfig.LOGIN_VIEW,
                 clientSocket);
     }
 }

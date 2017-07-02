@@ -28,11 +28,11 @@ public class SrvLoginController {
     public void authenticate(String user, String pass) {
 
         if (userService.authenticate(user, pass)) {
-            server.sendingProtoMsg(ProtocolConfig.SERVER_LOGIN + ProtocolConfig.LOBBY_VIEW,
+            server.sendingProtoMsg(ProtocolConfig.SERVER_LOGIN + " " + ProtocolConfig.LOBBY_VIEW,
                     clientSocket);
             return;
         }
 
-        server.sendingProtoMsg(ProtocolConfig.SERVER_LOGIN + "AUTH_FAILURE" , clientSocket);
+        server.sendingProtoMsg(ProtocolConfig.SERVER_LOGIN + " AUTH_FAILURE" , clientSocket);
     }
 }

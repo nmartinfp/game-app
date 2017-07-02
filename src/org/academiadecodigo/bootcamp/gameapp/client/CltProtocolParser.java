@@ -26,7 +26,7 @@ public class CltProtocolParser implements Runnable {
         while (!client.getClientSocket().isClosed()) {
 
             String message = client.receive();
-
+            System.out.println("message recieved from server: " + message);
             protocolHandler(message);
         }
     }
@@ -35,10 +35,12 @@ public class CltProtocolParser implements Runnable {
 
         String[] protocol = message.split(" ");
 
-
+        System.out.println(protocol[ProtocolConfig.PROTOCOL] + " agora so  amensagem " + protocol[ProtocolConfig.MESSAGE]);
+        System.out.println(ProtocolConfig.SERVER_LOGIN);
         switch (protocol[ProtocolConfig.PROTOCOL]){
 
             case ProtocolConfig.SERVER_LOGIN:
+                System.out.println("metodoe para ir para a parte do login");
                 userLogin(protocol[ProtocolConfig.MESSAGE]);
                 break;
             case ProtocolConfig.SERVER_REGISTER:
@@ -60,8 +62,9 @@ public class CltProtocolParser implements Runnable {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-
+                System.out.println("entrei no metodo para mudar para lobby");
                 if (message.equals(ProtocolConfig.LOBBY_VIEW)) {
+                    System.out.println("vou mudar para lobby");
                     ((CltLoginController) initializable).successfullyAuth(message);
                 }
             }

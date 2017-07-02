@@ -22,11 +22,11 @@ public final class ProtocolConfig {
      * _ Second element:
      *      This part referee's to what parto of Server core or Client core will be send the message coming
      */
-    public static final String SERVER_LOGIN = "@SERVER_LOGIN ";
-    public static final String SERVER_REGISTER = "@SERVER_REGISTER ";
-    public static final String SERVER_LOBBY = "@SERVER_LOBBY ";
-    public static final String SERVER_GAME = "@SERVER_GAME ";
-    public static final String CLIENT_CHAT = "@CLIENT_CHAT ";
+    public static final String SERVER_LOGIN = "@SERVER_LOGIN";
+    public static final String SERVER_REGISTER = "@SERVER_REGISTER";
+    public static final String SERVER_LOBBY = "@SERVER_LOBBY";
+    public static final String SERVER_GAME = "@SERVER_GAME";
+    public static final String CLIENT_CHAT = "@CLIENT_CHAT";
 
     /**
      * View Load Configuration

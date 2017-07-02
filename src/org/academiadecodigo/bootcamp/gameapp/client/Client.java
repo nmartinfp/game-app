@@ -70,9 +70,10 @@ public class Client {
         if (sendMessage != null) {
             output.write(sendMessage);
             output.flush();
+            System.out.println("Message sent: " + sendMessage);  //todo TESTING
         }
 
-        System.out.println("Message sent: " + sendMessage);  //todo TESTING
+
     }
 
     public void closeClient(){

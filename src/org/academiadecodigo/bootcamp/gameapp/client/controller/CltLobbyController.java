@@ -83,18 +83,23 @@ public class CltLobbyController implements Initializable, Controller{
     private Button btnExitGameRooms;
 
     @FXML
-    void SendChatMsg(ActionEvent event) {
+    public void sendChatMsg(ActionEvent event) {
 
         if (!sendChatMsg.getText().isEmpty()) {
 
-            String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText();
+            String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText() + "\n";
             sendChatMsg.clear();
             client.send(sendMessage);
         }
     }
 
+    public void receiveChatMsg(String message){
+
+        receiveChatMsg.appendText(message + "\n");
+    }
+
     @FXML
-    void onActionExitGame(ActionEvent event) {
+    public void onActionExitGame(ActionEvent event) {
 
         // TODO: 02/07/2017 - To decide if returns to login or closes the app.
         Navigation.getInstance().back();
@@ -102,21 +107,21 @@ public class CltLobbyController implements Initializable, Controller{
     }
 
     @FXML
-    void onActionExitLobby(ActionEvent event) {
+    public void onActionExitLobby(ActionEvent event) {
 
         Navigation.getInstance().back();
 
     }
 
     @FXML
-    void onActionNewRoom(ActionEvent event) {
+    public void onActionNewRoom(ActionEvent event) {
 
         String sendMessage = ProtocolConfig.SERVER_GAME + " " + "GAME_RPS";
         client.send(sendMessage);
     }
 
     @FXML
-    void onActionRPS(ActionEvent event) {
+    public void onActionRPS(ActionEvent event) {
 
         gpLobby.setVisible(false);
 

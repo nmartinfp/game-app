@@ -2,6 +2,7 @@ package org.academiadecodigo.bootcamp.gameapp.client;
 
 import javafx.application.Platform;
 import javafx.fxml.Initializable;
+import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLobbyController;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLoginController;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltRegisterController;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.Controller;
@@ -42,11 +43,11 @@ public class CltProtocolParser implements Runnable {
         String[] protocol = message.split(" ");
 
         System.out.println(protocol[ProtocolConfig.PROTOCOL] + " agora so  amensagem " + protocol[ProtocolConfig.MESSAGE]);
-        System.out.println(ProtocolConfig.SERVER_LOGIN);
+
         switch (protocol[ProtocolConfig.PROTOCOL]){
 
             case ProtocolConfig.SERVER_LOGIN:
-                System.out.println("metodoe para ir para a parte do login");
+                System.out.println("metodo para ir para a parte do login");
                 userLogin(protocol[ProtocolConfig.MESSAGE]);
                 break;
             case ProtocolConfig.SERVER_REGISTER:
@@ -59,9 +60,18 @@ public class CltProtocolParser implements Runnable {
 
                 break;
             case ProtocolConfig.CLIENT_CHAT:
-
+                receivedMessage(message);
                 break;
         }
+    }
+
+    private void receivedMessage(String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                ((CltLobbyController)controllerMap.get("Lobby")).receiveChatMsg(message);
+            }
+        });
     }
 
     private void userLogin(String message){

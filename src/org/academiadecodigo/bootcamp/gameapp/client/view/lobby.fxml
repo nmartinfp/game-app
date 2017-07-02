@@ -84,7 +84,7 @@
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
             </TextArea>
-            <Button fx:id="btnSendChatMsg" mnemonicParsing="false" onAction="#SendChatMsg" text="Send" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Button fx:id="btnSendChatMsg" mnemonicParsing="false" onAction="#sendChatMsg" text="Send" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>

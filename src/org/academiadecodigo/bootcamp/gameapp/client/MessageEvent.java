@@ -6,7 +6,7 @@ import javafx.event.EventType;
 /**
  * Created by codecadet on 28/06/17.
  */
-// TODO: 01/07/17 this class isn't a controller
+// TODO: 01/07/17 this class see a possible deletion :)
 public class MessageEvent extends Event {
 
     public static final EventType<MessageEvent> type = new EventType<MessageEvent>(Event.ANY, "type");

@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.Initializable;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLoginController;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltRegisterController;
+import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
 /**
  * Created by Cyrille on 27/06/17.
@@ -11,9 +12,6 @@ import org.academiadecodigo.bootcamp.gameapp.client.controller.CltRegisterContro
 // TODO: 02/07/2017 this class will be protocol handler client
 // TODO: 02/07/2017 try safe downcast
 public class CltProtocolParser implements Runnable {
-
-    private static final int SERVER_PROTOCOL = 0;
-    private static final int SERVER_MESSAGE = 1;
 
     private Initializable initializable;
     private Client client;
@@ -26,12 +24,10 @@ public class CltProtocolParser implements Runnable {
     public void run() {
 
         while (!client.getClientSocket().isClosed()) {
-            System.out.println("inicio client handler");
+
             String message = client.receive();
 
-
             protocolHandler(message);
-
         }
     }
 
@@ -40,22 +36,21 @@ public class CltProtocolParser implements Runnable {
         String[] protocol = message.split(" ");
 
 
-        switch (protocol[SERVER_PROTOCOL]){
+        switch (protocol[ProtocolConfig.PROTOCOL]){
 
-            case "@SERVER_LOGIN":
-                userLogin(protocol[SERVER_MESSAGE]);
+            case ProtocolConfig.SERVER_LOGIN:
+                userLogin(protocol[ProtocolConfig.MESSAGE]);
                 break;
-            case "@SERVER_REGISTER":
-                System.out.println(protocol[SERVER_PROTOCOL] + " mais isto" + protocol[SERVER_MESSAGE]);
-                registryMessage(protocol[SERVER_MESSAGE]);
+            case ProtocolConfig.SERVER_REGISTER:
+                registryMessage(protocol[ProtocolConfig.MESSAGE]);
                 break;
-            case "@SERVER_LOBBY":
-
-                break;
-            case "@SERVER_GAME":
+            case ProtocolConfig.SERVER_LOBBY:
 
                 break;
-            case "@CLIENT":
+            case ProtocolConfig.SERVER_GAME:
+
+                break;
+            case ProtocolConfig.CLIENT_CHAT:
 
                 break;
         }
@@ -66,7 +61,7 @@ public class CltProtocolParser implements Runnable {
             @Override
             public void run() {
 
-                if (message.equals("lobby")) {
+                if (message.equals(ProtocolConfig.LOBBY_VIEW)) {
                     ((CltLoginController) initializable).successfullyAuth(message);
                 }
             }
@@ -77,7 +72,7 @@ public class CltProtocolParser implements Runnable {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                if (message.equals("login")) {
+                if (message.equals(ProtocolConfig.LOGIN_VIEW)) {
                     ((CltRegisterController) initializable).backScreen();
                 }
             }

@@ -4,6 +4,7 @@ import org.academiadecodigo.bootcamp.gameapp.server.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
 import org.academiadecodigo.bootcamp.gameapp.server.srvController.SrvLoginController;
 import org.academiadecodigo.bootcamp.gameapp.server.srvController.SrvRegisterController;
+import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
 import java.net.Socket;
 
@@ -27,7 +28,7 @@ public class ServerParser {
 
         String[] protocol = message.split(" ");
 
-        switch (protocol[0]) {
+        switch (protocol[ProtocolConfig.PROTOCOL]) {
             case "@SERVER_LOGIN":
                 loginUser(protocol);
                 break;

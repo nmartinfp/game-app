@@ -3,7 +3,7 @@ package org.academiadecodigo.bootcamp.gameapp.server.srvController;
 import org.academiadecodigo.bootcamp.gameapp.server.Server;
 import org.academiadecodigo.bootcamp.gameapp.server.model.User;
 import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
-import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
+import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
 import java.net.Socket;
 
@@ -30,6 +30,7 @@ public class SrvRegisterController {
 
         userService.addUser(user);
 
-        server.sendingProtoMsg(CommProtocol.SERVER_REGISTRY.getProtocol() + "login", clientSocket);
+        server.sendingProtoMsg(ProtocolConfig.SERVER_REGISTER + ProtocolConfig.LOGIN_VIEW,
+                clientSocket);
     }
 }

@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import org.academiadecodigo.bootcamp.gameapp.client.*;
-import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
+import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.Verification;
 
 import java.net.URL;
@@ -49,7 +49,7 @@ public class CltLoginController implements Initializable {
         Verification.cleanErrorMsg(lblUsernameError, lblPasswordError, lblPasswordError, lblPasswordError);
 
         if (!emptyField()) {
-            String sendMessage = CommProtocol.SERVER_LOGIN.getProtocol() + username.getText() +
+            String sendMessage = ProtocolConfig.SERVER_LOGIN + username.getText() +
                     " " + password.getText() + "\n";
             client.send(sendMessage);
         }
@@ -57,7 +57,7 @@ public class CltLoginController implements Initializable {
 
     @FXML
     void onRegister(ActionEvent event) {
-        Navigation.getInstance().loadScreen("register");        //TODO: Testing
+        Navigation.getInstance().loadScreen(ProtocolConfig.REGISTER_VIEW);        //TODO: Testing
     }
 
     public void successfullyAuth(String message){

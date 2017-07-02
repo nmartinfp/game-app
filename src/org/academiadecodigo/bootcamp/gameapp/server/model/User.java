@@ -5,7 +5,7 @@ package org.academiadecodigo.bootcamp.gameapp.server.model;
  * 2nd group project - Game App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
-
+// TODO: 02/07/17 if we have profile this properties stay if not go to the HELL
 public class User {
 
     private String firstName;
@@ -23,15 +23,6 @@ public class User {
         this.firstName = firstName;
         this.username = username;
         this.password = password;
-    }
-
-    // TODO: 01/07/2017 - Fix this shit please!!!!
-    public User(String firstName, String lastName, String username, String password, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.password = password;
-        this.email = email;
     }
 
     public String getFirstName() {

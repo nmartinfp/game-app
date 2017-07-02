@@ -1,7 +1,6 @@
 package org.academiadecodigo.bootcamp.gameapp.client.controller;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -11,6 +10,7 @@ import org.academiadecodigo.bootcamp.gameapp.utilities.Verification;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -20,10 +20,10 @@ import java.util.concurrent.Executors;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-public class LoginController implements Initializable {
+public class CltLoginController implements Initializable {
 
     private Client client;
-    private ClientHandler clientHandler;
+    private CltProtocolParser cltProtocolParser;
 
     @FXML
     private TextField username;
@@ -49,7 +49,8 @@ public class LoginController implements Initializable {
         Verification.cleanErrorMsg(lblUsernameError, lblPasswordError, lblPasswordError, lblPasswordError);
 
         if (!emptyField()) {
-            String sendMessage = CommProtocol.SERVER.getProtocol() + username.getText() + " " + password.getText() + "\n";
+            String sendMessage = CommProtocol.SERVER_LOGIN.getProtocol() + username.getText() +
+                    " " + password.getText() + "\n";
             client.send(sendMessage);
         }
     }
@@ -59,18 +60,21 @@ public class LoginController implements Initializable {
         Navigation.getInstance().loadScreen("register");        //TODO: Testing
     }
 
-    public void onText(String message){
-        String[] protocol = message.split(" ");
-        Navigation.getInstance().loadScreen(protocol[1]);
+    public void successfullyAuth(String message){
+        Navigation.getInstance().loadScreen(message);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         client = ClientRegistry.getInstance().getClient();
-        clientHandler = ClientRegistry.getInstance().getHandler();
-        clientHandler.setInitializable(this);
+        cltProtocolParser = new CltProtocolParser();
 
+        cltProtocolParser.setInitializable(this);
+        ClientRegistry.getInstance().setHandler(cltProtocolParser);
+
+        ExecutorService newThread = Executors.newSingleThreadExecutor();
+        newThread.submit(cltProtocolParser);
     }
 
     private boolean emptyField() {

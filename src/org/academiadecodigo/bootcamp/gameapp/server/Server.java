@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
  * 2nd group project - Game App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
-
+// TODO: 02/07/17 we aren't close server sokcet
 public class Server {
 
     private ServerSocket serverSocket;
@@ -39,17 +39,6 @@ public class Server {
 
         } catch (IOException e) {
             e.printStackTrace();
-
-        } finally {
-
-            if (serverSocket != null) {
-                try {
-                    serverSocket.close();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 
@@ -84,22 +73,47 @@ public class Server {
     }
 
     // TODO: 01/07/17 this method go to @server controllers 'LOGIN,REGISTER,LOBBY,ROOM'
-    public void out(String line) {
+    //Sending mesg to everyone CHAT
+    public void sendingProtoMsgAll(String message) {
+
+        for (Socket socket : clientList) {
+            sendingProtoMsg(message, socket);
+        }
+    }
+
+    //Sending msg just for one client
+    public void sendingProtoMsg(String message, Socket clientSocket) {
+
         try {
 
-            for (Socket socket : clientList) {
-                System.out.println("vou enviar a mensagem");
-                PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
-                output.println(line);
-                output.flush();
-                System.out.println("enviei esta mensagem + " + line);
-            }
+            System.out.println("Entrei aqui server para enviar a mensagem para o client ");         //todo TESTING
+            PrintWriter output = new PrintWriter(clientSocket.getOutputStream(), true);
+            output.println(message);
+            output.flush();
+            System.out.println("sending this msg to client " + message);            //todo Testing
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public void chatbetweenTwo(Socket clientSocket, String line) {
+        Socket[] socket = roomDesired(clientSocket);
+
+        try {
+            for (int i = 0; i < socket.length; i++) {
+
+                PrintWriter output = new PrintWriter(socket[i].getOutputStream(), true);
+                output.println(line);
+                output.flush();
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // TODO: 02/07/17 think in LinkedList.peek()
     // TODO: 01/07/17 this method go to @server controller LOBBY
     public void createRoom(Socket clientSocket) {
 
@@ -123,22 +137,6 @@ public class Server {
 
     private void removeClientList(Socket clientSocket) {
         clientList.remove(clientSocket);
-    }
-
-    public void chatbetween2(Socket clientSocket, String line) {
-        Socket[] socket = roomDesired(clientSocket);
-
-        try {
-            for (int i = 0; i < socket.length; i++) {
-
-                PrintWriter output = new PrintWriter(socket[i].getOutputStream(), true);
-                output.println(line);
-                output.flush();
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private Socket[] roomDesired(Socket clientSocket) {

@@ -58,7 +58,14 @@ public final class Navigation {
         }
 
         scenes.pop();
+        selectController();
+
         setScene(scenes.peek());
+    }
+
+    //Setting controller on CLientHandler
+    private void selectController() {
+        scenes.peek();
     }
 
     public static Navigation getInstance() {

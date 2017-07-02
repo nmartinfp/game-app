@@ -3,13 +3,13 @@ package org.academiadecodigo.bootcamp.gameapp;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
-import org.academiadecodigo.bootcamp.gameapp.client.ClientHandler;
 import org.academiadecodigo.bootcamp.gameapp.client.ClientRegistry;
 import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
 import org.academiadecodigo.bootcamp.gameapp.server.Server;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import org.academiadecodigo.bootcamp.gameapp.server.persistence.ConnectionManager;
+import org.academiadecodigo.bootcamp.gameapp.server.service.ServiceRegistry;
+import org.academiadecodigo.bootcamp.gameapp.server.service.user.JdbcUserService;
+import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
 
 /**
  * A/C: Bootcamp8
@@ -30,14 +30,25 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
 
-        // TODO: 01/07/17 create service resgistry for server
+        // TODO: 02/07/17 CHECK to see if start is fixed to start on main
         if (args[0].equals("server")) {
             Server server = new Server();
+            prepairServer();
             server.init();
+            server.start();
             return;
         }
 
         launch(args);
+    }
+
+    // TODO: 02/07/17 Check to see if existe BUG's ** see if connection isn't null &&
+    // userService on ServerParser ins't null too check line 19
+    private static void prepairServer(){
+        ConnectionManager connectionManager = new ConnectionManager();
+        UserService userService = new JdbcUserService(connectionManager.getConnection());
+
+        ServiceRegistry.getInstance().addService(userService);
     }
 
     /**
@@ -45,6 +56,11 @@ public class Main extends Application {
      */
     @Override
     public void init() {
+        client = new Client();
+        //CltProtocolParser clientHandler = new CltProtocolParser();
+
+        ClientRegistry.getInstance().setClient(client);
+        //ClientRegistry.getInstance().setHandler(clientHandler);
     }
 
     /**
@@ -56,17 +72,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        client = new Client();
-        ClientHandler clientHandler = new ClientHandler();
-
-        ClientRegistry.getInstance().setClient(client);
-        ClientRegistry.getInstance().setHandler(clientHandler);
-
         Navigation.getInstance().setStage(primaryStage);
         Navigation.getInstance().loadScreen("login");
 
-        ExecutorService newThread = Executors.newSingleThreadExecutor();
-        newThread.submit(clientHandler);
     }
 
     @Override

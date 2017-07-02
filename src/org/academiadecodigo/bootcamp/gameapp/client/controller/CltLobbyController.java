@@ -2,15 +2,19 @@ package org.academiadecodigo.bootcamp.gameapp.client.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 /**
  * Created by codecadet Helder Matos on 01/07/17.
  */
-public class LobbyController {
+public class CltLobbyController implements Initializable{
 
     @FXML
     private Button btnGameRPS;
@@ -31,5 +35,10 @@ public class LobbyController {
 
     @FXML
     void SendMsg(ActionEvent event) {
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }

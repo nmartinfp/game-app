@@ -4,6 +4,8 @@ import org.academiadecodigo.bootcamp.gameapp.server.Server;
 import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
 import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
 
+import java.net.Socket;
+
 /**
  * A/C: Bootcamp8
  * 2nd group project - Game App Platform
@@ -12,23 +14,26 @@ import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
 
 public class SrvLoginController {
 
-    Server server;
-    UserService service;
+    private Server server;
+    private Socket clientSocket;
+    private UserService userService;
 
-    public SrvLoginController(Server server, UserService service) {
+    public SrvLoginController(Server server, Socket clientSocket, UserService userService) {
         this.server = server;
-        this.service = service;
+        this.clientSocket = clientSocket;
+        this.userService = userService;
     }
 
-    public String authenticate(String user, String pass) {
+    public void authenticate(String user, String pass) {
         System.out.print("Authenticating: ");
 
-        if (service.authenticate(user, pass)) {
+        if (userService.authenticate(user, pass)) {
 
             System.out.println("authentication true");
-            return CommProtocol.SERVER.getProtocol() + "lobby";
+            server.sendingProtoMsg(CommProtocol.SERVER_LOGIN.getProtocol() + "lobby", clientSocket);
+            return;
         }
-        return "false";
 
+        server.sendingProtoMsg(CommProtocol.SERVER_LOGIN.getProtocol() + "AUTH_FAILURE" , clientSocket);
     }
 }

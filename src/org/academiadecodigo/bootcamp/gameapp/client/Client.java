@@ -1,7 +1,5 @@
 package org.academiadecodigo.bootcamp.gameapp.client;
 
-import org.academiadecodigo.bootcamp.gameapp.utilities.ServerConfig;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

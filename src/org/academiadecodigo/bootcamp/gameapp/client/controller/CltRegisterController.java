@@ -21,14 +21,13 @@ import java.util.ResourceBundle;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-public class RegisterController implements Initializable {
+public class CltRegisterController implements Initializable {
 
     private Client client;
     private EventHandler<MessageEvent> messageHandler;
-    private ClientHandler clientHandler;
+    private CltProtocolParser cltProtocolParser;
     private boolean fieldEmpty;
-    boolean goodPass;
-    boolean checkEmail;
+    private boolean checkEmail;
 
     @FXML
     private TextField username;
@@ -64,25 +63,23 @@ public class RegisterController implements Initializable {
     public void onRegister(ActionEvent event) {
 
         Verification.cleanErrorMsg(lblUsernameErrorReg, lblPasswordErrorReg, lblFirstNameErrorReg, lblMailErrorReg);
-        fieldEmpty = emptyField();
 
-        if (!fieldEmpty) {
-            goodPass = validPassword();
+        if (!emptyField()) {
             checkEmail = Verification.checkEmail(email);
 
             if(!checkEmail){
                 lblMailErrorReg.setText("(* Invalid email)");
                 lblMailErrorReg.setVisible(true);
+                return;
             }
 
-
-            if(goodPass && checkEmail){
-                String sendMessage = CommProtocol.SERVER.getProtocol() + firstName.getText() + " " + username.getText() +
-                        " " + password.getText() + "\n";
+            //if(validPassword()){
+                String sendMessage = CommProtocol.SERVER_REGISTRY.getProtocol() + firstName.getText() + " " +
+                        username.getText() + " " + password.getText() + "\n";
 
                 System.out.println("send message" + sendMessage);
                 client.send(sendMessage);
-            }
+            //}
         }
     }
 
@@ -91,14 +88,11 @@ public class RegisterController implements Initializable {
     }
 
     private boolean validPassword() {
-        boolean validPass;
-        validPass = Verification.checkPassword(password);
 
+        if (!Verification.checkPassword(password)) {
 
-        if (!validPass) {
-
-            lblPasswordErrorReg.setText("(* Minimum of 8 characters containing at least\n 1 number, 1 lower case and " +
-                    "1 upper case letter)");
+            lblPasswordErrorReg.setText("(* Minimum of 8 characters containing at least\n 1 number," +
+                    " 1 lower case and 1 upper case letter)");
             lblPasswordErrorReg.setVisible(true);
             return false;
         }
@@ -138,8 +132,8 @@ public class RegisterController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         client = ClientRegistry.getInstance().getClient();
-        ClientHandler clientHandler = ClientRegistry.getInstance().getHandler();
-        clientHandler.setInitializable(this);
+        cltProtocolParser = ClientRegistry.getInstance().getHandler();
+        cltProtocolParser.setInitializable(this);
     }
 
 }

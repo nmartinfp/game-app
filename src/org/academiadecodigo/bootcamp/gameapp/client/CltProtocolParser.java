@@ -10,7 +10,9 @@ import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import java.util.HashMap;
 
 /**
- * Created by Cyrille on 27/06/17.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 // TODO: 02/07/2017 this class will be protocol handler client
 // TODO: 02/07/2017 try safe downcast

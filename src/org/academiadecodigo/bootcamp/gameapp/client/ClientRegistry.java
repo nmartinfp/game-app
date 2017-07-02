@@ -1,7 +1,9 @@
 package org.academiadecodigo.bootcamp.gameapp.client;
 
 /**
- * Created by codecadet on 01/07/17.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 public final class ClientRegistry {
 

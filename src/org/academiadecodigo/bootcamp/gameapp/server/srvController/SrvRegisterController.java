@@ -8,8 +8,11 @@ import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import java.net.Socket;
 
 /**
- * Created by codecadet on 01/07/2017.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
 public class SrvRegisterController {
 
 

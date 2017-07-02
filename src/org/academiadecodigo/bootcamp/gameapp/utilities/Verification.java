@@ -5,8 +5,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
- * Created by codecadet Helder Matos on 01/07/17.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
 public class Verification {
 
     public static void cleanErrorMsg(Label lblUsernameError, Label lblPasswordError, Label lblFirstNameErrorReg, Label lblMailErrorReg) {

@@ -7,7 +7,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Created by codecadet on 01/07/2017.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 // TODO: 01/07/2017 close database connection when we close program
 public class ConnectionManager {

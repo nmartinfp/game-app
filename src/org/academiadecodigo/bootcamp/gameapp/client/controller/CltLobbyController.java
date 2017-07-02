@@ -10,16 +10,21 @@ import org.academiadecodigo.bootcamp.gameapp.client.Client;
 import org.academiadecodigo.bootcamp.gameapp.client.ClientRegistry;
 import org.academiadecodigo.bootcamp.gameapp.client.CltProtocolParser;
 import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
-import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
+import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
 /**
- * Created by codecadet Helder Matos on 01/07/17.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
-public class CltLobbyController implements Initializable {
+
+public class CltLobbyController implements Initializable, Controller{
+
+    private final String NAME = "Lobby";
 
     private Client client;
 
@@ -82,7 +87,7 @@ public class CltLobbyController implements Initializable {
 
         if (!sendChatMsg.getText().isEmpty()) {
 
-            String sendMessage = CommProtocol.CLIENT.getProtocol() + " " + sendChatMsg.getText();
+            String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText();
             sendChatMsg.clear();
             client.send(sendMessage);
         }
@@ -106,7 +111,7 @@ public class CltLobbyController implements Initializable {
     @FXML
     void onActionNewRoom(ActionEvent event) {
 
-        String sendMessage = CommProtocol.SERVER_GAME.getProtocol() + " " + "GAME_RPS";
+        String sendMessage = ProtocolConfig.SERVER_GAME + " " + "GAME_RPS";
         client.send(sendMessage);
     }
 
@@ -127,5 +132,9 @@ public class CltLobbyController implements Initializable {
         client = ClientRegistry.getInstance().getClient();
         cltProtocolParser = ClientRegistry.getInstance().getHandler();
         cltProtocolParser.setInitializable(this);
+    }
+
+    public String getName(){
+        return NAME;
     }
 }

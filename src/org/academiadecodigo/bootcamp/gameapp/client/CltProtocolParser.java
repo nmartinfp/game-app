@@ -4,34 +4,36 @@ import javafx.application.Platform;
 import javafx.fxml.Initializable;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLoginController;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltRegisterController;
+import org.academiadecodigo.bootcamp.gameapp.client.controller.Controller;
+import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
+
+import java.util.HashMap;
 
 /**
- * Created by Cyrille on 27/06/17.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 // TODO: 02/07/2017 this class will be protocol handler client
 // TODO: 02/07/2017 try safe downcast
 public class CltProtocolParser implements Runnable {
 
-    private static final int SERVER_PROTOCOL = 0;
-    private static final int SERVER_MESSAGE = 1;
-
-    private Initializable initializable;
+    private HashMap<String, Controller> controllerMap;
     private Client client;
 
     public CltProtocolParser() {
         client = ClientRegistry.getInstance().getClient();
+        controllerMap = new HashMap<>();
     }
 
     @Override
     public void run() {
 
         while (!client.getClientSocket().isClosed()) {
-            System.out.println("inicio client handler");
+
             String message = client.receive();
-
-
+            System.out.println("message recieved from server: " + message);
             protocolHandler(message);
-
         }
     }
 
@@ -39,23 +41,24 @@ public class CltProtocolParser implements Runnable {
 
         String[] protocol = message.split(" ");
 
+        System.out.println(protocol[ProtocolConfig.PROTOCOL] + " agora so  amensagem " + protocol[ProtocolConfig.MESSAGE]);
+        System.out.println(ProtocolConfig.SERVER_LOGIN);
+        switch (protocol[ProtocolConfig.PROTOCOL]){
 
-        switch (protocol[SERVER_PROTOCOL]){
-
-            case "@SERVER_LOGIN":
-                userLogin(protocol[SERVER_MESSAGE]);
+            case ProtocolConfig.SERVER_LOGIN:
+                System.out.println("metodoe para ir para a parte do login");
+                userLogin(protocol[ProtocolConfig.MESSAGE]);
                 break;
-            case "@SERVER_REGISTER":
-                System.out.println(protocol[SERVER_PROTOCOL] + " mais isto" + protocol[SERVER_MESSAGE]);
-                registryMessage(protocol[SERVER_MESSAGE]);
+            case ProtocolConfig.SERVER_REGISTER:
+                registryMessage(protocol[ProtocolConfig.MESSAGE]);
                 break;
-            case "@SERVER_LOBBY":
-
-                break;
-            case "@SERVER_GAME":
+            case ProtocolConfig.SERVER_LOBBY:
 
                 break;
-            case "@CLIENT":
+            case ProtocolConfig.SERVER_GAME:
+
+                break;
+            case ProtocolConfig.CLIENT_CHAT:
 
                 break;
         }
@@ -65,9 +68,10 @@ public class CltProtocolParser implements Runnable {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-
-                if (message.equals("lobby")) {
-                    ((CltLoginController) initializable).successfullyAuth(message);
+                System.out.println("entrei no metodo para mudar para lobby");
+                if (message.equals(ProtocolConfig.LOBBY_VIEW)) {
+                    System.out.println("vou mudar para lobby");
+                    ((CltLoginController)controllerMap.get("Login")).successfullyAuth(message);
                 }
             }
         });
@@ -77,15 +81,15 @@ public class CltProtocolParser implements Runnable {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                if (message.equals("login")) {
-                    ((CltRegisterController) initializable).backScreen();
+                if (message.equals(ProtocolConfig.LOGIN_VIEW)) {
+                    ((CltRegisterController)controllerMap.get("Register")).backScreen();
                 }
             }
         });
     }
 
-    public void setInitializable(Initializable initializable) {
-        this.initializable = initializable;
+    public void setInitializable(Controller controller) {
+        controllerMap.put(controller.getName(), controller);
     }
 }
 

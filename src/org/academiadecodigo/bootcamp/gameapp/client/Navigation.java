@@ -58,14 +58,7 @@ public final class Navigation {
         }
 
         scenes.pop();
-        selectController();
-
         setScene(scenes.peek());
-    }
-
-    //Setting controller on CLientHandler
-    private void selectController() {
-        scenes.peek();
     }
 
     public static Navigation getInstance() {
@@ -81,6 +74,7 @@ public final class Navigation {
         return instance;
     }
 
+    // TODO: 02/07/17 if this method isnt called will be delete on the end of this week :)
     public Initializable getController(String view) {
         return controllers.get(view);
     }

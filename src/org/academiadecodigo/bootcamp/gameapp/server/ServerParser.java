@@ -4,12 +4,16 @@ import org.academiadecodigo.bootcamp.gameapp.server.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
 import org.academiadecodigo.bootcamp.gameapp.server.srvController.SrvLoginController;
 import org.academiadecodigo.bootcamp.gameapp.server.srvController.SrvRegisterController;
+import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
 import java.net.Socket;
 
 /**
- * Created by Cyrille on 02/07/17.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
 public class ServerParser {
 
     private Server server;
@@ -27,7 +31,7 @@ public class ServerParser {
 
         String[] protocol = message.split(" ");
 
-        switch (protocol[0]) {
+        switch (protocol[ProtocolConfig.PROTOCOL]) {
             case "@SERVER_LOGIN":
                 loginUser(protocol);
                 break;

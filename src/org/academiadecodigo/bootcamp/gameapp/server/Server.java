@@ -1,5 +1,7 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
+import org.academiadecodigo.bootcamp.gameapp.utilities.AppConfig;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -32,7 +34,7 @@ public class Server {
     public void init() {
         try {
 
-            serverSocket = new ServerSocket(1234);
+            serverSocket = new ServerSocket(AppConfig.PORT);
             System.out.println("Server up.");
 
             start();

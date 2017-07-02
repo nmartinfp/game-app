@@ -61,6 +61,9 @@ public class CltRegisterController implements Initializable, Controller{
     private Button btnRegister;
 
     @FXML
+    private Button btnBack;
+
+    @FXML
     public void onRegister(ActionEvent event) {
 
         Verification.cleanErrorMsg(lblUsernameErrorReg, lblPasswordErrorReg, lblFirstNameErrorReg, lblMailErrorReg);

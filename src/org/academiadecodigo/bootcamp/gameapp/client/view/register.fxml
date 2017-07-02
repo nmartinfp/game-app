@@ -88,5 +88,9 @@
             <Insets bottom="3.0" />
          </GridPane.margin>
       </Button>
+      <Button fx:id="btnaBack" mnemonicParsing="false" onAction="#backScreen" text="Back" GridPane.halignment="RIGHT" GridPane.rowIndex="11" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets bottom="3.0" right="3.0" />
+         </GridPane.margin></Button>
    </children>
 </GridPane>

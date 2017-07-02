@@ -1,8 +1,11 @@
 package org.academiadecodigo.bootcamp.gameapp.server.model;
 
 /**
- * Created by codecadet on 02/07/17.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
 public class RPSGame {
 
 

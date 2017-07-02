@@ -9,8 +9,11 @@ import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import java.net.Socket;
 
 /**
- * Created by Cyrille on 02/07/17.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
 public class ServerParser {
 
     private Server server;

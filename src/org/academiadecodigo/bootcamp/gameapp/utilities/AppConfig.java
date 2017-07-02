@@ -3,8 +3,11 @@ package org.academiadecodigo.bootcamp.gameapp.utilities;
 import java.net.InetAddress;
 
 /**
- * Created by codecadet on 01/07/2017.
+ * A/C: Bootcamp8
+ * 2nd group project - Game App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
 public final class AppConfig {
 
     /**

@@ -17,7 +17,6 @@ import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-
 public class Main extends Application {
 
     private Client client;

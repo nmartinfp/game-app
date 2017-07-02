@@ -8,6 +8,7 @@ import java.util.LinkedList;
  * 2nd group project - Game App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
 public class RPSGame {
 
     private LinkedList<Socket[]> clientList;

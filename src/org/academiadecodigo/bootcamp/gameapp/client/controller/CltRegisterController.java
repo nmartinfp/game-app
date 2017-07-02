@@ -1,7 +1,6 @@
 package org.academiadecodigo.bootcamp.gameapp.client.controller;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.academiadecodigo.bootcamp.gameapp.client.*;
-import org.academiadecodigo.bootcamp.gameapp.utilities.CommProtocol;
+import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.Verification;
 
 import java.net.URL;
@@ -21,10 +20,11 @@ import java.util.ResourceBundle;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-public class CltRegisterController implements Initializable {
+public class CltRegisterController implements Initializable, Controller{
+
+    private final String NAME = "Register";
 
     private Client client;
-    private EventHandler<MessageEvent> messageHandler;
     private CltProtocolParser cltProtocolParser;
     private boolean fieldEmpty;
     private boolean checkEmail;
@@ -60,6 +60,9 @@ public class CltRegisterController implements Initializable {
     private Button btnRegister;
 
     @FXML
+    private Button btnBack;
+
+    @FXML
     public void onRegister(ActionEvent event) {
 
         Verification.cleanErrorMsg(lblUsernameErrorReg, lblPasswordErrorReg, lblFirstNameErrorReg, lblMailErrorReg);
@@ -74,7 +77,7 @@ public class CltRegisterController implements Initializable {
             }
 
             //if(validPassword()){
-                String sendMessage = CommProtocol.SERVER_REGISTRY.getProtocol() + firstName.getText() + " " +
+                String sendMessage = ProtocolConfig.SERVER_REGISTER + " " + firstName.getText() + " " +
                         username.getText() + " " + password.getText() + "\n";
 
                 System.out.println("send message" + sendMessage);
@@ -136,4 +139,7 @@ public class CltRegisterController implements Initializable {
         cltProtocolParser.setInitializable(this);
     }
 
+    public String getName(){
+        return NAME;
+    }
 }

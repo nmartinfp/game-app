@@ -2,6 +2,7 @@ package org.academiadecodigo.bootcamp.gameapp;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
 import org.academiadecodigo.bootcamp.gameapp.client.ClientRegistry;
 import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
@@ -71,6 +72,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         Navigation.getInstance().setStage(primaryStage);
         Navigation.getInstance().loadScreen("login");
 

@@ -14,6 +14,7 @@ public final class AppConfig {
      * Server and Client configuration
      */
     public static final int PORT = 1234;
+    //public static final InetAddress IP = InetAddress.getLoopbackAddress();
     public static final InetAddress IP = InetAddress.getLoopbackAddress();
 
     /**

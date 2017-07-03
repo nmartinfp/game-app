@@ -1,13 +1,17 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
+import org.academiadecodigo.bootcamp.gameapp.server.model.User;
 import org.academiadecodigo.bootcamp.gameapp.utilities.AppConfig;
+import org.academiadecodigo.bootcamp.gameapp.utilities.Room;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.LinkedList;
 
+import java.util.Map;
+import java.util.Vector;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -16,18 +20,22 @@ import java.util.concurrent.Executors;
  * 2nd group project - Game App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
-// TODO: 02/07/17 we aren't close server sokcet
+// TODO: 02/07/17 we aren't closing server socket
 public class Server {
 
     private ServerSocket serverSocket;
     private Socket clientSocket;
 
-    private LinkedList<Socket> clientList;
-    private LinkedList<Socket[]> lobbyList;
+    private ConcurrentHashMap<User, Socket> clientList;
+    private Vector<Room> roomVector;  // TODO: 03/07/17 I'm not sure about this one
 
     public Server() {
-        clientList = new LinkedList<>();
-        lobbyList = new LinkedList<>();
+        clientList = new ConcurrentHashMap<>();
+
+    }
+
+    public ConcurrentHashMap<User, Socket> getClientList() {
+        return clientList;
     }
 
     //Preparer server
@@ -56,7 +64,6 @@ public class Server {
 
                 System.out.println("Server connected.");
 
-                clientList.add(clientSocket);
                 cachedPool.submit(new ServerWorker(clientSocket, this));
             }
         } catch (IOException e) {
@@ -78,7 +85,7 @@ public class Server {
     //Sending mesg to everyone CHAT
     public void sendingProtoMsgAll(String message) {
 
-        for (Socket socket : clientList) {
+        for (Socket socket : clientList.values()) {
             sendingProtoMsg(message, socket);
         }
     }
@@ -99,72 +106,58 @@ public class Server {
         }
     }
 
-    public void chatbetweenTwo(Socket clientSocket, String line) {
-        Socket[] socket = roomDesired(clientSocket);
-
-        try {
-            for (int i = 0; i < socket.length; i++) {
-
-                PrintWriter output = new PrintWriter(socket[i].getOutputStream(), true);
-                output.println(line);
-                output.flush();
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // TODO: 02/07/17 think in LinkedList.peek()
     // TODO: 01/07/17 this method go to @server controller LOBBY
-    public void createRoom(Socket clientSocket) {
-
-        if (lobbyList.isEmpty() || lobbyList.peekLast()[1] != null) {
-            lobbyList.add(new Socket[2]);
-        }
-
-        for (Socket[] socket : lobbyList) {
-
-            for (int i = 0; i < socket.length; i++) {
-                if (socket[i] == null) {
-                    socket[i] = clientSocket;
-                    System.out.println("entrei no room position number: " + i);                 //For testing
-                    System.out.println("sockets[] existentes: " + lobbyList.size());            //For Testing
-                    break;
-                }
-            }
-            removeClientList(clientSocket);
-        }
+    // TODO: 03/07/17 Create Room factory??
+    public void createRPSRoom() {
+        roomVector.add(new Room(2));
     }
 
-    private void removeClientList(Socket clientSocket) {
-        clientList.remove(clientSocket);
+
+
+    private void removeFromClientList(User user) {
+        clientList.remove(user);
     }
 
-    private Socket[] roomDesired(Socket clientSocket) {
-        Socket[] sockets = null;
 
-        for (Socket[] socket : lobbyList) {
+    // TODO: 03/07/17 Refactor to take the ConcurrentHashMap into account
+    /*
+     * Returns the Room a User is in if he is in any, if not returns null
+     */
+    private Room roomByUser(User user) {
 
-            for (int i = 0; i < socket.length; i++) {
-                if (socket[i] == clientSocket) {
-                    sockets = socket;
-                    return sockets;
-                }
+        for (Room room : roomVector) {
+            if (room.isUserInRoom(user)){
+                return room;
             }
-
         }
         return null;
     }
 
-    public void closeSocket(Socket clientSocket) {
+    public void closeSocketOfUser(Socket socket) {
 
         try {
-            removeClientList(clientSocket);
-            clientSocket.close();
+            removeFromClientList(findUser(socket));
+            socket.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setingMap(User user, Socket clientSocket) {
+        clientList.put(user, clientSocket);
+    }
+    
+    private User findUser(Socket clientSocket){
+
+        for (User user: clientList.keySet()) {
+
+            if (clientList.get(user).equals(clientSocket)){
+                return user;
+            }
+
+        }
+
+        return null;
     }
 }

@@ -29,8 +29,8 @@ public class SrvLobbyController {
 
     }
 
-    public void gameRequest() {
-        server.createRoom(clientSocket);
+    public void RPSRoomRequest() {
+        server.createRPSRoom();
 
     }
 

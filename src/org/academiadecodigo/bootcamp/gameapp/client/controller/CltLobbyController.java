@@ -34,12 +34,16 @@ public class CltLobbyController implements Initializable, Controller{
     private Label lblChatMsgOut;
 
     @FXML
+    private TextArea chatArea;
+
+    @FXML
     void RPSInit(ActionEvent event) {
 
     }
 
     @FXML
     void SendMsg(ActionEvent event) {
+
     }
 
     @Override

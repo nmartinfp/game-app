@@ -1,5 +1,7 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
+import org.academiadecodigo.bootcamp.gameapp.server.model.User;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -34,7 +36,7 @@ public class ServerWorker implements Runnable {
 
                 if (message.equals("null")) {
 
-                    server.closeSocket(clientSocket);
+                    server.closeSocketOfUser(clientSocket);
                     return;
                 }
 

@@ -8,7 +8,7 @@ package org.academiadecodigo.bootcamp.gameapp.utilities;
 
 public final class ProtocolConfig {
 
-    /**
+    /*
      * Protocol Configuration
      * First element is the protocol
      * Second element is the message
@@ -16,7 +16,7 @@ public final class ProtocolConfig {
     public static final int PROTOCOL = 0;
     public static final int MESSAGE = 1;
 
-    /**
+    /*
      * Protocol Configuration
      *
      * @ First element:
@@ -31,7 +31,7 @@ public final class ProtocolConfig {
     public static final String SERVER_GAME = "@SERVER_GAME";
     public static final String CLIENT_CHAT = "@CLIENT_CHAT";
 
-    /**
+    /*
      * View Load Configuration
      */
     public static final String LOGIN_VIEW = "login";

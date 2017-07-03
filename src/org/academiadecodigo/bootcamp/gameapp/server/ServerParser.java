@@ -32,18 +32,18 @@ public class ServerParser {
         String[] protocol = message.split(" ");
 
         switch (protocol[ProtocolConfig.PROTOCOL]) {
-            case "@SERVER_LOGIN":
+            case ProtocolConfig.SERVER_LOGIN:
                 loginUser(protocol);
                 break;
-            case "@SERVER_REGISTER":
+            case ProtocolConfig.SERVER_REGISTER:
                 registerUSer(protocol);
                 break;
-            case "@SERVER_LOBBY":
+            case ProtocolConfig.SERVER_LOBBY:
                 rpsGame(protocol);
                 break;
-            case "@SERVER_GAME":
+            case ProtocolConfig.SERVER_GAME:
                 throw new UnsupportedOperationException();
-            case "@CLIENT":
+            case ProtocolConfig.CLIENT_CHAT:
                 clientComm(message);
                 break;
         }

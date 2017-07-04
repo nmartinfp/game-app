@@ -65,7 +65,7 @@ public class CltProtocolParser implements Runnable {
         }
     }
 
-    private void receivedMessage(String message) {
+    private void receivedMessage(final String message) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -74,7 +74,7 @@ public class CltProtocolParser implements Runnable {
         });
     }
 
-    private void userLogin(String message){
+    private void userLogin(final String message){
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -87,7 +87,7 @@ public class CltProtocolParser implements Runnable {
         });
     }
 
-    private void registryMessage(String message){
+    private void registryMessage(final String message){
         Platform.runLater(new Runnable() {
             @Override
             public void run() {

@@ -21,5 +21,10 @@ public class CltRpsController implements Initializable , Controller{
 
     public String getName(){
         return NAME;
+
     }
+
+    //client chooses hand and sends it to the server
+    //client receives info about who won and shows win/lost
+    //client receives info about final results and shows win/lost
 }

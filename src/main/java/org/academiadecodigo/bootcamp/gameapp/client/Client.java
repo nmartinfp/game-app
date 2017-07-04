@@ -43,11 +43,10 @@ public class Client {
         }
     }
 
+    // TODO: 04/07/17 close thread of readLine() when close program
     //Receiving message from server
     public String receive() {
         String receivedMessage = null;
-
-        System.out.println("I'm in client / receive method");       //todo TESTNG
 
         try {
             receivedMessage = input.readLine();

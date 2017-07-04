@@ -21,8 +21,10 @@ public final class AppConfig {
      * DataBase Configuration
      * URL is the IP for Nelson's Machine
      */
-    //public static final String DATABASE_URL = "jdbc:mysql://localhost/gameApp";
-    public static final String DATABASE_URL = "jdbc:mysql://192.168.1.18/gameApp";
-    public static final String DATABASE_USER = "gameapp";
-    public static final String DATABASE_PWD = "gamepwd";
+    public static final String DATABASE_URL = "jdbc:mysql://localhost/gameApp";
+    //public static final String DATABASE_URL = "jdbc:mysql://192.168.1.18/gameApp";
+    //public static final String DATABASE_USER = "gameapp";
+    //public static final String DATABASE_PWD = "gamepwd";
+    public static final String DATABASE_USER = "root";
+    public static final String DATABASE_PWD = "";
 }

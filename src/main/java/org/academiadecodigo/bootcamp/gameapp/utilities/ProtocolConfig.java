@@ -29,6 +29,13 @@ public final class ProtocolConfig {
     public static final String SERVER_REGISTER = "@SERVER_REGISTER";
     public static final String SERVER_LOBBY = "@SERVER_LOBBY";
     public static final String SERVER_GAME = "@SERVER_GAME";
+    public static final String SERVER_CHAT = "@SERVER_CHAT";
+    public static final String SERVER_ERR = "@SERVER_ERROR";
+
+    public static final String CLIENT_LOGIN = "@CLIENT_LOGIN";
+    public static final String CLIENT_REGISTER = "@CLIENT_REGISTER";
+    public static final String CLIENT_LOBBY = "@CLIENT_LOBBY";
+    public static final String CLIENT_GAME = "@CLIENT_GAME";
     public static final String CLIENT_CHAT = "@CLIENT_CHAT";
 
     /*

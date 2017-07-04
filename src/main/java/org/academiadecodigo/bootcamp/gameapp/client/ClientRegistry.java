@@ -8,7 +8,7 @@ package org.academiadecodigo.bootcamp.gameapp.client;
 public final class ClientRegistry {
 
     private Client client;
-    private CltProtocolParser handler;
+    private ClientHandler handler;
 
     private static ClientRegistry instance = null;
 
@@ -33,7 +33,7 @@ public final class ClientRegistry {
         return client;
     }
 
-    public CltProtocolParser getHandler() {
+    public ClientHandler getHandler() {
         return handler;
     }
 
@@ -41,7 +41,7 @@ public final class ClientRegistry {
         this.client = client;
     }
 
-    public void setHandler(CltProtocolParser handler) {
+    public void setHandler(ClientHandler handler) {
         this.handler = handler;
     }
 }

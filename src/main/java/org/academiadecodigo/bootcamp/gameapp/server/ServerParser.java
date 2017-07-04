@@ -26,44 +26,21 @@ public class ServerParser {
         userService = ServiceRegistry.getInstance().getService(UserService.class.getSimpleName());
     }
 
-    // TODO: 01/07/17 create method @server to forward communications
-    public void forwardComm(String message) {
-
-        String[] protocol = message.split(" ");
-
-        switch (protocol[ProtocolConfig.PROTOCOL]) {
-            case ProtocolConfig.SERVER_LOGIN:
-                loginUser(protocol);
-                break;
-            case ProtocolConfig.SERVER_REGISTER:
-                registerUSer(protocol);
-                break;
-            case ProtocolConfig.SERVER_LOBBY:
-                rpsGame(protocol);
-                break;
-            case ProtocolConfig.SERVER_GAME:
-                throw new UnsupportedOperationException();
-            case ProtocolConfig.CLIENT_CHAT:
-                clientComm(message);
-                break;
-        }
-    }
-
-    private void rpsGame(String[] protocol) {
+    public void rpsGame(String[] protocol) {
         throw new UnsupportedOperationException();
     }
 
-    private void serverComm(String[] protocol) {
+    public void serverComm(String[] protocol) {
         throw new UnsupportedOperationException();
     }
 
-    private void loginUser(String[] protocol) {
+    public void loginUser(String[] protocol) {
 
         SrvLoginController loginController = new SrvLoginController(server, clientSocket, userService);
         loginController.authenticate(protocol[1], protocol[2]);
     }
 
-    private void registerUSer(String[] protocol) {
+    public void registerUSer(String[] protocol) {
 
         System.out.println("Message forwarded");        //Testing
         SrvRegisterController registerController = (new SrvRegisterController(server, clientSocket, userService));
@@ -71,8 +48,7 @@ public class ServerParser {
         System.out.println("fui autenticado");      //testing
     }
 
-    // TODO: 02/07/17 this method is sending message to everyone &&change it
-    private void clientComm(String message) {
+    public void clientComm(String message) {
         server.sendingProtoMsgAll(message);
     }
 }

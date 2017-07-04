@@ -8,7 +8,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
 import org.academiadecodigo.bootcamp.gameapp.client.ClientRegistry;
-import org.academiadecodigo.bootcamp.gameapp.client.CltProtocolParser;
+import org.academiadecodigo.bootcamp.gameapp.client.ClientHandler;
 import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
@@ -129,11 +129,11 @@ public class CltLobbyController implements Initializable, Controller{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        CltProtocolParser cltProtocolParser;
+        ClientHandler clientHandler;
 
         client = ClientRegistry.getInstance().getClient();
-        cltProtocolParser = ClientRegistry.getInstance().getHandler();
-        cltProtocolParser.setInitializable(this);
+        clientHandler = ClientRegistry.getInstance().getHandler();
+        clientHandler.setInitializable(this);
     }
 
     public String getName(){

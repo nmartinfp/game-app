@@ -30,10 +30,11 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
 
-        // TODO: 02/07/17 CHECK to see if start is fixed to start on main
-        if (args[0].equals("server")) {
+        if (args.length != 0 && args[0].equals("server")) {
             Server server = new Server();
-            prepairServer();
+
+            wiringServer();
+
             server.init();
             server.start();
             return;
@@ -42,9 +43,7 @@ public class Main extends Application {
         launch(args);
     }
 
-    // TODO: 02/07/17 Check to see if existe BUG's ** see if connection isn't null &&
-    // userService on ServerParser ins't null too check line 19
-    private static void prepairServer(){
+    private static void wiringServer(){
         ConnectionManager connectionManager = new ConnectionManager();
         UserService userService = new JdbcUserService(connectionManager.getConnection());
 
@@ -57,10 +56,7 @@ public class Main extends Application {
     @Override
     public void init() {
         client = new Client();
-        //CltProtocolParser clientHandler = new CltProtocolParser();
-
         ClientRegistry.getInstance().setClient(client);
-        //ClientRegistry.getInstance().setHandler(clientHandler);
     }
 
     /**
@@ -72,10 +68,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.UTILITY);
         Navigation.getInstance().setStage(primaryStage);
         Navigation.getInstance().loadScreen("login");
-
     }
 
     @Override

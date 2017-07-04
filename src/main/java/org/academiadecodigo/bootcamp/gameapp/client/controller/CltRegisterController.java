@@ -25,7 +25,7 @@ public class CltRegisterController implements Initializable, Controller{
     private final String NAME = "Register";
 
     private Client client;
-    private CltProtocolParser cltProtocolParser;
+    private ClientHandler clientHandler;
     private boolean fieldEmpty;
     private boolean checkEmail;
 
@@ -135,8 +135,8 @@ public class CltRegisterController implements Initializable, Controller{
     public void initialize(URL location, ResourceBundle resources) {
 
         client = ClientRegistry.getInstance().getClient();
-        cltProtocolParser = ClientRegistry.getInstance().getHandler();
-        cltProtocolParser.setInitializable(this);
+        clientHandler = ClientRegistry.getInstance().getHandler();
+        clientHandler.setInitializable(this);
     }
 
     public String getName(){

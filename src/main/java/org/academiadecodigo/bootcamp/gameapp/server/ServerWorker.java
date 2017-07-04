@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
 import org.academiadecodigo.bootcamp.gameapp.server.model.User;
+import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.net.Socket;
  * 2nd group project - Game App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
-// TODO: 02/07/17 change the creation of protocolParser
+// TODO: 02/07/17 change name of this class
 public class ServerWorker implements Runnable {
 
     private Socket clientSocket;
@@ -42,7 +43,7 @@ public class ServerWorker implements Runnable {
 
                 System.out.println("Message received: " + message);
                 ServerParser serverParser = new ServerParser(server, clientSocket);
-                serverParser.forwardComm(message);
+                ProtocolParser.serverProtocolHandler(serverParser, message);
 
             }
         } catch (IOException e) {

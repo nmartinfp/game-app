@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-public class Verification {
+public final class Verification {
 
     public static void cleanErrorMsg(Label lblUsernameError, Label lblPasswordError, Label lblFirstNameErrorReg, Label lblMailErrorReg) {
 

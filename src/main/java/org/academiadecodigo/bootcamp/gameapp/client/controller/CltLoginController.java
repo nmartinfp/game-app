@@ -3,6 +3,7 @@ package org.academiadecodigo.bootcamp.gameapp.client.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import org.academiadecodigo.bootcamp.gameapp.client.*;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
@@ -25,7 +26,7 @@ public class CltLoginController implements Initializable, Controller {
     private final String NAME = "Login";
 
     private Client client;
-    private CltProtocolParser cltProtocolParser;
+    private ClientHandler clientHandler;
 
     @FXML
     private TextField username;
@@ -40,12 +41,15 @@ public class CltLoginController implements Initializable, Controller {
     private Hyperlink linkRegister;
 
     @FXML
+    private Label lblLoginInfo;
+
+    @FXML
     private Label lblUsernameError;
 
     @FXML
     private Label lblPasswordError;
 
-    // TODO: 01/07/2017 use isEmpty() to btnLogin.setDisable()
+    // TODO: 01/07/2017 use isEmpty() to btnLogin.setDisable() and when you press setDisable() to
     @FXML
     public void onLogin(ActionEvent event) {
         Verification.cleanErrorMsg(lblUsernameError, lblPasswordError, lblPasswordError, lblPasswordError);
@@ -53,13 +57,22 @@ public class CltLoginController implements Initializable, Controller {
         if (!emptyField()) {
             String sendMessage = ProtocolConfig.SERVER_LOGIN + " " +  username.getText() +
                     " " + password.getText() + "\n";
+
             client.send(sendMessage);
+
+            btnLogin.setDisable(true);
+            lblLoginInfo.setVisible(false);
         }
+    }
+
+    public void authFailure(){
+        setText(lblLoginInfo, "Authentication Failed");
+        btnLogin.setDisable(false);
     }
 
     @FXML
     void onRegister(ActionEvent event) {
-        Navigation.getInstance().loadScreen(ProtocolConfig.REGISTER_VIEW);        //TODO: Testing
+        Navigation.getInstance().loadScreen(ProtocolConfig.REGISTER_VIEW);
     }
 
     public void successfullyAuth(String message){
@@ -70,13 +83,13 @@ public class CltLoginController implements Initializable, Controller {
     public void initialize(URL location, ResourceBundle resources) {
 
         client = ClientRegistry.getInstance().getClient();
-        cltProtocolParser = new CltProtocolParser();
+        clientHandler = new ClientHandler();
 
-        cltProtocolParser.setInitializable(this);
-        ClientRegistry.getInstance().setHandler(cltProtocolParser);
+        clientHandler.setInitializable(this);
+        ClientRegistry.getInstance().setHandler(clientHandler);
 
         ExecutorService newThread = Executors.newSingleThreadExecutor();
-        newThread.submit(cltProtocolParser);
+        newThread.submit(clientHandler);
     }
 
     private boolean emptyField() {
@@ -84,17 +97,20 @@ public class CltLoginController implements Initializable, Controller {
 
         if (username.getText().length() == 0) {
 
-            lblUsernameError.setText("(* Required Field)");
-            lblUsernameError.setVisible(true);
+            setText(lblUsernameError, "(*Required Field)");
             fieldEmpty = true;
         }
         if (password.getText().length() == 0) {
 
-            lblPasswordError.setText("(* Required Field)");
-            lblPasswordError.setVisible(true);
+            setText(lblPasswordError, "(*Required Field)");
             fieldEmpty = true;
         }
         return fieldEmpty;
+    }
+
+    private <T extends Labeled> void setText(T type, String message){
+        type.setText(message);
+        type.setVisible(true);
     }
 
     public String getName(){

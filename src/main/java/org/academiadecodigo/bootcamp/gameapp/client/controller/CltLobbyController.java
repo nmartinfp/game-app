@@ -102,15 +102,14 @@ public class CltLobbyController implements Initializable, Controller{
     public void onActionExitGame(ActionEvent event) {
 
         // TODO: 02/07/2017 - To decide if returns to login or closes the app.
-        Navigation.getInstance().back();
-
+        gpLobby.setVisible(true);
+        gpGameRooms.setVisible(false);
     }
 
     @FXML
     public void onActionExitLobby(ActionEvent event) {
 
         Navigation.getInstance().back();
-
     }
 
     @FXML
@@ -124,9 +123,7 @@ public class CltLobbyController implements Initializable, Controller{
     public void onActionRPS(ActionEvent event) {
 
         gpLobby.setVisible(false);
-
         gpGameRooms.setVisible(true);
-
     }
 
     @Override

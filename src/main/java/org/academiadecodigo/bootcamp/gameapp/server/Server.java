@@ -144,6 +144,7 @@ public class Server {
         }
     }
 
+    //add the authenticate user  to a hashmap
     public void setingMap(User user, Socket clientSocket) {
         clientList.put(user, clientSocket);
     }
@@ -153,11 +154,10 @@ public class Server {
         for (User user: clientList.keySet()) {
 
             if (clientList.get(user).equals(clientSocket)){
+
                 return user;
             }
-
         }
-
         return null;
     }
 }

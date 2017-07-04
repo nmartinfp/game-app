@@ -41,18 +41,16 @@ public class ServerWorker implements Runnable {
                 }
 
                 System.out.println("Message received: " + message);
-                ServerParser serverParser = new ServerParser(server , clientSocket);
+                ServerParser serverParser = new ServerParser(server, clientSocket);
                 serverParser.forwardComm(message);
 
             }
         } catch (IOException e) {
             e.printStackTrace();
+
         } finally {
-            try {
-                input.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            System.out.println("execute finally block");
+            server.closeSocketOfUser(clientSocket);
         }
     }
 }

@@ -19,7 +19,7 @@ import java.util.Map;
 
 public final class Navigation {
 
-    private final String PREFIX = "view/";
+    private final String PREFIX = "/view/";
     private final String SUFFIX = ".fxml";
 
     private static Navigation instance;

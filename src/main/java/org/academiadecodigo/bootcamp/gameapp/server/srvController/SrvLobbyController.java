@@ -30,8 +30,7 @@ public class SrvLobbyController {
     }
 
     public void RPSRoomRequest() {
-        server.createRPSRoom();
-
+        server.createRPSRoom(clientSocket);
     }
 
 }

@@ -30,6 +30,7 @@ public class Server {
 
     public Server() {
         clientList = new ConcurrentHashMap<>();
+        roomVector = new Vector<>();
     }
 
     public ConcurrentHashMap<User, Socket> getClientList() {
@@ -104,9 +105,6 @@ public class Server {
         }
     }
 
-
-
-
     private void removeFromClientList(User user) {
         clientList.remove(user);
     }
@@ -130,14 +128,21 @@ public class Server {
 //                                               ROOM HANDLING
 //----------------------------------------------------------------------------------------------------------------------
 
-    public void createRPSRoom() {
-        roomVector.add(new Room(2));
+    public void createRPSRoom(Socket clientSocket) {
+        System.out.println("Estou no server");
+        Room room = new Room(2);
+        User user = findUser(clientSocket);
+
+        room.setId(user.getUsername() + "Room");
+        roomVector.add(room);
+
+        addUserToRoom(user, room.getId());
     }
 
     /*
      * Returns the User associated with a Socket
      */
-    private User findUser(Socket clientSocket){
+    public User findUser(Socket clientSocket){
 
         for (User user: clientList.keySet()) {
 
@@ -186,6 +191,7 @@ public class Server {
         if(roomById(id).getUsers().size() == roomById(id).getMinSize()){
             roomById(id).addUser(user);
             clientList.remove(user);
+            return;
         }
 
         System.out.println("Sry, room full");

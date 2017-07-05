@@ -29,6 +29,7 @@ public class ServerWorker implements Runnable {
     public void run() {
         try {
 
+            ServerParser serverParser = new ServerParser(server, clientSocket);
             input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
             while (true) {
@@ -42,7 +43,6 @@ public class ServerWorker implements Runnable {
                 }
 
                 System.out.println("Message received: " + message);
-                ServerParser serverParser = new ServerParser(server, clientSocket);
                 ProtocolParser.serverProtocolHandler(serverParser, message);
 
             }

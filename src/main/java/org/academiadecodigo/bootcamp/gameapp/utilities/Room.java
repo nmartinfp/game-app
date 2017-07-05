@@ -26,6 +26,7 @@ public final class Room {
         minSize = roomSize;
         maxSize = roomSize;
         users = new Vector<>();
+        System.out.println("criei room");
     }
 
     //To be used in games that require a range of players like Secret Hitler (HYPE)

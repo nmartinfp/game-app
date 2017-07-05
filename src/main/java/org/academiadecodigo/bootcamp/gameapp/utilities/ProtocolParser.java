@@ -32,6 +32,9 @@ public final class ProtocolParser {
 
                 break;
 
+            case ProtocolConfig.SERVER_ROOM:
+
+                break;
             case ProtocolConfig.SERVER_GAME:
 
                 break;
@@ -52,7 +55,7 @@ public final class ProtocolParser {
 
         String cleanMessage = concatMessage(protocol);
         System.out.println("\n" + protocol[0]);
-        System.out.println(cleanMessage);
+        System.out.println("esta é a mesnsagem que chega ao server" + cleanMessage);
 
         switch (protocol[ProtocolConfig.PROTOCOL]) {
             case ProtocolConfig.SERVER_LOGIN:
@@ -62,7 +65,10 @@ public final class ProtocolParser {
                 serverParser.registerUSer(protocol);
                 break;
             case ProtocolConfig.SERVER_LOBBY:
-                serverParser.rpsGame(protocol);
+                break;
+            case ProtocolConfig.SERVER_ROOM:
+                System.out.println("SERVER PARSER ENTREI AQUI");
+                serverParser.creatingRoom(cleanMessage);
                 break;
             case ProtocolConfig.SERVER_GAME:
                 throw new UnsupportedOperationException();

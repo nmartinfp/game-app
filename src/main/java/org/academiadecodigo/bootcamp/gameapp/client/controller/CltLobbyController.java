@@ -133,8 +133,9 @@ public class CltLobbyController implements Initializable, Controller{
     @FXML
     public void onActionNewRoom(ActionEvent event) {
 
-        String sendMessage = ProtocolConfig.SERVER_GAME + " " + "GAME_RPS";
+        String sendMessage = ProtocolConfig.SERVER_ROOM + " " + "createRoom\n";
         client.send(sendMessage);
+        btnCreateNewRoom.setDisable(true);
     }
 
     @FXML

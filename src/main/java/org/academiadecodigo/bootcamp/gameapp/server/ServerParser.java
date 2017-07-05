@@ -2,6 +2,7 @@ package org.academiadecodigo.bootcamp.gameapp.server;
 
 import org.academiadecodigo.bootcamp.gameapp.server.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
+import org.academiadecodigo.bootcamp.gameapp.server.srvController.SrvLobbyController;
 import org.academiadecodigo.bootcamp.gameapp.server.srvController.SrvLoginController;
 import org.academiadecodigo.bootcamp.gameapp.server.srvController.SrvRegisterController;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
@@ -66,5 +67,15 @@ public class ServerParser {
 
         String userMessage = ProtocolConfig.CLIENT_CHAT + " " + message;
         server.sendingProtoMsgAll(userMessage);
+    }
+
+    public void creatingRoom(String message) {
+        System.out.println("ESTOU HANDLER ");
+        if (message.contains("createRoom")){
+            System.out.println("ENTREI NA CONDIÇAO \n");
+            SrvLobbyController lobbyController = new SrvLobbyController(server, clientSocket, userService);
+            lobbyController.RPSRoomRequest();
+            return;
+        }
     }
 }

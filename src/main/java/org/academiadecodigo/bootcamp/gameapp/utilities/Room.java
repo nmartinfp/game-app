@@ -16,8 +16,11 @@ import java.util.Vector;
 public final class Room {
 
     private Vector<User> users;
+    private String id;
     private int minSize;
     private int maxSize;
+
+//----CONSTRUCTORS------------------------------------------------------------------------------------------------------
 
     public Room(int roomSize){
         minSize = roomSize;
@@ -31,7 +34,27 @@ public final class Room {
         this.maxSize = maxSize;
         users = new Vector<>();
     }
+//----------------------------------------------------------------------------------------------------------------------
 
+    public String getId() {
+        return id;
+    }
+
+    public int getMinSize() {
+        return minSize;
+    }
+
+    public int getMaxSize() {
+        return maxSize;
+    }
+
+    public Vector<User> getUsers() {
+        return users;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     // TODO: 03/07/17 Create access to server, that will allow access to its user HashMap and by extension, each user
     // TODO: 03/07/17 and the socket associated with them.
@@ -42,4 +65,5 @@ public final class Room {
     public boolean isUserInRoom(User user){
         return users.contains(user);
     }
+
 }

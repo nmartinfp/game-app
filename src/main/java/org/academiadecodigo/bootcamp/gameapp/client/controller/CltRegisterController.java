@@ -3,10 +3,7 @@ package org.academiadecodigo.bootcamp.gameapp.client.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import org.academiadecodigo.bootcamp.gameapp.client.*;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.Verification;
@@ -71,8 +68,7 @@ public class CltRegisterController implements Initializable, Controller{
             checkEmail = Verification.checkEmail(email);
 
             if(!checkEmail){
-                lblMailErrorReg.setText("(* Invalid email)");
-                lblMailErrorReg.setVisible(true);
+                setText(lblMailErrorReg, "(* Invalid email)");
                 return;
             }
 
@@ -94,9 +90,9 @@ public class CltRegisterController implements Initializable, Controller{
 
         if (!Verification.checkPassword(password)) {
 
-            lblPasswordErrorReg.setText("(* Minimum of 8 characters containing at least\n 1 number," +
-                    " 1 lower case and 1 upper case letter)");
-            lblPasswordErrorReg.setVisible(true);
+            String message = "(* Minimum of 8 characters containing at least\n 1 number," +
+                    " 1 lower case and 1 upper case letter)";
+            setText(lblPasswordErrorReg, message);
             return false;
         }
         return true;
@@ -110,29 +106,30 @@ public class CltRegisterController implements Initializable, Controller{
         fieldEmpty = false;
         if (username.getText().length() == 0) {
 
-            lblUsernameErrorReg.setText("(* Required Field)");
-            lblUsernameErrorReg.setVisible(true);
+            setText(lblUsernameErrorReg, "(* Required Field)");
             fieldEmpty = true;
         }
         if (password.getText().length() == 0) {
 
-            lblPasswordErrorReg.setText("(* Required Field)");
-            lblPasswordErrorReg.setVisible(true);
+            setText(lblPasswordErrorReg, "(* Required Field)");
             fieldEmpty = true;
         }
         if (firstName.getText().length() == 0) {
 
-            lblFirstNameErrorReg.setText("(* Required Field)");
-            lblFirstNameErrorReg.setVisible(true);
+            setText(lblFirstNameErrorReg, "(* Required Field)");
             fieldEmpty = true;
         }
         if (email.getText().length() == 0) {
 
-            lblMailErrorReg.setText("(* Required Field)");
-            lblMailErrorReg.setVisible(true);
+            setText(lblMailErrorReg, "(* Required Field)");
             fieldEmpty = true;
         }
         return fieldEmpty;
+    }
+
+    private <T extends Labeled> void setText(T type, String message){
+        type.setText(message);
+        type.setVisible(true);
     }
 
     @Override

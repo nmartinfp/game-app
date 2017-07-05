@@ -5,6 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
 import org.academiadecodigo.bootcamp.gameapp.client.ClientRegistry;
@@ -83,6 +86,9 @@ public class CltLobbyController implements Initializable, Controller{
     private Button btnExitGameRooms;
 
     @FXML
+    private TextField sendMsg;
+
+    @FXML
     public void sendChatMsg(ActionEvent event) {
 
         if (!sendChatMsg.getText().isEmpty()) {
@@ -91,6 +97,21 @@ public class CltLobbyController implements Initializable, Controller{
             sendChatMsg.clear();
             client.send(sendMessage);
         }
+    }
+
+    @FXML
+    void onKeyPressedSendChatMsg(KeyEvent event) {
+
+        if (!sendMsg.getText().isEmpty() && event.getCode() == KeyCode.ENTER) {
+
+            //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText() + "\n";
+            //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText().replaceAll("\n|\r", "") + "\n";
+            String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendMsg.getText().replaceAll("\n|\r", "") + "\n";
+            sendChatMsg.clear();
+            sendMsg.clear();
+            client.send(sendMessage);
+        }
+
     }
 
     public void receiveChatMsg(String message){

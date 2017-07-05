@@ -50,6 +50,21 @@ public class ServerParser {
     }
 
     public void clientComm(String message) {
-        server.sendingProtoMsgAll(message);
+
+        String name = server.findUser(clientSocket).getUsername();
+        String fullMessage = ProtocolConfig.CLIENT_CHAT + " " + name + " : " + message;
+
+        server.sendingProtoMsgAll(fullMessage);
+    }
+
+    // TODO: 05/07/17 if we wanna chat with user \n message
+    public void clientComm2Lines(String message) {
+
+        String name = server.findUser(clientSocket).getUsername();
+        String userName = ProtocolConfig.CLIENT_CHAT + " " + name + ":";
+        server.sendingProtoMsgAll(userName);
+
+        String userMessage = ProtocolConfig.CLIENT_CHAT + " " + message;
+        server.sendingProtoMsgAll(userMessage);
     }
 }

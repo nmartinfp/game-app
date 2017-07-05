@@ -67,7 +67,7 @@ public final class ProtocolParser {
             case ProtocolConfig.SERVER_GAME:
                 throw new UnsupportedOperationException();
             case ProtocolConfig.CLIENT_CHAT:
-                serverParser.clientComm(message);
+                serverParser.clientComm(cleanMessage);
                 break;
         }
     }

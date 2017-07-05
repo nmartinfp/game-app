@@ -102,6 +102,10 @@ public class CltRegisterController implements Initializable, Controller{
         return true;
     }
 
+    public void registerFailure(){
+        lblUsernameErrorReg.setText("Username already exists.");
+    }
+
     private boolean emptyField() {
         fieldEmpty = false;
         if (username.getText().length() == 0) {

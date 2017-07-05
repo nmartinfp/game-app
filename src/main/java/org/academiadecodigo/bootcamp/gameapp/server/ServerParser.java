@@ -23,6 +23,7 @@ public class ServerParser {
     public ServerParser(Server server, Socket clientSocket) {
         this.server = server;
         this.clientSocket = clientSocket;
+
         userService = ServiceRegistry.getInstance().getService(UserService.class.getSimpleName());
     }
 

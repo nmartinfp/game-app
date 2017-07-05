@@ -68,7 +68,10 @@ public class ClientHandler implements Runnable {
             public void run() {
                 if (message.equals(ProtocolConfig.LOGIN_VIEW)) {
                     ((CltRegisterController) controllerMap.get("Register")).backScreen();
+                    return;
                 }
+
+                ((CltRegisterController) controllerMap.get("Register")).registerFailure();
             }
         });
     }

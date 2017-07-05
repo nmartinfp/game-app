@@ -27,7 +27,7 @@ public class SrvLoginController {
 
     public void authenticate(String user, String pass) {
 
-        if (userService.authenticate(user, pass)) {                 // TODO: 03/07/17 fix login two with same username
+        if (userService.authenticate(user, pass)) {
             server.sendingProtoMsg(ProtocolConfig.SERVER_LOGIN + " " + ProtocolConfig.LOBBY_VIEW,
                     clientSocket);
             server.setingMap(userService.findByName(user), clientSocket);

@@ -20,7 +20,7 @@ import java.util.concurrent.Executors;
  * 2nd group project - Game App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
-
+// TODO: 05/07/17 empty user pass when we logout && enable button login
 public class CltLoginController implements Initializable, Controller {
 
     private final String NAME = "Login";
@@ -111,6 +111,10 @@ public class CltLoginController implements Initializable, Controller {
     private <T extends Labeled> void setText(T type, String message){
         type.setText(message);
         type.setVisible(true);
+    }
+
+    public void btnStateChange(){
+        btnLogin.setDisable(true);
     }
 
     public String getName(){

@@ -29,11 +29,18 @@ public class SrvRegisterController {
 
     public void createUser(String firstName, String username, String password) {
 
-        User user = new User(firstName, username, password);
+        if (userService.findByName(username) == null){
 
-        userService.addUser(user);
+            User user = new User(firstName, username, password);
 
-        server.sendingProtoMsg(ProtocolConfig.SERVER_REGISTER + " " + ProtocolConfig.LOGIN_VIEW,
+            userService.addUser(user);
+
+            server.sendingProtoMsg(ProtocolConfig.SERVER_REGISTER + " " + ProtocolConfig.LOGIN_VIEW,
+                    clientSocket);
+            return;
+        }
+
+        server.sendingProtoMsg(ProtocolConfig.SERVER_REGISTER + " AUTH_FAILURE",
                 clientSocket);
     }
 }

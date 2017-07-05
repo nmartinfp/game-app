@@ -115,21 +115,18 @@ public class CltLobbyController implements Initializable, Controller{
     }
 
     public void receiveChatMsg(String message){
-
         receiveChatMsg.appendText(message + "\n");
     }
 
     @FXML
     public void onActionExitGame(ActionEvent event) {
 
-        // TODO: 02/07/2017 - To decide if returns to login or closes the app.
         gpLobby.setVisible(true);
         gpGameRooms.setVisible(false);
     }
 
     @FXML
     public void onActionExitLobby(ActionEvent event) {
-
         Navigation.getInstance().back();
     }
 

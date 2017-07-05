@@ -13,7 +13,7 @@ import java.util.Vector;
 /**
  * Class to handle a gameRoom, creation, adding users, removing users, and whatnot
  */
-public class Room {
+public final class Room {
 
     private Vector<User> users;
     private int minSize;

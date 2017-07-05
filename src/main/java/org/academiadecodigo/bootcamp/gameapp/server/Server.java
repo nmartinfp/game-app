@@ -149,7 +149,7 @@ public class Server {
         clientList.put(user, clientSocket);
     }
     
-    private User findUser(Socket clientSocket){
+    public User findUser(Socket clientSocket){
 
         for (User user: clientList.keySet()) {
 
@@ -159,5 +159,9 @@ public class Server {
             }
         }
         return null;
+    }
+
+    public Socket getClientSocket(User user){
+        return clientList.get(user);
     }
 }

@@ -13,12 +13,13 @@ import java.util.ResourceBundle;
 public class CltRpsController implements Initializable , Controller{
 
     private final String NAME = "RPS";
-    @Override
 
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
+    @Override
     public String getName(){
         return NAME;
 

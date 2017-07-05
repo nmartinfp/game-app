@@ -17,10 +17,10 @@ public class RPSGame {
     private int maxRounds;
     private int rounds = 0;
 
-    public RPSGame(int maxRounds, Player player1, Player player2) {
+    public RPSGame(int maxRounds, User player1, User player2) {
         this.maxRounds = maxRounds;
-        this.player1 = player1;
-        this.player2 = player2;
+        this.player1 = new Player(player1);
+        this.player2 = new Player(player2);
 
     }
 
@@ -32,8 +32,8 @@ public class RPSGame {
 
         if (checkifTie()) {
 
-            RPSGame extra = new RPSGame(1, player1, player2);
-            extra.start();
+            //RPSGame extra = new RPSGame(1, player1, player2);
+            //extra.start();
             return;
         }
 
@@ -41,7 +41,7 @@ public class RPSGame {
 
     }
 
-    private void playRound() {
+    public Player playRound() {
 
         Choices p1Hand = player1.chooseHand();
         Choices p2Hand = player2.chooseHand();
@@ -52,8 +52,8 @@ public class RPSGame {
         if (p1Hand == p2Hand) {
 
             //send a message that it's a tie to the game controller,
+
             playRound();
-            return;
         }
 
         Player winner = player1;
@@ -80,7 +80,7 @@ public class RPSGame {
         }
 
         //for every winner, send the info to the game controller
-        winner.win();
+        return winner.win();
 
     }
 
@@ -101,9 +101,20 @@ public class RPSGame {
     }
 
     public enum Choices {
-        ROCK,
-        PAPER,
-        SCISSORS
+        ROCK("Rock"),
+        PAPER("Paper"),
+        SCISSORS("Scissors");
+
+        private String symbol;
+
+        Choices(String symbol) {
+            this.symbol = symbol;
+
+        }
+
+        public String getSymbol() {
+            return this.symbol;
+        }
     }
 
     public class Player {
@@ -116,8 +127,9 @@ public class RPSGame {
             this.player = player;
         }
 
-        public void win() {
+        public Player win() {
             victories++;
+            return this;
             //send info that this player won to the game controller
 
         }

@@ -42,7 +42,7 @@ public class ServerParser {
                 rpsGame(protocol);
                 break;
             case ProtocolConfig.SERVER_GAME:
-                throw new UnsupportedOperationException();
+                rpsGame(protocol);
             case ProtocolConfig.CLIENT_CHAT:
                 clientComm(message);
                 break;
@@ -50,7 +50,7 @@ public class ServerParser {
     }
 
     private void rpsGame(String[] protocol) {
-        throw new UnsupportedOperationException();
+        server.createRPSRoom();
     }
 
     private void serverComm(String[] protocol) {

@@ -9,7 +9,6 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import java.util.Map;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -31,7 +30,6 @@ public class Server {
 
     public Server() {
         clientList = new ConcurrentHashMap<>();
-
     }
 
     public ConcurrentHashMap<User, Socket> getClientList() {
@@ -106,11 +104,6 @@ public class Server {
         }
     }
 
-    // TODO: 01/07/17 this method go to @server controller LOBBY
-    // TODO: 03/07/17 Create Room factory??
-    public void createRPSRoom() {
-        roomVector.add(new Room(2));
-    }
 
 
 
@@ -118,19 +111,8 @@ public class Server {
         clientList.remove(user);
     }
 
-
-    // TODO: 03/07/17 Refactor to take the ConcurrentHashMap into account
-    /*
-     * Returns the Room a User is in if he is in any, if not returns null
-     */
-    private Room roomByUser(User user) {
-
-        for (Room room : roomVector) {
-            if (room.isUserInRoom(user)){
-                return room;
-            }
-        }
-        return null;
+    public void setingMap(User user, Socket clientSocket) {
+        clientList.put(user, clientSocket);
     }
 
     public void closeSocketOfUser(Socket socket) {
@@ -144,10 +126,17 @@ public class Server {
         }
     }
 
-    public void setingMap(User user, Socket clientSocket) {
-        clientList.put(user, clientSocket);
+//----------------------------------------------------------------------------------------------------------------------
+//                                               ROOM HANDLING
+//----------------------------------------------------------------------------------------------------------------------
+
+    public void createRPSRoom() {
+        roomVector.add(new Room(2));
     }
-    
+
+    /*
+     * Returns the User associated with a Socket
+     */
     private User findUser(Socket clientSocket){
 
         for (User user: clientList.keySet()) {
@@ -160,4 +149,52 @@ public class Server {
 
         return null;
     }
+
+    /*
+     * Returns the Room with the associated id if there is any, doesn't check if the room Vector is empty, not sure if
+     * problematic or not
+     */
+    public Room roomById(String id){
+        for (Room room : roomVector) {
+            if(room.getId().equals(id)){
+                return room;
+            }
+        }
+        System.out.println("No room found with that Id");
+        return null;
+    }
+
+    /*
+     * Returns the Room a User is in or null if he isn't in any
+     */
+    private Room roomByUser(User user) {
+
+        for (Room room : roomVector) {
+            if (room.isUserInRoom(user)){
+                return room;
+            }
+        }
+        return null;
+    }
+
+    /*
+     * Adds a user to a Room and removes it from the clientList if the room is not full yet
+     * Could return a message for success or lack thereof to trigger secondary behaviours
+     * Set to work on a RPS Room only!!!
+     */
+    public void addUserToRoom(User user, String id){
+        if(roomById(id).getUsers().size() == roomById(id).getMinSize()){
+            roomById(id).addUser(user);
+            clientList.remove(user);
+        }
+
+        System.out.println("Sry, room full");
+    }
+
+
+
+
+
+
+
 }

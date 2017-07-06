@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.gameapp.client.controller;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
@@ -14,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import org.academiadecodigo.bootcamp.gameapp.client.Client;
 import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
@@ -30,15 +32,25 @@ public class CltRpsController implements Initializable, Controller {
     private Timer timer;
     private Client client;
 
+    // TODO: 06/07/17 Eliminate the text area in the lobby. Chat is working on that instead in the text field
 
     @FXML
     private GridPane gpLobby;
 
     @FXML
-    private Button btnExitLobby;
+    private Button btnExitGame;
 
     @FXML
     private Button btnTestBar;
+
+    @FXML
+    private Label lblResult;
+
+    @FXML
+    private Label lblRound;
+
+    @FXML
+    private ProgressBar progBar;
 
     @FXML
     private ImageView image1;
@@ -53,12 +65,6 @@ public class CltRpsController implements Initializable, Controller {
     private ImageView imageX;
 
     @FXML
-    private ProgressBar progBar;
-
-    @FXML
-    private Label lblResult;
-
-    @FXML
     private Label lblMyChoice;
 
     @FXML
@@ -68,13 +74,7 @@ public class CltRpsController implements Initializable, Controller {
     private Label lblScore;
 
     @FXML
-    private Label lblRound;
-
-    @FXML
     private TextArea receiveChatMsg;
-
-    @FXML
-    private TextArea sendChatMsg;
 
     @FXML
     private Button btnSendChatMsg;
@@ -82,22 +82,10 @@ public class CltRpsController implements Initializable, Controller {
     @FXML
     private TextField sendMsg;
 
-    @FXML
-    private GridPane gpGameRooms;
 
-    @FXML
-    private Button btnCreateNewRoom;
-
-    @FXML
-    private Button btnExitGameRooms;
 
     @FXML
     void onActionExitGame(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionExitLobby(ActionEvent event) {
         Navigation.getInstance().back();
     }
 
@@ -106,28 +94,49 @@ public class CltRpsController implements Initializable, Controller {
 
     }
 
+
+
+    @FXML
+    void onImageRock(MouseEvent event) {
+        image2.setDisable(true);
+        image3.setDisable(true);
+        stop();
+        lblMyChoice.setVisible(true);
+        lblMyChoice.setText("You Played Rock");
+        // TODO: 06/07/17 Send message od the gamechoice
+        image1.setDisable(true);
+    }
+
+
+    @FXML
+    void onImagePaper(MouseEvent event) {
+        image1.setDisable(true);
+        image3.setDisable(true);
+        stop();
+        lblMyChoice.setVisible(true);
+        lblMyChoice.setText("You Played Paper");
+        // TODO: 06/07/17 Send message od the gamechoice
+        image2.setDisable(true);
+    }
+
+    @FXML
+    void onImageScissors(MouseEvent event) {
+        image1.setDisable(true);
+        image2.setDisable(true);
+        stop();
+        lblMyChoice.setVisible(true);
+        lblMyChoice.setText("You Played Scisors");
+        // TODO: 06/07/17 Send message od the gamechoice
+        image3.setDisable(true);
+    }
+
     @FXML
     void onKeyPressedSendChatMsg(KeyEvent event) {
-        if (!sendMsg.getText().isEmpty() && event.getCode() == KeyCode.ENTER) {
-
-            //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText() + "\n";
-            //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText().replaceAll("\n|\r", "") + "\n";
-            String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendMsg.getText().replaceAll("\n|\r", "") + "\n";
-            sendChatMsg.clear();
-            sendMsg.clear();
-            client.send(sendMessage);
-        }
 
     }
 
     @FXML
     void sendChatMsg(ActionEvent event) {
-        if (!sendChatMsg.getText().isEmpty()) {
-
-            String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText() + "\n";
-            sendChatMsg.clear();
-            client.send(sendMessage);
-        }
 
     }
 
@@ -158,8 +167,22 @@ public class CltRpsController implements Initializable, Controller {
             progBar.setStyle(ColorBar.values()[(int) numbSteps].getStyle());
 
             if (numbSteps == 0) {
+                System.out.println("ola");
+                showMsg();
                 stop();
             }
+        }
+
+        private void showMsg() {
+            image1.setDisable(true);
+            image2.setDisable(true);
+            image3.setDisable(true);
+            System.out.println("voou");
+           // lblMyChoice.setVisible(true);
+            //lblMyChoice.setText("You did'nt played");
+            // TODO: 06/07/17 If rival played sonmething player This player lose. Or both lose
+           // lblResult.setVisible(true);
+           // lblResult.setText("You Lose");
         }
     }
 
@@ -199,6 +222,12 @@ public class CltRpsController implements Initializable, Controller {
 
     public void initialize(URL location, ResourceBundle resources) {
         progBar.setStyle("-fx-accent: #00b000");
+        image2.setDisable(false);
+        image2.setDisable(false);
+        image3.setDisable(false);
+        imageX.setVisible(false);
+        lblMyChoice.setVisible(false);
+
 
     }
 }

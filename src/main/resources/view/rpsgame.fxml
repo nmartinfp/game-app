@@ -56,7 +56,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="lblResult" alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="726.0" text="YOU WIN" textFill="#04b533" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                  <Label fx:id="lblResult" alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="726.0" text="YOU LOSE!" textFill="#ff1d04" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                      <font>
                         <Font name="Comic Sans MS Bold" size="88.0" />
                      </font>
@@ -117,7 +117,7 @@
                         </GridPane>
                      </children>
                   </GridPane>
-                  <Label fx:id="lblMyChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="My choice" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                  <Label fx:id="lblMyChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="Time over!" textFill="#ae2828" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets left="25.0" />
                      </GridPane.margin>
@@ -125,7 +125,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblRivalChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="userx choice" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                  <Label fx:id="lblRivalChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="Time over!" textFill="#ae2828" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets right="12.0" />
                      </GridPane.margin>

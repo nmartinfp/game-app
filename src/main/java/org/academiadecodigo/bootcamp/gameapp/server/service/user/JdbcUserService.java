@@ -12,9 +12,7 @@ import java.sql.*;
 
 public class JdbcUserService implements UserService {
 
-    private final String NAME = "UserService";
-
-    Connection dbConnection;
+    private Connection dbConnection;
 
     public JdbcUserService(Connection dbConnection) {
         this.dbConnection = dbConnection;
@@ -108,7 +106,7 @@ public class JdbcUserService implements UserService {
 
     @Override
     public String getName() {
-        return NAME;
+        return UserService.class.getSimpleName();
     }
 
     private void closeStatement(Statement statement) throws SQLException {

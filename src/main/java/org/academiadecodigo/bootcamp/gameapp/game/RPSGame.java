@@ -1,4 +1,6 @@
-package org.academiadecodigo.bootcamp.gameapp.server.model;
+package org.academiadecodigo.bootcamp.gameapp.game;
+
+import org.academiadecodigo.bootcamp.gameapp.server.model.User;
 
 import java.net.Socket;
 import java.util.LinkedList;

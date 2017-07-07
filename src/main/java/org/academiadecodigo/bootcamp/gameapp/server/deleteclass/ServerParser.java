@@ -1,5 +1,6 @@
-package org.academiadecodigo.bootcamp.gameapp.server;
+package org.academiadecodigo.bootcamp.gameapp.server.deleteclass;
 
+import org.academiadecodigo.bootcamp.gameapp.server.Server;
 import org.academiadecodigo.bootcamp.gameapp.server.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
 import org.academiadecodigo.bootcamp.gameapp.server.srvController.SrvLobbyController;

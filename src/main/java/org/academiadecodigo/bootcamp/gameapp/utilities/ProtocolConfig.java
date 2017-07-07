@@ -19,30 +19,32 @@ public final class ProtocolConfig {
     /*
      * Protocol Configuration
      *
-     * @ First element:
-     *      Server - Messages to the core application
-     *      Client - Messages with respect to users
-     * _ Second element:
-     *      This part referee's to what parto of Server core or Client core will be send the message coming
+     * @ First token:
+     *      Server - Messages from server to client
+     *      Client - Messages from client to server
+     * _ Second token:
+     *      This part referee's to what part of Server core or Client core will be send the message coming
      */
     public static final String SERVER_LOGIN = "@SERVER_LOGIN";
     public static final String SERVER_REGISTER = "@SERVER_REGISTER";
     public static final String SERVER_LOBBY = "@SERVER_LOBBY";
-    public static final String SERVER_GAME = "@SERVER_GAME";
-    public static final String SERVER_ROOM = "@SERVER_ROOM";
     public static final String SERVER_CHAT = "@SERVER_CHAT";
+    public static final String SERVER_ROOM = "@SERVER_ROOM";
+    public static final String SERVER_GAME = "@SERVER_GAME";
     public static final String SERVER_ERR = "@SERVER_ERROR";
 
     public static final String CLIENT_LOGIN = "@CLIENT_LOGIN";
     public static final String CLIENT_REGISTER = "@CLIENT_REGISTER";
     public static final String CLIENT_LOBBY = "@CLIENT_LOBBY";
-    public static final String CLIENT_GAME = "@CLIENT_GAME";
     public static final String CLIENT_CHAT = "@CLIENT_CHAT";
+    public static final String CLIENT_ROOM = "@CLIENT_ROOM";
+    public static final String CLIENT_GAME = "@CLIENT_GAME";
 
     /*
      * View Load Configuration
      */
-    public static final String LOGIN_VIEW = "login";
-    public static final String REGISTER_VIEW = "register";
-    public static final String LOBBY_VIEW = "lobby";
+    public static final String VIEW_LOGIN = "login";
+    public static final String VIEW_REGISTER = "register";
+    public static final String VIEW_LOBBY = "lobby";
+    public static final String VIEW_RPS = "rpsgame";
 }

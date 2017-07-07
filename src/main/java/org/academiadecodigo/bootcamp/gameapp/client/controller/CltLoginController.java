@@ -3,7 +3,6 @@ package org.academiadecodigo.bootcamp.gameapp.client.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import org.academiadecodigo.bootcamp.gameapp.client.*;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
@@ -72,7 +71,7 @@ public class CltLoginController implements Initializable, Controller {
 
     @FXML
     void onRegister(ActionEvent event) {
-        Navigation.getInstance().loadScreen(ProtocolConfig.REGISTER_VIEW);
+        Navigation.getInstance().loadScreen(ProtocolConfig.VIEW_REGISTER);
     }
 
     public void successfullyAuth(String message){

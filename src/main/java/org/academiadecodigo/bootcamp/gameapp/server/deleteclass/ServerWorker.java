@@ -1,6 +1,6 @@
-package org.academiadecodigo.bootcamp.gameapp.server;
+package org.academiadecodigo.bootcamp.gameapp.server.deleteclass;
 
-import org.academiadecodigo.bootcamp.gameapp.server.model.User;
+import org.academiadecodigo.bootcamp.gameapp.server.Server;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
 
 import java.io.BufferedReader;

@@ -1,4 +1,4 @@
-package org.academiadecodigo.bootcamp.gameapp.utilities;
+package org.academiadecodigo.bootcamp.gameapp.server.room;
 
 /**
  * A/C: Bootcamp8
@@ -6,6 +6,8 @@ package org.academiadecodigo.bootcamp.gameapp.utilities;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
+import org.academiadecodigo.bootcamp.gameapp.server.ServerHandler;
+import org.academiadecodigo.bootcamp.gameapp.server.Workable;
 import org.academiadecodigo.bootcamp.gameapp.server.model.User;
 
 import java.util.Vector;
@@ -13,10 +15,11 @@ import java.util.Vector;
 /**
  * Class to handle a gameRoom, creation, adding users, removing users, and whatnot
  */
-public final class Room {
+public class Room implements Workable{
+
+    private String name;
 
     private Vector<User> users;
-    private String id;
     private int minSize;
     private int maxSize;
 
@@ -26,7 +29,6 @@ public final class Room {
         minSize = roomSize;
         maxSize = roomSize;
         users = new Vector<>();
-        System.out.println("criei room");
     }
 
     //To be used in games that require a range of players like Secret Hitler (HYPE)
@@ -35,10 +37,21 @@ public final class Room {
         this.maxSize = maxSize;
         users = new Vector<>();
     }
+
+    @Override
+    public void process(ServerHandler serverHandler, String message) {
+
+    }
 //----------------------------------------------------------------------------------------------------------------------
 
-    public String getId() {
-        return id;
+    // TODO: 03/07/17 Create access to server, that will allow access to its user HashMap and by extension, each user
+    // TODO: 03/07/17 and the socket associated with them.
+    public void addUser(User user){
+        users.add(user);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getMinSize() {
@@ -53,18 +66,11 @@ public final class Room {
         return users;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    // TODO: 03/07/17 Create access to server, that will allow access to its user HashMap and by extension, each user
-    // TODO: 03/07/17 and the socket associated with them.
-    public void addUser(User user){
-        users.add(user);
+    public void setName(String name) {
+        this.name = name;
     }
 
     public boolean isUserInRoom(User user){
         return users.contains(user);
     }
-
 }

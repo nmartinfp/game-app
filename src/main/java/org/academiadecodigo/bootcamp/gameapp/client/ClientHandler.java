@@ -52,7 +52,7 @@ public class ClientHandler implements Runnable {
             @Override
             public void run() {
 
-                if (message.equals(ProtocolConfig.LOBBY_VIEW)) {
+                if (message.equals(ProtocolConfig.VIEW_LOBBY)) {
                     System.out.println("vou mudar para lobby");
                     ((CltLoginController) controllerMap.get("Login")).successfullyAuth(message);
                     return;
@@ -66,7 +66,7 @@ public class ClientHandler implements Runnable {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                if (message.equals(ProtocolConfig.LOGIN_VIEW)) {
+                if (message.equals(ProtocolConfig.VIEW_LOGIN)) {
                     ((CltRegisterController) controllerMap.get("Register")).backScreen();
                     return;
                 }

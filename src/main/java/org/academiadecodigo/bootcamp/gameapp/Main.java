@@ -70,7 +70,7 @@ public class Main extends Application {
 
         primaryStage.initStyle(StageStyle.UTILITY);
         Navigation.getInstance().setStage(primaryStage);
-        Navigation.getInstance().loadScreen("rpsgame");
+        Navigation.getInstance().loadScreen("login");
     }
 
     @Override

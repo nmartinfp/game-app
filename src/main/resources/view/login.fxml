@@ -31,8 +31,8 @@
             <Font name="Arial" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="username" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="username" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-      <Label fx:id="lblUsernameError" text="lbluser" textFill="RED" visible="false" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <TextField fx:name="username" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="username" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Label fx:name="lblUsernameError" text="lbluser" textFill="RED" visible="false" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
          </GridPane.margin>
@@ -43,8 +43,8 @@
             <Insets left="10.0" />
          </padding>
       </Label>
-      <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="password" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-      <Label fx:id="lblPasswordError" onDragDetected="#onLogin" text="lblpass" textFill="RED" visible="false" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+      <PasswordField fx:name="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="password" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+      <Label fx:name="lblPasswordError" onDragDetected="#onLogin" text="lblpass" textFill="RED" visible="false" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="10.0" />
          </font>
@@ -55,17 +55,17 @@
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#onLogin" text="Login" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+      <Button fx:name="btnLogin" mnemonicParsing="false" onAction="#onLogin" text="Login" GridPane.halignment="CENTER" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </Button>
-      <Hyperlink fx:id="linkRegister" onAction="#onRegister" text="Register" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+      <Hyperlink fx:name="linkRegister" onAction="#onRegister" text="Register" GridPane.halignment="CENTER" GridPane.rowIndex="6">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </Hyperlink>
-      <Label fx:id="lblLoginInfo" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="200.0" textAlignment="CENTER" textFill="RED" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+      <Label fx:name="lblLoginInfo" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="200.0" textAlignment="CENTER" textFill="RED" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
          <font>
             <Font size="14.0" />
          </font></Label>

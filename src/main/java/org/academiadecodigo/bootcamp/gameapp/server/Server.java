@@ -1,16 +1,20 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
+import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
 import org.academiadecodigo.bootcamp.gameapp.server.model.User;
+import org.academiadecodigo.bootcamp.gameapp.server.service.ServiceRegistry;
+import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
 import org.academiadecodigo.bootcamp.gameapp.utilities.AppConfig;
-import org.academiadecodigo.bootcamp.gameapp.utilities.Room;
+import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import java.util.Vector;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.TreeMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -24,34 +28,25 @@ public class Server {
 
     private ServerSocket serverSocket;
     private Socket clientSocket;
-
-    private ConcurrentHashMap<User, Socket> clientList;
-    private Vector<Room> roomVector;  // TODO: 03/07/17 I'm not sure about this one
+    private Lobby lobby;
 
     public Server() {
-        clientList = new ConcurrentHashMap<>();
-        roomVector = new Vector<>();
     }
 
-    public ConcurrentHashMap<User, Socket> getClientList() {
-        return clientList;
-    }
-
-    //Preparer server
     public void init() {
         try {
 
             serverSocket = new ServerSocket(AppConfig.PORT);
             System.out.println("Server up.");
 
-            start();
+            lobby = new Lobby();
+            new Thread(lobby);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    //Run server
     public void start() {
         try {
             ExecutorService cachedPool = Executors.newCachedThreadPool();
@@ -63,7 +58,7 @@ public class Server {
 
                 System.out.println("Server connected.");
 
-                cachedPool.submit(new ServerWorker(clientSocket, this));
+                cachedPool.submit(new ServerHandler(clientSocket, lobby, State.LOGIN));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -77,130 +72,15 @@ public class Server {
                     e.printStackTrace();
                 }
             }
-        }
-    }
 
-    // TODO: 01/07/17 this method go to @server controllers 'LOGIN,REGISTER,LOBBY,ROOM'
-    //Sending mesg to everyone CHAT
-    public void sendingProtoMsgAll(String message) {
+            if (serverSocket != null) {
 
-        for (Socket socket : clientList.values()) {
-            sendingProtoMsg(message, socket);
-        }
-    }
-
-    //Sending msg just for one client
-    public void sendingProtoMsg(String message, Socket clientSocket) {
-
-        try {
-
-            System.out.println("Entrei aqui server para enviar a mensagem para o client ");         //todo TESTING
-            PrintWriter output = new PrintWriter(clientSocket.getOutputStream(), true);
-            output.println(message);
-            output.flush();
-            System.out.println("sending this msg to client " + message);            //todo Testing
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void removeFromClientList(User user) {
-        clientList.remove(user);
-    }
-
-    public void setingMap(User user, Socket clientSocket) {
-        clientList.put(user, clientSocket);
-    }
-
-    public void closeSocketOfUser(Socket socket) {
-
-        try {
-            removeFromClientList(findUser(socket));
-            socket.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-//----------------------------------------------------------------------------------------------------------------------
-//                                               ROOM HANDLING
-//----------------------------------------------------------------------------------------------------------------------
-
-    public void createRPSRoom(Socket clientSocket) {
-        System.out.println("Estou no server");
-        Room room = new Room(2);
-        User user = findUser(clientSocket);
-
-        room.setId(user.getUsername() + "Room");
-        roomVector.add(room);
-
-        addUserToRoom(user, room.getId());
-    }
-
-    /*
-     * Returns the User associated with a Socket
-     */
-    public User findUser(Socket clientSocket){
-
-        for (User user: clientList.keySet()) {
-
-            if (clientList.get(user).equals(clientSocket)){
-                return user;
-            }
-
-        }
-
-        return null;
-    }
-
-    /*
-     * Returns the Room with the associated id if there is any, doesn't check if the room Vector is empty, not sure if
-     * problematic or not
-     */
-    public Room roomById(String id){
-        for (Room room : roomVector) {
-            if(room.getId().equals(id)){
-                return room;
+                try {
+                    serverSocket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
-        System.out.println("No room found with that Id");
-        return null;
     }
-
-    /*
-     * Returns the Room a User is in or null if he isn't in any
-     */
-    private Room roomByUser(User user) {
-
-        for (Room room : roomVector) {
-            if (room.isUserInRoom(user)){
-                return room;
-            }
-        }
-        return null;
-    }
-
-    /*
-     * Adds a user to a Room and removes it from the clientList if the room is not full yet
-     * Could return a message for success or lack thereof to trigger secondary behaviours
-     * Set to work on a RPS Room only!!!
-     */
-    public void addUserToRoom(User user, String id){
-        if(roomById(id).getUsers().size() == roomById(id).getMinSize()){
-            roomById(id).addUser(user);
-            clientList.remove(user);
-            return;
-        }
-
-        System.out.println("Sry, room full");
-    }
-
-
-
-
-
-
-
 }

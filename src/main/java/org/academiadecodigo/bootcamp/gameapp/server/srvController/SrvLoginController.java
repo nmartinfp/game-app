@@ -2,7 +2,6 @@ package org.academiadecodigo.bootcamp.gameapp.server.srvController;
 
 import org.academiadecodigo.bootcamp.gameapp.server.Server;
 import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
-import org.academiadecodigo.bootcamp.gameapp.utilities.AppConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
 import java.net.Socket;
@@ -28,7 +27,7 @@ public class SrvLoginController {
     public void authenticate(String user, String pass) {
 
         if (userService.authenticate(user, pass) && server.findUser(clientSocket) == null) {
-            server.sendingProtoMsg(ProtocolConfig.SERVER_LOGIN + " " + ProtocolConfig.LOBBY_VIEW,
+            server.sendingProtoMsg(ProtocolConfig.SERVER_LOGIN + " " + ProtocolConfig.VIEW_LOBBY,
                     clientSocket);
             server.setingMap(userService.findByName(user), clientSocket);
             return;

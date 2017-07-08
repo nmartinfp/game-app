@@ -104,7 +104,6 @@ public class CltLobbyController implements Initializable, Controller{
             //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText().replaceAll("\n|\r", "") + "\n";
             String sendMessage = ProtocolConfig.CLIENT_CHAT + ";" + sendMsg.getText().replaceAll("\n|\r", "");
             sendMsg.clear();
-            sendMsg.clear();
             serverHandler.sendMessage(sendMessage);
         }
 
@@ -137,15 +136,16 @@ public class CltLobbyController implements Initializable, Controller{
     @FXML
     public void onActionNewRoom(ActionEvent event) {
 
-        if (btnRoom1.getText().equals("ROOM")) {
+        System.out.println(btnRoom1.getText());
+
+        if (btnRoom1.getText().equals("Room")) {
             String sendMessage = ProtocolConfig.CLIENT_CREATE_ROOM + ";" + "createRoom";
             serverHandler.sendMessage(sendMessage);
             return;
         }
 
-        String sendMessage = ProtocolConfig.CLIENT_CREATE_ROOM + ";" + btnRoom1.getText();
+        String sendMessage = ProtocolConfig.CLIENT_JOIN_ROOM + ";" + btnRoom1.getText();
         serverHandler.sendMessage(sendMessage);
-        btnCreateNewRoom.setDisable(true);
     }
 
     @FXML

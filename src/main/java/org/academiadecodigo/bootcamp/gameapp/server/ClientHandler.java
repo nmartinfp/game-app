@@ -39,14 +39,12 @@ public class ClientHandler implements Runnable {
     public void run() {
 
         //Handling message received login and register
-
-        System.out.println("I'm on run of clienthandler");
         handle();
         try {
             //Handling message received Lobby and Room
             while (!clientSocket.isClosed()) {
 
-
+                System.out.println("estou no process");
                 String message = input.readLine();
                 workable.process(this, message);
             }
@@ -80,12 +78,10 @@ public class ClientHandler implements Runnable {
             String[] messageTokens = ProtocolParser.splitMessage(message);
 
             if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)) {
-                System.out.println("I'm on authenticate");
                 authenticate(messageTokens[ProtocolConfig.USERNAME],
                         messageTokens[ProtocolConfig.PASSWORD]);
                 return;
             }
-            System.out.println("I'm on register");
             createUser(messageTokens[ProtocolConfig.FIRSTNAME],
                     messageTokens[ProtocolConfig.USERNAME],
                     messageTokens[ProtocolConfig.PASSWORD]);
@@ -126,7 +122,6 @@ public class ClientHandler implements Runnable {
             user = userService.findByName(username);
             return;
         }
-        System.out.println("Not logged");
         sendMessage(ProtocolConfig.SERVER_ERR);
     }
 

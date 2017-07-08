@@ -30,9 +30,6 @@ public class Room implements Runnable,Workable {
     private int minSize;
     private int maxSize;
 
-    private int count = 0;
-    private String[] choices;
-
 //----CONSTRUCTORS------------------------------------------------------------------------------------------------------
 
     public Room(int roomSize) {
@@ -55,6 +52,14 @@ public class Room implements Runnable,Workable {
         this.gameName = gameName;
     }
 
+    //Sending msg to everyone CHAT
+    public void sendMsgToRoom(String message) {
+
+        for (ClientHandler ClientHandler : clientHandlerVector) {
+            ClientHandler.sendMessage(message);
+        }
+    }
+
     //----------------------------------------------------------------------------------------------------------------------
     @Override
     public void process(ClientHandler ClientHandler, String message) {
@@ -62,15 +67,15 @@ public class Room implements Runnable,Workable {
         String[] tokens = ProtocolParser.splitMessage(message);
 
         if (message.contains(ProtocolConfig.CLIENT_CHAT)){
-
-            sendToAll(tokens[ProtocolConfig.MESSAGE]);
+            String protoMessage = ProtocolConfig.SERVER_CHAT_ROOM + ";" + tokens[ProtocolConfig.MESSAGE];
+            System.out.println(protoMessage);
+            sendMsgToRoom(protoMessage);
             return;
         }
         if (message.contains(ProtocolConfig.CLIENT_GAME)) {
 
-           choices[count] = tokens[ProtocolConfig.MESSAGE];
 
-           count++;
+
         }
     }
 
@@ -85,11 +90,7 @@ public class Room implements Runnable,Workable {
             e.printStackTrace();
         }
 
-        if (choices.length == 2) {
 
-          String winner = rpsGame.playRound(choices[0], choices[1]);
-
-        }
 
 
 
@@ -100,13 +101,12 @@ public class Room implements Runnable,Workable {
         }
     }
 
-    private void sendToAll(String token) {
-    }
-
-    public synchronized void addServerHandler(ClientHandler ClientHandler) {
+    public synchronized void addClientHandler(ClientHandler ClientHandler) {
 
         clientHandlerVector.add(ClientHandler);
-        notifyAll();
+        if (clientHandlerVector.size() == 2) {
+            notifyAll();
+        }
     }
 
     public String getName() {

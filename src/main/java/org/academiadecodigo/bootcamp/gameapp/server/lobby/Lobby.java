@@ -64,7 +64,6 @@ public class Lobby implements Runnable, Workable {
 
         while (true) {
             if (queue.size() > 0) {
-                System.out.println("estou aqui no run do lobby");
                 clientVector.add(queue.poll());
             }
         }
@@ -102,11 +101,11 @@ public class Lobby implements Runnable, Workable {
     private void createRoom(ClientHandler clientHandler, GameName gameName) {
 
         Room room = new Room(gameName.getMinUsers(), gameName.getMaxUsers(), this);
-        String roomName = clientHandler.getUsername() + "'s Room";
+        String roomName = clientHandler.getUsername() + "Room";
         room.init(clientHandler, roomName, gameName);
 
         clientHandler.changeState(room, State.ROOM);
-
+        System.out.println("nome da room: " + room.getName());
         roomVector.add(room);
         clientVector.remove(clientHandler);
 
@@ -135,15 +134,15 @@ public class Lobby implements Runnable, Workable {
     * Adds a user to a Room and removes it from the clientList if the room is not full yet
     * Could return a message for success or lack thereof to trigger secondary behaviours
     */
-    private void addClientToRoom(ClientHandler clientHandler, String name) {
+    private void git addClientToRoom(ClientHandler clientHandler, String name) {
 
         Room room = roomByName(name);
 
         if (room != null) {
 
-            room.addServerHandler(clientHandler);
+            room.addClientHandler(clientHandler);
             clientHandler.changeState(room, State.ROOM);
-
+            System.out.println("nome da room 2 player: " + room.getName());
             clientVector.remove(clientHandler);
 
             clientHandler.sendMessage(ProtocolConfig.SERVER_JOIN_ROOM + ";" +ProtocolConfig.VIEW_RPS);

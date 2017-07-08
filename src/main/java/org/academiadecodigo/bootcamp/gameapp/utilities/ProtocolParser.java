@@ -34,9 +34,11 @@ public final class ProtocolParser {
             case ProtocolConfig.SERVER_GAME:
 
                 break;
-
             case ProtocolConfig.SERVER_CHAT:
                 serverHandler.receivedMessage(protocol[ProtocolConfig.MESSAGE]);
+                break;
+            case ProtocolConfig.SERVER_CHAT_ROOM:
+                serverHandler.receivedMessageRoom(protocol[ProtocolConfig.MESSAGE]);
                 break;
 
             default:

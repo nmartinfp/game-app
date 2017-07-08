@@ -15,6 +15,7 @@ public final class AppConfig {
      */
     public static final int PORT = 1234;
     public static final InetAddress IP = InetAddress.getLoopbackAddress();
+    public static final String IP_STRING = "192.168.1.242";
 
     /*
      * DataBase Configuration

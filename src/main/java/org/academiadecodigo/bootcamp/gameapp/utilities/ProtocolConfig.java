@@ -34,6 +34,7 @@ public final class ProtocolConfig {
     public static final String SERVER_CREATE_ROOM = "@SERVER_CREATE_ROOM";
     public static final String SERVER_JOIN_ROOM = "@SERVER_JOIN_ROOM";
     public static final String SERVER_REGISTER_ROOM = "@SERVER_REGISTER_ROOM";
+    public static final String SERVER_CHAT_ROOM = "@SERVER_CHAT_ROOM";
     public static final String SERVER_GAME = "@SERVER_GAME";
     public static final String SERVER_ERR = "@SERVER_ERROR";
 

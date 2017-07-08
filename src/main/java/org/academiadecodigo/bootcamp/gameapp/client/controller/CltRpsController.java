@@ -12,12 +12,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import org.academiadecodigo.bootcamp.gameapp.client.ClientRegistry;
 import org.academiadecodigo.bootcamp.gameapp.client.ServerHandler;
 import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
+import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
 /**
  * A/C: Bootcamp8
@@ -95,7 +97,9 @@ public class CltRpsController implements Initializable, Controller {
 
     }
 
-
+    public void receiveChatMsg(String message){
+        receiveChatMsg.appendText(message + "\n");
+    }
 
     @FXML
     void onImageRock(MouseEvent event) {
@@ -144,11 +148,25 @@ public class CltRpsController implements Initializable, Controller {
     @FXML
     void onKeyPressedSendChatMsg(KeyEvent event) {
 
+        if (!sendMsg.getText().isEmpty() && event.getCode() == KeyCode.ENTER) {
+
+            //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText() + "\n";
+            //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText().replaceAll("\n|\r", "") + "\n";
+            String sendMessage = ProtocolConfig.CLIENT_CHAT + ";" + sendMsg.getText().replaceAll("\n|\r", "");
+            sendMsg.clear();
+            serverHandler.sendMessage(sendMessage);
+        }
     }
 
     @FXML
     void sendChatMsg(ActionEvent event) {
 
+        if (!sendMsg.getText().isEmpty()) {
+
+            String sendMessage = ProtocolConfig.CLIENT_CHAT + ";" + sendMsg.getText();
+            sendMsg.clear();
+            serverHandler.sendMessage(sendMessage);
+        }
     }
 
     @FXML

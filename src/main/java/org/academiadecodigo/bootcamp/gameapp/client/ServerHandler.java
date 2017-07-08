@@ -1,10 +1,7 @@
 package org.academiadecodigo.bootcamp.gameapp.client;
 
 import javafx.application.Platform;
-import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLobbyController;
-import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLoginController;
-import org.academiadecodigo.bootcamp.gameapp.client.controller.CltRegisterController;
-import org.academiadecodigo.bootcamp.gameapp.client.controller.Controller;
+import org.academiadecodigo.bootcamp.gameapp.client.controller.*;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
 
@@ -106,7 +103,9 @@ public class ServerHandler implements Runnable {
         });
     }
 
-
+    public void receivedMessageRoom(String message) {
+        ((CltRpsController) navigation.getController(ProtocolConfig.VIEW_RPS)).receiveChatMsg(message);
+    }
     // TODO: 08/07/17 send player to room
 
     public void addToRoom(final String message) {
@@ -126,5 +125,7 @@ public class ServerHandler implements Runnable {
     public void setClient(Client client) {
         this.client = client;
     }
+
+
 }
 

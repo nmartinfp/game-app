@@ -10,6 +10,7 @@ import java.util.TimerTask;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -88,6 +89,9 @@ public class CltRpsController implements Initializable, Controller {
 
     @FXML
     void onActionNewRoom(ActionEvent event) {
+        // TODO: 07/07/17 After receive the information of the rival choice
+
+
 
     }
 
@@ -95,16 +99,20 @@ public class CltRpsController implements Initializable, Controller {
 
     @FXML
     void onImageRock(MouseEvent event) {
+
         image2.setDisable(true);
         image3.setDisable(true);
         stop();
         lblMyChoice.setVisible(true);
         lblMyChoice.setText("You Played Rock");
         // TODO: 06/07/17 Send message od the gamechoice
-        image1.setDisable(true);
+        //image1.setDisable(true);
+        image1.setImage(image1.getImage());
+        image2.setImage(imageX.getImage());
+        //image3.setImage(imageXXX.getImage()); // rival choice
+
     }
-
-
+    
     @FXML
     void onImagePaper(MouseEvent event) {
         image1.setDisable(true);
@@ -114,6 +122,9 @@ public class CltRpsController implements Initializable, Controller {
         lblMyChoice.setText("You Played Paper");
         // TODO: 06/07/17 Send message od the gamechoice
         image2.setDisable(true);
+        image1.setImage(image2.getImage());
+        image2.setImage(imageX.getImage());
+        //image3.setImage(imageXXX.getImage()); // rival choice
     }
 
     @FXML
@@ -122,9 +133,12 @@ public class CltRpsController implements Initializable, Controller {
         image2.setDisable(true);
         stop();
         lblMyChoice.setVisible(true);
-        lblMyChoice.setText("You Played Scisors");
+        lblMyChoice.setText("You Played Scissors");
         // TODO: 06/07/17 Send message od the gamechoice
         image3.setDisable(true);
+        image1.setImage(image3.getImage());
+        image2.setImage(imageX.getImage());
+        //image3.setImage(imageXXX.getImage()); // rival choice
     }
 
     @FXML
@@ -164,9 +178,8 @@ public class CltRpsController implements Initializable, Controller {
             progBar.setStyle(ColorBar.values()[(int) numbSteps].getStyle());
 
             if (numbSteps == 0) {
-                System.out.println("ola");
-                showMsg();
                 stop();
+                showMsg();
             }
         }
 
@@ -174,12 +187,9 @@ public class CltRpsController implements Initializable, Controller {
             image1.setDisable(true);
             image2.setDisable(true);
             image3.setDisable(true);
-            System.out.println("voou");
-           // lblMyChoice.setVisible(true);
-            //lblMyChoice.setText("You did'nt played");
+            lblMyChoice.setVisible(true);
             // TODO: 06/07/17 If rival played sonmething player This player lose. Or both lose
-           // lblResult.setVisible(true);
-           // lblResult.setText("You Lose");
+            lblResult.setVisible(true);
         }
     }
 

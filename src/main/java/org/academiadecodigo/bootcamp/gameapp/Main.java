@@ -73,6 +73,9 @@ public class Main extends Application {
 
     /*
      * Loading the first view.
+     *
+     * @param primaryStage
+     * @throws Exception
      */
     @Override
     public void start(Stage primaryStage) throws Exception {

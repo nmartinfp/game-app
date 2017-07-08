@@ -103,7 +103,7 @@ public class Lobby implements Runnable, Workable {
 
         Room room = new Room(gameName.getMinUsers(), gameName.getMaxUsers(), this);
         String roomName = clientHandler.getUsername() + "Room";
-        room.init(clientHandler, roomName, gameName);
+        room.init(clientHandler, roomName);
 
         clientHandler.changeState(room, State.ROOM);
         roomVector.add(room);

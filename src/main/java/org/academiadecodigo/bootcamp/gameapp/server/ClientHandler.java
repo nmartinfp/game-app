@@ -64,28 +64,29 @@ public class ClientHandler implements Runnable {
     }
 
     private void handle() {
-        while (state.equals(State.LOGIN)) {
-            String message = null;
 
-            try {
+        String message = null;
+
+        try {
+
+            while (state.equals(State.LOGIN)) {
                 message = input.readLine();
                 System.out.println("I received message from client: " + message);
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+                String[] messageTokens = ProtocolParser.splitMessage(message);
 
-            String[] messageTokens = ProtocolParser.splitMessage(message);
-
-            if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)) {
-                authenticate(messageTokens[ProtocolConfig.USERNAME],
+                if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)) {
+                    authenticate(messageTokens[ProtocolConfig.USERNAME],
+                            messageTokens[ProtocolConfig.PASSWORD]);
+                    return;
+                }
+                createUser(messageTokens[ProtocolConfig.FIRSTNAME],
+                        messageTokens[ProtocolConfig.USERNAME],
                         messageTokens[ProtocolConfig.PASSWORD]);
-                return;
             }
-            createUser(messageTokens[ProtocolConfig.FIRSTNAME],
-                    messageTokens[ProtocolConfig.USERNAME],
-                    messageTokens[ProtocolConfig.PASSWORD]);
 
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -101,12 +102,12 @@ public class ClientHandler implements Runnable {
 
     //Sending msg just for one client
     public void sendMessage(String message) {
-        System.out.println("Server will send this message: " + message );
+        System.out.println("Server will send this message: " + message);
         output.write(message + "\n");
         output.flush();
     }
 
-//----------------------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------------------
 //                                               Login and Register HANDLING
 //----------------------------------------------------------------------------------------------------------------------
     public void authenticate(String username, String password) {
@@ -122,7 +123,7 @@ public class ClientHandler implements Runnable {
             user = userService.findByName(username);
             return;
         }
-        sendMessage(ProtocolConfig.SERVER_ERR);
+        sendMessage(ProtocolConfig.SERVER_LOGIN + ";" + ProtocolConfig.ERR);
     }
 
 
@@ -142,7 +143,7 @@ public class ClientHandler implements Runnable {
             return;
         }
 
-        sendMessage(ProtocolConfig.SERVER_ERR);
+        sendMessage(ProtocolConfig.SERVER_REGISTER + ";" + ProtocolConfig.ERR);
     }
 
     public void changeState(Workable workable, State state) {

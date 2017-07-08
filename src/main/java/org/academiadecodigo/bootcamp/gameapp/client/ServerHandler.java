@@ -79,7 +79,6 @@ public class ServerHandler implements Runnable {
                     registerController.backScreen();
                     return;
                 }
-
                 registerController.registerFailure();
             }
         });
@@ -106,8 +105,14 @@ public class ServerHandler implements Runnable {
         });
     }
 
-    public void receivedMessageRoom(String message) {
-        ((CltRpsController) navigation.getController(ProtocolConfig.VIEW_RPS)).receiveChatMsg(message);
+    public void receivedMessageRoom(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                ((CltRpsController) navigation.getController(ProtocolConfig.VIEW_RPS)).receiveChatMsg(message);
+            }
+        });
+
     }
 
     public void addToRoom(final String message) {
@@ -130,16 +135,23 @@ public class ServerHandler implements Runnable {
         });
     }
 
-    //----------------------------------------------------------------------------------------------------------------------
+    public void showOtherHand(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                CltRpsController rpsController = navigation.getController(ProtocolConfig.VIEW_RPS);
+                System.out.println(message);
+                rpsController.showOtherHand(message);
+            }
+        });
+    }
+//----------------------------------------------------------------------------------------------------------------------
 //
 //----------------------------------------------------------------------------------------------------------------------
-
-    public void genericHandler(Runnable actionToBeTaken, final String message) {
-        Platform.runLater(actionToBeTaken);
-    }
 
     public void setClient(Client client) {
         this.client = client;
     }
+
 }
 

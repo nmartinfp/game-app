@@ -37,7 +37,7 @@ public final class ProtocolConfig {
     public static final String SERVER_CHAT_ROOM = "@SERVER_CHAT_ROOM";
     public static final String SERVER_GAME = "@SERVER_GAME";
     public static final String SERVER_OTHER_HAND = "@SERVER_OTHER_HAND";
-    public static final String SERVER_ERR = "@SERVER_ERROR";
+    public static final String ERR = "ERROR";
 
     public static final String CLIENT_LOGIN = "@CLIENT_LOGIN";
     public static final String CLIENT_REGISTER = "@CLIENT_REGISTER";

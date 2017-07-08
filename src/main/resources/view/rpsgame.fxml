@@ -56,20 +56,20 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="lblResult" alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="726.0" text="YOU LOSE!" textFill="#ff1d04" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                  <Label fx:id="lblResult" alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="726.0" text="YOU LOSE!" textFill="#ff1d04" visible="false" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                      <font>
-                        <Font name="Comic Sans MS Bold" size="88.0" />
+                        <Font name="System Bold" size="88.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblRound" alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="264.0" text="Round 2" textFill="#4d0404" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label fx:id="lblRound" alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="264.0" text="Round 2" textFill="#4d0404" visible="false" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <font>
-                        <Font name="Comic Sans MS Bold" size="48.0" />
+                        <Font name="System Bold" size="36.0" />
                      </font>
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
                   </Label>
-                  <ProgressBar fx:id="progBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="661.0" progress="1.0" style="-fx-accent: #00B000;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <ProgressBar fx:id="progBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="661.0" progress="1.0" style="-fx-accent: #00B000;" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="18.0" />
                      </GridPane.margin>
@@ -117,7 +117,7 @@
                         </GridPane>
                      </children>
                   </GridPane>
-                  <Label fx:id="lblMyChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="Time over!" textFill="#ae2828" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                  <Label fx:id="lblMyChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="Time over!" textFill="#ae2828" visible="false" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets left="25.0" />
                      </GridPane.margin>
@@ -125,7 +125,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblRivalChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="Time over!" textFill="#ae2828" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                  <Label fx:id="lblRivalChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="Time over!" textFill="#ae2828" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets right="12.0" />
                      </GridPane.margin>
@@ -133,13 +133,32 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblScore" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="242.0" text="4 X 3" textFill="#3405dd" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <Label fx:id="lblScore" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="150.0" text="Score" textFill="#3405dd" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets top="25.0" />
                      </GridPane.margin>
                      <font>
-                        <Font name="Comic Sans MS Bold" size="48.0" />
+                        <Font name="System Bold" size="36.0" />
                      </font>
+                  </Label>
+                  <Label fx:id="lblScore1" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="150.0" textFill="#3405dd" visible="false" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="60.0" top="25.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lblScore2" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="150.0" textFill="#3405dd" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets right="40.0" top="25.0" />
+                     </GridPane.margin>
                   </Label>
                </children>
             </GridPane>

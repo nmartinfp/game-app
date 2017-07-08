@@ -30,6 +30,11 @@ import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 public class CltRpsController implements Initializable, Controller {
 
     private final String NAME = "RPS";
+
+    private Image rock = new Image("images/rps_rock.png");
+    private Image paper = new Image("images/rps_paper.png");
+
+
     private Timer timer;
     private ServerHandler serverHandler;
 
@@ -97,6 +102,11 @@ public class CltRpsController implements Initializable, Controller {
 
     public void setWinner(String message){
         lblResult.setText(message);
+        receiveChatMsg.appendText(message + "\n");
+        if(message.equals("Winner")){
+            lblResult.setStyle("-fx-text-fill: #2ABB00");
+        }
+        lblResult.setVisible(true);
     }
 
     public void receiveChatMsg(String message){
@@ -111,14 +121,9 @@ public class CltRpsController implements Initializable, Controller {
         //stop();
         lblMyChoice.setVisible(true);
         lblMyChoice.setText("You Played Rock");
-        // TODO: 06/07/17 Send message od the gamechoice
-        //image1.setDisable(true);
         image1.setImage(image1.getImage());
-        image2.setImage(imageX.getImage());
 
         serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" +Choices.ROCK.getHand());
-        //image3.setImage(imageXXX.getImage()); // rival choice
-
     }
     
     @FXML
@@ -128,13 +133,10 @@ public class CltRpsController implements Initializable, Controller {
         //stop();
         lblMyChoice.setVisible(true);
         lblMyChoice.setText("You Played Paper");
-        // TODO: 06/07/17 Send message od the gamechoice
         image2.setDisable(true);
         image1.setImage(image2.getImage());
-        image2.setImage(imageX.getImage());
 
         serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" + Choices.PAPER.getHand());
-        //image3.setImage(imageXXX.getImage()); // rival choice
     }
 
     @FXML
@@ -144,13 +146,11 @@ public class CltRpsController implements Initializable, Controller {
         //stop();
         lblMyChoice.setVisible(true);
         lblMyChoice.setText("You Played Scissors");
-        // TODO: 06/07/17 Send message od the gamechoice
         image3.setDisable(true);
         image1.setImage(image3.getImage());
         image2.setImage(imageX.getImage());
 
         serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" + Choices.SCISSORS.getHand());
-        //image3.setImage(imageXXX.getImage()); // rival choice
     }
 
     @FXML
@@ -158,8 +158,6 @@ public class CltRpsController implements Initializable, Controller {
 
         if (!sendMsg.getText().isEmpty() && event.getCode() == KeyCode.ENTER) {
 
-            //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText() + "\n";
-            //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText().replaceAll("\n|\r", "") + "\n";
             String sendMessage = ProtocolConfig.CLIENT_CHAT + ";" + sendMsg.getText().replaceAll("\n|\r", "");
             sendMsg.clear();
             serverHandler.sendMessage(sendMessage);
@@ -187,6 +185,29 @@ public class CltRpsController implements Initializable, Controller {
     private void startTimer(int timeStep) {
         timer = new Timer();
         timer.schedule(new Prog(), timeStep, timeStep);
+    }
+
+    public void showOtherHand(String message) {
+        System.out.println(message);
+        if (message.equals(Choices.ROCK.getHand())){
+
+            image3.setImage(rock);
+            image2.setImage(imageX.getImage());
+            lblRivalChoice.setText("Rival played Rock");
+            lblRivalChoice.setVisible(true);
+
+        }else if(message.equals(Choices.PAPER.getHand())){
+
+            image3.setImage(paper);
+            image2.setImage(imageX.getImage());
+            lblRivalChoice.setText("Rival played Paper");
+            lblRivalChoice.setVisible(true);
+
+        }else{
+            image2.setImage(imageX.getImage());
+            lblRivalChoice.setText("Rival played Scissors");
+            lblRivalChoice.setVisible(true);
+        }
     }
 
     private class Prog extends TimerTask {

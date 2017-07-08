@@ -26,7 +26,6 @@ public class Room implements Runnable, Workable {
 
     private Lobby lobby;
     private Vector<ClientHandler> clientHandlerVector;
-    private GameName gameName;
 
     private String user1;
     private String user2;
@@ -54,11 +53,10 @@ public class Room implements Runnable, Workable {
         clientHandlerVector = new Vector<>();
     }
 
-    public void init(ClientHandler clientHandler, String name, GameName gameName) {
+    public void init(ClientHandler clientHandler, String name) {
         clientHandlerVector.add(clientHandler);
         user1 = clientHandler.getUsername();
         this.name = name;
-        this.gameName = gameName;
     }
 
     //Sending msg to everyone CHAT
@@ -84,16 +82,16 @@ public class Room implements Runnable, Workable {
         }
         if (message.contains(ProtocolConfig.CLIENT_GAME)) {
 
-            if (user1.equals(clientHandler.getUsername())){
+            if (user1.equals(clientHandler.getUsername())) {
                 p1Hand = tokens[ProtocolConfig.MESSAGE];
                 System.out.println(p1Hand);
 
-            } else if (user2.equals(clientHandler.getUsername())){
+            } else if (user2.equals(clientHandler.getUsername())) {
                 p2Hand = tokens[ProtocolConfig.MESSAGE];
                 System.out.println(p2Hand);
             }
 
-            if (p1Hand != null && p2Hand != null){
+            if (p1Hand != null && p2Hand != null) {
                 System.out.println("2 notify");
                 notifyAll();
             }
@@ -122,16 +120,17 @@ public class Room implements Runnable, Workable {
             String winner;
 
             winner = rpsGame.playRound(p1Hand, p2Hand);
-
             showOtherHand();
 
             System.out.println("Winner of game: " + winner);
 
-            if (winner.equals(p1Hand)){
+            if (winner.equals(p1Hand)) {
                 sendMsgGame(user1);
 
-            }else {
+            } else if (winner.equals(p2Hand)) {
                 sendMsgGame(user2);
+            } else {
+                sendMsgGame(null);
             }
 
         } catch (InterruptedException e) {
@@ -152,27 +151,32 @@ public class Room implements Runnable, Workable {
     }
 
     private void showOtherHand() {
-        for (ClientHandler clientHandler : clientHandlerVector){
+        for (ClientHandler clientHandler : clientHandlerVector) {
 
-            if (clientHandler.getUsername().equals(user1)){
-                clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + p2Hand);
+            if (clientHandler.getUsername().equals(user1)) {
+                clientHandler.sendMessage(ProtocolConfig.SERVER_OTHER_HAND + ";" + p2Hand);
+                System.out.println("jogada do player 2: " + p2Hand);
 
-            }else{
-                clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + p1Hand);
+            } else {
+                clientHandler.sendMessage(ProtocolConfig.SERVER_OTHER_HAND + ";" + p1Hand);
+                System.out.println("jogada do player 2: " + p1Hand);
             }
         }
     }
 
-    private void sendMsgGame(String user){
-       for (ClientHandler clientHandler : clientHandlerVector){
+    private void sendMsgGame(String user) {
 
-           if (clientHandler.getUsername().equals(user)){
-               clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "Winner");
+            for (ClientHandler clientHandler : clientHandlerVector) {
 
-           }else {
-               clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";"+ "Lose");
-           }
-       }
+                if (clientHandler.getUsername().equals(user)) {
+                    clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "YOU WIN!");
+                } else {
+                    if(user == null){
+                        clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "TIE!");
+                    }else
+                    clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "YOU LOSE!");
+                }
+            }
     }
 
     public synchronized void addClientHandler(ClientHandler clientHandler) {

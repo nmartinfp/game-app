@@ -22,7 +22,7 @@
     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="768.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <GridPane fx:name="gpLobby">
+      <GridPane fx:id="gpLobby">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -41,8 +41,8 @@
                 <RowConstraints minHeight="85.0" prefHeight="85.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:name="btnExitGame" mnemonicParsing="false" onAction="#onActionExitGame" prefHeight="40.0" prefWidth="100.0" text="Logout" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Button fx:name="btnTestBar" mnemonicParsing="false" onAction="#onActiontestbar" text="test bar" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button fx:id="btnExitGame" mnemonicParsing="false" onAction="#onActionExitGame" prefHeight="40.0" prefWidth="100.0" text="Logout" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button fx:id="btnTestBar" mnemonicParsing="false" onAction="#onActiontestbar" text="test bar" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
             <GridPane GridPane.rowIndex="1">
@@ -56,12 +56,12 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:name="lblResult" alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="726.0" text="YOU WIN" textFill="#04b533" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                  <Label fx:id="lblResult" alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="726.0" text="YOU WIN" textFill="#04b533" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                      <font>
                         <Font name="Comic Sans MS Bold" size="88.0" />
                      </font>
                   </Label>
-                  <Label fx:name="lblRound" alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="264.0" text="Round 2" textFill="#4d0404" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label fx:id="lblRound" alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="264.0" text="Round 2" textFill="#4d0404" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="Comic Sans MS Bold" size="48.0" />
                      </font>
@@ -69,7 +69,7 @@
                         <Insets left="15.0" />
                      </GridPane.margin>
                   </Label>
-                  <ProgressBar fx:name="progBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="661.0" progress="1.0" style="-fx-accent: #00B000;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <ProgressBar fx:id="progBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="661.0" progress="1.0" style="-fx-accent: #00B000;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="18.0" />
                      </GridPane.margin>
@@ -93,22 +93,22 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <ImageView fx:name="image1" fitHeight="161.0" fitWidth="200.0" onMouseClicked="#onImageRock" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <ImageView fx:id="image1" fitHeight="161.0" fitWidth="200.0" onMouseClicked="#onImageRock" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <image>
                                     <Image url="@/images/rps_rock.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:name="image2" fitHeight="161.0" fitWidth="200.0" onMouseClicked="#onImagePaper" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <ImageView fx:id="image2" fitHeight="161.0" fitWidth="200.0" onMouseClicked="#onImagePaper" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <image>
                                     <Image url="@/images/rps_paper.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:name="image3" fitHeight="161.0" fitWidth="200.0" onMouseClicked="#onImageScissors" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <ImageView fx:id="image3" fitHeight="161.0" fitWidth="200.0" onMouseClicked="#onImageScissors" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <image>
                                     <Image url="/images/rps_scissors.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:name="imageX" fitHeight="188.0" fitWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <ImageView fx:id="imageX" fitHeight="188.0" fitWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <image>
                                     <Image url="@/images/ImageX.png" />
                                  </image>

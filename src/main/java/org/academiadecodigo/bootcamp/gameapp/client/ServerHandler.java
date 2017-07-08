@@ -12,25 +12,28 @@ import java.util.HashMap;
 
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
 // TODO: 04/07/17 close thread of this runnable *see readLine of client.
-public class ClientHandler implements Runnable {
+public class ServerHandler implements Runnable {
 
-    private HashMap<String, Controller> controllerMap;
+    private Navigation navigation;
     private Client client;
 
-    public ClientHandler() {
-        client = ClientRegistry.getInstance().getClient();
-        controllerMap = new HashMap<>();
+    public ServerHandler() {
+       navigation = Navigation.getInstance();
+    }
+
+    public void sendMessage(String message) {
+        client.send(message);
     }
 
     @Override
     public void run() {
 
-        while (!client.getClientSocket().isClosed()) {
+        while (!client.clientConnected()) {
 
             String message = client.receive();
             System.out.println("message recieved from server: " + message);
@@ -42,7 +45,7 @@ public class ClientHandler implements Runnable {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                ((CltLobbyController) controllerMap.get("Lobby")).receiveChatMsg(message);
+                ((CltLobbyController)navigation.getController(ProtocolConfig.VIEW_LOBBY)).receiveChatMsg(message);
             }
         });
     }
@@ -52,12 +55,14 @@ public class ClientHandler implements Runnable {
             @Override
             public void run() {
 
+                CltLoginController cltLoginController = navigation.getController(ProtocolConfig.VIEW_LOGIN);
+
                 if (message.equals(ProtocolConfig.VIEW_LOBBY)) {
-                    System.out.println("vou mudar para lobby");
-                    ((CltLoginController) controllerMap.get("Login")).successfullyAuth(message);
+                    System.out.println("vou mudar para lobby" + cltLoginController);
+                    cltLoginController.successfullyAuth(message);
                     return;
                 }
-                ((CltLoginController) controllerMap.get("Login")).authFailure();
+                cltLoginController.authFailure();
             }
         });
     }
@@ -66,12 +71,15 @@ public class ClientHandler implements Runnable {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
+
+                CltRegisterController cltRegisterController = navigation.getController(ProtocolConfig.VIEW_REGISTER);
+
                 if (message.equals(ProtocolConfig.VIEW_LOGIN)) {
-                    ((CltRegisterController) controllerMap.get("Register")).backScreen();
+                    cltRegisterController.backScreen();
                     return;
                 }
 
-                ((CltRegisterController) controllerMap.get("Register")).registerFailure();
+                cltRegisterController.registerFailure();
             }
         });
     }
@@ -80,10 +88,8 @@ public class ClientHandler implements Runnable {
         Platform.runLater(actionToBeTaken);
     }
 
-    public void setInitializable(Controller controller) {
-        controllerMap.put(controller.getName(), controller);
+    public void setClient(Client client) {
+        this.client = client;
     }
-
-
 }
 

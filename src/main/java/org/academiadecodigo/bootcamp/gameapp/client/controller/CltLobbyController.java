@@ -9,9 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
-import org.academiadecodigo.bootcamp.gameapp.client.Client;
 import org.academiadecodigo.bootcamp.gameapp.client.ClientRegistry;
-import org.academiadecodigo.bootcamp.gameapp.client.ClientHandler;
+import org.academiadecodigo.bootcamp.gameapp.client.ServerHandler;
 import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
@@ -21,7 +20,7 @@ import java.util.ResourceBundle;
 
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
@@ -29,7 +28,7 @@ public class CltLobbyController implements Initializable, Controller{
 
     private final String NAME = "Lobby";
 
-    private Client client;
+    private ServerHandler serverHandler;
 
     @FXML
     private GridPane gpLobby;
@@ -93,9 +92,9 @@ public class CltLobbyController implements Initializable, Controller{
 
         if (!sendChatMsg.getText().isEmpty()) {
 
-            String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText() + "\n";
+            String sendMessage = ProtocolConfig.CLIENT_CHAT + ";" + sendChatMsg.getText() + "\n";
             sendChatMsg.clear();
-            client.send(sendMessage);
+            serverHandler.sendMessage(sendMessage);
         }
     }
 
@@ -106,10 +105,10 @@ public class CltLobbyController implements Initializable, Controller{
 
             //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText() + "\n";
             //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText().replaceAll("\n|\r", "") + "\n";
-            String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendMsg.getText().replaceAll("\n|\r", "") + "\n";
+            String sendMessage = ProtocolConfig.CLIENT_CHAT + ";" + sendMsg.getText().replaceAll("\n|\r", "") + "\n";
             sendChatMsg.clear();
             sendMsg.clear();
-            client.send(sendMessage);
+            serverHandler.sendMessage(sendMessage);
         }
 
     }
@@ -133,8 +132,8 @@ public class CltLobbyController implements Initializable, Controller{
     @FXML
     public void onActionNewRoom(ActionEvent event) {
 
-        String sendMessage = ProtocolConfig.SERVER_ROOM + " " + "createRoom\n";
-        client.send(sendMessage);
+        String sendMessage = ProtocolConfig.CLIENT_CREATE_ROOM + ";" + "createRoom\n";
+        serverHandler.sendMessage(sendMessage);
         btnCreateNewRoom.setDisable(true);
     }
 
@@ -147,12 +146,7 @@ public class CltLobbyController implements Initializable, Controller{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        ClientHandler clientHandler;
-
-        client = ClientRegistry.getInstance().getClient();
-        clientHandler = ClientRegistry.getInstance().getHandler();
-        clientHandler.setInitializable(this);
+        serverHandler = ClientRegistry.getInstance().getHandler();
     }
 
     public String getName(){

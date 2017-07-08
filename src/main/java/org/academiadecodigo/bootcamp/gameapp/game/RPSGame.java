@@ -1,98 +1,45 @@
 package org.academiadecodigo.bootcamp.gameapp.game;
 
-import org.academiadecodigo.bootcamp.gameapp.server.model.User;
-
-import java.net.Socket;
-import java.util.LinkedList;
-
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
 public class RPSGame {
 
-    private LinkedList<Socket[]> clientList;
-    private Player player1;
-    private Player player2;
-    private int maxRounds;
-    private int rounds = 0;
+    public String playRound(String p1Hand, String p2Hand) {
 
-    public RPSGame(int maxRounds, Player player1, Player player2) {
-        this.maxRounds = maxRounds;
-        this.player1 = player1;
-        this.player2 = player2;
-
-    }
-
-    public void start() {
-
-        while (rounds < maxRounds) {
-            playRound();
+        if (p1Hand.equals(p2Hand)) {
+            return "Tie";
         }
 
-        if (checkifTie()) {
-
-            RPSGame extra = new RPSGame(1, player1, player2);
-            extra.start();
-            return;
-        }
-
-        displayResults();
-
-    }
-
-    private void playRound() {
-
-        Choices p1Hand = player1.chooseHand();
-        Choices p2Hand = player2.chooseHand();
-
-        rounds++;
-
-        //if it's a tie, play another round:
-        if (p1Hand == p2Hand) {
-
-            //send a message that it's a tie to the game controller,
-            playRound();
-            return;
-        }
-
-        Player winner = player1;
+        String winner = p1Hand;
 
         switch (p1Hand) {
 
-            case ROCK:
-                if (p2Hand == Choices.PAPER) {
-                    winner = player2;
+            case "ROCK":
+                if (p2Hand.equals(Choices.PAPER.getHand())) {
+                    winner = "PAPER";
                 }
                 break;
 
-            case PAPER:
-                if (p2Hand == Choices.SCISSORS) {
-                    winner = player2;
+            case "PAPER":
+                if (p2Hand.equals(Choices.SCISSORS.getHand())) {
+                    winner = "SCISSORS";
                 }
                 break;
 
-            case SCISSORS:
-                if (p2Hand == Choices.ROCK) {
-                    winner = player2;
+            case "SCISSORS":
+                if (p2Hand.equals(Choices.ROCK.getHand())) {
+                    winner = "ROCK";
                 }
                 break;
         }
 
         //for every winner, send the info to the game controller
-        winner.win();
+        return p1Hand;
 
-    }
-
-    private boolean checkifTie() {
-
-        if (player1.getVictories() == player2.getVictories()) {
-            return true;
-
-        }
-        return false;
     }
 
     private void displayResults() {
@@ -103,45 +50,18 @@ public class RPSGame {
     }
 
     public enum Choices {
-        ROCK,
-        PAPER,
-        SCISSORS
-    }
+        ROCK("ROCK"),
+        PAPER("PAPER"),
+        SCISSORS("SCISSORS");
 
-    public class Player {
+        private String hand;
 
-        private User player;
-        private int victories;
-
-        public Player(User player) {
-
-            this.player = player;
+        Choices(String hand){
+            this.hand = hand;
         }
 
-        public void win() {
-            victories++;
-            //send info that this player won to the game controller
-
-        }
-
-        public Choices chooseHand() {
-
-            //waits for game controller to say which hand did the player choose
-            Choices hand = null;
+        public String getHand() {
             return hand;
-
         }
-
-        public User getPlayer() {
-            return player;
-
-        }
-
-        public int getVictories() {
-            return victories;
-
-        }
-
     }
-
 }

@@ -1,8 +1,6 @@
 package org.academiadecodigo.bootcamp.gameapp.utilities;
 
-import org.academiadecodigo.bootcamp.gameapp.client.ClientHandler;
-import org.academiadecodigo.bootcamp.gameapp.server.ServerHandler;
-import org.academiadecodigo.bootcamp.gameapp.server.deleteclass.ServerParser;
+import org.academiadecodigo.bootcamp.gameapp.client.ServerHandler;
 
 /**
  * Created by Cyrille on 04/07/17.
@@ -10,27 +8,25 @@ import org.academiadecodigo.bootcamp.gameapp.server.deleteclass.ServerParser;
 public final class ProtocolParser {
 
     //Parser for Client
-    public static void clientProtocolHandler(ClientHandler clientHandler, String message) {
+    public static void clientProtocolHandler(ServerHandler serverHandler, String message) {
 
         String[] protocol = message.split(";");
-
-        String cleanMessage = concatMessage(protocol);
 
         switch (protocol[ProtocolConfig.PROTOCOL]) {
 
             case ProtocolConfig.SERVER_LOGIN:
-                clientHandler.userLogin(protocol[ProtocolConfig.MESSAGE]);
+                serverHandler.userLogin(protocol[ProtocolConfig.MESSAGE]);
                 break;
 
             case ProtocolConfig.SERVER_REGISTER:
-                clientHandler.registryMessage(protocol[ProtocolConfig.MESSAGE]);
+                serverHandler.registryMessage(protocol[ProtocolConfig.MESSAGE]);
                 break;
 
-            case ProtocolConfig.SERVER_LOBBY:
+            case ProtocolConfig.SERVER_CREATE_ROOM:
 
                 break;
 
-            case ProtocolConfig.SERVER_ROOM:
+            case ProtocolConfig.SERVER_JOIN_ROOM:
 
                 break;
             case ProtocolConfig.SERVER_GAME:
@@ -38,48 +34,17 @@ public final class ProtocolParser {
                 break;
 
             case ProtocolConfig.SERVER_CHAT:
-                clientHandler.receivedMessage(cleanMessage);
+                serverHandler.receivedMessage(protocol[ProtocolConfig.MESSAGE]);
                 break;
 
             default:
-                clientHandler.receivedMessage("MESSAGE FAILURE TRY AGAIN");
-        }
-    }
-
-    //Parser for Server
-    // TODO: 07/07/17 change message " " to ";" used in the regex
-    public static void serverProtocolHandler(ServerHandler serverHandler, String message) {
-
-        String[] protocol = message.split(";");
-
-        switch (protocol[ProtocolConfig.PROTOCOL]) {
-            case ProtocolConfig.CLIENT_LOGIN:
-                serverHandler.authenticate(protocol[1], protocol[2]);
-                break;
-            case ProtocolConfig.CLIENT_REGISTER:
-                serverHandler.createUser(protocol[1], protocol[2], protocol[3]);
-                break;
-            case ProtocolConfig.CLIENT_LOBBY:
-                break;
-            case ProtocolConfig.CLIENT_ROOM:
-
-                break;
-            case ProtocolConfig.CLIENT_GAME:
-                throw new UnsupportedOperationException();
-            case ProtocolConfig.CLIENT_CHAT:
-
-                break;
+                serverHandler.receivedMessage("MESSAGE FAILURE TRY AGAIN");
         }
     }
 
     //concat message to send client or server
-    private static String concatMessage(String[] protocolMessages) {
+    public static String[] splitMessage(String message) {
 
-        String message = "";
-
-        for (int i = 1; i < protocolMessages.length; i++) {
-            message += protocolMessages[i] + " ";
-        }
-        return message;
+        return message.split(";");
     }
 }

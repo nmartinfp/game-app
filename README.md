@@ -1,2 +1,2 @@
-# game-app
+# gameName-app
 Game application platform

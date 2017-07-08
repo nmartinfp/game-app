@@ -13,7 +13,7 @@ import java.util.Map;
 
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
@@ -74,9 +74,9 @@ public final class Navigation {
         return instance;
     }
 
-    // TODO: 02/07/17 if this method isnt called will be delete on the end of this week :)
-    public Initializable getController(String view) {
-        return controllers.get(view);
+    // TODO: 08/07/17 refactor down cast
+    public <T extends Initializable> T getController(String view) {
+        return (T)controllers.get(view);
     }
 
 

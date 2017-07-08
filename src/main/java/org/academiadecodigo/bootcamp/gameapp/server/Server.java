@@ -1,26 +1,18 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
 import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
-import org.academiadecodigo.bootcamp.gameapp.server.model.User;
-import org.academiadecodigo.bootcamp.gameapp.server.service.ServiceRegistry;
-import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
 import org.academiadecodigo.bootcamp.gameapp.utilities.AppConfig;
-import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import java.util.TreeMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 // TODO: 02/07/17 we aren't closing server socket
@@ -34,13 +26,15 @@ public class Server {
     }
 
     public void init() {
+
         try {
 
             serverSocket = new ServerSocket(AppConfig.PORT);
             System.out.println("Server up.");
 
             lobby = new Lobby();
-            new Thread(lobby);
+            Thread thread = new Thread(lobby);
+            thread.start();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,6 +42,7 @@ public class Server {
     }
 
     public void start() {
+
         try {
             ExecutorService cachedPool = Executors.newCachedThreadPool();
 
@@ -55,23 +50,17 @@ public class Server {
                 System.out.println("Waiting for connection...");
 
                 clientSocket = serverSocket.accept();
-
+                ClientHandler ClientHandler = new ClientHandler(clientSocket, lobby, State.LOGIN);
                 System.out.println("Server connected.");
 
-                cachedPool.submit(new ServerHandler(clientSocket, lobby, State.LOGIN));
+                cachedPool.submit(ClientHandler);
+                lobby.addQueue(ClientHandler);
+
             }
         } catch (IOException e) {
             e.printStackTrace();
 
         } finally {
-            if (clientSocket != null) {
-
-                try {
-                    clientSocket.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
 
             if (serverSocket != null) {
 

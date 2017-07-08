@@ -11,12 +11,9 @@ import org.academiadecodigo.bootcamp.gameapp.utilities.Verification;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 // TODO: 05/07/17 empty user pass when we logout && enable button login
@@ -24,8 +21,7 @@ public class CltLoginController implements Initializable, Controller {
 
     private final String NAME = "Login";
 
-    private Client client;
-    private ClientHandler clientHandler;
+    private ServerHandler serverHandler;
 
     @FXML
     private TextField username;
@@ -54,10 +50,10 @@ public class CltLoginController implements Initializable, Controller {
         Verification.cleanErrorMsg(lblUsernameError, lblPasswordError, lblPasswordError, lblPasswordError);
 
         if (!emptyField()) {
-            String sendMessage = ProtocolConfig.SERVER_LOGIN + " " +  username.getText() +
-                    " " + password.getText() + "\n";
+            String sendMessage = ProtocolConfig.CLIENT_LOGIN + ";" +  username.getText() +
+                    ";" + password.getText() + "\n";
 
-            client.send(sendMessage);
+            serverHandler.sendMessage(sendMessage);
 
             btnLogin.setDisable(true);
             lblLoginInfo.setVisible(false);
@@ -80,15 +76,7 @@ public class CltLoginController implements Initializable, Controller {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        client = ClientRegistry.getInstance().getClient();
-        clientHandler = new ClientHandler();
-
-        clientHandler.setInitializable(this);
-        ClientRegistry.getInstance().setHandler(clientHandler);
-
-        ExecutorService newThread = Executors.newSingleThreadExecutor();
-        newThread.submit(clientHandler);
+        serverHandler = ClientRegistry.getInstance().getHandler();
     }
 
     private boolean emptyField() {

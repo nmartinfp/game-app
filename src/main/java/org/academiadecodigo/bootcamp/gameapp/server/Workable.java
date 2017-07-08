@@ -5,5 +5,5 @@ package org.academiadecodigo.bootcamp.gameapp.server;
  */
 public interface Workable {
 
-    void process(ServerHandler serverHandler, String message);
+    void process(ClientHandler ClientHandler, String message);
 }

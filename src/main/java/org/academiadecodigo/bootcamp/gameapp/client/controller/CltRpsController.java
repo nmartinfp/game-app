@@ -1,6 +1,5 @@
 package org.academiadecodigo.bootcamp.gameapp.client.controller;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
@@ -12,25 +11,23 @@ import java.util.TimerTask;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.ContextMenuEvent;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import org.academiadecodigo.bootcamp.gameapp.client.Client;
+import org.academiadecodigo.bootcamp.gameapp.client.ClientRegistry;
+import org.academiadecodigo.bootcamp.gameapp.client.ServerHandler;
 import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
-import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 public class CltRpsController implements Initializable, Controller {
 
     private final String NAME = "RPS";
     private Timer timer;
-    private Client client;
+    private ServerHandler serverHandler;
 
     // TODO: 06/07/17 Eliminate the text area in the lobby. Chat is working on that instead in the text field
 
@@ -228,6 +225,6 @@ public class CltRpsController implements Initializable, Controller {
         imageX.setVisible(false);
         lblMyChoice.setVisible(false);
 
-
+        serverHandler = ClientRegistry.getInstance().getHandler();
     }
 }

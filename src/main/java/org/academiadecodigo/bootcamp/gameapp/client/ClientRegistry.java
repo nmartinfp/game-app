@@ -2,13 +2,12 @@ package org.academiadecodigo.bootcamp.gameapp.client;
 
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 public final class ClientRegistry {
 
-    private Client client;
-    private ClientHandler handler;
+    private ServerHandler handler;
 
     private static ClientRegistry instance = null;
 
@@ -29,19 +28,11 @@ public final class ClientRegistry {
         return instance;
     }
 
-    public Client getClient() {
-        return client;
-    }
-
-    public ClientHandler getHandler() {
+    public ServerHandler getHandler() {
         return handler;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    public void setHandler(ClientHandler handler) {
+    public void setHandler(ServerHandler handler) {
         this.handler = handler;
     }
 }

@@ -4,20 +4,19 @@ import java.net.InetAddress;
 
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
 public final class AppConfig {
 
-    /**
+    /*
      * Server and Client configuration
      */
     public static final int PORT = 1234;
     public static final InetAddress IP = InetAddress.getLoopbackAddress();
-    //public static final InetAddress IP = InetAddress.getLoopbackAddress();
 
-    /**
+    /*
      * DataBase Configuration
      * URL is the IP for Nelson's Machine
      */

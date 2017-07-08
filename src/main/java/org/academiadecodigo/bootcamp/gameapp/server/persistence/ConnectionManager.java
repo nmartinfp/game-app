@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 // TODO: 01/07/2017 close database connection when we close program

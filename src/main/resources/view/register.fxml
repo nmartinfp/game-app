@@ -34,8 +34,8 @@
             <Font name="Arial" size="16.0" />
          </font>
       </Label>
-      <TextField fx:name="username" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="username" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-      <Label fx:name="lblUsernameErrorReg" text="lbluserreg" textFill="RED" visible="false" GridPane.rowIndex="2">
+      <TextField fx:id="username" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="username" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Label fx:id="lblUsernameErrorReg" text="lbluserreg" textFill="RED" visible="false" GridPane.rowIndex="2">
          <font>
             <Font size="10.0" />
          </font>
@@ -46,8 +46,8 @@
             <Insets bottom="1.0" left="3.0" right="1.0" top="1.0" />
          </GridPane.margin>
       </Label>
-      <PasswordField fx:name="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="password" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-      <Label fx:name="lblPasswordErrorReg" text="lblpasswordreg" textFill="RED" visible="false" GridPane.rowIndex="4">
+      <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="password" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+      <Label fx:id="lblPasswordErrorReg" text="lblpasswordreg" textFill="RED" visible="false" GridPane.rowIndex="4">
          <font>
             <Font size="10.0" />
          </font>
@@ -58,8 +58,8 @@
             <Insets left="3.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:name="firstName" layoutX="20.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="first name" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-      <Label fx:name="lblFirstNameErrorReg" text="lblfirstnamereg" textFill="RED" visible="false" GridPane.rowIndex="6">
+      <TextField fx:id="firstName" layoutX="20.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="first name" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+      <Label fx:id="lblFirstNameErrorReg" text="lblfirstnamereg" textFill="RED" visible="false" GridPane.rowIndex="6">
          <font>
             <Font size="10.0" />
          </font>
@@ -70,9 +70,9 @@
             <Insets left="3.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:name="lastName" layoutX="20.0" layoutY="195.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="last name" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-      <TextField fx:name="email" layoutX="20.0" layoutY="235.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="email" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
-      <Label fx:name="lblMailErrorReg" text="lblmailreg" textFill="RED" visible="false" GridPane.rowIndex="10">
+      <TextField fx:id="lastName" layoutX="20.0" layoutY="195.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="last name" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+      <TextField fx:id="email" layoutX="20.0" layoutY="235.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="email" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+      <Label fx:id="lblMailErrorReg" text="lblmailreg" textFill="RED" visible="false" GridPane.rowIndex="10">
          <font>
             <Font size="10.0" />
          </font>
@@ -83,12 +83,12 @@
             <Insets left="3.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:name="btnRegister" mnemonicParsing="false" onAction="#onRegister" text="Register" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+      <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#onRegister" text="Register" GridPane.halignment="CENTER" GridPane.rowIndex="11">
          <GridPane.margin>
             <Insets bottom="3.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:name="btnBack" mnemonicParsing="false" onAction="#backScreen" text="Back" GridPane.halignment="RIGHT" GridPane.rowIndex="11" GridPane.valignment="CENTER">
+      <Button fx:id="btnBack" mnemonicParsing="false" onAction="#backScreen" text="Back" GridPane.halignment="RIGHT" GridPane.rowIndex="11" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="3.0" right="3.0" />
          </GridPane.margin></Button>

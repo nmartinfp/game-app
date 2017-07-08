@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
@@ -21,8 +21,7 @@ public class CltRegisterController implements Initializable, Controller{
 
     private final String NAME = "Register";
 
-    private Client client;
-    private ClientHandler clientHandler;
+    private ServerHandler serverHandler;
     private boolean fieldEmpty;
     private boolean checkEmail;
 
@@ -73,11 +72,11 @@ public class CltRegisterController implements Initializable, Controller{
             }
 
             //if(validPassword()){
-                String sendMessage = ProtocolConfig.SERVER_REGISTER + " " + firstName.getText() + " " +
-                        username.getText() + " " + password.getText() + "\n";
+                String sendMessage = ProtocolConfig.CLIENT_REGISTER + ";" + firstName.getText() + ";" +
+                        username.getText() + ";" + password.getText() + "\n";
 
                 System.out.println("send message" + sendMessage);
-                client.send(sendMessage);
+                serverHandler.sendMessage(sendMessage);
             //}
         }
     }
@@ -134,10 +133,7 @@ public class CltRegisterController implements Initializable, Controller{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        client = ClientRegistry.getInstance().getClient();
-        clientHandler = ClientRegistry.getInstance().getHandler();
-        clientHandler.setInitializable(this);
+        serverHandler = ClientRegistry.getInstance().getHandler();
     }
 
     public String getName(){

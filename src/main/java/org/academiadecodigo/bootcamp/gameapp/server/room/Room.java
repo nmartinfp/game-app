@@ -14,18 +14,26 @@ import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
 
+import java.util.Map;
 import java.util.Vector;
 
 /**
  * Class to handle a gameRoom, creation, adding users, removing users, and whatnot
  */
-public class Room implements Runnable,Workable {
+public class Room implements Runnable, Workable {
 
     private String name;
 
     private Lobby lobby;
     private Vector<ClientHandler> clientHandlerVector;
     private GameName gameName;
+
+    private String user1;
+    private String user2;
+
+    private String p1Hand;
+    private String p2Hand;
+
 
     private int minSize;
     private int maxSize;
@@ -46,8 +54,9 @@ public class Room implements Runnable,Workable {
         clientHandlerVector = new Vector<>();
     }
 
-    public void init(ClientHandler ClientHandler, String name, GameName gameName){
-        clientHandlerVector.add(ClientHandler);
+    public void init(ClientHandler clientHandler, String name, GameName gameName) {
+        clientHandlerVector.add(clientHandler);
+        user1 = clientHandler.getUsername();
         this.name = name;
         this.gameName = gameName;
     }
@@ -62,51 +71,116 @@ public class Room implements Runnable,Workable {
 
     //----------------------------------------------------------------------------------------------------------------------
     @Override
-    public void process(ClientHandler ClientHandler, String message) {
+    public synchronized void process(ClientHandler clientHandler, String message) {
 
         String[] tokens = ProtocolParser.splitMessage(message);
 
-        if (message.contains(ProtocolConfig.CLIENT_CHAT)){
-            String protoMessage = ProtocolConfig.SERVER_CHAT_ROOM + ";" + tokens[ProtocolConfig.MESSAGE];
+        if (message.contains(ProtocolConfig.CLIENT_CHAT)) {
+            String protoMessage = ProtocolConfig.SERVER_CHAT_ROOM + ";" + clientHandler.getUsername()
+                    + ": " + tokens[ProtocolConfig.MESSAGE];
             System.out.println(protoMessage);
             sendMsgToRoom(protoMessage);
             return;
         }
         if (message.contains(ProtocolConfig.CLIENT_GAME)) {
 
+            if (user1.equals(clientHandler.getUsername())){
+                p1Hand = tokens[ProtocolConfig.MESSAGE];
+                System.out.println(p1Hand);
 
+            } else if (user2.equals(clientHandler.getUsername())){
+                p2Hand = tokens[ProtocolConfig.MESSAGE];
+                System.out.println(p2Hand);
+            }
 
+            if (p1Hand != null && p2Hand != null){
+                System.out.println("2 notify");
+                notifyAll();
+            }
         }
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
 
         RPSGame rpsGame = new RPSGame();
 
+        // Waiting for 2 player
         try {
+            System.out.println("primeiro wait");
             wait();
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
+        // Playing Round
+        try {
+            System.out.println("segundo wait");
+            wait();
 
+            String winner;
 
+            winner = rpsGame.playRound(p1Hand, p2Hand);
 
+            showOtherHand();
 
+            System.out.println("Winner of game: " + winner);
+
+            if (winner.equals(p1Hand)){
+                sendMsgGame(user1);
+
+            }else {
+                sendMsgGame(user2);
+            }
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         //End of the game
-        for (ClientHandler ClientHandler : clientHandlerVector) {
-            lobby.addQueue(ClientHandler);
+        // TODO: 08/07/17 player need to go lobby
+        for (ClientHandler clientHandler : clientHandlerVector) {
+            lobby.addQueue(clientHandler);
         }
     }
 
-    public synchronized void addClientHandler(ClientHandler ClientHandler) {
+    private void showOtherHand() {
+        for (ClientHandler clientHandler : clientHandlerVector){
 
-        clientHandlerVector.add(ClientHandler);
-        if (clientHandlerVector.size() == 2) {
-            notifyAll();
+            if (clientHandler.getUsername().equals(user1)){
+                clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + p2Hand);
+
+            }else{
+                clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + p1Hand);
+            }
         }
+    }
+
+    private void sendMsgGame(String user){
+       for (ClientHandler clientHandler : clientHandlerVector){
+
+           if (clientHandler.getUsername().equals(user)){
+               clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "Winner");
+
+           }else {
+               clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";"+ "Lose");
+           }
+       }
+    }
+
+    public synchronized void addClientHandler(ClientHandler clientHandler) {
+
+        clientHandlerVector.add(clientHandler);
+        user2 = clientHandler.getUsername();
+        System.out.println("1 notify");
+        notifyAll();
     }
 
     public String getName() {

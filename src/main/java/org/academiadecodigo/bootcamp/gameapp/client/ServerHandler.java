@@ -38,6 +38,10 @@ public class ServerHandler implements Runnable {
         }
     }
 
+//----------------------------------------------------------------------------------------------------------------------
+//                                               EVENT HANDLING
+//----------------------------------------------------------------------------------------------------------------------
+
     public void receivedMessage(final String message) {
         Platform.runLater(new Runnable() {
             @Override
@@ -81,7 +85,6 @@ public class ServerHandler implements Runnable {
         });
     }
 
-    // TODO: 08/07/17 send player to room
     public void createRoom(final String message) {
         Platform.runLater(new Runnable() {
             @Override
@@ -106,7 +109,6 @@ public class ServerHandler implements Runnable {
     public void receivedMessageRoom(String message) {
         ((CltRpsController) navigation.getController(ProtocolConfig.VIEW_RPS)).receiveChatMsg(message);
     }
-    // TODO: 08/07/17 send player to room
 
     public void addToRoom(final String message) {
         Platform.runLater(new Runnable() {
@@ -118,6 +120,20 @@ public class ServerHandler implements Runnable {
         });
     }
 
+    public void resultGame(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                CltRpsController rpsController = navigation.getController(ProtocolConfig.VIEW_RPS);
+                rpsController.setWinner(message);
+            }
+        });
+    }
+
+    //----------------------------------------------------------------------------------------------------------------------
+//
+//----------------------------------------------------------------------------------------------------------------------
+
     public void genericHandler(Runnable actionToBeTaken, final String message) {
         Platform.runLater(actionToBeTaken);
     }
@@ -125,7 +141,5 @@ public class ServerHandler implements Runnable {
     public void setClient(Client client) {
         this.client = client;
     }
-
-
 }
 

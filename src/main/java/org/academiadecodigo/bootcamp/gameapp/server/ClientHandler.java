@@ -44,8 +44,8 @@ public class ClientHandler implements Runnable {
             //Handling message received Lobby and Room
             while (!clientSocket.isClosed()) {
 
-                System.out.println("estou no process");
                 String message = input.readLine();
+                System.out.println("Server received this message: " + message);
                 workable.process(this, message);
             }
 
@@ -106,7 +106,7 @@ public class ClientHandler implements Runnable {
         output.flush();
     }
 
-    //----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 //                                               Login and Register HANDLING
 //----------------------------------------------------------------------------------------------------------------------
     public void authenticate(String username, String password) {

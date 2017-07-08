@@ -19,6 +19,7 @@ import javafx.scene.layout.GridPane;
 import org.academiadecodigo.bootcamp.gameapp.client.ClientRegistry;
 import org.academiadecodigo.bootcamp.gameapp.client.ServerHandler;
 import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
+import org.academiadecodigo.bootcamp.gameapp.game.Choices;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
 /**
@@ -92,9 +93,10 @@ public class CltRpsController implements Initializable, Controller {
     @FXML
     void onActionNewRoom(ActionEvent event) {
         // TODO: 07/07/17 After receive the information of the rival choice
+    }
 
-
-
+    public void setWinner(String message){
+        lblResult.setText(message);
     }
 
     public void receiveChatMsg(String message){
@@ -106,13 +108,15 @@ public class CltRpsController implements Initializable, Controller {
 
         image2.setDisable(true);
         image3.setDisable(true);
-        stop();
+        //stop();
         lblMyChoice.setVisible(true);
         lblMyChoice.setText("You Played Rock");
         // TODO: 06/07/17 Send message od the gamechoice
         //image1.setDisable(true);
         image1.setImage(image1.getImage());
         image2.setImage(imageX.getImage());
+
+        serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" +Choices.ROCK.getHand());
         //image3.setImage(imageXXX.getImage()); // rival choice
 
     }
@@ -121,13 +125,15 @@ public class CltRpsController implements Initializable, Controller {
     void onImagePaper(MouseEvent event) {
         image1.setDisable(true);
         image3.setDisable(true);
-        stop();
+        //stop();
         lblMyChoice.setVisible(true);
         lblMyChoice.setText("You Played Paper");
         // TODO: 06/07/17 Send message od the gamechoice
         image2.setDisable(true);
         image1.setImage(image2.getImage());
         image2.setImage(imageX.getImage());
+
+        serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" + Choices.PAPER.getHand());
         //image3.setImage(imageXXX.getImage()); // rival choice
     }
 
@@ -135,13 +141,15 @@ public class CltRpsController implements Initializable, Controller {
     void onImageScissors(MouseEvent event) {
         image1.setDisable(true);
         image2.setDisable(true);
-        stop();
+        //stop();
         lblMyChoice.setVisible(true);
         lblMyChoice.setText("You Played Scissors");
         // TODO: 06/07/17 Send message od the gamechoice
         image3.setDisable(true);
         image1.setImage(image3.getImage());
         image2.setImage(imageX.getImage());
+
+        serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" + Choices.SCISSORS.getHand());
         //image3.setImage(imageXXX.getImage()); // rival choice
     }
 

@@ -32,7 +32,7 @@ public final class ProtocolParser {
                 serverHandler.addToRoom(protocol[ProtocolConfig.MESSAGE]);
                 break;
             case ProtocolConfig.SERVER_GAME:
-
+                serverHandler.resultGame(protocol[ProtocolConfig.MESSAGE]);
                 break;
             case ProtocolConfig.SERVER_CHAT:
                 serverHandler.receivedMessage(protocol[ProtocolConfig.MESSAGE]);

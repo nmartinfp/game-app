@@ -53,7 +53,7 @@ public class Client {
 
             System.out.println("recebi esta mensagem: " + receivedMessage);   //todo TESTING
 
-            if (receivedMessage.equals("null")){
+            if (receivedMessage.equals("null")) {
                 input.close();
             }
 
@@ -64,7 +64,7 @@ public class Client {
     }
 
     //Sending Message from client to server
-    public void send(String sendMessage){
+    public void send(String sendMessage) {
 
         if (sendMessage != null) {
             output.write(sendMessage);
@@ -75,22 +75,22 @@ public class Client {
 
     }
 
-    public void closeClient(){
+    public void closeClient() {
         try {
             input.close();
             output.close();
             clientSocket.close();
 
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public Socket getClientSocket(){
+    public Socket getClientSocket() {
         return clientSocket;
     }
 
-    public boolean clientConnected(){
+    public boolean clientConnected() {
         return clientSocket.isClosed();
     }
 }

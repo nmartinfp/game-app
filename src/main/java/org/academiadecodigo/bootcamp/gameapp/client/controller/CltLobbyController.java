@@ -40,9 +40,6 @@ public class CltLobbyController implements Initializable, Controller{
     private Button btnExitLobby;
 
     @FXML
-    private TextArea sendChatMsg;
-
-    @FXML
     private TextArea receiveChatMsg;
 
     @FXML
@@ -90,10 +87,10 @@ public class CltLobbyController implements Initializable, Controller{
     @FXML
     public void sendChatMsg(ActionEvent event) {
 
-        if (!sendChatMsg.getText().isEmpty()) {
+        if (!sendMsg.getText().isEmpty()) {
 
-            String sendMessage = ProtocolConfig.CLIENT_CHAT + ";" + sendChatMsg.getText() + "\n";
-            sendChatMsg.clear();
+            String sendMessage = ProtocolConfig.CLIENT_CHAT + ";" + sendMsg.getText();
+            sendMsg.clear();
             serverHandler.sendMessage(sendMessage);
         }
     }
@@ -105,8 +102,8 @@ public class CltLobbyController implements Initializable, Controller{
 
             //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText() + "\n";
             //String sendMessage = ProtocolConfig.CLIENT_CHAT + " " + sendChatMsg.getText().replaceAll("\n|\r", "") + "\n";
-            String sendMessage = ProtocolConfig.CLIENT_CHAT + ";" + sendMsg.getText().replaceAll("\n|\r", "") + "\n";
-            sendChatMsg.clear();
+            String sendMessage = ProtocolConfig.CLIENT_CHAT + ";" + sendMsg.getText().replaceAll("\n|\r", "");
+            sendMsg.clear();
             sendMsg.clear();
             serverHandler.sendMessage(sendMessage);
         }
@@ -115,6 +112,14 @@ public class CltLobbyController implements Initializable, Controller{
 
     public void receiveChatMsg(String message){
         receiveChatMsg.appendText(message + "\n");
+    }
+
+    public void roomCreated(String message){
+        btnRoom1.setText(message);
+    }
+
+    public void roomView(String message){
+        Navigation.getInstance().loadScreen(message);
     }
 
     @FXML
@@ -132,7 +137,13 @@ public class CltLobbyController implements Initializable, Controller{
     @FXML
     public void onActionNewRoom(ActionEvent event) {
 
-        String sendMessage = ProtocolConfig.CLIENT_CREATE_ROOM + ";" + "createRoom\n";
+        if (btnRoom1.getText().equals("ROOM")) {
+            String sendMessage = ProtocolConfig.CLIENT_CREATE_ROOM + ";" + "createRoom";
+            serverHandler.sendMessage(sendMessage);
+            return;
+        }
+
+        String sendMessage = ProtocolConfig.CLIENT_CREATE_ROOM + ";" + btnRoom1.getText();
         serverHandler.sendMessage(sendMessage);
         btnCreateNewRoom.setDisable(true);
     }

@@ -51,7 +51,7 @@ public class CltLoginController implements Initializable, Controller {
 
         if (!emptyField()) {
             String sendMessage = ProtocolConfig.CLIENT_LOGIN + ";" +  username.getText() +
-                    ";" + password.getText() + "\n";
+                    ";" + password.getText();
 
             serverHandler.sendMessage(sendMessage);
 

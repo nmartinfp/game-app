@@ -23,11 +23,11 @@ public class ServerHandler implements Runnable {
     private Client client;
 
     public ServerHandler() {
-       navigation = Navigation.getInstance();
+        navigation = Navigation.getInstance();
     }
 
     public void sendMessage(String message) {
-        client.send(message);
+        client.send(message + "\n");
     }
 
     @Override
@@ -45,7 +45,7 @@ public class ServerHandler implements Runnable {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                ((CltLobbyController)navigation.getController(ProtocolConfig.VIEW_LOBBY)).receiveChatMsg(message);
+                ((CltLobbyController) navigation.getController(ProtocolConfig.VIEW_LOBBY)).receiveChatMsg(message);
             }
         });
     }
@@ -55,14 +55,14 @@ public class ServerHandler implements Runnable {
             @Override
             public void run() {
 
-                CltLoginController cltLoginController = navigation.getController(ProtocolConfig.VIEW_LOGIN);
+                CltLoginController loginController = navigation.getController(ProtocolConfig.VIEW_LOGIN);
 
                 if (message.equals(ProtocolConfig.VIEW_LOBBY)) {
-                    System.out.println("vou mudar para lobby" + cltLoginController);
-                    cltLoginController.successfullyAuth(message);
+                    System.out.println("vou mudar para lobby" + loginController);
+                    loginController.successfullyAuth(message);
                     return;
                 }
-                cltLoginController.authFailure();
+                loginController.authFailure();
             }
         });
     }
@@ -72,14 +72,49 @@ public class ServerHandler implements Runnable {
             @Override
             public void run() {
 
-                CltRegisterController cltRegisterController = navigation.getController(ProtocolConfig.VIEW_REGISTER);
+                CltRegisterController registerController = navigation.getController(ProtocolConfig.VIEW_REGISTER);
 
                 if (message.equals(ProtocolConfig.VIEW_LOGIN)) {
-                    cltRegisterController.backScreen();
+                    registerController.backScreen();
                     return;
                 }
 
-                cltRegisterController.registerFailure();
+                registerController.registerFailure();
+            }
+        });
+    }
+
+    // TODO: 08/07/17 send player to room
+    public void createRoom(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                CltLobbyController lobbyController = navigation.getController(ProtocolConfig.VIEW_LOBBY);
+                lobbyController.roomView(message);
+            }
+        });
+    }
+
+    public void changeRoomName(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                CltLobbyController lobbyController = navigation.getController(ProtocolConfig.VIEW_LOBBY);
+                lobbyController.roomCreated(message);
+
+            }
+        });
+    }
+
+
+    // TODO: 08/07/17 send player to room
+
+    public void addToRoom(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                CltLobbyController lobbyController = navigation.getController(ProtocolConfig.VIEW_LOBBY);
+                lobbyController.roomView(message);
             }
         });
     }

@@ -23,11 +23,13 @@ public final class ProtocolParser {
                 break;
 
             case ProtocolConfig.SERVER_CREATE_ROOM:
-
+                serverHandler.createRoom(protocol[ProtocolConfig.MESSAGE]);
                 break;
-
+            case ProtocolConfig.SERVER_REGISTER_ROOM:
+                serverHandler.changeRoomName(protocol[ProtocolConfig.MESSAGE]);
+                break;
             case ProtocolConfig.SERVER_JOIN_ROOM:
-
+                serverHandler.addToRoom(protocol[ProtocolConfig.MESSAGE]);
                 break;
             case ProtocolConfig.SERVER_GAME:
 

@@ -117,7 +117,7 @@
                         </GridPane>
                      </children>
                   </GridPane>
-                  <Label fx:name="lblMyChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="My choice" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                  <Label fx:id="lblMyChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="My choice" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets left="25.0" />
                      </GridPane.margin>
@@ -125,7 +125,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:name="lblRivalChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="userx choice" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                  <Label fx:id="lblRivalChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="userx choice" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets right="12.0" />
                      </GridPane.margin>
@@ -133,7 +133,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:name="lblScore" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="242.0" text="4 X 3" textFill="#3405dd" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <Label fx:id="lblScore" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="242.0" text="4 X 3" textFill="#3405dd" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets top="25.0" />
                      </GridPane.margin>
@@ -155,7 +155,7 @@
           <RowConstraints maxHeight="193.0" minHeight="57.0" prefHeight="85.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextArea fx:name="receiveChatMsg" editable="false" prefHeight="572.0" prefWidth="257.0" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <TextArea fx:id="receiveChatMsg" editable="false" prefHeight="572.0" prefWidth="257.0" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
@@ -169,7 +169,7 @@
                   <RowConstraints maxHeight="46.0" minHeight="14.0" prefHeight="43.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:name="btnSendChatMsg" mnemonicParsing="false" onAction="#sendChatMsg" prefHeight="23.0" prefWidth="52.0" text="Send" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Button fx:id="btnSendChatMsg" mnemonicParsing="false" onAction="#sendChatMsg" prefHeight="23.0" prefWidth="52.0" text="Send" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -177,7 +177,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <TextField fx:name="sendMsg" onKeyPressed="#onKeyPressedSendChatMsg" prefHeight="33.0" prefWidth="257.0">
+                  <TextField fx:id="sendMsg" onKeyPressed="#onKeyPressedSendChatMsg" prefHeight="33.0" prefWidth="257.0">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>

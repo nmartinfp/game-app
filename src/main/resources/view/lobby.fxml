@@ -95,11 +95,6 @@
                   <RowConstraints maxHeight="46.0" minHeight="14.0" prefHeight="43.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextArea fx:id="sendChatMsg" maxHeight="-Infinity" maxWidth="-Infinity" onKeyPressed="#onKeyPressedSendChatMsg" prefHeight="64.0" prefWidth="209.0" visible="false" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets left="5.0" />
-                     </GridPane.margin>
-                  </TextArea>
                   <Button fx:id="btnSendChatMsg" mnemonicParsing="false" onAction="#sendChatMsg" prefHeight="23.0" prefWidth="52.0" text="Send" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
@@ -144,7 +139,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button fx:id="btnRoom1" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="btnRoom1" mnemonicParsing="false" onAction="#onActionNewRoom" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                         <Button fx:id="btnRoom2" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                         <Button fx:id="btnRoom3" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                         <Button fx:id="btnRoom4" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />

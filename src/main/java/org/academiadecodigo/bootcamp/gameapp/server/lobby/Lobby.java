@@ -37,25 +37,26 @@ public class Lobby implements Runnable, Workable {
      * Process information from Client to Lobby
      */
     @Override
-    public void process(ClientHandler ClientHandler, String message) {
+    public void process(ClientHandler clientHandler, String message) {
 
         String[] tokens = ProtocolParser.splitMessage(message);
 
         if (message.contains(ProtocolConfig.CLIENT_CHAT)){
-            sendToAll(tokens[ProtocolConfig.MESSAGE]);
+            String protoMessage = ProtocolConfig.SERVER_CHAT + ";" + tokens[ProtocolConfig.MESSAGE];
+            System.out.println(protoMessage);
+            sendToAll(protoMessage);
             return;
         }
 
         if (message.contains(ProtocolConfig.CLIENT_CREATE_ROOM)){
-
-            createRoom(ClientHandler, GameName.RPS);
+            createRoom(clientHandler, GameName.RPS);
             return;
         }
 
         if (message.contains(ProtocolConfig.CLIENT_JOIN_ROOM)){
-
-            addClientToRoom(ClientHandler, message);
+            addClientToRoom(clientHandler, message);
         }
+
     }
 
     @Override
@@ -72,11 +73,8 @@ public class Lobby implements Runnable, Workable {
     //Sending msg to everyone CHAT
     public void sendToAll(String message) {
 
-        String protoMessage = ProtocolConfig.SERVER_CHAT + ";" + message;
-        System.out.println(protoMessage);
-
         for (ClientHandler ClientHandler : clientVector) {
-            ClientHandler.sendMessage(protoMessage);
+            ClientHandler.sendMessage(message);
         }
     }
 
@@ -93,23 +91,28 @@ public class Lobby implements Runnable, Workable {
         }
     }
 
-    public void addQueue(ClientHandler ClientHandler) {
-        queue.add(ClientHandler);
+    public void addQueue(ClientHandler clientHandler) {
+        queue.add(clientHandler);
     }
 
 //----------------------------------------------------------------------------------------------------------------------
 //                                               ROOM HANDLING
 //----------------------------------------------------------------------------------------------------------------------
 
-    private void createRoom(ClientHandler ClientHandler, GameName gameName) {
+    private void createRoom(ClientHandler clientHandler, GameName gameName) {
 
         Room room = new Room(gameName.getMinUsers(), gameName.getMaxUsers(), this);
-        room.init(ClientHandler, ClientHandler.getUsername() + "Room", gameName);
+        String roomName = clientHandler.getUsername() + "'s Room";
+        room.init(clientHandler, roomName, gameName);
 
-        ClientHandler.changeState(room, State.ROOM);
+        clientHandler.changeState(room, State.ROOM);
 
         roomVector.add(room);
-        clientVector.remove(ClientHandler);
+        clientVector.remove(clientHandler);
+
+        sendToAll(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + roomName);
+        clientHandler.sendMessage(ProtocolConfig.SERVER_CREATE_ROOM + ";" +ProtocolConfig.VIEW_RPS);
+
 
         new Thread(room);
     }
@@ -132,16 +135,18 @@ public class Lobby implements Runnable, Workable {
     * Adds a user to a Room and removes it from the clientList if the room is not full yet
     * Could return a message for success or lack thereof to trigger secondary behaviours
     */
-    private void addClientToRoom(ClientHandler ClientHandler, String name) {
+    private void addClientToRoom(ClientHandler clientHandler, String name) {
 
         Room room = roomByName(name);
 
         if (room != null) {
 
-            room.addServerHandler(ClientHandler);
-            ClientHandler.changeState(room, State.ROOM);
+            room.addServerHandler(clientHandler);
+            clientHandler.changeState(room, State.ROOM);
 
-            clientVector.remove(ClientHandler);
+            clientVector.remove(clientHandler);
+
+            clientHandler.sendMessage(ProtocolConfig.SERVER_JOIN_ROOM + ";" +ProtocolConfig.VIEW_RPS);
         }
     }
 }

@@ -119,7 +119,6 @@ public class ClientHandler implements Runnable {
         UserService userService = serviceRegistry.getService(UserService.class.getSimpleName());
 
         if (userService.authenticate(username, password)) {
-            System.out.println("Logged in user");
             sendMessage(ProtocolConfig.SERVER_LOGIN + ";" + ProtocolConfig.VIEW_LOBBY);
 
             state = State.LOBBY;

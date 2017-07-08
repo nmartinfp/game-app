@@ -4,7 +4,7 @@ package org.academiadecodigo.bootcamp.gameapp.game;
  * Created by Cyrille on 06/07/17.
  */
 public enum GameName {
-    RPS(2, 2);
+    RPS( 2, 2);
 
     private int minUsers;
     private int maxUsers;

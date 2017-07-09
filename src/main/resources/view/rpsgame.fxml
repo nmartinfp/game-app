@@ -42,7 +42,7 @@
               </rowConstraints>
                <children>
                   <Button fx:id="btnExitGame" mnemonicParsing="false" onAction="#onActionExitGame" prefHeight="40.0" prefWidth="100.0" text="Logout" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Button fx:id="btnTestBar" mnemonicParsing="false" onAction="#onActiontestbar" text="test bar" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button fx:id="btnTestBar" mnemonicParsing="false" onAction="#onActiontestbar" prefHeight="40.0" prefWidth="100.0" text="Start" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
             <GridPane GridPane.rowIndex="1">
@@ -56,68 +56,65 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="lblResult" alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="726.0" text="YOU LOSE!" textFill="#ff1d04" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                  <Label fx:id="lblResult" alignment="CENTER" contentDisplay="CENTER" prefHeight="115.0" prefWidth="726.0" text="YOU LOSE!" textFill="#ff1d04" visible="false" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                      <font>
-                        <Font name="Comic Sans MS Bold" size="88.0" />
+                        <Font name="System Bold" size="88.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblRound" alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="264.0" text="Round 2" textFill="#4d0404" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label fx:id="lblRound" contentDisplay="CENTER" prefHeight="72.0" prefWidth="105.0" text="Round" textFill="#4d0404" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <font>
-                        <Font name="Comic Sans MS Bold" size="48.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets left="15.0" />
+                        <Insets />
                      </GridPane.margin>
                   </Label>
-                  <ProgressBar fx:id="progBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="661.0" progress="1.0" style="-fx-accent: #00B000;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Label fx:id="lblNumberRound" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="72.0" prefWidth="105.0" text="3" textFill="#4d0404" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <ProgressBar fx:id="progBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="661.0" progress="1.0" style="-fx-accent: #00B000;" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="18.0" />
                      </GridPane.margin>
                   </ProgressBar>
                   <GridPane GridPane.rowIndex="2">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="15.0" prefWidth="10.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="718.0" minWidth="10.0" prefWidth="718.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <GridPane GridPane.columnIndex="1">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <ImageView fx:id="image1" fitHeight="161.0" fitWidth="200.0" onMouseClicked="#onImageRock" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                 <image>
-                                    <Image url="@/images/rps_rock.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fx:id="image2" fitHeight="161.0" fitWidth="200.0" onMouseClicked="#onImagePaper" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                 <image>
-                                    <Image url="@/images/rps_paper.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fx:id="image3" fitHeight="161.0" fitWidth="200.0" onMouseClicked="#onImageScissors" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                 <image>
-                                    <Image url="/images/rps_scissors.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fx:id="imageX" fitHeight="188.0" fitWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                 <image>
-                                    <Image url="@/images/ImageX.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </GridPane>
+                        <ImageView fx:id="image1" fitHeight="161.0" fitWidth="200.0" onMouseClicked="#onImageRock" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@/images/rps_rock.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="image2" fitHeight="161.0" fitWidth="200.0" onMouseClicked="#onImagePaper" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@/images/rps_paper.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="image3" fitHeight="161.0" fitWidth="200.0" onMouseClicked="#onImageScissors" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="/images/rps_scissors.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="imageX" fitHeight="188.0" fitWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@/images/ImageX.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </GridPane>
-                  <Label fx:id="lblMyChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="Time over!" textFill="#ae2828" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                  <Label fx:id="lblMyChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="Time over!" textFill="#ae2828" visible="false" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets left="25.0" />
                      </GridPane.margin>
@@ -125,7 +122,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblRivalChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="Time over!" textFill="#ae2828" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                  <Label fx:id="lblRivalChoice" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="214.0" text="Time over!" textFill="#ae2828" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets right="12.0" />
                      </GridPane.margin>
@@ -133,13 +130,32 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblScore" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="242.0" text="4 X 3" textFill="#3405dd" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <Label fx:id="lblScore" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="450.0" text="Score" textFill="#f51f02" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets top="25.0" />
                      </GridPane.margin>
                      <font>
-                        <Font name="Comic Sans MS Bold" size="48.0" />
+                        <Font name="System Bold" size="36.0" />
                      </font>
+                  </Label>
+                  <Label fx:id="lblScore1" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="150.0" text="0" textFill="#3405dd" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="40.0" top="25.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lblScore2" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="150.0" text="0" textFill="#3405dd" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets right="40.0" top="25.0" />
+                     </GridPane.margin>
                   </Label>
                </children>
             </GridPane>

@@ -48,22 +48,23 @@ public class Lobby implements Runnable, Workable {
 
         String[] tokens = ProtocolParser.splitMessage(message);
 
-        if (message.contains(ProtocolConfig.CLIENT_CHAT)){
-            String protoMessage = ProtocolConfig.SERVER_CHAT + ";" + tokens[ProtocolConfig.MESSAGE];
+        if (message.contains(ProtocolConfig.CLIENT_CHAT)) {
+            String protoMessage = ProtocolConfig.SERVER_CHAT + ";" + clientHandler.getUsername() + ": " + tokens[ProtocolConfig.MESSAGE];
             System.out.println(protoMessage);
             sendToAll(protoMessage);
 
             return;
         }
 
-        if (message.contains(ProtocolConfig.CLIENT_CREATE_ROOM)){
+        if (message.contains(ProtocolConfig.CLIENT_CREATE_ROOM)) {
             createRoom(clientHandler, GameName.RPS);
 
             return;
         }
 
-        if (message.contains(ProtocolConfig.CLIENT_JOIN_ROOM)){
-            addClientToRoom(clientHandler, message);
+        if (message.contains(ProtocolConfig.CLIENT_JOIN_ROOM)) {
+
+            addClientToRoom(clientHandler, tokens[ProtocolConfig.MESSAGE]);
         }
     }
 
@@ -73,7 +74,6 @@ public class Lobby implements Runnable, Workable {
 
         while (true) {
             if (queue.size() > 0) {
-                System.out.println("I'm in the Lobby, inside run's method");
                 clientVector.add(queue.poll());
             }
         }
@@ -90,25 +90,16 @@ public class Lobby implements Runnable, Workable {
 
 
 //----------------------------------------------------------------------------------------------------------------------
-//                                               ClientMap HANDLING
+//                                               CLIENTMAP HANDLING
 //----------------------------------------------------------------------------------------------------------------------
-// TODO: 2017/7/9 - Lobby, closeClientSocket not invoked!!!
-    public void closeClientSocket(Socket clientSocket) {
-        try {
-            clientSocket.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            Logger.getInstance().log(PriorityLevel.HIGH, "Lobby close Client Socket " + e.getMessage());
-        }
-    }
-
 
     public void addQueue(ClientHandler clientHandler) {
         queue.add(clientHandler);
     }
 
-
+    public void removeClientHandler(ClientHandler clientHandler) {
+        clientVector.remove(clientHandler);
+    }
 //----------------------------------------------------------------------------------------------------------------------
 //                                               ROOM HANDLING
 //----------------------------------------------------------------------------------------------------------------------
@@ -116,8 +107,8 @@ public class Lobby implements Runnable, Workable {
     private void createRoom(ClientHandler clientHandler, GameName gameName) {
 
         Room room = new Room(gameName.getMinUsers(), gameName.getMaxUsers(), this);
-        String roomName = clientHandler.getUsername() + "'s Room";
-        room.init(clientHandler, roomName, gameName);
+        String roomName = clientHandler.getUsername() + "Room";
+        room.init(clientHandler, roomName);
 
         clientHandler.changeState(room, State.ROOM);
 
@@ -125,10 +116,10 @@ public class Lobby implements Runnable, Workable {
         clientVector.remove(clientHandler);
 
         sendToAll(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + roomName);
-        clientHandler.sendMessage(ProtocolConfig.SERVER_CREATE_ROOM + ";" +ProtocolConfig.VIEW_RPS);
+        clientHandler.sendMessage(ProtocolConfig.SERVER_CREATE_ROOM + ";" + ProtocolConfig.VIEW_RPS);
 
-
-        new Thread(room);
+        Thread thread = new Thread(room);
+        thread.start();
     }
 
 
@@ -149,7 +140,6 @@ public class Lobby implements Runnable, Workable {
         return null;
     }
 
-
    /*
     * Adds a user to a Room and removes it from the clientList if the room is not full yet
     * Could return a message for success or lack thereof to trigger secondary behaviours
@@ -159,13 +149,25 @@ public class Lobby implements Runnable, Workable {
         Room room = roomByName(name);
 
         if (room != null) {
-
-            room.addServerHandler(clientHandler);
+            room.addClientHandler(clientHandler);
             clientHandler.changeState(room, State.ROOM);
-
             clientVector.remove(clientHandler);
 
-            clientHandler.sendMessage(ProtocolConfig.SERVER_JOIN_ROOM + ";" +ProtocolConfig.VIEW_RPS);
+            clientHandler.sendMessage(ProtocolConfig.SERVER_JOIN_ROOM + ";" + ProtocolConfig.VIEW_RPS);
         }
     }
+
+    public void removeRoom(Room roomToRemove) {
+
+        for (Room room : roomVector) {
+
+            if (room.equals(roomToRemove)) {
+                roomVector.remove(room);
+            }
+
+            sendToAll(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + "Room");
+        }
+    }
+
+
 }

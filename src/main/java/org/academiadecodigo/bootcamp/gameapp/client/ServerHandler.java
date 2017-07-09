@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLobbyController;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLoginController;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltRegisterController;
+import org.academiadecodigo.bootcamp.gameapp.client.controller.CltRpsController;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
 
@@ -23,7 +24,9 @@ public class ServerHandler implements Runnable {
         navigation = Navigation.getInstance();
     }
 
+
     public void sendMessage(String message) {
+        System.out.println("Server Handler - sendMessage (debug)" + message);
         client.send(message + "\n");
     }
 
@@ -39,6 +42,9 @@ public class ServerHandler implements Runnable {
         }
     }
 
+//----------------------------------------------------------------------------------------------------------------------
+//                                               EVENT HANDLING
+//----------------------------------------------------------------------------------------------------------------------
 
     public void receivedMessage(final String message) {
         Platform.runLater(new Runnable() {
@@ -58,7 +64,6 @@ public class ServerHandler implements Runnable {
                 CltLoginController loginController = navigation.getController(ProtocolConfig.VIEW_LOGIN);
 
                 if (message.equals(ProtocolConfig.VIEW_LOBBY)) {
-                    System.out.println("Going to the Lobby..." + loginController);
                     loginController.successfullyAuth(message);
 
                     return;
@@ -81,14 +86,12 @@ public class ServerHandler implements Runnable {
 
                     return;
                 }
-
                 registerController.registerFailure();
             }
         });
     }
 
 
-    // TODO: 08/07/17 send player to room
     public void createRoom(final String message) {
         Platform.runLater(new Runnable() {
             @Override
@@ -112,7 +115,16 @@ public class ServerHandler implements Runnable {
     }
 
 
-    // TODO: 08/07/17 send player to room
+    public void receivedMessageRoom(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                ((CltRpsController) navigation.getController(ProtocolConfig.VIEW_RPS)).receiveChatMsg(message);
+            }
+        });
+
+    }
+
 
     public void addToRoom(final String message) {
         Platform.runLater(new Runnable() {
@@ -125,10 +137,58 @@ public class ServerHandler implements Runnable {
     }
 
 
-    public void genericHandler(Runnable actionToBeTaken, final String message) {
-        Platform.runLater(actionToBeTaken);
+    public void resultGame(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                CltRpsController rpsController = navigation.getController(ProtocolConfig.VIEW_RPS);
+                rpsController.setWinner(message);
+            }
+        });
     }
 
+
+    public void showOtherHand(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                CltRpsController rpsController = navigation.getController(ProtocolConfig.VIEW_RPS);
+                rpsController.showOtherHand(message);
+            }
+        });
+    }
+
+
+    public void resetRoom(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                CltRpsController rpsController = navigation.getController(ProtocolConfig.VIEW_RPS);
+                rpsController.resetView(message);
+            }
+        });
+    }
+
+
+    public void roomExit(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                CltRpsController rpsController = navigation.getController(ProtocolConfig.VIEW_RPS);
+
+                if (message.contains("GAME OVER")) {
+                    rpsController.gameOverText(message);
+                    return;
+                }
+
+                rpsController.back();
+            }
+        });
+    }
+
+//----------------------------------------------------------------------------------------------------------------------
+//
+//----------------------------------------------------------------------------------------------------------------------
 
     public void setClient(Client client) {
         this.client = client;

@@ -59,7 +59,6 @@ public class Client {
             receivedMessage = input.readLine();
 
             System.out.println("recebi esta mensagem: " + receivedMessage);   //todo TESTING
-            Logger.getInstance().log(PriorityLevel.INFO, "Client message received: " + receivedMessage);
 
             if (receivedMessage.equals("null")) {
                 input.close();
@@ -78,10 +77,9 @@ public class Client {
     public void send(String sendMessage) {
 
         if (sendMessage != null) {
+            System.out.println("Message sent: " + sendMessage);  //todo TESTING
             output.write(sendMessage);
             output.flush();
-            System.out.println("Message sent: " + sendMessage);  //todo TESTING
-            Logger.getInstance().log(PriorityLevel.INFO, "Client sent message: " + sendMessage);
         }
     }
 

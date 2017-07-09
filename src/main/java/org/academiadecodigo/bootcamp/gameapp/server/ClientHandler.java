@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
+import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
 import org.academiadecodigo.bootcamp.gameapp.server.model.User;
 import org.academiadecodigo.bootcamp.gameapp.server.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
@@ -50,11 +51,17 @@ public class ClientHandler implements Runnable {
         Logger.getInstance().log(PriorityLevel.INFO, "Client handler - " +
                 clientSocket.getRemoteSocketAddress());
         handle();
+
         try {
             //Handling message received Lobby and Room
+
             while (!clientSocket.isClosed()) {
 
                 String message = input.readLine();
+
+                clientLogout(message);
+
+                System.out.println("Server received this message: " + message);
                 workable.process(this, message);
             }
         } catch (IOException e) {
@@ -65,6 +72,7 @@ public class ClientHandler implements Runnable {
         } finally {
             try {
                 clientSocket.close();
+                ((Lobby)workable).removeClientHandler(this);
             } catch (IOException e) {
                 e.printStackTrace();
                 Logger.getInstance().log(PriorityLevel.HIGH, "Client Handler close client Socket " +
@@ -75,36 +83,48 @@ public class ClientHandler implements Runnable {
 
 
     private void handle() {
-        while (state.equals(State.LOGIN)) {
-            String message = null;
 
-            try {
+        String message;
+
+        try {
+
+            while (state.equals(State.LOGIN)) {
                 message = input.readLine();
                 System.out.println("I received message from client: " + message);
                 Logger.getInstance().log(PriorityLevel.INFO, "Message received from client " + message);
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+                String[] messageTokens = ProtocolParser.splitMessage(message);
 
-            String[] messageTokens = ProtocolParser.splitMessage(message);
+                if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)) {
+                    System.out.println("Authenticating the user...");
+                    Logger.getInstance().log(PriorityLevel.INFO, "Authenticating the user... " +
+                            messageTokens[ProtocolConfig.USERNAME]);
+                    authenticate(messageTokens[ProtocolConfig.USERNAME],
+                            messageTokens[ProtocolConfig.PASSWORD]);
+                    return;
+                }
 
-            if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)) {
-                System.out.println("Authenticating the user...");
-                Logger.getInstance().log(PriorityLevel.INFO, "Authenticating the user... " +
+                System.out.println("Registering the user...");
+                Logger.getInstance().log(PriorityLevel.INFO, "Registering the user... " +
                         messageTokens[ProtocolConfig.USERNAME]);
-                authenticate(messageTokens[ProtocolConfig.USERNAME],
-                        messageTokens[ProtocolConfig.PASSWORD]);
-                return;
+                createUser(messageTokens[ProtocolConfig.USERNAME],
+                        messageTokens[ProtocolConfig.PASSWORD],
+                        messageTokens[ProtocolConfig.FIRST_NAME]);
             }
 
-            System.out.println("Registering the user...");
-            Logger.getInstance().log(PriorityLevel.INFO, "Registering the user... " +
-                    messageTokens[ProtocolConfig.USERNAME]);
-            createUser(messageTokens[ProtocolConfig.USERNAME],
-                    messageTokens[ProtocolConfig.PASSWORD],
-                    messageTokens[ProtocolConfig.FIRST_NAME]);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void clientLogout(String message) {
+
+        String[] protocol = ProtocolParser.splitMessage(message);
+
+        if (protocol[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)){
+
+            authenticate(protocol[ProtocolConfig.USERNAME],
+                    protocol[ProtocolConfig.PASSWORD]);
         }
     }
 
@@ -124,6 +144,8 @@ public class ClientHandler implements Runnable {
 
     //Sending msg just for one client
     public void sendMessage(String message) {
+
+        System.out.println("Server will send this message: " + message);
         System.out.println("Server will send this message: " + message);
         Logger.getInstance().log(PriorityLevel.INFO, "Client Handler @Server message: " + message);
         output.write(message + "\n");
@@ -148,10 +170,9 @@ public class ClientHandler implements Runnable {
 
             return;
         }
+        sendMessage(ProtocolConfig.SERVER_LOGIN + ";" + ProtocolConfig.ERR);
 
-        System.out.println("Not logged");
         Logger.getInstance().log(PriorityLevel.HIGH, "Client Handler: User authentication failure" + username);
-        sendMessage(ProtocolConfig.SERVER_ERR);
     }
 
 
@@ -174,7 +195,7 @@ public class ClientHandler implements Runnable {
             return;
         }
 
-        sendMessage(ProtocolConfig.SERVER_ERR);
+        sendMessage(ProtocolConfig.SERVER_REGISTER + ";" + ProtocolConfig.ERR);
     }
 
 
@@ -187,5 +208,9 @@ public class ClientHandler implements Runnable {
     public String getUsername() {
 
         return user.getUsername();
+    }
+
+    public void setWorkable(Workable workable){
+        this.workable = workable;
     }
 }

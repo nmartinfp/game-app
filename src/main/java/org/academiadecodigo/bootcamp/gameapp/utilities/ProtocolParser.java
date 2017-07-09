@@ -28,18 +28,36 @@ public final class ProtocolParser {
             case ProtocolConfig.SERVER_CREATE_ROOM:
                 serverHandler.createRoom(protocol[ProtocolConfig.MESSAGE]);
                 break;
+
             case ProtocolConfig.SERVER_REGISTER_ROOM:
                 serverHandler.changeRoomName(protocol[ProtocolConfig.MESSAGE]);
                 break;
+
             case ProtocolConfig.SERVER_JOIN_ROOM:
                 serverHandler.addToRoom(protocol[ProtocolConfig.MESSAGE]);
                 break;
-            case ProtocolConfig.SERVER_GAME:
 
+            case ProtocolConfig.SERVER_GAME:
+                serverHandler.resultGame(protocol[ProtocolConfig.MESSAGE]);
                 break;
 
+            case ProtocolConfig.SERVER_ROOM_EXIT:
+                serverHandler.roomExit(protocol[ProtocolConfig.MESSAGE]);
+                break;
+
+            case ProtocolConfig.SERVER_OTHER_HAND:
+                serverHandler.showOtherHand(protocol[ProtocolConfig.MESSAGE]);
+                break;
+
+            case ProtocolConfig.SERVER_RESET_ROOM:
+                serverHandler.resetRoom(protocol[ProtocolConfig.MESSAGE]);
+                break;
             case ProtocolConfig.SERVER_CHAT:
                 serverHandler.receivedMessage(protocol[ProtocolConfig.MESSAGE]);
+                break;
+
+            case ProtocolConfig.SERVER_CHAT_ROOM:
+                serverHandler.receivedMessageRoom(protocol[ProtocolConfig.MESSAGE]);
                 break;
 
             default:

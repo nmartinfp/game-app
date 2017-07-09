@@ -4,7 +4,6 @@ import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
 import org.academiadecodigo.bootcamp.gameapp.utilities.AppConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.logging.Logger;
 import org.academiadecodigo.bootcamp.gameapp.utilities.logging.PriorityLevel;
-import sun.rmi.runtime.Log;
 
 import java.io.IOException;
 import java.net.ServerSocket;

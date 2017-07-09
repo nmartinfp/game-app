@@ -1,5 +1,8 @@
 package org.academiadecodigo.bootcamp.gameapp.utilities;
 
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.Logger;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.PriorityLevel;
+
 import java.net.InetAddress;
 
 /**
@@ -21,6 +24,7 @@ public final class AppConfig {
      */
     public static final int PORT = 1234;
     public static final InetAddress IP = InetAddress.getLoopbackAddress();
+    public static final String IP_STRING = "192.168.1.17";
 
     /*
      * DataBase Configuration

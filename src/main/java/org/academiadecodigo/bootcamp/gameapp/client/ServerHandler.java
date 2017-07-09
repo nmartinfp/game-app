@@ -59,7 +59,6 @@ public class ServerHandler implements Runnable {
                 CltLoginController loginController = navigation.getController(ProtocolConfig.VIEW_LOGIN);
 
                 if (message.equals(ProtocolConfig.VIEW_LOBBY)) {
-                    System.out.println("vou mudar para lobby" + loginController);
                     loginController.successfullyAuth(message);
                     return;
                 }
@@ -100,7 +99,6 @@ public class ServerHandler implements Runnable {
             public void run() {
                 CltLobbyController lobbyController = navigation.getController(ProtocolConfig.VIEW_LOBBY);
                 lobbyController.roomCreated(message);
-
             }
         });
     }
@@ -140,11 +138,38 @@ public class ServerHandler implements Runnable {
             @Override
             public void run() {
                 CltRpsController rpsController = navigation.getController(ProtocolConfig.VIEW_RPS);
-                System.out.println(message);
                 rpsController.showOtherHand(message);
             }
         });
     }
+
+    public void resetRoom(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                CltRpsController rpsController = navigation.getController(ProtocolConfig.VIEW_RPS);
+                rpsController.resetView(message);
+            }
+        });
+    }
+
+    public void roomExit(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                CltRpsController rpsController = navigation.getController(ProtocolConfig.VIEW_RPS);
+
+                if (message.contains("GAME OVER")) {
+                    rpsController.gameOverText(message);
+                    return;
+                }
+
+                rpsController.back();
+            }
+        });
+
+    }
+
 //----------------------------------------------------------------------------------------------------------------------
 //
 //----------------------------------------------------------------------------------------------------------------------
@@ -152,6 +177,8 @@ public class ServerHandler implements Runnable {
     public void setClient(Client client) {
         this.client = client;
     }
+
+
 
 }
 

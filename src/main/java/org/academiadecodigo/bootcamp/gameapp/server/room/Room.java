@@ -6,18 +6,17 @@ package org.academiadecodigo.bootcamp.gameapp.server.room;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-import org.academiadecodigo.bootcamp.gameapp.game.GameName;
 import org.academiadecodigo.bootcamp.gameapp.game.RPSGame;
 import org.academiadecodigo.bootcamp.gameapp.server.ClientHandler;
 import org.academiadecodigo.bootcamp.gameapp.server.Workable;
 import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
+import org.academiadecodigo.bootcamp.gameapp.utilities.UtilsRps;
 
-import java.util.Map;
 import java.util.Vector;
 
-/**
+/*
  * Class to handle a gameRoom, creation, adding users, removing users, and whatnot
  */
 public class Room implements Runnable, Workable {
@@ -33,22 +32,14 @@ public class Room implements Runnable, Workable {
     private String p1Hand;
     private String p2Hand;
 
-
-    private int minSize;
-    private int maxSize;
-
 //----CONSTRUCTORS------------------------------------------------------------------------------------------------------
 
     public Room(int roomSize) {
-        minSize = roomSize;
-        maxSize = roomSize;
         clientHandlerVector = new Vector<>();
     }
 
     //To be used in games that require a range of players like Secret Hitler (HYPE)
     public Room(int minSize, int maxSize, Lobby lobby) {
-        this.minSize = minSize;
-        this.maxSize = maxSize;
         this.lobby = lobby;
         clientHandlerVector = new Vector<>();
     }
@@ -74,19 +65,23 @@ public class Room implements Runnable, Workable {
         String[] tokens = ProtocolParser.splitMessage(message);
 
         if (message.contains(ProtocolConfig.CLIENT_CHAT)) {
+
             String protoMessage = ProtocolConfig.SERVER_CHAT_ROOM + ";" + clientHandler.getUsername()
                     + ": " + tokens[ProtocolConfig.MESSAGE];
             System.out.println(protoMessage);
+
             sendMsgToRoom(protoMessage);
             return;
         }
         if (message.contains(ProtocolConfig.CLIENT_GAME)) {
 
             if (user1.equals(clientHandler.getUsername())) {
+
                 p1Hand = tokens[ProtocolConfig.MESSAGE];
                 System.out.println(p1Hand);
 
             } else if (user2.equals(clientHandler.getUsername())) {
+
                 p2Hand = tokens[ProtocolConfig.MESSAGE];
                 System.out.println(p2Hand);
             }
@@ -113,29 +108,9 @@ public class Room implements Runnable, Workable {
         }
 
         // Playing Round
-        try {
-            System.out.println("segundo wait");
-            wait();
+        playRps(rpsGame);
 
-            String winner;
-
-            winner = rpsGame.playRound(p1Hand, p2Hand);
-            showOtherHand();
-
-            System.out.println("Winner of game: " + winner);
-
-            if (winner.equals(p1Hand)) {
-                sendMsgGame(user1);
-
-            } else if (winner.equals(p2Hand)) {
-                sendMsgGame(user2);
-            } else {
-                sendMsgGame(null);
-            }
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        gameOver();
 
         try {
             Thread.sleep(5000);
@@ -144,10 +119,80 @@ public class Room implements Runnable, Workable {
         }
 
         //End of the game
-        // TODO: 08/07/17 player need to go lobby
         for (ClientHandler clientHandler : clientHandlerVector) {
+
             lobby.addQueue(clientHandler);
+            sendUsersToLobby(clientHandler);
         }
+
+        lobby.removeRoom(this);
+    }
+
+    private void gameOver() {
+
+        for (ClientHandler clientHandler: clientHandlerVector) {
+            clientHandler.sendMessage(ProtocolConfig.SERVER_ROOM_EXIT + ";" + "GAME OVER");
+        }
+    }
+
+    private void sendUsersToLobby(ClientHandler clientHandler) {
+            clientHandler.sendMessage(ProtocolConfig.SERVER_ROOM_EXIT + ";" + ProtocolConfig.VIEW_LOBBY);
+    }
+
+    private void playRps(RPSGame rpsGame) {
+
+        int roundsUser1 = 0;
+        int roundsUser2 = 0;
+
+        while (roundsUser1 < UtilsRps.MAXWINS && roundsUser2 < UtilsRps.MAXWINS) {
+            try {
+                wait();
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            String winner;
+
+            winner = rpsGame.playRound(p1Hand, p2Hand);
+            showOtherHand();
+
+            if (winner.equals(p1Hand)) {
+
+                ++roundsUser1;
+                sendMsgGame(user1);
+                System.out.println("Rounds win player 1");
+
+            } else if (winner.equals(p2Hand)) {
+
+                ++roundsUser2;
+                sendMsgGame(user2);
+                System.out.println("Round win player 2");
+
+            } else {
+                sendMsgGame(null);
+            }
+
+            try {
+                Thread.sleep(3500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            if (roundsUser1 < UtilsRps.MAXWINS && roundsUser2 < UtilsRps.MAXWINS) {
+                resetRoom();
+            }
+        }
+    }
+
+    private void resetRoom() {
+
+        for (ClientHandler clientHandler : clientHandlerVector) {
+            clientHandler.sendMessage(ProtocolConfig.SERVER_RESET_ROOM + ";" + "new Round!!!");
+        }
+
+        p1Hand = null;
+        p2Hand = null;
     }
 
     private void showOtherHand() {
@@ -155,35 +200,35 @@ public class Room implements Runnable, Workable {
 
             if (clientHandler.getUsername().equals(user1)) {
                 clientHandler.sendMessage(ProtocolConfig.SERVER_OTHER_HAND + ";" + p2Hand);
-                System.out.println("jogada do player 2: " + p2Hand);
 
             } else {
                 clientHandler.sendMessage(ProtocolConfig.SERVER_OTHER_HAND + ";" + p1Hand);
-                System.out.println("jogada do player 2: " + p1Hand);
             }
         }
     }
 
     private void sendMsgGame(String user) {
 
-            for (ClientHandler clientHandler : clientHandlerVector) {
+        for (ClientHandler clientHandler : clientHandlerVector) {
 
-                if (clientHandler.getUsername().equals(user)) {
-                    clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "YOU WIN!");
-                } else {
-                    if(user == null){
-                        clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "TIE!");
-                    }else
+            if (clientHandler.getUsername().equals(user)) {
+                clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "YOU WIN!");
+
+            } else {
+                if (user == null) {
+                    clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "TIE!");
+
+                } else
                     clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "YOU LOSE!");
-                }
             }
+        }
     }
 
     public synchronized void addClientHandler(ClientHandler clientHandler) {
 
         clientHandlerVector.add(clientHandler);
         user2 = clientHandler.getUsername();
-        System.out.println("1 notify");
+
         notifyAll();
     }
 

@@ -29,14 +29,20 @@ public final class ProtocolConfig {
      *      This part referee's to what part of Server core or Client core will be send the message coming
      */
     public static final String SERVER_LOGIN = "@SERVER_LOGIN";
+
     public static final String SERVER_REGISTER = "@SERVER_REGISTER";
+
     public static final String SERVER_CHAT = "@SERVER_CHAT";
     public static final String SERVER_CREATE_ROOM = "@SERVER_CREATE_ROOM";
-    public static final String SERVER_JOIN_ROOM = "@SERVER_JOIN_ROOM";
     public static final String SERVER_REGISTER_ROOM = "@SERVER_REGISTER_ROOM";
+    public static final String SERVER_JOIN_ROOM = "@SERVER_JOIN_ROOM";
+
     public static final String SERVER_CHAT_ROOM = "@SERVER_CHAT_ROOM";
     public static final String SERVER_GAME = "@SERVER_GAME";
     public static final String SERVER_OTHER_HAND = "@SERVER_OTHER_HAND";
+    public static final String SERVER_RESET_ROOM = "@SERVER_RESET_ROOM";
+    public static final String SERVER_ROOM_EXIT = "@SERVER_ROOM_EXIT";
+
     public static final String ERR = "ERROR";
 
     public static final String CLIENT_LOGIN = "@CLIENT_LOGIN";

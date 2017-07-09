@@ -21,6 +21,7 @@ import org.academiadecodigo.bootcamp.gameapp.client.ServerHandler;
 import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
 import org.academiadecodigo.bootcamp.gameapp.game.Choices;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
+import org.academiadecodigo.bootcamp.gameapp.utilities.UtilsRps;
 
 /**
  * A/C: Bootcamp8
@@ -33,7 +34,11 @@ public class CltRpsController implements Initializable, Controller {
 
     private Image rock = new Image("images/rps_rock.png");
     private Image paper = new Image("images/rps_paper.png");
+    private Image scissors = new Image("images/rps_scissors.png");
 
+    private int totalRounds;
+    private int wins;
+    private int loses;
 
     private Timer timer;
     private ServerHandler serverHandler;
@@ -54,6 +59,9 @@ public class CltRpsController implements Initializable, Controller {
 
     @FXML
     private Label lblRound;
+
+    @FXML
+    private Label lblNumberRound;
 
     @FXML
     private ProgressBar progBar;
@@ -80,6 +88,12 @@ public class CltRpsController implements Initializable, Controller {
     private Label lblScore;
 
     @FXML
+    private Label lblScore1;
+
+    @FXML
+    private Label lblScore2;
+
+    @FXML
     private TextArea receiveChatMsg;
 
     @FXML
@@ -88,7 +102,23 @@ public class CltRpsController implements Initializable, Controller {
     @FXML
     private TextField sendMsg;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        progBar.setStyle("-fx-accent: #00b000");
+        image1.setDisable(false);
+        image2.setDisable(false);
+        image3.setDisable(false);
+        imageX.setVisible(false);
+        lblMyChoice.setVisible(false);
 
+        totalRounds = 1;
+        wins = 0;
+        loses = 0;
+
+        lblNumberRound.setText("" + totalRounds);
+
+        serverHandler = ClientRegistry.getInstance().getHandler();
+    }
 
     @FXML
     void onActionExitGame(ActionEvent event) {
@@ -96,41 +126,23 @@ public class CltRpsController implements Initializable, Controller {
     }
 
     @FXML
-    void onActionNewRoom(ActionEvent event) {
-        // TODO: 07/07/17 After receive the information of the rival choice
-    }
-
-    public void setWinner(String message){
-        lblResult.setText(message);
-        receiveChatMsg.appendText(message + "\n");
-        if(message.equals("Winner")){
-            lblResult.setStyle("-fx-text-fill: #2ABB00");
-        }
-        lblResult.setVisible(true);
-    }
-
-    public void receiveChatMsg(String message){
-        receiveChatMsg.appendText(message + "\n");
-    }
-
-    @FXML
     void onImageRock(MouseEvent event) {
 
         image2.setDisable(true);
         image3.setDisable(true);
-        //stop();
+        stop();
         lblMyChoice.setVisible(true);
         lblMyChoice.setText("You Played Rock");
         image1.setImage(image1.getImage());
 
-        serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" +Choices.ROCK.getHand());
+        serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" + Choices.ROCK.getHand());
     }
-    
+
     @FXML
     void onImagePaper(MouseEvent event) {
         image1.setDisable(true);
         image3.setDisable(true);
-        //stop();
+        stop();
         lblMyChoice.setVisible(true);
         lblMyChoice.setText("You Played Paper");
         image2.setDisable(true);
@@ -143,7 +155,7 @@ public class CltRpsController implements Initializable, Controller {
     void onImageScissors(MouseEvent event) {
         image1.setDisable(true);
         image2.setDisable(true);
-        //stop();
+        stop();
         lblMyChoice.setVisible(true);
         lblMyChoice.setText("You Played Scissors");
         image3.setDisable(true);
@@ -177,67 +189,93 @@ public class CltRpsController implements Initializable, Controller {
 
     @FXML
     void onActiontestbar(ActionEvent event) {
-        final int timeStep = 500; // miliseconds
-        startTimer(timeStep);
+        startTimer(UtilsRps.TIME_STEP);
     }
 
+    public void setWinner(String message) {
 
-    private void startTimer(int timeStep) {
-        timer = new Timer();
-        timer.schedule(new Prog(), timeStep, timeStep);
+        lblResult.setText(message);
+        lblResult.setVisible(true);
+
+        receiveChatMsg.appendText(message + "\n");
+
+        if (message.equals("YOU WIN!")) {
+
+            lblResult.setStyle("-fx-text-fill: #2ABB00");
+            lblScore1.setText("" + ++wins);
+
+        } else if (message.equals("YOU LOSE!")) {
+            lblScore2.setText("" + ++loses);
+        }
+
+        totalRounds++;
+    }
+
+    public void receiveChatMsg(String message) {
+        receiveChatMsg.appendText(message + "\n");
     }
 
     public void showOtherHand(String message) {
         System.out.println(message);
-        if (message.equals(Choices.ROCK.getHand())){
+        if (message.equals(Choices.ROCK.getHand())) {
 
             image3.setImage(rock);
             image2.setImage(imageX.getImage());
             lblRivalChoice.setText("Rival played Rock");
             lblRivalChoice.setVisible(true);
 
-        }else if(message.equals(Choices.PAPER.getHand())){
+        } else if (message.equals(Choices.PAPER.getHand())) {
 
             image3.setImage(paper);
             image2.setImage(imageX.getImage());
             lblRivalChoice.setText("Rival played Paper");
             lblRivalChoice.setVisible(true);
 
-        }else{
+        } else {
             image2.setImage(imageX.getImage());
             lblRivalChoice.setText("Rival played Scissors");
             lblRivalChoice.setVisible(true);
         }
     }
 
-    private class Prog extends TimerTask {
-        double numbSteps = 11;
-        double base = numbSteps - 1;
+    public void resetView(String message) {
 
-        @Override
-        public void run() {
+        image1.setDisable(false);
+        image2.setDisable(false);
+        image3.setDisable(false);
+        imageX.setVisible(false);
+        lblMyChoice.setVisible(false);
+        lblRivalChoice.setVisible(false);
 
-            numbSteps--;
+        receiveChatMsg.appendText(message + "\n");
 
-            double progress = numbSteps / base;
+        image1.setImage(rock);
+        image2.setImage(paper);
+        image3.setImage(scissors);
 
-            progBar.setProgress(progress);
-            progBar.setStyle(ColorBar.values()[(int) numbSteps].getStyle());
+        lblResult.setVisible(false);
+        lblNumberRound.setText("" + totalRounds);
 
-            if (numbSteps == 0) {
-                stop();
-                showMsg();
-            }
-        }
+        startTimer(UtilsRps.TIME_STEP);
+    }
 
-        private void showMsg() {
-            image1.setDisable(true);
-            image2.setDisable(true);
-            image3.setDisable(true);
-            lblMyChoice.setVisible(true);
-            // TODO: 06/07/17 If rival played sonmething player This player lose. Or both lose
-            lblResult.setVisible(true);
-        }
+    private void startTimer(int timeStep) {
+        timer = new Timer();
+        timer.schedule(new Prog(), timeStep, timeStep);
+        progBar.setVisible(true);
+    }
+
+    private void showMsg() {
+        image1.setDisable(true);
+        image2.setDisable(true);
+        image3.setDisable(true);
+        lblMyChoice.setVisible(true);
+        // TODO: 06/07/17 If rival played sonmething player This player lose. Or both lose
+        lblResult.setVisible(true);
+    }
+
+    public void gameOverText(String message) {
+        lblScore.setText(message);
     }
 
     private void stop() {
@@ -246,6 +284,10 @@ public class CltRpsController implements Initializable, Controller {
 
     public String getName() {
         return NAME;
+    }
+
+    public void back() {
+        Navigation.getInstance().back();
     }
 
     private enum ColorBar {
@@ -272,16 +314,24 @@ public class CltRpsController implements Initializable, Controller {
         }
     }
 
-    @Override
+    private class Prog extends TimerTask {
+        double numbSteps = 11;
+        double base = numbSteps - 1;
 
-    public void initialize(URL location, ResourceBundle resources) {
-        progBar.setStyle("-fx-accent: #00b000");
-        image2.setDisable(false);
-        image2.setDisable(false);
-        image3.setDisable(false);
-        imageX.setVisible(false);
-        lblMyChoice.setVisible(false);
+        @Override
+        public void run() {
 
-        serverHandler = ClientRegistry.getInstance().getHandler();
+            numbSteps--;
+
+            double progress = numbSteps / base;
+
+            progBar.setProgress(progress);
+            progBar.setStyle(ColorBar.values()[(int) numbSteps].getStyle());
+
+            if (numbSteps == 0) {
+                stop();
+                showMsg();
+            }
+        }
     }
 }

@@ -76,7 +76,7 @@ public class Lobby implements Runnable, Workable {
         }
     }
 
-    public void updatingRooms(){
+    public synchronized void updatingRooms(){
 
         for (Room room: roomVector) {
             sendToAll(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + room.getName());
@@ -95,7 +95,7 @@ public class Lobby implements Runnable, Workable {
 //                                               CLIENTMAP HANDLING
 //----------------------------------------------------------------------------------------------------------------------
 
-    public void addQueue(ClientHandler clientHandler) {
+    public synchronized void addQueue(ClientHandler clientHandler) {
         queue.add(clientHandler);
     }
 
@@ -146,7 +146,7 @@ public class Lobby implements Runnable, Workable {
 
         Room room = roomByName(name);
 
-        if (room != null) {
+        if (room != null && room.usersOnRoom() < GameName.RPS.getMaxUsers()) {
             room.addClientHandler(clientHandler);
             clientHandler.changeState(room, State.ROOM);
             clientVector.remove(clientHandler);
@@ -155,7 +155,7 @@ public class Lobby implements Runnable, Workable {
         }
     }
 
-    public void removeRoom(Room roomToRemove) {
+    public synchronized void removeRoom(Room roomToRemove) {
 
         for (Room room : roomVector) {
 
@@ -163,9 +163,7 @@ public class Lobby implements Runnable, Workable {
                 roomVector.remove(room);
             }
 
-            sendToAll(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + "Room");
+            sendToAll(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + room.getName() + " " + "Room");
         }
     }
-
-
 }

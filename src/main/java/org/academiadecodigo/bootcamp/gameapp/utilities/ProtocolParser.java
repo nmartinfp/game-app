@@ -27,7 +27,8 @@ public final class ProtocolParser {
                 break;
 
             case ProtocolConfig.SERVER_REGISTER_ROOM:
-                serverHandler.changeRoomName(protocol[ProtocolConfig.MESSAGE]);
+                String cleanMessage = concatMessage(protocol);
+                serverHandler.changeRoomName(cleanMessage);
                 break;
 
             case ProtocolConfig.SERVER_JOIN_ROOM:
@@ -60,6 +61,18 @@ public final class ProtocolParser {
             default:
                 serverHandler.receivedMessage("MESSAGE FAILURE TRY AGAIN");
         }
+    }
+
+    private static String concatMessage(String[] protocol){
+
+        String message = null;
+
+        for (int i = 1; i < protocol.length; i++){
+            message += protocol[i];
+        }
+
+        System.out.println("Mensagem do concat: " + message);
+        return message;
     }
 
     //concat message to send client or server

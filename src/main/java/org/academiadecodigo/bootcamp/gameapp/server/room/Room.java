@@ -41,6 +41,7 @@ public class Room implements Runnable, Workable {
 
     //To be used in games that require a range of players like Secret Hitler (HYPE)
     public Room(int minSize, int maxSize, Lobby lobby) {
+
         this.lobby = lobby;
         clientHandlerVector = new Vector<>();
     }
@@ -120,13 +121,17 @@ public class Room implements Runnable, Workable {
         }
 
         //End of the game
-        for (ClientHandler clientHandler : clientHandlerVector) {
 
-            clientHandler.setWorkable(lobby);
-            clientHandler.setState(State.LOBBY);
+        synchronized (lobby) {
+            for (ClientHandler clientHandler : clientHandlerVector) {
 
-            lobby.addQueue(clientHandler);
-            sendUsersToLobby(clientHandler);
+                clientHandler.setWorkable(lobby);
+                clientHandler.setState(State.LOBBY);
+
+                lobby.addQueue(clientHandler);
+
+                sendUsersToLobby(clientHandler);
+            }
         }
 
         lobby.removeRoom(this);
@@ -140,7 +145,10 @@ public class Room implements Runnable, Workable {
     }
 
     private void sendUsersToLobby(ClientHandler clientHandler) {
+
+        synchronized (lobby) {
             clientHandler.sendMessage(ProtocolConfig.SERVER_ROOM_EXIT + ";" + ProtocolConfig.VIEW_LOBBY);
+        }
     }
 
     private void playRps(RPSGame rpsGame) {
@@ -243,5 +251,9 @@ public class Room implements Runnable, Workable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int usersOnRoom(){
+        return clientHandlerVector.size();
     }
 }

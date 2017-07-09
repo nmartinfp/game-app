@@ -128,7 +128,23 @@ public class CltLobbyController implements Initializable, Controller{
     }
 
     public void roomCreated(String message){
-        btnRoom1.setText(message);
+
+        String[] messages = message.split(" ");
+
+        System.out.println(messages[0] + " mais coisas "+ messages[1git]);
+
+
+        for (Button button: btnArray){
+
+            if (button.getText().equals("Room")){
+                button.setText(message);
+                return;
+            }
+
+            if (messages.length == 2 && button.getText().equals(messages[0])){
+                button.setText(messages[1]);
+            }
+        }
     }
 
     public void roomView(String message){

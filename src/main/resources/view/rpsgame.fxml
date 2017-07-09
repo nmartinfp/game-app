@@ -42,8 +42,7 @@
                 <RowConstraints minHeight="85.0" prefHeight="85.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="btnExitGame" mnemonicParsing="false" onAction="#onActionExitGame" prefHeight="40.0" prefWidth="100.0" text="Logout" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Button fx:id="btnStart" mnemonicParsing="false" onAction="#onActionStart" prefHeight="40.0" prefWidth="100.0" text="Start" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button fx:id="btnStart" mnemonicParsing="false" onAction="#onActionStart" prefHeight="40.0" prefWidth="100.0" text="Start" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
             <ImageView fitHeight="89.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">

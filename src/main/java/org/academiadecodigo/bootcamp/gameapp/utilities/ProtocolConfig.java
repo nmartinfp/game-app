@@ -15,9 +15,9 @@ public final class ProtocolConfig {
      */
     public static final int PROTOCOL = 0;
     public static final int MESSAGE = 1;
-    public static final int USERNAME = 1;
-    public static final int PASSWORD = 2;
-    public static final int FIRST_NAME = 3;
+    public static final int USERNAME = 2;
+    public static final int PASSWORD = 3;
+    public static final int FIRST_NAME = 1;
 
 
     /*

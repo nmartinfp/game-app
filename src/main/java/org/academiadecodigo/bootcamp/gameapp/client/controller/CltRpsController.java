@@ -48,9 +48,6 @@ public class CltRpsController implements Initializable, Controller {
     private GridPane gpLobby;
 
     @FXML
-    private Button btnExitGame;
-
-    @FXML
     private Button btnStart;
 
     @FXML
@@ -114,14 +111,6 @@ public class CltRpsController implements Initializable, Controller {
         lblMyChoice.setVisible(false);
         lblNumberRound.setText("" + totalRounds);
         serverHandler = ClientRegistry.getInstance().getHandler();
-    }
-
-
-
-    @FXML
-    void onActionExitGame(ActionEvent event) {
-
-        Navigation.getInstance().back();
     }
 
     @FXML

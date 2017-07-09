@@ -55,12 +55,12 @@ public class Client {
 
             System.out.println("recebi esta mensagem: " + receivedMessage);   //todo TESTING
 
-            if (receivedMessage.equals("null")) {
+            if (receivedMessage == null) {
                 input.close();
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Socket closed very softly");
         }
 
         return receivedMessage;

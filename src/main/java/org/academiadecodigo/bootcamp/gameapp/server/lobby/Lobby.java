@@ -104,7 +104,16 @@ public class Lobby implements Runnable, Workable {
         }
     }
 
+    public boolean logedUser(String username) {
 
+        for (ClientHandler clientHandler : clientVector) {
+
+            if (clientHandler.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
 //----------------------------------------------------------------------------------------------------------------------
 //                                               CLIENTMAP HANDLING
 //----------------------------------------------------------------------------------------------------------------------
@@ -156,10 +165,10 @@ public class Lobby implements Runnable, Workable {
         return null;
     }
 
-   /*
-    * Adds a user to a Room and removes it from the clientList if the room is not full yet
-    * Could return a message for success or lack thereof to trigger secondary behaviours
-    */
+    /*
+     * Adds a user to a Room and removes it from the clientList if the room is not full yet
+     * Could return a message for success or lack thereof to trigger secondary behaviours
+     */
     private void addClientToRoom(ClientHandler clientHandler, String name) {
 
         Room room = roomByName(name);
@@ -183,17 +192,5 @@ public class Lobby implements Runnable, Workable {
 
             sendToAll(ProtocolConfig.SERVER_UNREGISTER_ROOM + ";" + roomToRemove.getName());
         }
-    }
-
-
-    public boolean logedUser(String username) {
-
-        for (ClientHandler clientHandler : clientVector) {
-
-            if (clientHandler.getUsername().equals(username)) {
-                return true;
-            }
-        }
-        return false;
     }
 }

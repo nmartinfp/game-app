@@ -7,7 +7,8 @@ public enum Choices {
 
     ROCK("ROCK"),
     PAPER("PAPER"),
-    SCISSORS("SCISSORS");
+    SCISSORS("SCISSORS"),
+    NOCHOICE("NOCHOICE");
 
     private String hand;
 

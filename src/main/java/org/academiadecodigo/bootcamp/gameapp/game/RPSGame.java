@@ -14,6 +14,7 @@ public class RPSGame {
             return "TIE";
         }
 
+
         String winner = p1Hand;
 
         switch (p1Hand) {
@@ -35,6 +36,16 @@ public class RPSGame {
                     winner = "ROCK";
                 }
                 break;
+
+            case "NOCHOICE":
+                if (p2Hand != Choices.NOCHOICE.getHand()) {
+                    winner = p2Hand;
+                }else{
+                    winner = "TIE";
+
+                }
+                break;
+
         }
 
         //for every winner, send the info to the game controller

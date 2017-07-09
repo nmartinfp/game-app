@@ -6,6 +6,6 @@ package org.academiadecodigo.bootcamp.gameapp.utilities;
 public class UtilsRps {
 
     public static final int MAXWINS = 3;
-    public static final int TIME_STEP = 300; // milliseconds
+    public static final int TIME_STEP = 1000; // milliseconds
 
 }

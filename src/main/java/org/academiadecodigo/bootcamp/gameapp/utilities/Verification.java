@@ -6,11 +6,11 @@ import javafx.scene.control.TextField;
 
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-public class Verification {
+public final class Verification {
 
     public static void cleanErrorMsg(Label lblUsernameError, Label lblPasswordError, Label lblFirstNameErrorReg, Label lblMailErrorReg) {
 
@@ -20,6 +20,7 @@ public class Verification {
         lblMailErrorReg.setVisible(false);
     }
 
+
     public static boolean checkPassword(PasswordField password) {
         boolean check = false;
 
@@ -28,8 +29,10 @@ public class Verification {
 
             check = true;
         }
+
         return check;
     }
+
 
     public static boolean checkEmail(TextField email) {
         boolean checkMail = false;
@@ -39,6 +42,7 @@ public class Verification {
 
             checkMail = true;
         }
+
         return checkMail;
     }
 }

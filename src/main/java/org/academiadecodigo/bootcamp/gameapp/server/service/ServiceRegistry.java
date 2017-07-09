@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
@@ -18,6 +18,7 @@ public final class ServiceRegistry {
     private ServiceRegistry() {
         serviceMap = new HashMap<>();
     }
+
 
     public static ServiceRegistry getInstance() {
 
@@ -34,13 +35,14 @@ public final class ServiceRegistry {
         return instance;
     }
 
-    public void addService(Service service){
+
+    public void addService(Service service) {
         System.out.println(service.getName());
         serviceMap.put(service.getName(), service);
     }
 
-    public <T extends Service> T getService(String name){
+
+    public <T extends Service> T getService(String name) {
         return (T) serviceMap.get(name);
     }
-
 }

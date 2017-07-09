@@ -6,15 +6,13 @@ import java.sql.*;
 
 /**
  * A/C: Bootcamp8
- * 2nd group project - Game App Platform
+ * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
 public class JdbcUserService implements UserService {
 
-    private final String NAME = "UserService";
-
-    Connection dbConnection;
+    private Connection dbConnection;
 
     public JdbcUserService(Connection dbConnection) {
         this.dbConnection = dbConnection;
@@ -30,6 +28,7 @@ public class JdbcUserService implements UserService {
 
             return true;
         }
+
         return false;
     }
 
@@ -38,7 +37,6 @@ public class JdbcUserService implements UserService {
 
         try {
             if (findByName(user.getUsername()) == null) {
-
 
                 // Create a query
                 String query = "INSERT INTO users (first_name, username, password) VALUES (?, ? , ?)";
@@ -52,6 +50,7 @@ public class JdbcUserService implements UserService {
                 statement.setString(1, user.getFirstName());
                 statement.setString(2, user.getUsername());
                 statement.setString(3, user.getPassword());
+                //statement.setString(3, computeHash); // TODO: 2017/7/9 - remove if not implemented! 
 
                 // Execute the query
                 statement.executeUpdate();
@@ -108,7 +107,7 @@ public class JdbcUserService implements UserService {
 
     @Override
     public String getName() {
-        return NAME;
+        return UserService.class.getSimpleName();
     }
 
     private void closeStatement(Statement statement) throws SQLException {

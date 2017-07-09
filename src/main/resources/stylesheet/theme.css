@@ -1,2 +1,39 @@
-/* This will be the stylesheet for the application
-*/
+.button{
+    -fx-background-color:
+            #000000,
+            linear-gradient(#7ebcea, #2f4b8f),
+            linear-gradient(#426ab7, #263e75),
+            linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 5 10 5 10;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+
+.Lobby{
+    -fx-background-image: url("/images/main-final.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1000 740;
+    -fx-background-position: center center;
+}
+.Login{
+    -fx-background-image: url("/images/login-final.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 220 330;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+.Register{
+    -fx-background-image: url("/images/register-final.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 251 440;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+.RPSGame{
+    -fx-background-image: url("/images/main-final.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1000 740;
+    -fx-background-position: center center;
+}

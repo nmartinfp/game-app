@@ -93,6 +93,7 @@ public final class Navigation {
     public void setScene(Scene scene) {
 
         stage.setScene(scene);
+        scene.getStylesheets().add("/stylesheet/theme.css");
         stage.setResizable(false);
         stage.show();
     }

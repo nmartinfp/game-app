@@ -55,7 +55,6 @@ public class CltLoginController implements Initializable, Controller {
 
             serverHandler.sendMessage(sendMessage);
 
-            btnLogin.setDisable(true);
             lblLoginInfo.setVisible(false);
         }
     }

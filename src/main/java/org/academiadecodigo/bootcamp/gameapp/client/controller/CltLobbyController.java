@@ -130,6 +130,7 @@ public class CltLobbyController implements Initializable, Controller{
 
     @FXML
     public void onActionExitLobby(ActionEvent event) {
+        serverHandler.sendMessage(ProtocolConfig.CLIENT_LOGIN + ";" + "logout");
         Navigation.getInstance().back();
     }
 

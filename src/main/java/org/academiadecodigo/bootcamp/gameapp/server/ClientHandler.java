@@ -77,16 +77,21 @@ public class ClientHandler implements Runnable {
         try {
 
             while (state.equals(State.LOGIN)) {
+
                 message = input.readLine();
                 System.out.println("I received message from client: " + message);
 
                 String[] messageTokens = ProtocolParser.splitMessage(message);
 
                 if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)) {
+
                     authenticate(messageTokens[ProtocolConfig.USERNAME],
                             messageTokens[ProtocolConfig.PASSWORD]);
 
+                    updateLobby();
+
                 } else {
+
                     createUser(messageTokens[ProtocolConfig.FIRSTNAME],
                             messageTokens[ProtocolConfig.USERNAME],
                             messageTokens[ProtocolConfig.PASSWORD]);
@@ -98,14 +103,24 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    private void updateLobby() {
+
+        if (workable instanceof Lobby){
+
+            ((Lobby)workable).updatingRooms();
+        }
+    }
+
+
     private void clientLogout(String message) {
 
         String[] protocol = ProtocolParser.splitMessage(message);
 
         if (protocol[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)){
 
-            authenticate(protocol[ProtocolConfig.USERNAME],
-                    protocol[ProtocolConfig.PASSWORD]);
+          state = State.LOGIN;
+          handle();
+
         }
     }
 
@@ -130,12 +145,13 @@ public class ClientHandler implements Runnable {
 //----------------------------------------------------------------------------------------------------------------------
 //                                               Login and Register HANDLING
 //----------------------------------------------------------------------------------------------------------------------
-    public void authenticate(String username, String password) {
+    private void authenticate(String username, String password) {
 
         ServiceRegistry serviceRegistry = ServiceRegistry.getInstance();
         UserService userService = serviceRegistry.getService(UserService.class.getSimpleName());
 
         if (userService.authenticate(username, password)) {
+
             sendMessage(ProtocolConfig.SERVER_LOGIN + ";" + ProtocolConfig.VIEW_LOBBY);
 
             state = State.LOBBY;
@@ -147,7 +163,7 @@ public class ClientHandler implements Runnable {
     }
 
 
-    public void createUser(String firstName, String username, String password) {
+    private void createUser(String firstName, String username, String password) {
 
         ServiceRegistry serviceRegistry = ServiceRegistry.getInstance();
         UserService userService = serviceRegistry.getService(UserService.class.getSimpleName());
@@ -177,5 +193,13 @@ public class ClientHandler implements Runnable {
 
     public void setWorkable(Workable workable){
         this.workable = workable;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 }

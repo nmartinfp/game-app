@@ -8,6 +8,7 @@ package org.academiadecodigo.bootcamp.gameapp.server.room;
 
 import org.academiadecodigo.bootcamp.gameapp.game.RPSGame;
 import org.academiadecodigo.bootcamp.gameapp.server.ClientHandler;
+import org.academiadecodigo.bootcamp.gameapp.server.State;
 import org.academiadecodigo.bootcamp.gameapp.server.Workable;
 import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
@@ -120,7 +121,10 @@ public class Room implements Runnable, Workable {
 
         //End of the game
         for (ClientHandler clientHandler : clientHandlerVector) {
+
             clientHandler.setWorkable(lobby);
+            clientHandler.setState(State.LOBBY);
+
             lobby.addQueue(clientHandler);
             sendUsersToLobby(clientHandler);
         }

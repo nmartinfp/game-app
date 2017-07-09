@@ -65,13 +65,26 @@ public class Lobby implements Runnable, Workable {
 
         while (true) {
             if (queue.size() > 0) {
-                clientVector.add(queue.poll());
+                ClientHandler clientHandler = queue.poll();
+
+                clientVector.add(clientHandler);
+
+                if (clientHandler.getState() == State.LOBBY){
+                    updatingRooms();
+                }
             }
         }
     }
 
+    public void updatingRooms(){
+
+        for (Room room: roomVector) {
+            sendToAll(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + room.getName());
+        }
+    }
+
     //Sending msg to everyone CHAT
-    public void sendToAll(String message) {
+    private void sendToAll(String message) {
 
         for (ClientHandler ClientHandler : clientVector) {
             ClientHandler.sendMessage(message);

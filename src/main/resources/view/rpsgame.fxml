@@ -42,7 +42,7 @@
               </rowConstraints>
                <children>
                   <Button fx:id="btnExitGame" mnemonicParsing="false" onAction="#onActionExitGame" prefHeight="40.0" prefWidth="100.0" text="Logout" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Button fx:id="btnTestBar" mnemonicParsing="false" onAction="#onActiontestbar" prefHeight="40.0" prefWidth="100.0" text="Start" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button fx:id="btnStart" mnemonicParsing="false" onAction="#onActionStart" prefHeight="40.0" prefWidth="100.0" text="Start" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
             <GridPane GridPane.rowIndex="1">

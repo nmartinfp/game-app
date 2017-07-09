@@ -83,14 +83,24 @@ public class ClientHandler implements Runnable {
 
                 String[] messageTokens = ProtocolParser.splitMessage(message);
 
-                if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)) {
+                if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN) && ((Lobby) workable).
+                        logedUser(messageTokens[ProtocolConfig.USERNAME])) {
+
+                    sendMessage(ProtocolConfig.SERVER_LOGIN + ";" + ProtocolConfig.ERR_LOGED);
+
+                    // TODO: 09/07/17 enviar msg
+                }
+
+                if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN) && !((Lobby) workable).
+                        logedUser(messageTokens[ProtocolConfig.USERNAME])) {
 
                     authenticate(messageTokens[ProtocolConfig.USERNAME],
                             messageTokens[ProtocolConfig.PASSWORD]);
 
                     updateLobby();
+                    ((Lobby) workable).addQueue(this);
 
-                } else {
+                } else if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_REGISTER)) {
 
                     createUser(messageTokens[ProtocolConfig.FIRSTNAME],
                             messageTokens[ProtocolConfig.USERNAME],
@@ -105,16 +115,16 @@ public class ClientHandler implements Runnable {
 
     private void removeClientFromLobby() {
 
-        if (workable instanceof Lobby){
-            ((Lobby)workable).removeClientHandler(this);
+        if (workable instanceof Lobby) {
+            ((Lobby) workable).removeClientHandler(this);
         }
     }
 
     private void updateLobby() {
 
-        if (workable instanceof Lobby){
+        if (workable instanceof Lobby) {
 
-            ((Lobby)workable).updatingRooms();
+            ((Lobby) workable).updatingRooms();
         }
     }
 
@@ -122,10 +132,11 @@ public class ClientHandler implements Runnable {
 
         String[] protocol = ProtocolParser.splitMessage(message);
 
-        if (protocol[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)){
+        if (protocol[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)) {
 
-          state = State.LOGIN;
-          handle();
+            state = State.LOGIN;
+            ((Lobby)workable).removeClientHandler(this);
+            handle();
 
         }
     }
@@ -148,7 +159,7 @@ public class ClientHandler implements Runnable {
         output.flush();
     }
 
-//----------------------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------------------
 //                                               Login and Register HANDLING
 //----------------------------------------------------------------------------------------------------------------------
     private void authenticate(String username, String password) {
@@ -197,7 +208,7 @@ public class ClientHandler implements Runnable {
         return user.getUsername();
     }
 
-    public void setWorkable(Workable workable){
+    public void setWorkable(Workable workable) {
         this.workable = workable;
     }
 

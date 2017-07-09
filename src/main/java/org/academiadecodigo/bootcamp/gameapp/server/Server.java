@@ -52,8 +52,6 @@ public class Server {
                 System.out.println("Server connected.");
 
                 cachedPool.submit(ClientHandler);
-                lobby.addQueue(ClientHandler);
-
             }
         } catch (IOException e) {
             e.printStackTrace();

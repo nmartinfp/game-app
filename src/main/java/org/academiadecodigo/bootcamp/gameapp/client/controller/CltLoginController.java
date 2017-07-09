@@ -105,4 +105,9 @@ public class CltLoginController implements Initializable, Controller {
     public String getName(){
         return NAME;
     }
+
+    public void userLoged() {
+        setText(lblLoginInfo, "You are already loged");
+
+    }
 }

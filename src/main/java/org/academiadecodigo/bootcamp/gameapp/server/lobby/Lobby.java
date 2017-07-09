@@ -4,6 +4,7 @@ import org.academiadecodigo.bootcamp.gameapp.game.GameName;
 import org.academiadecodigo.bootcamp.gameapp.server.ClientHandler;
 import org.academiadecodigo.bootcamp.gameapp.server.State;
 import org.academiadecodigo.bootcamp.gameapp.server.Workable;
+import org.academiadecodigo.bootcamp.gameapp.server.model.User;
 import org.academiadecodigo.bootcamp.gameapp.server.room.Room;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
@@ -58,6 +59,7 @@ public class Lobby implements Runnable, Workable {
             addClientToRoom(clientHandler, tokens[ProtocolConfig.MESSAGE]);
         }
 
+
     }
 
     @Override
@@ -69,16 +71,16 @@ public class Lobby implements Runnable, Workable {
 
                 clientVector.add(clientHandler);
 
-                if (clientHandler.getState().equals(State.LOBBY)){
+                if (clientHandler.getState().equals(State.LOBBY)) {
                     updatingRooms();
                 }
             }
         }
     }
 
-    public void updatingRooms(){
+    public void updatingRooms() {
 
-        for (Room room: roomVector) {
+        for (Room room : roomVector) {
             sendToAll(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + room.getName());
         }
     }
@@ -86,8 +88,8 @@ public class Lobby implements Runnable, Workable {
     //Sending msg to everyone CHAT
     private void sendToAll(String message) {
 
-        for (ClientHandler ClientHandler : clientVector) {
-            ClientHandler.sendMessage(message);
+        for (ClientHandler clientHandler : clientVector) {
+            clientHandler.sendMessage(message);
         }
     }
 
@@ -168,4 +170,14 @@ public class Lobby implements Runnable, Workable {
     }
 
 
+    public boolean logedUser(String username) {
+
+        for (ClientHandler clientHandler : clientVector) {
+
+            if (clientHandler.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

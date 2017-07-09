@@ -44,6 +44,7 @@ public final class ProtocolConfig {
     public static final String SERVER_ROOM_EXIT = "@SERVER_ROOM_EXIT";
 
     public static final String ERR = "ERROR";
+    public static final String ERR_LOGED = "ERROR_LOGED";
 
     public static final String CLIENT_LOGIN = "@CLIENT_LOGIN";
     public static final String CLIENT_REGISTER = "@CLIENT_REGISTER";

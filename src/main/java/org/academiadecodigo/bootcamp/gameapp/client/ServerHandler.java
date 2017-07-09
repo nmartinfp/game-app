@@ -56,12 +56,19 @@ public class ServerHandler implements Runnable {
             public void run() {
 
                 CltLoginController loginController = navigation.getController(ProtocolConfig.VIEW_LOGIN);
+                System.out.println(ProtocolConfig.VIEW_LOBBY);
 
                 if (message.equals(ProtocolConfig.VIEW_LOBBY)) {
                     loginController.successfullyAuth(message);
                     return;
                 }
+                if(message.equals((ProtocolConfig.ERR_LOGED))){
+                    loginController.userLoged();
+
+                    return;
+                }
                 loginController.authFailure();
+
             }
         });
     }

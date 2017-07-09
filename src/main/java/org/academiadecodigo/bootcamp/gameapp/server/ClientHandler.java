@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
+import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
 import org.academiadecodigo.bootcamp.gameapp.server.model.User;
 import org.academiadecodigo.bootcamp.gameapp.server.service.ServiceRegistry;
 import org.academiadecodigo.bootcamp.gameapp.server.service.user.UserService;
@@ -40,11 +41,16 @@ public class ClientHandler implements Runnable {
 
         //Handling message received login and register
         handle();
+
         try {
             //Handling message received Lobby and Room
+
             while (!clientSocket.isClosed()) {
 
                 String message = input.readLine();
+
+                clientLogout(message);
+
                 System.out.println("Server received this message: " + message);
                 workable.process(this, message);
             }
@@ -55,17 +61,18 @@ public class ClientHandler implements Runnable {
         } finally {
             try {
                 clientSocket.close();
+                ((Lobby)workable).removeClientHandler(this);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
-
     }
+
+
 
     private void handle() {
 
-        String message = null;
+        String message;
 
         try {
 
@@ -78,15 +85,27 @@ public class ClientHandler implements Runnable {
                 if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)) {
                     authenticate(messageTokens[ProtocolConfig.USERNAME],
                             messageTokens[ProtocolConfig.PASSWORD]);
-                    return;
+
+                } else {
+                    createUser(messageTokens[ProtocolConfig.FIRSTNAME],
+                            messageTokens[ProtocolConfig.USERNAME],
+                            messageTokens[ProtocolConfig.PASSWORD]);
                 }
-                createUser(messageTokens[ProtocolConfig.FIRSTNAME],
-                        messageTokens[ProtocolConfig.USERNAME],
-                        messageTokens[ProtocolConfig.PASSWORD]);
             }
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void clientLogout(String message) {
+
+        String[] protocol = ProtocolParser.splitMessage(message);
+
+        if (protocol[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)){
+
+            authenticate(protocol[ProtocolConfig.USERNAME],
+                    protocol[ProtocolConfig.PASSWORD]);
         }
     }
 
@@ -102,12 +121,13 @@ public class ClientHandler implements Runnable {
 
     //Sending msg just for one client
     public void sendMessage(String message) {
+
         System.out.println("Server will send this message: " + message);
         output.write(message + "\n");
         output.flush();
     }
 
-    //----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 //                                               Login and Register HANDLING
 //----------------------------------------------------------------------------------------------------------------------
     public void authenticate(String username, String password) {
@@ -155,4 +175,7 @@ public class ClientHandler implements Runnable {
         return user.getUsername();
     }
 
+    public void setWorkable(Workable workable){
+        this.workable = workable;
+    }
 }

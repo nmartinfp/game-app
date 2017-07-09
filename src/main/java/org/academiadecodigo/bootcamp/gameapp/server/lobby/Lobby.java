@@ -86,6 +86,9 @@ public class Lobby implements Runnable, Workable {
         queue.add(clientHandler);
     }
 
+    public void removeClientHandler(ClientHandler clientHandler) {
+        clientVector.remove(clientHandler);
+    }
 //----------------------------------------------------------------------------------------------------------------------
 //                                               ROOM HANDLING
 //----------------------------------------------------------------------------------------------------------------------
@@ -150,4 +153,6 @@ public class Lobby implements Runnable, Workable {
             sendToAll(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + "Room");
         }
     }
+
+
 }

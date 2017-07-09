@@ -120,7 +120,7 @@ public class Room implements Runnable, Workable {
 
         //End of the game
         for (ClientHandler clientHandler : clientHandlerVector) {
-
+            clientHandler.setWorkable(lobby);
             lobby.addQueue(clientHandler);
             sendUsersToLobby(clientHandler);
         }

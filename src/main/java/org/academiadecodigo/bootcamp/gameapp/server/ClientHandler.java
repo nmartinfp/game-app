@@ -60,15 +60,15 @@ public class ClientHandler implements Runnable {
 
         } finally {
             try {
+
                 clientSocket.close();
-                ((Lobby)workable).removeClientHandler(this);
+                removeClientFromLobby();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
-
-
 
     private void handle() {
 
@@ -103,6 +103,13 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    private void removeClientFromLobby() {
+
+        if (workable instanceof Lobby){
+            ((Lobby)workable).removeClientHandler(this);
+        }
+    }
+
     private void updateLobby() {
 
         if (workable instanceof Lobby){
@@ -110,7 +117,6 @@ public class ClientHandler implements Runnable {
             ((Lobby)workable).updatingRooms();
         }
     }
-
 
     private void clientLogout(String message) {
 

@@ -5,7 +5,7 @@ package org.academiadecodigo.bootcamp.gameapp.server.model;
  * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
-// TODO: 02/07/17 if we have profile this properties stay if not go to the HELL
+
 public class User {
 
     private String firstName;

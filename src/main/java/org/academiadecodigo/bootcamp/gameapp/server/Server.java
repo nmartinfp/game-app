@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
 import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
+import org.academiadecodigo.bootcamp.gameapp.server.persistence.ConnectionManager;
 import org.academiadecodigo.bootcamp.gameapp.utilities.AppConfig;
 
 import java.io.IOException;
@@ -15,15 +16,12 @@ import java.util.concurrent.Executors;
  * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
-// TODO: 02/07/17 we aren't closing server socket
+
 public class Server {
 
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private Lobby lobby;
-
-    public Server() {
-    }
 
     public void init() {
 
@@ -66,6 +64,10 @@ public class Server {
 
                 try {
                     serverSocket.close();
+
+                    ConnectionManager connectionManager = new ConnectionManager();
+                    connectionManager.close();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

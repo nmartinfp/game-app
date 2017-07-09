@@ -13,7 +13,6 @@ import java.util.HashMap;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-// TODO: 04/07/17 close thread of this runnable *see readLine of client.
 public class ServerHandler implements Runnable {
 
     private Navigation navigation;

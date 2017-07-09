@@ -69,7 +69,7 @@ public class Lobby implements Runnable, Workable {
 
                 clientVector.add(clientHandler);
 
-                if (clientHandler.getState() == State.LOBBY){
+                if (clientHandler.getState().equals(State.LOBBY)){
                     updatingRooms();
                 }
             }
@@ -109,7 +109,7 @@ public class Lobby implements Runnable, Workable {
     private void createRoom(ClientHandler clientHandler, GameName gameName) {
 
         Room room = new Room(gameName.getMinUsers(), gameName.getMaxUsers(), this);
-        String roomName = clientHandler.getUsername() + "Room";
+        String roomName = clientHandler.getUsername() + "'s Room";
         room.init(clientHandler, roomName);
 
         clientHandler.changeState(room, State.ROOM);

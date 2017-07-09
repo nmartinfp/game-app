@@ -114,7 +114,7 @@ public class Room implements Runnable, Workable {
         gameOver();
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -219,6 +219,7 @@ public class Room implements Runnable, Workable {
                 clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "YOU WIN!");
 
             } else {
+
                 if (user == null) {
                     clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "TIE!");
 

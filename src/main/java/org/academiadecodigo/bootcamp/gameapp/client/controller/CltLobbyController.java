@@ -15,6 +15,8 @@ import org.academiadecodigo.bootcamp.gameapp.client.Navigation;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -29,6 +31,7 @@ public class CltLobbyController implements Initializable, Controller{
     private final String NAME = "Lobby";
 
     private ServerHandler serverHandler;
+    private List<Button> btnArray;
 
     @FXML
     private GridPane gpLobby;
@@ -76,6 +79,9 @@ public class CltLobbyController implements Initializable, Controller{
     private Button btnRoom9;
 
     @FXML
+    private Button btnRoom10;
+
+    @FXML
     private Button btnCreateNewRoom;
 
     @FXML
@@ -83,6 +89,14 @@ public class CltLobbyController implements Initializable, Controller{
 
     @FXML
     private TextField sendMsg;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        serverHandler = ClientRegistry.getInstance().getHandler();
+
+        btnArray = new LinkedList<>();
+        addingButton();
+    }
 
     @FXML
     public void sendChatMsg(ActionEvent event) {
@@ -156,9 +170,18 @@ public class CltLobbyController implements Initializable, Controller{
         gpGameRooms.setVisible(true);
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        serverHandler = ClientRegistry.getInstance().getHandler();
+    private void addingButton() {
+
+        btnArray.add(btnRoom1);
+        btnArray.add(btnRoom2);
+        btnArray.add(btnRoom3);
+        btnArray.add(btnRoom4);
+        btnArray.add(btnRoom5);
+        btnArray.add(btnRoom6);
+        btnArray.add(btnRoom7);
+        btnArray.add(btnRoom8);
+        btnArray.add(btnRoom9);
+        btnArray.add(btnRoom10);
     }
 
     public String getName(){

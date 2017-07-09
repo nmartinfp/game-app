@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import org.academiadecodigo.bootcamp.gameapp.client.*;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
+import org.academiadecodigo.bootcamp.gameapp.utilities.Security.Password;
 import org.academiadecodigo.bootcamp.gameapp.utilities.Verification;
 
 import java.net.URL;

@@ -1,6 +1,8 @@
 package org.academiadecodigo.bootcamp.gameapp.client;
 
 import org.academiadecodigo.bootcamp.gameapp.utilities.AppConfig;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.Logger;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.PriorityLevel;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,6 +22,7 @@ public class Client {
     private PrintWriter output;
     private BufferedReader input;
 
+
     public Client() {
 
         try {
@@ -27,10 +30,12 @@ public class Client {
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            Logger.getInstance().log(PriorityLevel.HIGH, "Client Socket IOException: " + e.getMessage());
         }
 
         settingStreams();
     }
+
 
     private void settingStreams() {
 
@@ -40,8 +45,10 @@ public class Client {
 
         } catch (IOException e) {
             e.printStackTrace();
+            Logger.getInstance().log(PriorityLevel.HIGH, "Client Streams IOException: " + e.getMessage());
         }
     }
+
 
     // TODO: 04/07/17 close thread of readLine() when close program
     //Receiving message from server
@@ -52,6 +59,7 @@ public class Client {
             receivedMessage = input.readLine();
 
             System.out.println("recebi esta mensagem: " + receivedMessage);   //todo TESTING
+            Logger.getInstance().log(PriorityLevel.INFO, "Client message received: " + receivedMessage);
 
             if (receivedMessage.equals("null")) {
                 input.close();
@@ -59,9 +67,12 @@ public class Client {
 
         } catch (IOException e) {
             e.printStackTrace();
+            Logger.getInstance().log(PriorityLevel.HIGH, "Client receive IOException: " + e.getMessage());
         }
+
         return receivedMessage;
     }
+
 
     //Sending Message from client to server
     public void send(String sendMessage) {
@@ -70,10 +81,10 @@ public class Client {
             output.write(sendMessage);
             output.flush();
             System.out.println("Message sent: " + sendMessage);  //todo TESTING
+            Logger.getInstance().log(PriorityLevel.INFO, "Client sent message: " + sendMessage);
         }
-
-
     }
+
 
     public void closeClient() {
         try {
@@ -83,14 +94,18 @@ public class Client {
 
         } catch (IOException e) {
             e.printStackTrace();
+            Logger.getInstance().log(PriorityLevel.HIGH, "Client close client Stream: " + e.getMessage());
         }
     }
 
+    // TODO: 2017/7/9 - Client getClientSocket not invoked!!!
     public Socket getClientSocket() {
+
         return clientSocket;
     }
 
     public boolean clientConnected() {
+
         return clientSocket.isClosed();
     }
 }

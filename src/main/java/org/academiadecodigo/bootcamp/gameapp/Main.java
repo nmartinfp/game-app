@@ -41,11 +41,13 @@ public class Main extends Application {
 
             server.init();
             server.start();
+
             return;
         }
 
         launch(args);
     }
+
 
     private static void wiringServer(){
         ConnectionManager connectionManager = new ConnectionManager();
@@ -53,6 +55,7 @@ public class Main extends Application {
 
         ServiceRegistry.getInstance().addService(userService);
     }
+
 
     /*
      * Shows in the server console the stream messages received.
@@ -71,6 +74,7 @@ public class Main extends Application {
         newThread.submit(serverHandler);
     }
 
+
     /*
      * Loading the first view.
      *
@@ -84,6 +88,7 @@ public class Main extends Application {
         Navigation.getInstance().setStage(primaryStage);
         Navigation.getInstance().loadScreen(ProtocolConfig.VIEW_LOGIN);
     }
+
 
     // TODO: 07/07/17 implement creation of client handler on this class
     // TODO: 07/07/17 close socket on stop()

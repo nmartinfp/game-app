@@ -20,6 +20,7 @@ public final class Verification {
         lblMailErrorReg.setVisible(false);
     }
 
+
     public static boolean checkPassword(PasswordField password) {
         boolean check = false;
 
@@ -28,8 +29,10 @@ public final class Verification {
 
             check = true;
         }
+
         return check;
     }
+
 
     public static boolean checkEmail(TextField email) {
         boolean checkMail = false;
@@ -39,6 +42,7 @@ public final class Verification {
 
             checkMail = true;
         }
+
         return checkMail;
     }
 }

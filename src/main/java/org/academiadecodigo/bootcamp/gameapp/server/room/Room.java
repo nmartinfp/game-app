@@ -13,13 +13,16 @@ import org.academiadecodigo.bootcamp.gameapp.server.Workable;
 import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.Logger;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.PriorityLevel;
 
 import java.util.Vector;
+
 
 /**
  * Class to handle a gameRoom, creation, adding users, removing users, and whatnot
  */
-public class Room implements Runnable,Workable {
+public class Room implements Runnable, Workable {
 
     private String name;
 
@@ -41,6 +44,7 @@ public class Room implements Runnable,Workable {
         clientHandlerVector = new Vector<>();
     }
 
+
     //To be used in games that require a range of players like Secret Hitler (HYPE)
     public Room(int minSize, int maxSize, Lobby lobby) {
         this.minSize = minSize;
@@ -49,11 +53,13 @@ public class Room implements Runnable,Workable {
         clientHandlerVector = new Vector<>();
     }
 
-    public void init(ClientHandler ClientHandler, String name, GameName gameName){
+
+    public void init(ClientHandler ClientHandler, String name, GameName gameName) {
         clientHandlerVector.add(ClientHandler);
         this.name = name;
         this.gameName = gameName;
     }
+
 
     //----------------------------------------------------------------------------------------------------------------------
     @Override
@@ -61,18 +67,21 @@ public class Room implements Runnable,Workable {
 
         String[] tokens = ProtocolParser.splitMessage(message);
 
-        if (message.contains(ProtocolConfig.CLIENT_CHAT)){
+        if (message.contains(ProtocolConfig.CLIENT_CHAT)) {
 
             sendToAll(tokens[ProtocolConfig.MESSAGE]);
+
             return;
         }
+
         if (message.contains(ProtocolConfig.CLIENT_GAME)) {
 
-           choices[count] = tokens[ProtocolConfig.MESSAGE];
+            choices[count] = tokens[ProtocolConfig.MESSAGE];
 
-           count++;
+            count++;
         }
     }
+
 
     @Override
     public void run() {
@@ -83,16 +92,14 @@ public class Room implements Runnable,Workable {
             wait();
         } catch (InterruptedException e) {
             e.printStackTrace();
+            Logger.getInstance().log(PriorityLevel.HIGH, "Room run waiting InterruptedException: " + e.getMessage());
         }
 
         if (choices.length == 2) {
 
-          String winner = rpsGame.playRound(choices[0], choices[1]);
+            String winner = rpsGame.playRound(choices[0], choices[1]); // TODO: 2017/7/9 - Not used!!!
 
         }
-
-
-
 
         //End of the game
         for (ClientHandler ClientHandler : clientHandlerVector) {
@@ -100,8 +107,10 @@ public class Room implements Runnable,Workable {
         }
     }
 
-    private void sendToAll(String token) {
+
+    private void sendToAll(String token) { // TODO: 2017/7/9 - Not used!!!
     }
+
 
     public synchronized void addServerHandler(ClientHandler ClientHandler) {
 
@@ -109,9 +118,11 @@ public class Room implements Runnable,Workable {
         notifyAll();
     }
 
+
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;

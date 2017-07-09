@@ -5,6 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.Logger;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.PriorityLevel;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -32,6 +34,7 @@ public final class Navigation {
 
     private Navigation() {}
 
+
     public void loadScreen(String view) {
         try {
 
@@ -48,12 +51,15 @@ public final class Navigation {
 
         } catch (IOException e) {
             System.err.println("Failure to load view " + view + " : " + e.getMessage());
+            Logger.getInstance().log(PriorityLevel.HIGH, "Failure to load view " + view + " " + e.getMessage());
         }
     }
+
 
     public void back() {
 
         if (scenes.size() < 2) {
+
             return;
         }
 
@@ -61,21 +67,26 @@ public final class Navigation {
         setScene(scenes.peek());
     }
 
+
     public static Navigation getInstance() {
 
         if (instance == null) {
 
             synchronized (Navigation.class) {
+
                 if (instance == null) {
                     instance = new Navigation();
                 }
             }
         }
+
         return instance;
     }
 
+
     // TODO: 08/07/17 refactor down cast
     public <T extends Initializable> T getController(String view) {
+
         return (T)controllers.get(view);
     }
 
@@ -86,6 +97,7 @@ public final class Navigation {
         stage.setResizable(false);
         stage.show();
     }
+
 
     public void setStage(Stage stage) {
         this.stage = stage;

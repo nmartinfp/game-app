@@ -1,10 +1,14 @@
 package org.academiadecodigo.bootcamp.gameapp.server;
 
 /**
- * Created by Cyrille on 06/07/17.
+ * A/C: Bootcamp8
+ * 2nd group project - GameName App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
+
 public enum State {
+    LOGIN,
     LOBBY,
-    ROOM,
-    LOGIN
+    ROOM
 }

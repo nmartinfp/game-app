@@ -7,6 +7,8 @@ import org.academiadecodigo.bootcamp.gameapp.server.Workable;
 import org.academiadecodigo.bootcamp.gameapp.server.room.Room;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.Logger;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.PriorityLevel;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -16,8 +18,11 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 
 
 /**
- * Created by Cyrille on 06/07/17.
+ * A/C: Bootcamp8
+ * 2nd group project - GameName App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
 public class Lobby implements Runnable, Workable {
 
     //List of client's on lobby
@@ -27,11 +32,13 @@ public class Lobby implements Runnable, Workable {
     private Queue<ClientHandler> queue;
     private Vector<Room> roomVector;
 
+
     public Lobby() {
         clientVector = new Vector<>();
         roomVector = new Vector<>();
         queue = new ConcurrentLinkedDeque<>();
     }
+
 
     /*
      * Process information from Client to Lobby
@@ -45,30 +52,33 @@ public class Lobby implements Runnable, Workable {
             String protoMessage = ProtocolConfig.SERVER_CHAT + ";" + tokens[ProtocolConfig.MESSAGE];
             System.out.println(protoMessage);
             sendToAll(protoMessage);
+
             return;
         }
 
         if (message.contains(ProtocolConfig.CLIENT_CREATE_ROOM)){
             createRoom(clientHandler, GameName.RPS);
+
             return;
         }
 
         if (message.contains(ProtocolConfig.CLIENT_JOIN_ROOM)){
             addClientToRoom(clientHandler, message);
         }
-
     }
+
 
     @Override
     public void run() {
 
         while (true) {
             if (queue.size() > 0) {
-                System.out.println("estou aqui no run do lobby");
+                System.out.println("I'm in the Lobby, inside run's method");
                 clientVector.add(queue.poll());
             }
         }
     }
+
 
     //Sending msg to everyone CHAT
     public void sendToAll(String message) {
@@ -78,22 +88,26 @@ public class Lobby implements Runnable, Workable {
         }
     }
 
+
 //----------------------------------------------------------------------------------------------------------------------
 //                                               ClientMap HANDLING
 //----------------------------------------------------------------------------------------------------------------------
-
+// TODO: 2017/7/9 - Lobby, closeClientSocket not invoked!!!
     public void closeClientSocket(Socket clientSocket) {
         try {
             clientSocket.close();
 
         } catch (IOException e) {
             e.printStackTrace();
+            Logger.getInstance().log(PriorityLevel.HIGH, "Lobby close Client Socket " + e.getMessage());
         }
     }
+
 
     public void addQueue(ClientHandler clientHandler) {
         queue.add(clientHandler);
     }
+
 
 //----------------------------------------------------------------------------------------------------------------------
 //                                               ROOM HANDLING
@@ -117,6 +131,7 @@ public class Lobby implements Runnable, Workable {
         new Thread(room);
     }
 
+
     /*
      * Returns the Room with the associated id if there is any, doesn't check if the room Vector is empty, not sure if
      * problematic or not
@@ -124,12 +139,16 @@ public class Lobby implements Runnable, Workable {
     private Room roomByName(String name) {
 
         for (Room room : roomVector) {
+
             if (room.getName().equals(name)) {
+
                 return room;
             }
         }
+
         return null;
     }
+
 
    /*
     * Adds a user to a Room and removes it from the clientList if the room is not full yet

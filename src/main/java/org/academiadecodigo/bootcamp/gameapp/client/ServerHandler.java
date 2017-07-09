@@ -4,11 +4,8 @@ import javafx.application.Platform;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLobbyController;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLoginController;
 import org.academiadecodigo.bootcamp.gameapp.client.controller.CltRegisterController;
-import org.academiadecodigo.bootcamp.gameapp.client.controller.Controller;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
-
-import java.util.HashMap;
 
 /**
  * A/C: Bootcamp8
@@ -30,16 +27,18 @@ public class ServerHandler implements Runnable {
         client.send(message + "\n");
     }
 
+
     @Override
     public void run() {
 
         while (!client.clientConnected()) {
 
             String message = client.receive();
-            System.out.println("message recieved from server: " + message);
+            System.out.println("Message received from server: " + message);
             ProtocolParser.clientProtocolHandler(this, message);
         }
     }
+
 
     public void receivedMessage(final String message) {
         Platform.runLater(new Runnable() {
@@ -50,6 +49,7 @@ public class ServerHandler implements Runnable {
         });
     }
 
+
     public void userLogin(final String message) {
         Platform.runLater(new Runnable() {
             @Override
@@ -58,14 +58,16 @@ public class ServerHandler implements Runnable {
                 CltLoginController loginController = navigation.getController(ProtocolConfig.VIEW_LOGIN);
 
                 if (message.equals(ProtocolConfig.VIEW_LOBBY)) {
-                    System.out.println("vou mudar para lobby" + loginController);
+                    System.out.println("Going to the Lobby..." + loginController);
                     loginController.successfullyAuth(message);
+
                     return;
                 }
                 loginController.authFailure();
             }
         });
     }
+
 
     public void registryMessage(final String message) {
         Platform.runLater(new Runnable() {
@@ -76,6 +78,7 @@ public class ServerHandler implements Runnable {
 
                 if (message.equals(ProtocolConfig.VIEW_LOGIN)) {
                     registerController.backScreen();
+
                     return;
                 }
 
@@ -83,6 +86,7 @@ public class ServerHandler implements Runnable {
             }
         });
     }
+
 
     // TODO: 08/07/17 send player to room
     public void createRoom(final String message) {
@@ -94,6 +98,7 @@ public class ServerHandler implements Runnable {
             }
         });
     }
+
 
     public void changeRoomName(final String message) {
         Platform.runLater(new Runnable() {
@@ -119,9 +124,11 @@ public class ServerHandler implements Runnable {
         });
     }
 
+
     public void genericHandler(Runnable actionToBeTaken, final String message) {
         Platform.runLater(actionToBeTaken);
     }
+
 
     public void setClient(Client client) {
         this.client = client;

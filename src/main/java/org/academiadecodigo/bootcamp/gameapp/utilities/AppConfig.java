@@ -11,6 +11,12 @@ import java.net.InetAddress;
 public final class AppConfig {
 
     /*
+     * Logger path configuration
+     */
+    public static final String LOG_FILE = "src/main/resources/log/log.txt";
+
+
+    /*
      * Server and Client configuration
      */
     public static final int PORT = 1234;
@@ -26,4 +32,5 @@ public final class AppConfig {
     //public static final String DATABASE_PWD = "gamepwd";
     public static final String DATABASE_USER = "root";
     public static final String DATABASE_PWD = "";
+
 }

@@ -3,11 +3,14 @@ package org.academiadecodigo.bootcamp.gameapp.utilities;
 import org.academiadecodigo.bootcamp.gameapp.client.ServerHandler;
 
 /**
- * Created by Cyrille on 04/07/17.
+ * A/C: Bootcamp8
+ * 2nd group project - GameName App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
 public final class ProtocolParser {
 
-    //Parser for Client
+    //Client Parser
     public static void clientProtocolHandler(ServerHandler serverHandler, String message) {
 
         String[] protocol = message.split(";");
@@ -64,18 +67,6 @@ public final class ProtocolParser {
             default:
                 serverHandler.receivedMessage("MESSAGE FAILURE TRY AGAIN");
         }
-    }
-
-    private static String concatMessage(String[] protocol) {
-
-        String message = "";
-
-        for (int i = 1; i < protocol.length; i++) {
-            message += protocol[i];
-        }
-
-        System.out.println("Mensagem do concat: " + message);
-        return message;
     }
 
     //concat message to send client or server

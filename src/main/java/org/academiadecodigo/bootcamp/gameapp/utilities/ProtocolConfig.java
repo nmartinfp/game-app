@@ -17,7 +17,8 @@ public final class ProtocolConfig {
     public static final int MESSAGE = 1;
     public static final int USERNAME = 1;
     public static final int PASSWORD = 2;
-    public static final int FIRSTNAME = 3;
+    public static final int FIRST_NAME = 3;
+
 
     /*
      * Protocol Configuration
@@ -45,6 +46,7 @@ public final class ProtocolConfig {
     public static final String SERVER_ROOM_EXIT = "@SERVER_ROOM_EXIT";
 
     public static final String ERR = "ERROR";
+    public static final String ERR_LOGED = "ERROR_LOGED";
 
     public static final String CLIENT_LOGIN = "@CLIENT_LOGIN";
     public static final String CLIENT_REGISTER = "@CLIENT_REGISTER";
@@ -52,6 +54,7 @@ public final class ProtocolConfig {
     public static final String CLIENT_CREATE_ROOM = "@CLIENT_CREATE_ROOM";
     public static final String CLIENT_JOIN_ROOM = "@CLIENT_JOIN_ROOM";
     public static final String CLIENT_GAME = "@CLIENT_GAME";
+
 
     /*
      * View Load Configuration

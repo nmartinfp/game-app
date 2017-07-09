@@ -16,7 +16,6 @@ import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * A/C: Bootcamp8
@@ -42,18 +41,21 @@ public class Main extends Application {
 
             server.init();
             server.start();
+
             return;
         }
 
         launch(args);
     }
 
-    private static void wiringServer() {
+
+    private static void wiringServer(){
         ConnectionManager connectionManager = new ConnectionManager();
         UserService userService = new JdbcUserService(connectionManager.getConnection());
 
         ServiceRegistry.getInstance().addService(userService);
     }
+
 
     /*
      * Shows in the server console the stream messages received.
@@ -72,6 +74,7 @@ public class Main extends Application {
         newThread.submit(serverHandler);
     }
 
+
     /*
      * Loading the first view.
      *
@@ -85,6 +88,7 @@ public class Main extends Application {
         Navigation.getInstance().setStage(primaryStage);
         Navigation.getInstance().loadScreen(ProtocolConfig.VIEW_LOGIN);
     }
+
 
     @Override
     public void stop() {

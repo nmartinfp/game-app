@@ -28,6 +28,7 @@ public class JdbcUserService implements UserService {
 
             return true;
         }
+
         return false;
     }
 
@@ -36,7 +37,6 @@ public class JdbcUserService implements UserService {
 
         try {
             if (findByName(user.getUsername()) == null) {
-
 
                 // Create a query
                 String query = "INSERT INTO users (first_name, username, password) VALUES (?, ? , ?)";
@@ -50,6 +50,7 @@ public class JdbcUserService implements UserService {
                 statement.setString(1, user.getFirstName());
                 statement.setString(2, user.getUsername());
                 statement.setString(3, user.getPassword());
+                //statement.setString(3, computeHash); // TODO: 2017/7/9 - remove if not implemented! 
 
                 // Execute the query
                 statement.executeUpdate();

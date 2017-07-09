@@ -14,6 +14,8 @@ import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
 import org.academiadecodigo.bootcamp.gameapp.utilities.UtilsRps;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.Logger;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.PriorityLevel;
 
 import java.util.Vector;
 
@@ -39,6 +41,7 @@ public class Room implements Runnable, Workable {
         clientHandlerVector = new Vector<>();
     }
 
+
     //To be used in games that require a range of players like Secret Hitler (HYPE)
     public Room(int minSize, int maxSize, Lobby lobby) {
 
@@ -60,6 +63,7 @@ public class Room implements Runnable, Workable {
         }
     }
 
+
     //----------------------------------------------------------------------------------------------------------------------
     @Override
     public synchronized void process(ClientHandler clientHandler, String message) {
@@ -75,6 +79,7 @@ public class Room implements Runnable, Workable {
             sendMsgToRoom(protoMessage);
             return;
         }
+
         if (message.contains(ProtocolConfig.CLIENT_GAME)) {
 
             if (user1.equals(clientHandler.getUsername())) {
@@ -95,6 +100,7 @@ public class Room implements Runnable, Workable {
         }
     }
 
+
     @Override
     public synchronized void run() {
 
@@ -107,6 +113,7 @@ public class Room implements Runnable, Workable {
 
         } catch (InterruptedException e) {
             e.printStackTrace();
+            Logger.getInstance().log(PriorityLevel.HIGH, "Room run waiting InterruptedException: " + e.getMessage());
         }
 
         // Playing Round
@@ -143,6 +150,7 @@ public class Room implements Runnable, Workable {
             clientHandler.sendMessage(ProtocolConfig.SERVER_ROOM_EXIT + ";" + "GAME OVER");
         }
     }
+
 
     private void sendUsersToLobby(ClientHandler clientHandler) {
 
@@ -245,9 +253,11 @@ public class Room implements Runnable, Workable {
         notifyAll();
     }
 
+
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;

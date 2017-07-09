@@ -5,14 +5,17 @@ package org.academiadecodigo.bootcamp.gameapp.client;
  * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
 public final class ClientRegistry {
 
     private ServerHandler handler;
 
     private static ClientRegistry instance = null;
 
+
     private ClientRegistry() {
     }
+
 
     public static ClientRegistry getInstance() {
 
@@ -25,12 +28,16 @@ public final class ClientRegistry {
                 }
             }
         }
+
         return instance;
     }
 
+
     public ServerHandler getHandler() {
+
         return handler;
     }
+
 
     public void setHandler(ServerHandler handler) {
         this.handler = handler;

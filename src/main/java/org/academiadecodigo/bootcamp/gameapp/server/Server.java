@@ -3,6 +3,8 @@ package org.academiadecodigo.bootcamp.gameapp.server;
 import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
 import org.academiadecodigo.bootcamp.gameapp.server.persistence.ConnectionManager;
 import org.academiadecodigo.bootcamp.gameapp.utilities.AppConfig;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.Logger;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.PriorityLevel;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -27,8 +29,11 @@ public class Server {
 
         try {
 
+            Logger.getInstance().init(AppConfig.LOG_FILE);
+
             serverSocket = new ServerSocket(AppConfig.PORT);
             System.out.println("Server up.");
+            Logger.getInstance().log(PriorityLevel.INFO,"Server running...");
 
             lobby = new Lobby();
             Thread thread = new Thread(lobby);
@@ -39,24 +44,27 @@ public class Server {
         }
     }
 
+
     public void start() {
 
         try {
             ExecutorService cachedPool = Executors.newCachedThreadPool();
 
             while (true) {
-                System.out.println("Waiting for connection...");
+                System.out.println("Waiting for connections...");
+                Logger.getInstance().log(PriorityLevel.INFO, "Server waiting for connections...");
 
                 clientSocket = serverSocket.accept();
                 ClientHandler ClientHandler = new ClientHandler(clientSocket, lobby, State.LOGIN);
                 System.out.println("Server connected.");
+                Logger.getInstance().log(PriorityLevel.MEDIUM, "Server: Client connected " +
+                        clientSocket.getInetAddress());
 
                 cachedPool.submit(ClientHandler);
-                lobby.addQueue(ClientHandler);
-
             }
         } catch (IOException e) {
             e.printStackTrace();
+            Logger.getInstance().log(PriorityLevel.HIGH, "Server start IOException " + e.getMessage());
 
         } finally {
 
@@ -70,6 +78,8 @@ public class Server {
 
                 } catch (IOException e) {
                     e.printStackTrace();
+                    Logger.getInstance().log(PriorityLevel.HIGH, "Server server Socket close IOException " +
+                            e.getMessage());
                 }
             }
         }

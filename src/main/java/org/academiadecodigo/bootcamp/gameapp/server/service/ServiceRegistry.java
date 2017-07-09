@@ -19,6 +19,7 @@ public final class ServiceRegistry {
         serviceMap = new HashMap<>();
     }
 
+
     public static ServiceRegistry getInstance() {
 
         if (instance == null) {
@@ -34,13 +35,14 @@ public final class ServiceRegistry {
         return instance;
     }
 
-    public void addService(Service service){
+
+    public void addService(Service service) {
         System.out.println(service.getName());
         serviceMap.put(service.getName(), service);
     }
 
-    public <T extends Service> T getService(String name){
+
+    public <T extends Service> T getService(String name) {
         return (T) serviceMap.get(name);
     }
-
 }

@@ -20,6 +20,7 @@ public class Client {
     private PrintWriter output;
     private BufferedReader input;
 
+
     public Client() {
 
         try {
@@ -32,6 +33,7 @@ public class Client {
         settingStreams();
     }
 
+
     private void settingStreams() {
 
         try {
@@ -42,6 +44,7 @@ public class Client {
             e.printStackTrace();
         }
     }
+
 
     //Receiving message from server
     public String receive() {
@@ -59,8 +62,10 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return receivedMessage;
     }
+
 
     //Sending Message from client to server
     public void send(String sendMessage) {
@@ -70,9 +75,8 @@ public class Client {
             output.flush();
             System.out.println("Message sent: " + sendMessage);  //todo TESTING
         }
-
-
     }
+
 
     public void closeClient() {
         try {
@@ -85,10 +89,12 @@ public class Client {
     }
 
     public Socket getClientSocket() {
+
         return clientSocket;
     }
 
     public boolean clientConnected() {
+
         return clientSocket.isClosed();
     }
 }

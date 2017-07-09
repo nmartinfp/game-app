@@ -53,7 +53,7 @@ public class CltRpsController implements Initializable, Controller {
     private Button btnExitGame;
 
     @FXML
-    private Button btnTestBar;
+    private Button btnStart;
 
     @FXML
     private Label lblResult;
@@ -105,64 +105,51 @@ public class CltRpsController implements Initializable, Controller {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        progBar.setStyle("-fx-accent: #00b000");
-        image1.setDisable(false);
-        image2.setDisable(false);
-        image3.setDisable(false);
-        imageX.setVisible(false);
-        lblMyChoice.setVisible(false);
 
         totalRounds = 1;
         wins = 0;
         loses = 0;
 
+        trueSetDisable();
+        imageX.setVisible(false);
+        progBar.setStyle("-fx-accent: #00b000");
+        lblMyChoice.setVisible(false);
         lblNumberRound.setText("" + totalRounds);
-
         serverHandler = ClientRegistry.getInstance().getHandler();
     }
 
+
+
     @FXML
     void onActionExitGame(ActionEvent event) {
+
         Navigation.getInstance().back();
     }
 
     @FXML
     void onImageRock(MouseEvent event) {
 
-        image2.setDisable(true);
-        image3.setDisable(true);
-        stop();
-        lblMyChoice.setVisible(true);
         lblMyChoice.setText("You played Rock");
         image1.setImage(image1.getImage());
-
+        changeScreen();
         serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" + Choices.ROCK.getHand());
     }
 
     @FXML
     void onImagePaper(MouseEvent event) {
-        image1.setDisable(true);
-        image3.setDisable(true);
-        stop();
-        lblMyChoice.setVisible(true);
-        lblMyChoice.setText("You played Paper");
-        image2.setDisable(true);
-        image1.setImage(image2.getImage());
 
+        lblMyChoice.setText("You played Paper");
+        image1.setImage(image2.getImage());
+        changeScreen();
         serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" + Choices.PAPER.getHand());
     }
 
     @FXML
     void onImageScissors(MouseEvent event) {
-        image1.setDisable(true);
-        image2.setDisable(true);
-        stop();
-        lblMyChoice.setVisible(true);
-        lblMyChoice.setText("You played Scissors");
-        image3.setDisable(true);
-        image1.setImage(image3.getImage());
-        image2.setImage(imageX.getImage());
 
+        lblMyChoice.setText("You played Scissors");
+        image1.setImage(image3.getImage());
+        changeScreen();
         serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" + Choices.SCISSORS.getHand());
     }
 
@@ -189,8 +176,11 @@ public class CltRpsController implements Initializable, Controller {
     }
 
     @FXML
-    void onActiontestbar(ActionEvent event) {
+    void onActionStart(ActionEvent event) {
+
+        falseSetDisable();
         startTimer(UtilsRps.TIME_STEP);
+        btnStart.setDisable(true);
     }
 
     public void setWinner(String message) {
@@ -201,14 +191,16 @@ public class CltRpsController implements Initializable, Controller {
         receiveChatMsg.appendText(message + "\n");
 
         if (message.equals("YOU WIN!")) {
-
             lblResult.setStyle("-fx-text-fill: #2ABB00");
             lblScore1.setText("" + ++wins);
 
         } else if (message.equals("YOU LOSE!")) {
+
             lblResult.setStyle("-fx-accent: #FF0000");
             lblScore2.setText("" + ++loses);
+
         } else {
+
             lblResult.setStyle("-fx-accent: #FF0000");
         }
 
@@ -216,6 +208,7 @@ public class CltRpsController implements Initializable, Controller {
     }
 
     public void receiveChatMsg(String message) {
+
         receiveChatMsg.appendText(message + "\n");
     }
 
@@ -224,41 +217,68 @@ public class CltRpsController implements Initializable, Controller {
         if (message.equals(Choices.ROCK.getHand())) {
 
             image3.setImage(rock);
-            image2.setImage(imageX.getImage());
             lblRivalChoice.setText("Rival played Rock");
-            lblRivalChoice.setVisible(true);
+            screenReaction();
 
         } else if (message.equals(Choices.PAPER.getHand())) {
 
             image3.setImage(paper);
-            image2.setImage(imageX.getImage());
             lblRivalChoice.setText("Rival played Paper");
-            lblRivalChoice.setVisible(true);
+            screenReaction();
 
         } else if (message.equals(Choices.SCISSORS.getHand())) {
 
-            image2.setImage(imageX.getImage());
             lblRivalChoice.setText("Rival played Scissors");
-            lblRivalChoice.setVisible(true);
+            screenReaction();
 
         } else {
-            image2.setImage(imageX.getImage());
-            lblRivalChoice.setText("Rival didn't play");
-            lblRivalChoice.setVisible(true);
 
+            lblRivalChoice.setText("Rival didn't play");
+            screenReaction();
+            image3.setVisible(false);
         }
+    }
+
+    private void changeScreen() {
+
+        stop();
+        lblMyChoice.setVisible(true);
+        image2.setVisible(false);
+        image3.setVisible(false);
+        trueSetDisable();
+    }
+
+    private void screenReaction() {
+
+        image2.setImage(imageX.getImage());
+        image2.setVisible(true);
+        image3.setVisible(true);
+        lblRivalChoice.setVisible(true);
+    }
+
+    private void trueSetDisable() {
+
+        image1.setDisable(true);
+        image2.setDisable(true);
+        image3.setDisable(true);
+    }
+
+    private void falseSetDisable() {
+
+        image1.setDisable(false);
+        image2.setDisable(false);
+        image3.setDisable(false);
     }
 
     public void resetView(String message) {
 
         image1.setVisible(true);
-        image1.setDisable(false);
-        image2.setDisable(false);
-        image3.setDisable(false);
+        image2.setVisible(true);
+        image3.setVisible(true);
+        falseSetDisable();
         imageX.setVisible(false);
         lblMyChoice.setVisible(false);
         lblRivalChoice.setVisible(false);
-
         receiveChatMsg.appendText(message + "\n");
 
         image1.setImage(rock);
@@ -272,15 +292,16 @@ public class CltRpsController implements Initializable, Controller {
     }
 
     private void startTimer(int timeStep) {
+
         timer = new Timer();
         timer.schedule(new Prog(), timeStep, timeStep);
         progBar.setVisible(true);
     }
 
     private void showMsg() {
+
         image1.setVisible(false);
-        image2.setDisable(true);
-        image3.setDisable(true);
+        trueSetDisable();
         lblMyChoice.setVisible(true);
         Platform.runLater(new Runnable() {
             @Override
@@ -292,22 +313,27 @@ public class CltRpsController implements Initializable, Controller {
     }
 
     public void gameOverText(String message) {
+
         lblScore.setText(message);
     }
 
     private void stop() {
+
         timer.cancel();
     }
 
     public String getName() {
+
         return NAME;
     }
 
     public void back() {
+
         Navigation.getInstance().back();
     }
 
     private enum ColorBar {
+
         COLOR0("-fx-accent: #FF0000;"),
         COLOR1("-fx-accent: #FF0000;"),
         COLOR2("-fx-accent: #FF3300;"),
@@ -323,15 +349,18 @@ public class CltRpsController implements Initializable, Controller {
         private String style;
 
         ColorBar(String style) {
+
             this.style = style;
         }
 
         public String getStyle() {
+
             return style;
         }
     }
 
     private class Prog extends TimerTask {
+
         double numbSteps = 11;
         double base = numbSteps - 1;
 

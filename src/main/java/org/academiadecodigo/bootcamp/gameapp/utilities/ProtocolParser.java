@@ -27,8 +27,11 @@ public final class ProtocolParser {
                 break;
 
             case ProtocolConfig.SERVER_REGISTER_ROOM:
-                String cleanMessage = concatMessage(protocol);
-                serverHandler.changeRoomName(cleanMessage);
+                serverHandler.changeRoomName(protocol[ProtocolConfig.MESSAGE]);
+                break;
+
+            case ProtocolConfig.SERVER_UNREGISTER_ROOM:
+                serverHandler.unregisterRoom(protocol[ProtocolConfig.MESSAGE]);
                 break;
 
             case ProtocolConfig.SERVER_JOIN_ROOM:
@@ -63,11 +66,11 @@ public final class ProtocolParser {
         }
     }
 
-    private static String concatMessage(String[] protocol){
+    private static String concatMessage(String[] protocol) {
 
-        String message = null;
+        String message = "";
 
-        for (int i = 1; i < protocol.length; i++){
+        for (int i = 1; i < protocol.length; i++) {
             message += protocol[i];
         }
 

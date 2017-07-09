@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-public class CltLobbyController implements Initializable, Controller{
+public class CltLobbyController implements Initializable, Controller {
 
     private final String NAME = "Lobby";
 
@@ -123,31 +123,32 @@ public class CltLobbyController implements Initializable, Controller{
 
     }
 
-    public void receiveChatMsg(String message){
+    public void receiveChatMsg(String message) {
         receiveChatMsg.appendText(message + "\n");
     }
 
-    public void roomCreated(String message){
+    public void roomCreated(String message) {
 
-        String[] messages = message.split(" ");
+        for (Button button : btnArray) {
 
-        System.out.println(messages[0] + " mais coisas "+ messages[1git]);
-
-
-        for (Button button: btnArray){
-
-            if (button.getText().equals("Room")){
+            if (button.getText().equals("Room")) {
                 button.setText(message);
                 return;
-            }
-
-            if (messages.length == 2 && button.getText().equals(messages[0])){
-                button.setText(messages[1]);
             }
         }
     }
 
-    public void roomView(String message){
+    public void removingRoom(String roomName) {
+
+        for (Button button : btnArray) {
+
+            if (button.getText().equals(roomName)) {
+                button.setText("Room");
+            }
+        }
+    }
+
+    public void roomView(String message) {
         Navigation.getInstance().loadScreen(message);
     }
 
@@ -168,14 +169,15 @@ public class CltLobbyController implements Initializable, Controller{
     public void onActionNewRoom(ActionEvent event) {
 
         System.out.println(btnRoom1.getText());
+        String sendMessage = ProtocolConfig.CLIENT_CREATE_ROOM + ";" + "createRoom";
+        serverHandler.sendMessage(sendMessage);
+    }
 
-        if (btnRoom1.getText().equals("Room")) {
-            String sendMessage = ProtocolConfig.CLIENT_CREATE_ROOM + ";" + "createRoom";
-            serverHandler.sendMessage(sendMessage);
-            return;
-        }
+    @FXML
+    public void onActionRoom(ActionEvent event){
 
-        String sendMessage = ProtocolConfig.CLIENT_JOIN_ROOM + ";" + btnRoom1.getText();
+        Button clickedButton = (Button) event.getSource();
+        String sendMessage = ProtocolConfig.CLIENT_JOIN_ROOM + ";" + clickedButton.getText();
         serverHandler.sendMessage(sendMessage);
     }
 
@@ -200,7 +202,7 @@ public class CltLobbyController implements Initializable, Controller{
         btnArray.add(btnRoom10);
     }
 
-    public String getName(){
+    public String getName() {
         return NAME;
     }
 }

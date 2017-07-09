@@ -163,7 +163,7 @@ public class Lobby implements Runnable, Workable {
                 roomVector.remove(room);
             }
 
-            sendToAll(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + room.getName() + " " + "Room");
+            sendToAll(ProtocolConfig.SERVER_UNREGISTER_ROOM + ";" + roomToRemove.getName());
         }
     }
 }

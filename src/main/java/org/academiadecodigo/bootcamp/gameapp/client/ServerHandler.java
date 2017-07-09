@@ -102,6 +102,16 @@ public class ServerHandler implements Runnable {
         });
     }
 
+    public void unregisterRoom(final String message) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                CltLobbyController lobbyController = navigation.getController(ProtocolConfig.VIEW_LOBBY);
+                lobbyController.removingRoom(message);
+            }
+        });
+    }
+
     public void receivedMessageRoom(final String message) {
         Platform.runLater(new Runnable() {
             @Override
@@ -176,7 +186,6 @@ public class ServerHandler implements Runnable {
     public void setClient(Client client) {
         this.client = client;
     }
-
 
 
 }

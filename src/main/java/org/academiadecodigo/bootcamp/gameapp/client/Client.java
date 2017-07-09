@@ -1,8 +1,6 @@
 package org.academiadecodigo.bootcamp.gameapp.client;
 
 import org.academiadecodigo.bootcamp.gameapp.utilities.AppConfig;
-import org.academiadecodigo.bootcamp.gameapp.utilities.logging.Logger;
-import org.academiadecodigo.bootcamp.gameapp.utilities.logging.PriorityLevel;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,7 +28,6 @@ public class Client {
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
-            Logger.getInstance().log(PriorityLevel.HIGH, "Client Socket IOException: " + e.getMessage());
         }
 
         settingStreams();
@@ -45,12 +42,10 @@ public class Client {
 
         } catch (IOException e) {
             e.printStackTrace();
-            Logger.getInstance().log(PriorityLevel.HIGH, "Client Streams IOException: " + e.getMessage());
         }
     }
 
 
-    // TODO: 04/07/17 close thread of readLine() when close program
     //Receiving message from server
     public String receive() {
         String receivedMessage = null;
@@ -66,7 +61,6 @@ public class Client {
 
         } catch (IOException e) {
             e.printStackTrace();
-            Logger.getInstance().log(PriorityLevel.HIGH, "Client receive IOException: " + e.getMessage());
         }
 
         return receivedMessage;
@@ -77,26 +71,23 @@ public class Client {
     public void send(String sendMessage) {
 
         if (sendMessage != null) {
-            System.out.println("Message sent: " + sendMessage);  //todo TESTING
             output.write(sendMessage);
             output.flush();
+            System.out.println("Message sent: " + sendMessage);  //todo TESTING
         }
     }
 
 
     public void closeClient() {
         try {
-            input.close();
-            output.close();
+
             clientSocket.close();
 
         } catch (IOException e) {
             e.printStackTrace();
-            Logger.getInstance().log(PriorityLevel.HIGH, "Client close client Stream: " + e.getMessage());
         }
     }
 
-    // TODO: 2017/7/9 - Client getClientSocket not invoked!!!
     public Socket getClientSocket() {
 
         return clientSocket;

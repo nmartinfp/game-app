@@ -90,10 +90,11 @@ public class Main extends Application {
     }
 
 
-    // TODO: 07/07/17 implement creation of client handler on this class
-    // TODO: 07/07/17 close socket on stop()
     @Override
-    public void stop (){
+    public void stop() {
+
         client.closeClient();
+        newThread.shutdownNow();
+
     }
 }

@@ -43,12 +43,17 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="btnGameRPS" mnemonicParsing="false" onAction="#onActionRPS" prefHeight="72.0" prefWidth="196.0" text="Rock, Paper, Scissors" textAlignment="CENTER" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <Button fx:id="btnGameRPS" mnemonicParsing="false" onAction="#onActionRPS" prefHeight="72.0" prefWidth="196.0" text="Rock, Paper, Scissors" textAlignment="CENTER" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <Label fx:id="lblGameRPS" prefHeight="69.0" prefWidth="412.0" text="Game Description..." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <Label fx:id="lblGameRPS" prefHeight="69.0" prefWidth="412.0" text="Game Description..." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblGameRPS1" prefHeight="69.0" prefWidth="412.0" text="More games comming soon..." GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -140,15 +145,15 @@
                      </rowConstraints>
                      <children>
                         <Button fx:id="btnRoom1" mnemonicParsing="false" onAction="#onActionNewRoom" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="btnRoom2" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="btnRoom3" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="btnRoom4" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="btnRoom5" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="btnRoom6" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Button fx:id="btnRoom7" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Button fx:id="btnRoom8" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Button fx:id="btnRoom9" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Button fx:id="btnRoom10" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="btnRoom2" mnemonicParsing="false" onAction="#onActionNewRoom" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="btnRoom3" mnemonicParsing="false" onAction="#onActionNewRoom" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="btnRoom4" mnemonicParsing="false" onAction="#onActionNewRoom" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="btnRoom5" mnemonicParsing="false" onAction="#onActionNewRoom" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="btnRoom6" mnemonicParsing="false" onAction="#onActionNewRoom" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="btnRoom7" mnemonicParsing="false" onAction="#onActionNewRoom" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="btnRoom8" mnemonicParsing="false" onAction="#onActionNewRoom" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="btnRoom9" mnemonicParsing="false" onAction="#onActionNewRoom" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="btnRoom10" mnemonicParsing="false" onAction="#onActionNewRoom" prefHeight="74.0" prefWidth="84.0" text="Room" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                      </children>
                   </GridPane>
                </content>

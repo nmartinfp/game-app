@@ -84,7 +84,6 @@ public final class Navigation {
     }
 
 
-    // TODO: 08/07/17 refactor down cast
     public <T extends Initializable> T getController(String view) {
 
         return (T)controllers.get(view);

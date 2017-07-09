@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
  * 2nd group project - GameName App Platform
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
-// TODO: 05/07/17 empty user pass when we logout && enable button login
+
 public class CltLoginController implements Initializable, Controller {
 
     private final String NAME = "Login";
@@ -44,7 +44,6 @@ public class CltLoginController implements Initializable, Controller {
     @FXML
     private Label lblPasswordError;
 
-    // TODO: 01/07/2017 use isEmpty() to btnLogin.setDisable() and when you press setDisable() to
     @FXML
     public void onLogin(ActionEvent event) {
         Verification.cleanErrorMsg(lblUsernameError, lblPasswordError, lblPasswordError, lblPasswordError);

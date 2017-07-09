@@ -112,3 +112,12 @@ Sun Jul 09 20:18:31 WEST 2017 - Priority: INFO Message: Client Handler @Server m
 Sun Jul 09 20:18:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;testRoom
 Sun Jul 09 20:18:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;testRoom
 Sun Jul 09 20:18:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Sun Jul 09 22:39:19 WEST 2017 - Priority: INFO Message: Server running...
+Sun Jul 09 22:39:19 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 22:39:40 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 22:39:40 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 22:39:40 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:57546
+Sun Jul 09 22:39:48 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Sun Jul 09 22:39:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 22:39:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Sun Jul 09 22:40:11 WEST 2017 - Priority: INFO Message: Message received from client null

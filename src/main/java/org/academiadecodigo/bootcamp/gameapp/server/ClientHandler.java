@@ -47,7 +47,6 @@ public class ClientHandler implements Runnable {
 
         //Handling message received login and register
 
-        System.out.println("I'm on run method of clientHandler");
         Logger.getInstance().log(PriorityLevel.INFO, "Client handler - " +
                 clientSocket.getRemoteSocketAddress());
         handle();
@@ -64,6 +63,7 @@ public class ClientHandler implements Runnable {
                 System.out.println("Server received this message: " + message);
                 workable.process(this, message);
             }
+
         } catch (IOException e) {
             e.printStackTrace();
             Logger.getInstance().log(PriorityLevel.HIGH, "Client Handler input Stream IOException: " +
@@ -71,8 +71,10 @@ public class ClientHandler implements Runnable {
 
         } finally {
             try {
+
                 clientSocket.close();
-                ((Lobby)workable).removeClientHandler(this);
+                removeClientFromLobby();
+
             } catch (IOException e) {
                 e.printStackTrace();
                 Logger.getInstance().log(PriorityLevel.HIGH, "Client Handler close client Socket " +
@@ -89,6 +91,7 @@ public class ClientHandler implements Runnable {
         try {
 
             while (state.equals(State.LOGIN)) {
+
                 message = input.readLine();
                 System.out.println("I received message from client: " + message);
                 Logger.getInstance().log(PriorityLevel.INFO, "Message received from client " + message);
@@ -96,24 +99,38 @@ public class ClientHandler implements Runnable {
                 String[] messageTokens = ProtocolParser.splitMessage(message);
 
                 if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)) {
-                    System.out.println("Authenticating the user...");
-                    Logger.getInstance().log(PriorityLevel.INFO, "Authenticating the user... " +
-                            messageTokens[ProtocolConfig.USERNAME]);
+
                     authenticate(messageTokens[ProtocolConfig.USERNAME],
                             messageTokens[ProtocolConfig.PASSWORD]);
-                    return;
-                }
 
-                System.out.println("Registering the user...");
-                Logger.getInstance().log(PriorityLevel.INFO, "Registering the user... " +
-                        messageTokens[ProtocolConfig.USERNAME]);
-                createUser(messageTokens[ProtocolConfig.USERNAME],
-                        messageTokens[ProtocolConfig.PASSWORD],
-                        messageTokens[ProtocolConfig.FIRST_NAME]);
+                    updateLobby();
+
+                } else {
+
+                    createUser(messageTokens[ProtocolConfig.FIRSTNAME],
+                            messageTokens[ProtocolConfig.USERNAME],
+                            messageTokens[ProtocolConfig.PASSWORD]);
+                }
             }
 
         } catch (IOException e) {
             e.printStackTrace();
+            Logger.getInstance().log(PriorityLevel.HIGH, "Client Handler: IOException " + e.getMessage());
+        }
+    }
+
+    private void removeClientFromLobby() {
+
+        if (workable instanceof Lobby){
+            ((Lobby)workable).removeClientHandler(this);
+        }
+    }
+
+    private void updateLobby() {
+
+        if (workable instanceof Lobby){
+
+            ((Lobby)workable).updatingRooms();
         }
     }
 
@@ -123,8 +140,9 @@ public class ClientHandler implements Runnable {
 
         if (protocol[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN)){
 
-            authenticate(protocol[ProtocolConfig.USERNAME],
-                    protocol[ProtocolConfig.PASSWORD]);
+          state = State.LOGIN;
+          handle();
+
         }
     }
 
@@ -145,8 +163,6 @@ public class ClientHandler implements Runnable {
     //Sending msg just for one client
     public void sendMessage(String message) {
 
-        System.out.println("Server will send this message: " + message);
-        System.out.println("Server will send this message: " + message);
         Logger.getInstance().log(PriorityLevel.INFO, "Client Handler @Server message: " + message);
         output.write(message + "\n");
         output.flush();
@@ -156,12 +172,13 @@ public class ClientHandler implements Runnable {
 //----------------------------------------------------------------------------------------------------------------------
 //                                               Login and Register HANDLING
 //----------------------------------------------------------------------------------------------------------------------
-    public void authenticate(String username, String password) {
+    private void authenticate(String username, String password) {
 
         ServiceRegistry serviceRegistry = ServiceRegistry.getInstance();
         UserService userService = serviceRegistry.getService(UserService.class.getSimpleName());
 
         if (userService.authenticate(username, password)) {
+
             sendMessage(ProtocolConfig.SERVER_LOGIN + ";" + ProtocolConfig.VIEW_LOBBY);
 
             state = State.LOBBY;
@@ -176,7 +193,7 @@ public class ClientHandler implements Runnable {
     }
 
 
-    public void createUser(String firstName, String username, String password) {
+    private void createUser(String firstName, String username, String password) {
 
         ServiceRegistry serviceRegistry = ServiceRegistry.getInstance();
         UserService userService = serviceRegistry.getService(UserService.class.getSimpleName());
@@ -212,5 +229,13 @@ public class ClientHandler implements Runnable {
 
     public void setWorkable(Workable workable){
         this.workable = workable;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 }

@@ -107,7 +107,7 @@ public class ClientHandler implements Runnable {
 
                 } else {
 
-                    createUser(messageTokens[ProtocolConfig.FIRSTNAME],
+                    createUser(messageTokens[ProtocolConfig.FIRST_NAME],
                             messageTokens[ProtocolConfig.USERNAME],
                             messageTokens[ProtocolConfig.PASSWORD]);
                 }

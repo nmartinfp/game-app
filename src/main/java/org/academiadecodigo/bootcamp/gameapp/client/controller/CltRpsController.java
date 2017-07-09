@@ -44,8 +44,6 @@ public class CltRpsController implements Initializable, Controller {
     private Timer timer;
     private ServerHandler serverHandler;
 
-    // TODO: 06/07/17 Eliminate the text area in the lobby. Chat is working on that instead in the text field
-
     @FXML
     private GridPane gpLobby;
 

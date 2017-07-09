@@ -8,6 +8,7 @@ package org.academiadecodigo.bootcamp.gameapp.server.room;
 
 import org.academiadecodigo.bootcamp.gameapp.game.RPSGame;
 import org.academiadecodigo.bootcamp.gameapp.server.ClientHandler;
+import org.academiadecodigo.bootcamp.gameapp.server.State;
 import org.academiadecodigo.bootcamp.gameapp.server.Workable;
 import org.academiadecodigo.bootcamp.gameapp.server.lobby.Lobby;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
@@ -113,14 +114,17 @@ public class Room implements Runnable, Workable {
         gameOver();
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         //End of the game
         for (ClientHandler clientHandler : clientHandlerVector) {
+
             clientHandler.setWorkable(lobby);
+            clientHandler.setState(State.LOBBY);
+
             lobby.addQueue(clientHandler);
             sendUsersToLobby(clientHandler);
         }
@@ -215,6 +219,7 @@ public class Room implements Runnable, Workable {
                 clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "YOU WIN!");
 
             } else {
+
                 if (user == null) {
                     clientHandler.sendMessage(ProtocolConfig.SERVER_GAME + ";" + "TIE!");
 

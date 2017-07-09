@@ -65,13 +65,26 @@ public class Lobby implements Runnable, Workable {
 
         while (true) {
             if (queue.size() > 0) {
-                clientVector.add(queue.poll());
+                ClientHandler clientHandler = queue.poll();
+
+                clientVector.add(clientHandler);
+
+                if (clientHandler.getState().equals(State.LOBBY)){
+                    updatingRooms();
+                }
             }
         }
     }
 
+    public void updatingRooms(){
+
+        for (Room room: roomVector) {
+            sendToAll(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + room.getName());
+        }
+    }
+
     //Sending msg to everyone CHAT
-    public void sendToAll(String message) {
+    private void sendToAll(String message) {
 
         for (ClientHandler ClientHandler : clientVector) {
             ClientHandler.sendMessage(message);
@@ -96,7 +109,7 @@ public class Lobby implements Runnable, Workable {
     private void createRoom(ClientHandler clientHandler, GameName gameName) {
 
         Room room = new Room(gameName.getMinUsers(), gameName.getMaxUsers(), this);
-        String roomName = clientHandler.getUsername() + "Room";
+        String roomName = clientHandler.getUsername() + "'s Room";
         room.init(clientHandler, roomName);
 
         clientHandler.changeState(room, State.ROOM);

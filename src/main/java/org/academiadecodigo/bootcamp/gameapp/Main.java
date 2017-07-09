@@ -16,6 +16,7 @@ import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * A/C: Bootcamp8
@@ -47,7 +48,7 @@ public class Main extends Application {
         launch(args);
     }
 
-    private static void wiringServer(){
+    private static void wiringServer() {
         ConnectionManager connectionManager = new ConnectionManager();
         UserService userService = new JdbcUserService(connectionManager.getConnection());
 
@@ -85,10 +86,11 @@ public class Main extends Application {
         Navigation.getInstance().loadScreen(ProtocolConfig.VIEW_LOGIN);
     }
 
-    // TODO: 07/07/17 implement creation of client handler on this class
-    // TODO: 07/07/17 close socket on stop()
     @Override
-    public void stop (){
+    public void stop() {
+
         client.closeClient();
+        newThread.shutdownNow();
+
     }
 }

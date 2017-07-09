@@ -43,7 +43,6 @@ public class Client {
         }
     }
 
-    // TODO: 04/07/17 close thread of readLine() when close program
     //Receiving message from server
     public String receive() {
         String receivedMessage = null;
@@ -77,8 +76,7 @@ public class Client {
 
     public void closeClient() {
         try {
-            input.close();
-            output.close();
+
             clientSocket.close();
 
         } catch (IOException e) {

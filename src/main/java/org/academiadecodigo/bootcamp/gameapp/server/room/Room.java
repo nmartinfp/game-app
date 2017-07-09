@@ -78,12 +78,12 @@ public class Room implements Runnable, Workable {
             if (user1.equals(clientHandler.getUsername())) {
 
                 p1Hand = tokens[ProtocolConfig.MESSAGE];
-                System.out.println(p1Hand);
+                System.out.println("p1Hand" + p1Hand);
 
             } else if (user2.equals(clientHandler.getUsername())) {
 
                 p2Hand = tokens[ProtocolConfig.MESSAGE];
-                System.out.println(p2Hand);
+                System.out.println("p2Hand" + p2Hand);
             }
 
             if (p1Hand != null && p2Hand != null) {

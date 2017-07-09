@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.gameapp.client.controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
@@ -132,7 +133,7 @@ public class CltRpsController implements Initializable, Controller {
         image3.setDisable(true);
         stop();
         lblMyChoice.setVisible(true);
-        lblMyChoice.setText("You Played Rock");
+        lblMyChoice.setText("You played Rock");
         image1.setImage(image1.getImage());
 
         serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" + Choices.ROCK.getHand());
@@ -144,7 +145,7 @@ public class CltRpsController implements Initializable, Controller {
         image3.setDisable(true);
         stop();
         lblMyChoice.setVisible(true);
-        lblMyChoice.setText("You Played Paper");
+        lblMyChoice.setText("You played Paper");
         image2.setDisable(true);
         image1.setImage(image2.getImage());
 
@@ -157,7 +158,7 @@ public class CltRpsController implements Initializable, Controller {
         image2.setDisable(true);
         stop();
         lblMyChoice.setVisible(true);
-        lblMyChoice.setText("You Played Scissors");
+        lblMyChoice.setText("You played Scissors");
         image3.setDisable(true);
         image1.setImage(image3.getImage());
         image2.setImage(imageX.getImage());
@@ -205,7 +206,10 @@ public class CltRpsController implements Initializable, Controller {
             lblScore1.setText("" + ++wins);
 
         } else if (message.equals("YOU LOSE!")) {
+            lblResult.setStyle("-fx-accent: #FF0000");
             lblScore2.setText("" + ++loses);
+        } else {
+            lblResult.setStyle("-fx-accent: #FF0000");
         }
 
         totalRounds++;
@@ -216,7 +220,7 @@ public class CltRpsController implements Initializable, Controller {
     }
 
     public void showOtherHand(String message) {
-        System.out.println(message);
+
         if (message.equals(Choices.ROCK.getHand())) {
 
             image3.setImage(rock);
@@ -231,15 +235,23 @@ public class CltRpsController implements Initializable, Controller {
             lblRivalChoice.setText("Rival played Paper");
             lblRivalChoice.setVisible(true);
 
-        } else {
+        } else if (message.equals(Choices.SCISSORS.getHand())) {
+
             image2.setImage(imageX.getImage());
             lblRivalChoice.setText("Rival played Scissors");
             lblRivalChoice.setVisible(true);
+
+        } else {
+            image2.setImage(imageX.getImage());
+            lblRivalChoice.setText("Rival didn't play");
+            lblRivalChoice.setVisible(true);
+
         }
     }
 
     public void resetView(String message) {
 
+        image1.setVisible(true);
         image1.setDisable(false);
         image2.setDisable(false);
         image3.setDisable(false);
@@ -266,12 +278,17 @@ public class CltRpsController implements Initializable, Controller {
     }
 
     private void showMsg() {
-        image1.setDisable(true);
+        image1.setVisible(false);
         image2.setDisable(true);
         image3.setDisable(true);
         lblMyChoice.setVisible(true);
-        // TODO: 06/07/17 If rival played sonmething player This player lose. Or both lose
-        lblResult.setVisible(true);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                lblMyChoice.setText("Time over!");
+            }
+        });
+        serverHandler.sendMessage(ProtocolConfig.CLIENT_GAME + ";" + Choices.NOCHOICE.getHand());
     }
 
     public void gameOverText(String message) {

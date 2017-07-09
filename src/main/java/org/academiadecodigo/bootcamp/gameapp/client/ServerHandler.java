@@ -1,11 +1,12 @@
 package org.academiadecodigo.bootcamp.gameapp.client;
 
 import javafx.application.Platform;
-import org.academiadecodigo.bootcamp.gameapp.client.controller.*;
+import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLobbyController;
+import org.academiadecodigo.bootcamp.gameapp.client.controller.CltLoginController;
+import org.academiadecodigo.bootcamp.gameapp.client.controller.CltRegisterController;
+import org.academiadecodigo.bootcamp.gameapp.client.controller.CltRpsController;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
-
-import java.util.HashMap;
 
 /**
  * A/C: Bootcamp8
@@ -22,9 +23,12 @@ public class ServerHandler implements Runnable {
         navigation = Navigation.getInstance();
     }
 
+
     public void sendMessage(String message) {
+        System.out.println("Server Handler - sendMessage (debug)" + message);
         client.send(message + "\n");
     }
+
 
     @Override
     public void run() {
@@ -32,7 +36,7 @@ public class ServerHandler implements Runnable {
         while (!client.clientConnected()) {
 
             String message = client.receive();
-            System.out.println("message recieved from server: " + message);
+            System.out.println("Message received from server: " + message);
             ProtocolParser.clientProtocolHandler(this, message);
         }
     }
@@ -50,6 +54,7 @@ public class ServerHandler implements Runnable {
         });
     }
 
+
     public void userLogin(final String message) {
         Platform.runLater(new Runnable() {
             @Override
@@ -60,6 +65,7 @@ public class ServerHandler implements Runnable {
 
                 if (message.equals(ProtocolConfig.VIEW_LOBBY)) {
                     loginController.successfullyAuth(message);
+
                     return;
                 }
                 if(message.equals((ProtocolConfig.ERR_LOGED))){
@@ -73,6 +79,7 @@ public class ServerHandler implements Runnable {
         });
     }
 
+
     public void registryMessage(final String message) {
         Platform.runLater(new Runnable() {
             @Override
@@ -82,12 +89,14 @@ public class ServerHandler implements Runnable {
 
                 if (message.equals(ProtocolConfig.VIEW_LOGIN)) {
                     registerController.backScreen();
+
                     return;
                 }
                 registerController.registerFailure();
             }
         });
     }
+
 
     public void createRoom(final String message) {
         Platform.runLater(new Runnable() {
@@ -99,15 +108,18 @@ public class ServerHandler implements Runnable {
         });
     }
 
+
     public void changeRoomName(final String message) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 CltLobbyController lobbyController = navigation.getController(ProtocolConfig.VIEW_LOBBY);
                 lobbyController.roomCreated(message);
+
             }
         });
     }
+
 
     public void receivedMessageRoom(final String message) {
         Platform.runLater(new Runnable() {
@@ -119,6 +131,7 @@ public class ServerHandler implements Runnable {
 
     }
 
+
     public void addToRoom(final String message) {
         Platform.runLater(new Runnable() {
             @Override
@@ -128,6 +141,7 @@ public class ServerHandler implements Runnable {
             }
         });
     }
+
 
     public void resultGame(final String message) {
         Platform.runLater(new Runnable() {
@@ -139,6 +153,7 @@ public class ServerHandler implements Runnable {
         });
     }
 
+
     public void showOtherHand(final String message) {
         Platform.runLater(new Runnable() {
             @Override
@@ -149,6 +164,7 @@ public class ServerHandler implements Runnable {
         });
     }
 
+
     public void resetRoom(final String message) {
         Platform.runLater(new Runnable() {
             @Override
@@ -158,6 +174,7 @@ public class ServerHandler implements Runnable {
             }
         });
     }
+
 
     public void roomExit(final String message) {
         Platform.runLater(new Runnable() {
@@ -173,7 +190,6 @@ public class ServerHandler implements Runnable {
                 rpsController.back();
             }
         });
-
     }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -183,8 +199,5 @@ public class ServerHandler implements Runnable {
     public void setClient(Client client) {
         this.client = client;
     }
-
-
-
 }
 

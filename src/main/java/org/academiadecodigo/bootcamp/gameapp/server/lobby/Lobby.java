@@ -8,6 +8,8 @@ import org.academiadecodigo.bootcamp.gameapp.server.model.User;
 import org.academiadecodigo.bootcamp.gameapp.server.room.Room;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.Logger;
+import org.academiadecodigo.bootcamp.gameapp.utilities.logging.PriorityLevel;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -17,8 +19,11 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 
 
 /**
- * Created by Cyrille on 06/07/17.
+ * A/C: Bootcamp8
+ * 2nd group project - GameName App Platform
+ * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
+
 public class Lobby implements Runnable, Workable {
 
     //List of client's on lobby
@@ -28,11 +33,13 @@ public class Lobby implements Runnable, Workable {
     private Queue<ClientHandler> queue;
     private Vector<Room> roomVector;
 
+
     public Lobby() {
         clientVector = new Vector<>();
         roomVector = new Vector<>();
         queue = new ConcurrentLinkedDeque<>();
     }
+
 
     /*
      * Process information from Client to Lobby
@@ -46,11 +53,13 @@ public class Lobby implements Runnable, Workable {
             String protoMessage = ProtocolConfig.SERVER_CHAT + ";" + clientHandler.getUsername() + ": " + tokens[ProtocolConfig.MESSAGE];
             System.out.println(protoMessage);
             sendToAll(protoMessage);
+
             return;
         }
 
         if (message.contains(ProtocolConfig.CLIENT_CREATE_ROOM)) {
             createRoom(clientHandler, GameName.RPS);
+
             return;
         }
 
@@ -61,6 +70,7 @@ public class Lobby implements Runnable, Workable {
 
 
     }
+
 
     @Override
     public void run() {
@@ -85,6 +95,7 @@ public class Lobby implements Runnable, Workable {
         }
     }
 
+
     //Sending msg to everyone CHAT
     private void sendToAll(String message) {
 
@@ -92,6 +103,7 @@ public class Lobby implements Runnable, Workable {
             clientHandler.sendMessage(message);
         }
     }
+
 
 //----------------------------------------------------------------------------------------------------------------------
 //                                               CLIENTMAP HANDLING
@@ -115,6 +127,7 @@ public class Lobby implements Runnable, Workable {
         room.init(clientHandler, roomName);
 
         clientHandler.changeState(room, State.ROOM);
+
         roomVector.add(room);
         clientVector.remove(clientHandler);
 
@@ -125,6 +138,7 @@ public class Lobby implements Runnable, Workable {
         thread.start();
     }
 
+
     /*
      * Returns the Room with the associated id if there is any, doesn't check if the room Vector is empty, not sure if
      * problematic or not
@@ -132,18 +146,20 @@ public class Lobby implements Runnable, Workable {
     private Room roomByName(String name) {
 
         for (Room room : roomVector) {
-            System.out.println(room.getName());
+
             if (room.getName().equals(name)) {
+
                 return room;
             }
         }
+
         return null;
     }
 
-    /*
-     * Adds a user to a Room and removes it from the clientList if the room is not full yet
-     * Could return a message for success or lack thereof to trigger secondary behaviours
-     */
+   /*
+    * Adds a user to a Room and removes it from the clientList if the room is not full yet
+    * Could return a message for success or lack thereof to trigger secondary behaviours
+    */
     private void addClientToRoom(ClientHandler clientHandler, String name) {
 
         Room room = roomByName(name);

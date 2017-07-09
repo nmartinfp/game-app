@@ -1,0 +1,192 @@
+Sun Jul 09 03:19:00 WEST 2017 - Priority: HIGH Message: Server running...
+Sun Jul 09 03:32:32 WEST 2017 - Priority: HIGH Message: Server running...
+Sun Jul 09 03:32:32 WEST 2017 - Priority: MEDIUM Message: Server waiting for connections...
+Sun Jul 09 03:32:58 WEST 2017 - Priority: MEDIUM Message: Client connected
+Sun Jul 09 03:32:58 WEST 2017 - Priority: MEDIUM Message: Server waiting for connections...
+Sun Jul 09 03:32:58 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:56538
+Sun Jul 09 03:33:15 WEST 2017 - Priority: INFO Message: Authenticating the user... 1
+Sun Jul 09 03:33:15 WEST 2017 - Priority: INFO Message: Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 17:11:00 WEST 2017 - Priority: INFO Message: Server running...
+Sun Jul 09 17:11:00 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 17:11:08 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 17:11:08 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 17:11:08 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:56691
+Sun Jul 09 17:11:16 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Sun Jul 09 17:11:16 WEST 2017 - Priority: INFO Message: Authenticating the user... test
+Sun Jul 09 17:11:16 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 17:12:36 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 17:16:28 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 17:16:28 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:56698
+Sun Jul 09 17:16:28 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 17:16:47 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Sun Jul 09 17:16:47 WEST 2017 - Priority: INFO Message: Authenticating the user... test
+Sun Jul 09 17:16:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 17:19:00 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 17:19:00 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 17:19:00 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:56702
+Sun Jul 09 17:19:18 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Sun Jul 09 17:19:18 WEST 2017 - Priority: INFO Message: Authenticating the user... test
+Sun Jul 09 17:19:18 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 17:20:41 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 17:20:41 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 17:20:41 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:56706
+Sun Jul 09 17:22:03 WEST 2017 - Priority: INFO Message: Message received from client null
+Sun Jul 09 17:22:06 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 17:22:06 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:56710
+Sun Jul 09 17:22:06 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 17:22:20 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Sun Jul 09 17:22:20 WEST 2017 - Priority: INFO Message: Authenticating the user... test
+Sun Jul 09 17:22:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 17:23:42 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 17:23:42 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 17:23:42 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:56715
+Sun Jul 09 17:23:59 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_REGISTER;1;1;1
+Sun Jul 09 17:23:59 WEST 2017 - Priority: INFO Message: Registering the user... 1
+Sun Jul 09 17:23:59 WEST 2017 - Priority: INFO Message: Register user: 1 1 1
+Sun Jul 09 17:23:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER;login
+Sun Jul 09 17:24:08 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;1;1
+Sun Jul 09 17:24:08 WEST 2017 - Priority: INFO Message: Authenticating the user... 1
+Sun Jul 09 17:24:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 18:24:18 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 18:46:21 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 18:46:21 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 18:46:21 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:56818
+Sun Jul 09 18:46:31 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;1;1
+Sun Jul 09 18:46:31 WEST 2017 - Priority: INFO Message: Authenticating the user... 1
+Sun Jul 09 18:46:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 18:50:07 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 18:50:07 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 18:50:07 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:56825
+Sun Jul 09 18:50:12 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;1;1
+Sun Jul 09 18:50:12 WEST 2017 - Priority: INFO Message: Authenticating the user... 1
+Sun Jul 09 18:50:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 18:50:18 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;1Room
+Sun Jul 09 18:50:18 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Sun Jul 09 18:52:25 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 18:52:25 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 18:52:25 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:56830
+Sun Jul 09 18:52:59 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_REGISTER;test;test1;test1
+Sun Jul 09 18:52:59 WEST 2017 - Priority: INFO Message: Registering the user... test
+Sun Jul 09 18:52:59 WEST 2017 - Priority: INFO Message: Register user: test test1 test1
+Sun Jul 09 18:52:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER;login
+Sun Jul 09 18:53:10 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test1;test1
+Sun Jul 09 18:53:10 WEST 2017 - Priority: INFO Message: Authenticating the user... test1
+Sun Jul 09 18:53:10 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 18:53:46 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;test1Room
+Sun Jul 09 18:53:46 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Sun Jul 09 19:53:35 WEST 2017 - Priority: INFO Message: Server running...
+Sun Jul 09 19:53:35 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 19:53:48 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 19:53:48 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 19:53:48 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:57280
+Sun Jul 09 19:53:58 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Sun Jul 09 19:53:58 WEST 2017 - Priority: INFO Message: Authenticating the user... test
+Sun Jul 09 19:53:58 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 19:54:04 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Sun Jul 09 19:56:52 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 19:56:52 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:57289
+Sun Jul 09 19:56:52 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 19:57:02 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Sun Jul 09 19:57:02 WEST 2017 - Priority: INFO Message: Authenticating the user... test
+Sun Jul 09 19:57:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 19:57:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Sun Jul 09 20:04:58 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 20:04:58 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 20:04:58 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:57298
+Sun Jul 09 20:05:33 WEST 2017 - Priority: INFO Message: Message received from client null
+Sun Jul 09 20:05:34 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 20:05:34 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 20:05:34 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:57303
+Sun Jul 09 20:15:22 WEST 2017 - Priority: INFO Message: Message received from client null
+Sun Jul 09 20:15:26 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 20:15:26 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 20:15:26 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:57310
+Sun Jul 09 20:18:13 WEST 2017 - Priority: INFO Message: Message received from client null
+Sun Jul 09 20:18:16 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 20:18:16 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 20:18:16 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:57314
+Sun Jul 09 20:18:24 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Sun Jul 09 20:18:24 WEST 2017 - Priority: INFO Message: Authenticating the user... test
+Sun Jul 09 20:18:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 20:18:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;testRoom
+Sun Jul 09 20:18:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;testRoom
+Sun Jul 09 20:18:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;testRoom
+Sun Jul 09 20:18:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Sun Jul 09 22:39:19 WEST 2017 - Priority: INFO Message: Server running...
+Sun Jul 09 22:39:19 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 22:39:40 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 22:39:40 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 22:39:40 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:57546
+Sun Jul 09 22:39:48 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Sun Jul 09 22:39:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 22:39:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Sun Jul 09 22:40:11 WEST 2017 - Priority: INFO Message: Message received from client null
+Sun Jul 09 22:43:46 WEST 2017 - Priority: INFO Message: Server running...
+Sun Jul 09 22:43:46 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 22:43:52 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 22:43:52 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 22:43:52 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:57562
+Sun Jul 09 22:43:59 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Sun Jul 09 22:43:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 22:44:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Sun Jul 09 22:51:38 WEST 2017 - Priority: INFO Message: Server running...
+Sun Jul 09 22:51:38 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 22:51:45 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 22:51:45 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 22:51:45 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:50144
+Sun Jul 09 22:51:51 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Sun Jul 09 22:51:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 22:51:56 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Sun Jul 09 22:51:56 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Sun Jul 09 22:51:56 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:50148
+Sun Jul 09 22:52:03 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test1;test
+Sun Jul 09 22:52:03 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 22:52:11 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Sun Jul 09 22:52:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;ERROR_LOGED
+Sun Jul 09 22:52:13 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test1;test
+Sun Jul 09 22:52:13 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Sun Jul 09 22:52:16 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;test's Room
+Sun Jul 09 22:52:16 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Sun Jul 09 22:52:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_JOIN_ROOM;rpsgame
+Sun Jul 09 22:52:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Sun Jul 09 22:52:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Sun Jul 09 22:52:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Sun Jul 09 22:52:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Sun Jul 09 22:52:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Sun Jul 09 22:52:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Sun Jul 09 22:52:37 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Sun Jul 09 22:52:37 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Sun Jul 09 22:52:37 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Sun Jul 09 22:52:37 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Sun Jul 09 22:52:41 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Sun Jul 09 22:52:41 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Sun Jul 09 22:52:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Sun Jul 09 22:52:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Sun Jul 09 22:52:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Sun Jul 09 22:52:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Sun Jul 09 22:52:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Sun Jul 09 22:52:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Sun Jul 09 22:52:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Sun Jul 09 22:52:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Sun Jul 09 22:52:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Sun Jul 09 22:52:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Sun Jul 09 22:52:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Sun Jul 09 22:52:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Sun Jul 09 22:53:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Sun Jul 09 22:53:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Sun Jul 09 22:53:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Sun Jul 09 22:53:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Sun Jul 09 22:53:10 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Sun Jul 09 22:53:10 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Sun Jul 09 22:53:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Sun Jul 09 22:53:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Sun Jul 09 22:53:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Sun Jul 09 22:53:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Sun Jul 09 22:53:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;GAME OVER
+Sun Jul 09 22:53:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;GAME OVER
+Sun Jul 09 22:53:18 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;lobby
+Sun Jul 09 22:53:18 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;test's Room
+Sun Jul 09 22:53:18 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;lobby
+Sun Jul 09 22:53:18 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Room
+Sun Jul 09 22:53:29 WEST 2017 - Priority: INFO Message: Message received from client null
+Sun Jul 09 22:53:31 WEST 2017 - Priority: INFO Message: Message received from client null

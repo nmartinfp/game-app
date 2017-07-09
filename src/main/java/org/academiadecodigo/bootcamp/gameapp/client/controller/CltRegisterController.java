@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
  * Authors: Cyrille Feijó, João Fernandes, Hélder Matos, Nelson Pereira, Tiago Santos
  */
 
-public class CltRegisterController implements Initializable, Controller{
+public class CltRegisterController implements Initializable, Controller {
 
     private final String NAME = "Register";
 
@@ -66,22 +66,23 @@ public class CltRegisterController implements Initializable, Controller{
         if (!emptyField()) {
             checkEmail = Verification.checkEmail(email);
 
-            if(!checkEmail){
+            if (!checkEmail) {
                 setText(lblMailErrorReg, "(* Invalid email)");
                 return;
             }
 
             //if(validPassword()){
-                String sendMessage = ProtocolConfig.CLIENT_REGISTER + ";" + firstName.getText() + ";" +
-                        username.getText() + ";" + password.getText();
 
-                System.out.println("send message" + sendMessage);
-                serverHandler.sendMessage(sendMessage);
+            String sendMessage = ProtocolConfig.CLIENT_REGISTER + ";" + firstName.getText() + ";" +
+                    username.getText() + ";" + password.getText();
+
+            System.out.println("send message" + sendMessage);
+            serverHandler.sendMessage(sendMessage);
             //}
         }
     }
 
-    public void backScreen(){
+    public void backScreen() {
         Navigation.getInstance().back();
     }
 
@@ -97,7 +98,7 @@ public class CltRegisterController implements Initializable, Controller{
         return true;
     }
 
-    public void registerFailure(){
+    public void registerFailure() {
         lblUsernameErrorReg.setText("Username already exists.");
     }
 
@@ -126,7 +127,7 @@ public class CltRegisterController implements Initializable, Controller{
         return fieldEmpty;
     }
 
-    private <T extends Labeled> void setText(T type, String message){
+    private <T extends Labeled> void setText(T type, String message) {
         type.setText(message);
         type.setVisible(true);
     }
@@ -136,7 +137,7 @@ public class CltRegisterController implements Initializable, Controller{
         serverHandler = ClientRegistry.getInstance().getHandler();
     }
 
-    public String getName(){
+    public String getName() {
         return NAME;
     }
 }

@@ -397,3 +397,243 @@ Mon Jul 10 00:52:40 WEST 2017 - Priority: INFO Message: Register user: hihieksde
 Mon Jul 10 00:52:40 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER;login
 Mon Jul 10 00:59:14 WEST 2017 - Priority: INFO Message: Server running...
 Mon Jul 10 00:59:14 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:15:56 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 01:15:56 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:16:00 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:16:00 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:16:00 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:51855
+Mon Jul 10 01:16:06 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.11
+Mon Jul 10 01:16:06 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:16:06 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.11:52186
+Mon Jul 10 01:16:16 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.27
+Mon Jul 10 01:16:16 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:16:16 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.27:52432
+Mon Jul 10 01:16:19 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:16:19 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:16:34 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_REGISTER;tiago;ninetwofour;fourtwonine
+Mon Jul 10 01:16:34 WEST 2017 - Priority: INFO Message: Register user: fourtwonine tiago ninetwofour
+Mon Jul 10 01:16:34 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER;login
+Mon Jul 10 01:16:34 WEST 2017 - Priority: INFO Message: Message received from client null
+Mon Jul 10 01:16:39 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.25
+Mon Jul 10 01:16:39 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:16:39 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.25:50588
+Mon Jul 10 01:16:42 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;ninetwofour;fourtwonine
+Mon Jul 10 01:16:42 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;ERROR
+Mon Jul 10 01:16:42 WEST 2017 - Priority: HIGH Message: Client Handler: User authentication failureninetwofour
+Mon Jul 10 01:16:52 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;ninetwofour;fourtwonine
+Mon Jul 10 01:16:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: ja estas
+Mon Jul 10 01:16:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: ja estas
+Mon Jul 10 01:17:07 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_REGISTER;Helder;Helder123;Helder
+Mon Jul 10 01:17:07 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.11
+Mon Jul 10 01:17:07 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:17:07 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.11:52196
+Mon Jul 10 01:17:07 WEST 2017 - Priority: INFO Message: Register user: Helder Helder Helder123
+Mon Jul 10 01:17:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER;login
+Mon Jul 10 01:17:19 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Helder;Helder123
+Mon Jul 10 01:17:39 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_REGISTER;Fernandes;huehuehue;hihieksdee
+Mon Jul 10 01:17:39 WEST 2017 - Priority: INFO Message: Register user: hihieksdee Fernandes huehuehue
+Mon Jul 10 01:17:39 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER;login
+Mon Jul 10 01:17:48 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Fernandes;huehuehue
+Mon Jul 10 01:17:58 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.27
+Mon Jul 10 01:17:58 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:17:58 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.27:52437
+Mon Jul 10 01:18:06 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.25
+Mon Jul 10 01:18:06 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:18:06 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.25:50592
+Mon Jul 10 01:18:07 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;ninetwofour;fourtwonine
+Mon Jul 10 01:18:12 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Mon Jul 10 01:18:35 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:18:35 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:18:35 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:51887
+Mon Jul 10 01:18:43 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:18:56 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 01:18:56 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:18:58 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:18:58 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:18:58 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:51898
+Mon Jul 10 01:19:02 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Mon Jul 10 01:19:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:19:16 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:19:16 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:19:17 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.25
+Mon Jul 10 01:19:17 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:19:17 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.25:50597
+Mon Jul 10 01:19:25 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Helder;Helder123
+Mon Jul 10 01:19:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:19:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:19:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:19:51 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.27
+Mon Jul 10 01:19:51 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:19:51 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.27:52442
+Mon Jul 10 01:20:01 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;fourtwonine;ninetwofour
+Mon Jul 10 01:20:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;ERROR
+Mon Jul 10 01:20:01 WEST 2017 - Priority: HIGH Message: Client Handler: User authentication failurefourtwonine
+Mon Jul 10 01:20:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:20:01 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.11
+Mon Jul 10 01:20:01 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:20:01 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.11:52211
+Mon Jul 10 01:20:12 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Fernandes;huehuehue
+Mon Jul 10 01:20:37 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 01:20:37 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:20:39 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:20:39 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:20:39 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:51917
+Mon Jul 10 01:20:48 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.11
+Mon Jul 10 01:20:48 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:20:48 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.11:52218
+Mon Jul 10 01:20:50 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.25
+Mon Jul 10 01:20:50 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:20:50 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.25:50601
+Mon Jul 10 01:20:51 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.27
+Mon Jul 10 01:20:51 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:20:51 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.27:52447
+Mon Jul 10 01:20:54 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Mon Jul 10 01:20:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:21:00 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.11
+Mon Jul 10 01:21:00 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:21:00 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.11:52222
+Mon Jul 10 01:21:09 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_REGISTER;cyrokas;123456;cyrille
+Mon Jul 10 01:21:09 WEST 2017 - Priority: INFO Message: Register user: cyrille cyrokas 123456
+Mon Jul 10 01:21:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER;login
+Mon Jul 10 01:21:15 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:21:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:21:25 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_REGISTER;Fernandes;huehuehue;hihieksdee
+Mon Jul 10 01:21:25 WEST 2017 - Priority: INFO Message: Register user: hihieksdee Fernandes huehuehue
+Mon Jul 10 01:21:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER;login
+Mon Jul 10 01:21:32 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_REGISTER;Helder;Helder123;Helder
+Mon Jul 10 01:21:32 WEST 2017 - Priority: INFO Message: Register user: Helder Helder Helder123
+Mon Jul 10 01:21:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER;login
+Mon Jul 10 01:21:34 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Fernandes;huehuehue
+Mon Jul 10 01:21:34 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:21:45 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Helder;Helder123
+Mon Jul 10 01:21:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:21:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:21:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:21:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:22:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Fernandes's Room
+Mon Jul 10 01:22:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:22:08 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_REGISTER;ninetwofour;fourtwonine;tiago
+Mon Jul 10 01:22:08 WEST 2017 - Priority: INFO Message: Register user: tiago ninetwofour fourtwonine
+Mon Jul 10 01:22:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER;login
+Mon Jul 10 01:22:15 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;ninetwofour;fourtwonine
+Mon Jul 10 01:22:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:22:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:22:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Fernandes's Room
+Mon Jul 10 01:22:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:22:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:22:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Fernandes's Room
+Mon Jul 10 01:22:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Fernandes's Room
+Mon Jul 10 01:22:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;ninetwofour's Room
+Mon Jul 10 01:22:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:22:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:23:03 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: kjgkjg
+Mon Jul 10 01:23:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: jhfjhf
+Mon Jul 10 01:23:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: gfhgj
+Mon Jul 10 01:23:13 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: jgfj
+Mon Jul 10 01:23:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: hgfuj
+Mon Jul 10 01:23:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: hgd
+Mon Jul 10 01:23:16 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: ghhc
+Mon Jul 10 01:23:18 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: jhkhgfhkgghvkg
+Mon Jul 10 01:23:19 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: hello
+Mon Jul 10 01:23:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: helder
+Mon Jul 10 01:23:46 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 01:23:46 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:23:52 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:23:52 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:23:52 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:51952
+Mon Jul 10 01:23:57 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.11
+Mon Jul 10 01:23:57 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:23:57 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.11:52237
+Mon Jul 10 01:24:02 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.27
+Mon Jul 10 01:24:02 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:24:02 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.27:52451
+Mon Jul 10 01:24:05 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:24:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:24:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dsf
+Mon Jul 10 01:24:08 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.25
+Mon Jul 10 01:24:08 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:24:08 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.25:50605
+Mon Jul 10 01:24:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: estas ai
+Mon Jul 10 01:24:11 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Fernandes;huehuehue
+Mon Jul 10 01:24:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:24:16 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: esta alguem
+Mon Jul 10 01:24:16 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: esta alguem
+Mon Jul 10 01:24:20 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;ninetwofour;fourtweonine
+Mon Jul 10 01:24:20 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Helder;Helder123
+Mon Jul 10 01:24:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:24:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;ERROR
+Mon Jul 10 01:24:20 WEST 2017 - Priority: HIGH Message: Client Handler: User authentication failureninetwofour
+Mon Jul 10 01:24:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: hihieksdee
+Mon Jul 10 01:24:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: hihieksdee
+Mon Jul 10 01:24:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: hihieksdee
+Mon Jul 10 01:24:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: hihieksdee
+Mon Jul 10 01:24:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: esta alguem
+Mon Jul 10 01:24:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: esta alguem
+Mon Jul 10 01:24:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: esta alguem
+Mon Jul 10 01:24:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: esta alguem
+Mon Jul 10 01:24:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: adsfas
+Mon Jul 10 01:24:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: adsfas
+Mon Jul 10 01:24:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: adsfas
+Mon Jul 10 01:24:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: adsfas
+Mon Jul 10 01:24:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: ola\
+Mon Jul 10 01:24:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: ola\
+Mon Jul 10 01:24:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: ola\
+Mon Jul 10 01:24:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: ola\
+Mon Jul 10 01:24:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: ola
+Mon Jul 10 01:24:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: ola
+Mon Jul 10 01:24:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: ola
+Mon Jul 10 01:24:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: ola
+Mon Jul 10 01:24:27 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;ninetwofour;fourtwonine
+Mon Jul 10 01:24:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: coninha
+Mon Jul 10 01:24:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: coninha
+Mon Jul 10 01:24:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: coninha
+Mon Jul 10 01:24:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: coninha
+Mon Jul 10 01:24:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: proonto isto funca
+Mon Jul 10 01:24:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: proonto isto funca
+Mon Jul 10 01:24:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: proonto isto funca
+Mon Jul 10 01:24:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: proonto isto funca
+Mon Jul 10 01:24:36 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:24:36 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:24:36 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:24:36 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:24:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: sdf
+Mon Jul 10 01:24:39 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: kbdsvjkdbs
+Mon Jul 10 01:24:39 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: kbdsvjkdbs
+Mon Jul 10 01:24:39 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: kbdsvjkdbs
+Mon Jul 10 01:24:42 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: sdf
+Mon Jul 10 01:24:42 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dsf
+Mon Jul 10 01:24:43 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: sdf
+Mon Jul 10 01:24:43 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: sdf
+Mon Jul 10 01:24:43 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: sdf
+Mon Jul 10 01:24:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: sdf
+Mon Jul 10 01:24:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: huehuehuehue\
+Mon Jul 10 01:24:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: huehuehuehue\
+Mon Jul 10 01:24:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: huehuehuehue\
+Mon Jul 10 01:24:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: sdf
+Mon Jul 10 01:24:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:24:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:24:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:24:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: Gays
+Mon Jul 10 01:24:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: Gays
+Mon Jul 10 01:24:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dfssdf
+Mon Jul 10 01:24:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: sfd
+Mon Jul 10 01:25:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: jkjk
+Mon Jul 10 01:25:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: Esta app e uma merda
+Mon Jul 10 01:25:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: Esta app e uma merda
+Mon Jul 10 01:25:31 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 01:25:31 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:25:33 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:25:33 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:25:33 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:51971
+Mon Jul 10 01:25:44 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;test123456
+Mon Jul 10 01:25:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;ERROR
+Mon Jul 10 01:25:44 WEST 2017 - Priority: HIGH Message: Client Handler: User authentication failurecyrokas
+Mon Jul 10 01:25:48 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.25
+Mon Jul 10 01:25:48 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:25:48 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.25:50609
+Mon Jul 10 01:25:48 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:25:51 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.27
+Mon Jul 10 01:25:51 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:25:51 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.27:52457
+Mon Jul 10 01:25:58 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Helder;Helder123
+Mon Jul 10 01:26:00 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;ninetwofour;fourtwonine

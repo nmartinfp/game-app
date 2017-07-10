@@ -199,7 +199,6 @@ public class CltLobbyController implements Initializable, Controller {
         btnArray.add(btnRoom7);
         btnArray.add(btnRoom8);
         btnArray.add(btnRoom9);
-        btnArray.add(btnRoom10);
     }
 
     public String getName() {

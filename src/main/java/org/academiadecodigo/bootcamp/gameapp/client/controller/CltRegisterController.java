@@ -73,8 +73,8 @@ public class CltRegisterController implements Initializable, Controller {
 
             //if(validPassword()){
 
-            String sendMessage = ProtocolConfig.CLIENT_REGISTER + ";" + firstName.getText() + ";" +
-                    username.getText() + ";" + password.getText();
+            String sendMessage = ProtocolConfig.CLIENT_REGISTER + ";" + username.getText() + ";" +
+                    password.getText()+ ";" + firstName.getText();
 
             System.out.println("send message" + sendMessage);
             serverHandler.sendMessage(sendMessage);

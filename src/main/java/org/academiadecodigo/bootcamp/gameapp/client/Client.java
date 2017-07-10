@@ -1,7 +1,5 @@
 package org.academiadecodigo.bootcamp.gameapp.client;
 
-import org.academiadecodigo.bootcamp.gameapp.utilities.AppConfig;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -21,10 +19,10 @@ public class Client {
     private BufferedReader input;
 
 
-    public Client() {
+    public Client(int port, String ip) {
 
         try {
-            clientSocket = new Socket(AppConfig.IP, AppConfig.PORT);
+            clientSocket = new Socket(ip, port);
 
         } catch (IOException e) {
             System.out.println(e.getMessage());

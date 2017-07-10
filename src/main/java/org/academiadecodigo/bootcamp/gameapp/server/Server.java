@@ -24,6 +24,11 @@ public class Server {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private Lobby lobby;
+    private int port;
+
+    public Server(int port){
+        this.port = port;
+    }
 
     public void init() {
 
@@ -31,7 +36,7 @@ public class Server {
 
             Logger.getInstance().init(AppConfig.LOG_FILE);
 
-            serverSocket = new ServerSocket(AppConfig.PORT);
+            serverSocket = new ServerSocket(port);
             System.out.println("Server up.");
             Logger.getInstance().log(PriorityLevel.INFO,"Server running...");
 

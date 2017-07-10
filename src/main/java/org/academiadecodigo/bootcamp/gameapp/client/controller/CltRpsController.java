@@ -175,8 +175,6 @@ public class CltRpsController implements Initializable, Controller {
         lblResult.setText(message);
         lblResult.setVisible(true);
 
-        receiveChatMsg.appendText(message + "\n");
-
         if (message.equals("YOU WIN!")) {
             lblResult.setStyle("-fx-text-fill: #2ABB00");
             lblScore1.setText("" + ++wins);
@@ -266,7 +264,6 @@ public class CltRpsController implements Initializable, Controller {
         imageX.setVisible(false);
         lblMyChoice.setVisible(false);
         lblRivalChoice.setVisible(false);
-        receiveChatMsg.appendText(message + "\n");
 
         image1.setImage(rock);
         image2.setImage(paper);

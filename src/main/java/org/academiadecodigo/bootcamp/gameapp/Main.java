@@ -25,7 +25,7 @@ import java.util.concurrent.Executors;
 
 public class Main extends Application {
 
-    private Client client;
+    private static Client client;
     private ExecutorService newThread;
 
     /*
@@ -35,7 +35,7 @@ public class Main extends Application {
     public static void main(String[] args) {
 
         if (args.length != 0 && args[0].equals("server")) {
-            Server server = new Server();
+            Server server = new Server(Integer.parseInt(args[1]));
 
             wiringServer();
 
@@ -45,6 +45,7 @@ public class Main extends Application {
             return;
         }
 
+        client = new Client(Integer.parseInt(args[1]), args[2]);
         launch(args);
     }
 
@@ -63,7 +64,6 @@ public class Main extends Application {
     @Override
     public void init() {
 
-        client = new Client();
         ServerHandler serverHandler = new ServerHandler();
 
         serverHandler.setClient(client);

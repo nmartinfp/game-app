@@ -99,7 +99,7 @@ public class ClientHandler implements Runnable {
                 String[] messageTokens = ProtocolParser.splitMessage(message);
 
                 if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN) && ((Lobby) workable).
-                        logedUser(messageTokens[ProtocolConfig.USERNAME])) {
+                        loggedUser(messageTokens[ProtocolConfig.USERNAME])) {
 
                     sendMessage(ProtocolConfig.SERVER_LOGIN + ";" + ProtocolConfig.ERR_LOGED);
 
@@ -107,7 +107,7 @@ public class ClientHandler implements Runnable {
                 }
 
                 if (messageTokens[ProtocolConfig.PROTOCOL].equals(ProtocolConfig.CLIENT_LOGIN) && !((Lobby) workable).
-                        logedUser(messageTokens[ProtocolConfig.USERNAME])) {
+                        loggedUser(messageTokens[ProtocolConfig.USERNAME])) {
 
                     authenticate(messageTokens[ProtocolConfig.USERNAME],
                             messageTokens[ProtocolConfig.PASSWORD]);
@@ -140,7 +140,7 @@ public class ClientHandler implements Runnable {
 
         if (workable instanceof Lobby) {
 
-            ((Lobby) workable).updatingRooms();
+            ((Lobby) workable).updatingRooms(this);
         }
     }
 

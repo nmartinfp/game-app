@@ -1,6 +1,5 @@
 package org.academiadecodigo.bootcamp.gameapp.server.persistence;
 
-import org.academiadecodigo.bootcamp.gameapp.server.State;
 import org.academiadecodigo.bootcamp.gameapp.utilities.AppConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.logging.Logger;
 import org.academiadecodigo.bootcamp.gameapp.utilities.logging.PriorityLevel;

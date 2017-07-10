@@ -4,15 +4,10 @@ import org.academiadecodigo.bootcamp.gameapp.game.GameName;
 import org.academiadecodigo.bootcamp.gameapp.server.ClientHandler;
 import org.academiadecodigo.bootcamp.gameapp.server.State;
 import org.academiadecodigo.bootcamp.gameapp.server.Workable;
-import org.academiadecodigo.bootcamp.gameapp.server.model.User;
 import org.academiadecodigo.bootcamp.gameapp.server.room.Room;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolConfig;
 import org.academiadecodigo.bootcamp.gameapp.utilities.ProtocolParser;
-import org.academiadecodigo.bootcamp.gameapp.utilities.logging.Logger;
-import org.academiadecodigo.bootcamp.gameapp.utilities.logging.PriorityLevel;
 
-import java.io.IOException;
-import java.net.Socket;
 import java.util.Queue;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentLinkedDeque;
@@ -82,16 +77,16 @@ public class Lobby implements Runnable, Workable {
                 clientVector.add(clientHandler);
 
                 if (clientHandler.getState().equals(State.LOBBY)) {
-                    updatingRooms();
+                    updatingRooms(clientHandler);
                 }
             }
         }
     }
 
-    public void updatingRooms() {
+    public void updatingRooms(ClientHandler clientHandler) {
 
         for (Room room : roomVector) {
-            sendToAll(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + room.getName());
+            clientHandler.sendMessage(ProtocolConfig.SERVER_REGISTER_ROOM + ";" + room.getName());
         }
     }
 
@@ -104,7 +99,7 @@ public class Lobby implements Runnable, Workable {
         }
     }
 
-    public boolean logedUser(String username) {
+    public boolean loggedUser(String username) {
 
         for (ClientHandler clientHandler : clientVector) {
 
@@ -182,7 +177,7 @@ public class Lobby implements Runnable, Workable {
         }
     }
 
-    public synchronized void removeRoom(Room roomToRemove) {
+    public void removeRoom(Room roomToRemove) {
 
         for (Room room : roomVector) {
 

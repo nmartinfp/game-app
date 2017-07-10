@@ -637,3 +637,752 @@ Mon Jul 10 01:25:51 WEST 2017 - Priority: INFO Message: Server waiting for conne
 Mon Jul 10 01:25:51 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.27:52457
 Mon Jul 10 01:25:58 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Helder;Helder123
 Mon Jul 10 01:26:00 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;ninetwofour;fourtwonine
+Mon Jul 10 01:30:39 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 01:30:39 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:30:45 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.11
+Mon Jul 10 01:30:45 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:30:45 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.11:52272
+Mon Jul 10 01:30:47 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:30:47 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:30:47 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:52021
+Mon Jul 10 01:30:53 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.27
+Mon Jul 10 01:30:53 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:30:53 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.27:52462
+Mon Jul 10 01:30:54 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:30:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:30:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: boas
+Mon Jul 10 01:31:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: .!.
+Mon Jul 10 01:31:01 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;fernandes;huehuehue
+Mon Jul 10 01:31:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:31:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: para todos
+Mon Jul 10 01:31:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: para todos
+Mon Jul 10 01:31:02 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.25
+Mon Jul 10 01:31:02 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:31:02 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.25:50632
+Mon Jul 10 01:31:03 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;ninetwofour;fourtwonine
+Mon Jul 10 01:31:03 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:31:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: esta ai alguem?
+Mon Jul 10 01:31:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: esta ai alguem?
+Mon Jul 10 01:31:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: esta ai alguem?
+Mon Jul 10 01:31:11 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Helder;Helder123
+Mon Jul 10 01:31:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:31:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;ninetwofour: não
+Mon Jul 10 01:31:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;ninetwofour: não
+Mon Jul 10 01:31:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;ninetwofour: não
+Mon Jul 10 01:31:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;ninetwofour: não
+Mon Jul 10 01:31:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;ninetwofour: estamos a dormir
+Mon Jul 10 01:31:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;ninetwofour: estamos a dormir
+Mon Jul 10 01:31:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;ninetwofour: estamos a dormir
+Mon Jul 10 01:31:15 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;ninetwofour: estamos a dormir
+Mon Jul 10 01:31:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: ola
+Mon Jul 10 01:31:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: ola
+Mon Jul 10 01:31:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: ola
+Mon Jul 10 01:31:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: ola
+Mon Jul 10 01:31:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: fofas
+Mon Jul 10 01:31:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: fofas
+Mon Jul 10 01:31:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: fofas
+Mon Jul 10 01:31:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: fofas
+Mon Jul 10 01:31:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dfsidhfisdhf
+Mon Jul 10 01:31:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dfsidhfisdhf
+Mon Jul 10 01:31:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dfsidhfisdhf
+Mon Jul 10 01:31:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dfsidhfisdhf
+Mon Jul 10 01:31:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:31:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:31:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:31:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:31:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:31:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:31:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:31:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: Esta app é uma merda
+Mon Jul 10 01:31:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Fernandes: Esta app é uma merda
+Mon Jul 10 01:31:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;ninetwofour: :^)
+Mon Jul 10 01:31:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;ninetwofour: :^)
+Mon Jul 10 01:31:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: quem esta aqui
+Mon Jul 10 01:31:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: alguem
+Mon Jul 10 01:31:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: ola
+Mon Jul 10 01:31:37 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: puta
+Mon Jul 10 01:31:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;ninetwofour: mos def
+Mon Jul 10 01:31:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;ninetwofour: mos def
+Mon Jul 10 01:31:40 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_JOIN_ROOM;rpsgame
+Mon Jul 10 01:31:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:31:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: estou aqui sozinho
+Mon Jul 10 01:31:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: estou aqui sozinho
+Mon Jul 10 01:31:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:31:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:31:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:31:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:31:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:31:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:31:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: olá
+Mon Jul 10 01:31:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Mon Jul 10 01:31:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:31:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:31:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:31:58 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:31:58 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Mon Jul 10 01:32:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Mon Jul 10 01:32:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:32:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:32:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: joga
+Mon Jul 10 01:32:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:32:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:32:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:32:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:32:13 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:13 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: foi-se
+Mon Jul 10 01:32:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:32:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:32:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:32:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:32:19 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: foise-se
+Mon Jul 10 01:32:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: sipapdnas
+Mon Jul 10 01:32:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: dsa
+Mon Jul 10 01:32:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: d
+Mon Jul 10 01:32:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: asd
+Mon Jul 10 01:32:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: das
+Mon Jul 10 01:32:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: s
+Mon Jul 10 01:32:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: da
+Mon Jul 10 01:32:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:32:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:32:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:32:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:32:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: sd
+Mon Jul 10 01:32:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: asd
+Mon Jul 10 01:32:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: asd
+Mon Jul 10 01:32:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: as
+Mon Jul 10 01:32:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:32:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:32:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:32:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:32:32 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.25
+Mon Jul 10 01:32:32 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:32:32 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.25:50636
+Mon Jul 10 01:32:34 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:34 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:36 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.27
+Mon Jul 10 01:32:36 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:32:36 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.27:52466
+Mon Jul 10 01:32:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:32:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:32:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:32:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:32:41 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:41 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:32:41 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Helder;Helder123
+Mon Jul 10 01:32:41 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:32:41 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:32:41 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:32:41 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;ninetwofour's Room
+Mon Jul 10 01:32:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:32:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:32:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:32:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:32:45 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;ninetwofour;fourtwonine
+Mon Jul 10 01:32:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:32:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:32:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:32:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;ninetwofour's Room
+Mon Jul 10 01:32:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:32:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:32:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:32:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;Helder's Room
+Mon Jul 10 01:32:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;ninetwofour's Room
+Mon Jul 10 01:32:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;ninetwofour's Room
+Mon Jul 10 01:32:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;GAME OVER
+Mon Jul 10 01:32:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;GAME OVER
+Mon Jul 10 01:32:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;lobby
+Mon Jul 10 01:32:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:32:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;lobby
+Mon Jul 10 01:32:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_UNREGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:32:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:32:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_UNREGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:32:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_UNREGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:32:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:32:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_JOIN_ROOM;rpsgame
+Mon Jul 10 01:32:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:32:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:33:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: hello
+Mon Jul 10 01:33:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;ninetwofour: hello
+Mon Jul 10 01:33:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:33:23 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 01:33:23 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:33:26 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:33:26 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:33:26 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:52054
+Mon Jul 10 01:33:31 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Mon Jul 10 01:33:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:33:41 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:33:41 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:33:41 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:52060
+Mon Jul 10 01:33:46 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test1;test
+Mon Jul 10 01:33:46 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:33:50 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:33:50 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:33:50 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:52064
+Mon Jul 10 01:33:55 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test2;test
+Mon Jul 10 01:33:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:34:00 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:34:00 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:34:00 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:52068
+Mon Jul 10 01:34:08 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:34:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:34:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;test2's Room
+Mon Jul 10 01:34:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;test2's Room
+Mon Jul 10 01:34:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;test2's Room
+Mon Jul 10 01:34:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:34:21 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_JOIN_ROOM;rpsgame
+Mon Jul 10 01:34:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:34:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:34:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:34:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:34:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:34:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:34:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:34:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:34:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:34:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:34:33 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_JOIN_ROOM;rpsgame
+Mon Jul 10 01:34:34 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:34 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:34:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Mon Jul 10 01:34:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:34:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:34:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:34:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:34:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:34:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:34:39 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:39 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:41 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:41 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:42 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:34:42 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:34:42 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:34:42 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:34:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:34:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:34:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:34:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:34:46 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:46 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:34:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:34:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:34:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:34:50 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Mon Jul 10 01:34:50 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:34:50 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:34:50 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:34:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:34:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:34:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:34:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:34:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;test2: qweqwe
+Mon Jul 10 01:34:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;test2: qweqwe
+Mon Jul 10 01:34:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:34:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:34:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:34:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:34:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:34:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:35:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:35:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:35:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:35:04 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:35:04 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:35:04 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:35:04 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:35:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;test1: sdfsdfs
+Mon Jul 10 01:35:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;test1: sdfsdfs
+Mon Jul 10 01:35:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:35:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:35:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:35:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:35:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:35:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:35:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:35:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:35:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;test1: sdffsdsdf
+Mon Jul 10 01:35:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;test1: sdffsdsdf
+Mon Jul 10 01:35:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:16 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:35:16 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:35:16 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:35:16 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:35:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Mon Jul 10 01:35:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:35:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:35:17 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:35:19 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;GAME OVER
+Mon Jul 10 01:35:19 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;GAME OVER
+Mon Jul 10 01:35:21 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:21 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:35:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;lobby
+Mon Jul 10 01:35:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;test2's Room
+Mon Jul 10 01:35:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;lobby
+Mon Jul 10 01:35:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:35:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_UNREGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:35:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_UNREGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:35:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Mon Jul 10 01:35:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:35:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:35:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:35:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;GAME OVER
+Mon Jul 10 01:35:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;GAME OVER
+Mon Jul 10 01:35:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;lobby
+Mon Jul 10 01:35:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;lobby
+Mon Jul 10 01:35:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_UNREGISTER_ROOM;test2's Room
+Mon Jul 10 01:35:43 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test2: dsf
+Mon Jul 10 01:35:46 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: sad
+Mon Jul 10 01:35:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: asd
+Mon Jul 10 01:35:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test: sdasddsa
+Mon Jul 10 01:36:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test: sad
+Mon Jul 10 01:36:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test: sd
+Mon Jul 10 01:36:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test: asd
+Mon Jul 10 01:36:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test: asd
+Mon Jul 10 01:36:04 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test2: sadasd
+Mon Jul 10 01:36:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test2: sd
+Mon Jul 10 01:36:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test2: asd
+Mon Jul 10 01:36:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test2: asd
+Mon Jul 10 01:36:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test2: as
+Mon Jul 10 01:36:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test2: d
+Mon Jul 10 01:36:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test2: asd
+Mon Jul 10 01:36:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test2: a
+Mon Jul 10 01:36:10 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: sadasd
+Mon Jul 10 01:36:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: asd
+Mon Jul 10 01:36:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: asd
+Mon Jul 10 01:36:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: asd
+Mon Jul 10 01:36:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: a
+Mon Jul 10 01:36:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: sd
+Mon Jul 10 01:36:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: asd
+Mon Jul 10 01:36:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: a
+Mon Jul 10 01:36:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: sd
+Mon Jul 10 01:36:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: asd
+Mon Jul 10 01:36:12 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: asd
+Mon Jul 10 01:36:13 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: as
+Mon Jul 10 01:36:13 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test1: d
+Mon Jul 10 01:36:21 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: asdasdasd
+Mon Jul 10 01:36:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sadsad
+Mon Jul 10 01:36:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sad
+Mon Jul 10 01:36:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: asd
+Mon Jul 10 01:36:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: as
+Mon Jul 10 01:36:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dasd
+Mon Jul 10 01:36:28 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sd
+Mon Jul 10 01:36:28 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: asd
+Mon Jul 10 01:36:28 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: asd
+Mon Jul 10 01:36:28 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: asd
+Mon Jul 10 01:36:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: a
+Mon Jul 10 01:36:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sda
+Mon Jul 10 01:36:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dsa
+Mon Jul 10 01:36:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sda
+Mon Jul 10 01:36:29 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: da
+Mon Jul 10 01:36:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sda
+Mon Jul 10 01:36:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sd
+Mon Jul 10 01:36:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sd
+Mon Jul 10 01:36:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: asd
+Mon Jul 10 01:36:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: asd
+Mon Jul 10 01:36:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: asd
+Mon Jul 10 01:36:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: asd
+Mon Jul 10 01:36:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sad
+Mon Jul 10 01:36:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: as
+Mon Jul 10 01:36:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: ds
+Mon Jul 10 01:36:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: a
+Mon Jul 10 01:36:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: asd
+Mon Jul 10 01:36:36 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test2: dssadasd
+Mon Jul 10 01:36:36 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;test2: asd
+Mon Jul 10 01:36:49 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 01:36:49 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:36:51 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:36:51 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:36:51 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:52097
+Mon Jul 10 01:36:55 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.25
+Mon Jul 10 01:36:55 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:36:55 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.25:50640
+Mon Jul 10 01:36:59 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:36:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:37:03 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: wqe
+Mon Jul 10 01:37:04 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: we
+Mon Jul 10 01:37:04 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: qwe
+Mon Jul 10 01:37:04 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: we
+Mon Jul 10 01:37:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: qwe
+Mon Jul 10 01:37:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: we
+Mon Jul 10 01:37:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: qwe
+Mon Jul 10 01:37:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: wqe
+Mon Jul 10 01:37:06 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Helder;Helder123
+Mon Jul 10 01:37:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:37:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: we
+Mon Jul 10 01:37:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: we
+Mon Jul 10 01:37:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: wq
+Mon Jul 10 01:37:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: wq
+Mon Jul 10 01:37:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: ewe
+Mon Jul 10 01:37:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: ewe
+Mon Jul 10 01:37:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: qwe
+Mon Jul 10 01:37:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: qwe
+Mon Jul 10 01:37:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: q
+Mon Jul 10 01:37:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: q
+Mon Jul 10 01:37:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: ew
+Mon Jul 10 01:37:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: ew
+Mon Jul 10 01:37:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: qweqwe
+Mon Jul 10 01:37:09 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: qweqwe
+Mon Jul 10 01:37:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:37:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:37:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_JOIN_ROOM;rpsgame
+Mon Jul 10 01:37:21 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:37:21 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:37:21 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:37:21 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:37:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:37:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:37:28 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:37:28 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:37:28 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:37:28 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:37:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:37:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:37:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dssf
+Mon Jul 10 01:37:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dssf
+Mon Jul 10 01:37:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Mon Jul 10 01:37:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Mon Jul 10 01:37:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:37:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:37:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:37:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:37:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:37:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:37:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:37:44 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:37:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:37:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:37:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: aAJSHAS
+Mon Jul 10 01:37:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: aAJSHAS
+Mon Jul 10 01:37:49 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:37:49 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:37:49 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:37:49 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;TIE!
+Mon Jul 10 01:37:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:37:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:37:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: OSFDJ
+Mon Jul 10 01:37:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: OSFDJ
+Mon Jul 10 01:37:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:37:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:37:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:37:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:37:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:37:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:38:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;NOCHOICE
+Mon Jul 10 01:38:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;PAPER
+Mon Jul 10 01:38:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:38:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:38:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:38:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:38:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: jaga bem
+Mon Jul 10 01:38:05 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: jaga bem
+Mon Jul 10 01:38:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: fssfsd
+Mon Jul 10 01:38:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: fssfsd
+Mon Jul 10 01:38:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:38:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:38:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:38:08 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:38:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;GAME OVER
+Mon Jul 10 01:38:11 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;GAME OVER
+Mon Jul 10 01:38:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;lobby
+Mon Jul 10 01:38:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;lobby
+Mon Jul 10 01:38:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_UNREGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:38:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:38:18 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sdfaf
+Mon Jul 10 01:38:20 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: asfsafassf
+Mon Jul 10 01:38:21 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: safasf
+Mon Jul 10 01:38:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sf
+Mon Jul 10 01:38:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: asf
+Mon Jul 10 01:38:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: safd
+Mon Jul 10 01:38:22 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: as
+Mon Jul 10 01:38:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dfasfd
+Mon Jul 10 01:38:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sadf
+Mon Jul 10 01:38:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: da
+Mon Jul 10 01:38:23 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: fas
+Mon Jul 10 01:38:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dfsadf
+Mon Jul 10 01:38:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sdf
+Mon Jul 10 01:38:24 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: adf
+Mon Jul 10 01:38:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: adsf
+Mon Jul 10 01:38:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dsaf
+Mon Jul 10 01:38:25 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dasf
+Mon Jul 10 01:38:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dsf
+Mon Jul 10 01:38:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: a
+Mon Jul 10 01:38:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dfsa
+Mon Jul 10 01:38:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sdaf
+Mon Jul 10 01:38:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: adf
+Mon Jul 10 01:38:30 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: uipsofd
+Mon Jul 10 01:38:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dafsasdf
+Mon Jul 10 01:38:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dfs
+Mon Jul 10 01:38:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: adsf
+Mon Jul 10 01:38:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: df
+Mon Jul 10 01:38:33 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: df
+Mon Jul 10 01:38:33 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sadf
+Mon Jul 10 01:38:34 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: dfsfdsgdf
+Mon Jul 10 01:38:34 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dasf
+Mon Jul 10 01:38:34 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: adsf
+Mon Jul 10 01:38:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: d
+Mon Jul 10 01:38:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: d
+Mon Jul 10 01:38:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dasf
+Mon Jul 10 01:38:36 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: adf
+Mon Jul 10 01:38:36 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: df
+Mon Jul 10 01:38:36 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: d
+Mon Jul 10 01:38:37 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: af
+Mon Jul 10 01:38:37 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: d
+Mon Jul 10 01:38:37 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dasf
+Mon Jul 10 01:38:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: a
+Mon Jul 10 01:38:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: df
+Mon Jul 10 01:38:38 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: da
+Mon Jul 10 01:38:39 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: df
+Mon Jul 10 01:38:39 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: ads
+Mon Jul 10 01:38:39 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: das
+Mon Jul 10 01:38:40 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: das
+Mon Jul 10 01:38:40 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: df
+Mon Jul 10 01:38:40 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: adfs
+Mon Jul 10 01:38:41 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: das
+Mon Jul 10 01:38:41 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: fd
+Mon Jul 10 01:38:42 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: fasdfdfs
+Mon Jul 10 01:38:43 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:38:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dasfasdfds
+Mon Jul 10 01:38:46 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: aadsf
+Mon Jul 10 01:38:46 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dsaf
+Mon Jul 10 01:38:46 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: adsf
+Mon Jul 10 01:38:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dasf
+Mon Jul 10 01:38:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: df
+Mon Jul 10 01:38:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dasf
+Mon Jul 10 01:38:47 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: ad
+Mon Jul 10 01:38:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: da
+Mon Jul 10 01:38:48 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dfs
+Mon Jul 10 01:38:49 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_JOIN_ROOM;rpsgame
+Mon Jul 10 01:38:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dffdgs
+Mon Jul 10 01:38:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dffdgs
+Mon Jul 10 01:38:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asdf
+Mon Jul 10 01:38:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asdf
+Mon Jul 10 01:38:56 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asdf
+Mon Jul 10 01:38:56 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asdf
+Mon Jul 10 01:38:56 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: df
+Mon Jul 10 01:38:56 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: df
+Mon Jul 10 01:38:56 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asdf
+Mon Jul 10 01:38:56 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asdf
+Mon Jul 10 01:38:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dasf
+Mon Jul 10 01:38:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dasf
+Mon Jul 10 01:38:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dsaf
+Mon Jul 10 01:38:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dsaf
+Mon Jul 10 01:38:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dsaf
+Mon Jul 10 01:38:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dsaf
+Mon Jul 10 01:38:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: sfd
+Mon Jul 10 01:38:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: sfd
+Mon Jul 10 01:38:58 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asdf
+Mon Jul 10 01:38:58 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asdf
+Mon Jul 10 01:38:58 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asd
+Mon Jul 10 01:38:58 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asd
+Mon Jul 10 01:38:58 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: fsadf
+Mon Jul 10 01:38:58 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: fsadf
+Mon Jul 10 01:38:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dsfa
+Mon Jul 10 01:38:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dsfa
+Mon Jul 10 01:38:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: sdf
+Mon Jul 10 01:38:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: sdf
+Mon Jul 10 01:38:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asfd
+Mon Jul 10 01:38:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asfd
+Mon Jul 10 01:38:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: af
+Mon Jul 10 01:38:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: af
+Mon Jul 10 01:39:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dfa
+Mon Jul 10 01:39:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: dfa
+Mon Jul 10 01:39:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asf
+Mon Jul 10 01:39:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asf
+Mon Jul 10 01:39:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: adf
+Mon Jul 10 01:39:00 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: adf
+Mon Jul 10 01:39:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: ad
+Mon Jul 10 01:39:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: ad
+Mon Jul 10 01:39:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: adf
+Mon Jul 10 01:39:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: adf
+Mon Jul 10 01:39:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: das
+Mon Jul 10 01:39:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: das
+Mon Jul 10 01:39:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: adf
+Mon Jul 10 01:39:01 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: adf
+Mon Jul 10 01:39:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: af
+Mon Jul 10 01:39:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: af
+Mon Jul 10 01:39:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: adf
+Mon Jul 10 01:39:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: adf
+Mon Jul 10 01:39:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dfsggdfsdgdfsgfsdgf
+Mon Jul 10 01:39:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dfsggdfsdgdfsgfsdgf
+Mon Jul 10 01:39:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asdf
+Mon Jul 10 01:39:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;cyrokas: asdf
+Mon Jul 10 01:39:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: sdgf
+Mon Jul 10 01:39:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: sdgf
+Mon Jul 10 01:39:03 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dfgs
+Mon Jul 10 01:39:03 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dfgs
+Mon Jul 10 01:39:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: sdfg
+Mon Jul 10 01:39:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: sdfg
+Mon Jul 10 01:39:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: sdfg
+Mon Jul 10 01:39:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: sdfg
+Mon Jul 10 01:39:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dfsg
+Mon Jul 10 01:39:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dfsg
+Mon Jul 10 01:39:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dfgs
+Mon Jul 10 01:39:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dfgs
+Mon Jul 10 01:39:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dfgs
+Mon Jul 10 01:39:06 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dfgs
+Mon Jul 10 01:39:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: sdfg
+Mon Jul 10 01:39:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: sdfg
+Mon Jul 10 01:39:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: df
+Mon Jul 10 01:39:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: df
+Mon Jul 10 01:39:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: df
+Mon Jul 10 01:39:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: df
+Mon Jul 10 01:39:10 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dfff
+Mon Jul 10 01:39:10 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT_ROOM;Helder: dfff
+Mon Jul 10 01:43:27 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 01:43:27 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:43:30 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /127.0.0.1
+Mon Jul 10 01:43:30 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:43:30 WEST 2017 - Priority: INFO Message: Client handler - /127.0.0.1:52159
+Mon Jul 10 01:43:32 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.25
+Mon Jul 10 01:43:32 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:43:32 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.25:50646
+Mon Jul 10 01:43:37 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:43:37 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:43:42 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;Helder;Helder123
+Mon Jul 10 01:43:42 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:43:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dsf
+Mon Jul 10 01:43:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dsf
+Mon Jul 10 01:43:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dsfsdf
+Mon Jul 10 01:43:51 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dsfsdf
+Mon Jul 10 01:43:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dsf
+Mon Jul 10 01:43:52 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dsf
+Mon Jul 10 01:43:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sdf
+Mon Jul 10 01:43:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sdf
+Mon Jul 10 01:43:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dsf
+Mon Jul 10 01:43:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dsf
+Mon Jul 10 01:43:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sdf
+Mon Jul 10 01:43:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sdf
+Mon Jul 10 01:43:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: d
+Mon Jul 10 01:43:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: d
+Mon Jul 10 01:43:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: fsdf
+Mon Jul 10 01:43:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: fsdf
+Mon Jul 10 01:43:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: s
+Mon Jul 10 01:43:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: s
+Mon Jul 10 01:43:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dfsdf
+Mon Jul 10 01:43:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: dfsdf
+Mon Jul 10 01:43:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: fd
+Mon Jul 10 01:43:54 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: fd
+Mon Jul 10 01:43:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: fd
+Mon Jul 10 01:43:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: fd
+Mon Jul 10 01:43:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sfd
+Mon Jul 10 01:43:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: sfd
+Mon Jul 10 01:43:56 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: efrerwd
+Mon Jul 10 01:43:56 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: efrerwd
+Mon Jul 10 01:43:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: erggjoergu
+Mon Jul 10 01:43:57 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: erggjoergu
+Mon Jul 10 01:43:58 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:43:58 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:43:58 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;Helder: rg
+Mon Jul 10 01:50:20 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 01:50:20 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:50:24 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.17
+Mon Jul 10 01:50:24 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:50:24 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.17:52218
+Mon Jul 10 01:50:31 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:50:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:50:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:56:52 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 01:56:52 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:56:57 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.17
+Mon Jul 10 01:56:57 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:56:57 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.17:52279
+Mon Jul 10 01:57:07 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:57:07 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:57:09 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.17
+Mon Jul 10 01:57:09 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:57:09 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.17:52285
+Mon Jul 10 01:57:10 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CHAT;cyrokas: w
+Mon Jul 10 01:57:14 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Mon Jul 10 01:57:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:57:19 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:57:19 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:58:04 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 01:58:04 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:58:07 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.17
+Mon Jul 10 01:58:07 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:58:07 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.17:52306
+Mon Jul 10 01:58:14 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 01:58:14 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:58:17 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.17
+Mon Jul 10 01:58:17 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 01:58:17 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.17:52314
+Mon Jul 10 01:58:21 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test;test
+Mon Jul 10 01:58:21 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 01:58:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 01:58:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 01:58:27 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_JOIN_ROOM;rpsgame
+Mon Jul 10 01:58:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 01:58:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 01:58:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 01:58:32 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 01:58:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 01:58:35 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 02:00:18 WEST 2017 - Priority: INFO Message: Server running...
+Mon Jul 10 02:00:18 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 02:00:20 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.17
+Mon Jul 10 02:00:20 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 02:00:20 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.17:52333
+Mon Jul 10 02:00:26 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;cyrokas;123456
+Mon Jul 10 02:00:26 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 02:00:31 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_CREATE_ROOM;rpsgame
+Mon Jul 10 02:00:33 WEST 2017 - Priority: MEDIUM Message: Server: Client connected /192.168.1.17
+Mon Jul 10 02:00:33 WEST 2017 - Priority: INFO Message: Server waiting for connections...
+Mon Jul 10 02:00:33 WEST 2017 - Priority: INFO Message: Client handler - /192.168.1.17:52340
+Mon Jul 10 02:00:40 WEST 2017 - Priority: INFO Message: Message received from client @CLIENT_LOGIN;test1;test
+Mon Jul 10 02:00:40 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_LOGIN;lobby
+Mon Jul 10 02:00:40 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 02:00:40 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 02:00:42 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_JOIN_ROOM;rpsgame
+Mon Jul 10 02:00:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 02:00:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 02:00:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 02:00:45 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 02:00:49 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 02:00:49 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 02:00:50 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 02:00:50 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 02:00:50 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 02:00:50 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 02:00:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 02:00:53 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_RESET_ROOM;new Round!!!
+Mon Jul 10 02:00:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;SCISSORS
+Mon Jul 10 02:00:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_OTHER_HAND;ROCK
+Mon Jul 10 02:00:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU WIN!
+Mon Jul 10 02:00:55 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_GAME;YOU LOSE!
+Mon Jul 10 02:00:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;GAME OVER
+Mon Jul 10 02:00:59 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;GAME OVER
+Mon Jul 10 02:01:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;lobby
+Mon Jul 10 02:01:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
+Mon Jul 10 02:01:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_ROOM_EXIT;lobby
+Mon Jul 10 02:01:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_UNREGISTER_ROOM;cyrokas's Room
+Mon Jul 10 02:01:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_UNREGISTER_ROOM;cyrokas's Room
+Mon Jul 10 02:01:02 WEST 2017 - Priority: INFO Message: Client Handler @Server message: @SERVER_REGISTER_ROOM;cyrokas's Room
